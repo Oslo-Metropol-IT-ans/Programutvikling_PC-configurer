@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="10b9043e-f814-4926-aa6b-0adb77009711" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZcBpWjqgK4vBIDGpE6MB0GcRmf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Dataamatørene" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/Dataamatørene/Filbehandling" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Dataamatørene" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/Dataamatørene/FXML" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Dataamatørene.App" />
+      <module name="ProsjektoppgaveEMNMEM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Dataamatørene.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestBruker.testInvalidBrukernavn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProsjektoppgaveEMNMEM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Dataamatørene.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Dataamatørene" />
+      <option name="MAIN_CLASS_NAME" value="Dataamatørene.TestBruker" />
+      <option name="METHOD_NAME" value="testInvalidBrukernavn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestBruker.testInvalidPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProsjektoppgaveEMNMEM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Dataamatørene.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Dataamatørene" />
+      <option name="MAIN_CLASS_NAME" value="Dataamatørene.TestBruker" />
+      <option name="METHOD_NAME" value="testInvalidPassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestBruker.testValidBrukernavn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProsjektoppgaveEMNMEM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Dataamatørene.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Dataamatørene" />
+      <option name="MAIN_CLASS_NAME" value="Dataamatørene.TestBruker" />
+      <option name="METHOD_NAME" value="testValidBrukernavn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestBruker.testValidPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProsjektoppgaveEMNMEM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Dataamatørene.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Dataamatørene" />
+      <option name="MAIN_CLASS_NAME" value="Dataamatørene.TestBruker" />
+      <option name="METHOD_NAME" value="testValidPassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.TestBruker.testInvalidBrukernavn" />
+        <item itemvalue="JUnit.TestBruker.testValidBrukernavn" />
+        <item itemvalue="JUnit.TestBruker.testValidPassword" />
+        <item itemvalue="JUnit.TestBruker.testInvalidPassword" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="10b9043e-f814-4926-aa6b-0adb77009711" name="Default Changelist" comment="" />
+      <created>1585128685742</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585128685742</updated>
+      <workItem from="1585128694207" duration="190000" />
+      <workItem from="1585128940102" duration="21663000" />
+      <workItem from="1585172736924" duration="532000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="311" y="164" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585173244161">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585172701856" />
+    <state x="311" y="164" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.838@0.23.1440.838" timestamp="1585173244161" />
+    <state x="452" y="252" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585133686633">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state x="452" y="252" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.838@0.23.1440.838" timestamp="1585133686633" />
+    <state x="533" y="150" key="#com.intellij.ide.util.MemberChooser" timestamp="1585140791953">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state x="533" y="150" key="#com.intellij.ide.util.MemberChooser/0.23.1440.838@0.23.1440.838" timestamp="1585140791953" />
+    <state x="569" y="349" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585172744519">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state x="569" y="349" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1440.838@0.23.1440.838" timestamp="1585172744519" />
+    <state x="174" y="374" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1585136849614">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state x="174" y="374" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.23.1440.838@0.23.1440.838" timestamp="1585136849614" />
+    <state x="486" y="308" width="467" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1585172973818">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state x="486" y="308" width="467" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1440.838@0.23.1440.838" timestamp="1585172973818" />
+    <state x="486" y="329" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1585136851033">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state x="486" y="329" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.23.1440.838@0.23.1440.838" timestamp="1585136851033" />
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom" timestamp="1585172429295">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state width="1398" height="217" key="GridCell.Tab.0.bottom/0.23.1440.838@0.23.1440.838" timestamp="1585172429295" />
+    <state width="1398" height="217" key="GridCell.Tab.0.center" timestamp="1585172429294">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state width="1398" height="217" key="GridCell.Tab.0.center/0.23.1440.838@0.23.1440.838" timestamp="1585172429294" />
+    <state width="1398" height="217" key="GridCell.Tab.0.left" timestamp="1585172429293">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state width="1398" height="217" key="GridCell.Tab.0.left/0.23.1440.838@0.23.1440.838" timestamp="1585172429293" />
+    <state width="1398" height="217" key="GridCell.Tab.0.right" timestamp="1585172429295">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state width="1398" height="217" key="GridCell.Tab.0.right/0.23.1440.838@0.23.1440.838" timestamp="1585172429295" />
+    <state x="330" y="99" key="SettingsEditor" timestamp="1585173232353">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585172711960" />
+    <state x="330" y="99" key="SettingsEditor/0.23.1440.838@0.23.1440.838" timestamp="1585173232353" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1585173193062">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.23.1440.838@0.23.1440.838" timestamp="1585173193062" />
+    <state x="397" y="274" key="com.intellij.ide.util.TipDialog" timestamp="1585173309602">
+      <screen x="0" y="23" width="1440" height="838" />
+    </state>
+    <state x="397" y="274" key="com.intellij.ide.util.TipDialog/0.23.1440.838@0.23.1440.838" timestamp="1585173309602" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1585172705123">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585172705123" />
+  </component>
+</project>

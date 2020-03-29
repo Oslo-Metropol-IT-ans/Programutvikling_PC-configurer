@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.NyBrukerController">
+   <children>
+      <VBox layoutX="66.0" layoutY="80.0" prefHeight="220.0" prefWidth="402.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="402.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="66.0" text="Brukernavn:" />
+                        <Label prefHeight="28.0" prefWidth="48.0" text="Passord:" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="301.0" spacing="20.0">
+                     <children>
+                        <TextField fx:id="txtBrukernavn" />
+                        <PasswordField fx:id="txtPassword" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="400.0" spacing="20.0">
+               <children>
+                  <Label fx:id="lblTilbakemelding" prefHeight="17.0" prefWidth="169.0" />
+                  <Button fx:id="btnTilbake" mnemonicParsing="false" onAction="#tilbake" text="Tilbake" />
+                  <Button fx:id="btnRegistrer" mnemonicParsing="false" onAction="#registrer" text="Registrer" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Label layoutX="230.0" layoutY="37.0" text="Registrer bruker">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button layoutX="14.0" layoutY="359.0" mnemonicParsing="false" onAction="#TEST" text="TEST" />
+   </children>
+</AnchorPane>

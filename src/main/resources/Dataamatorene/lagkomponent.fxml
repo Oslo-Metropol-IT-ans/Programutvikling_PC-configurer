@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="457.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.LagKomponentController">
+   <children>
+      <TabPane layoutY="-1.0" prefHeight="415.0" prefWidth="666.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Teknisk">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="381.0" prefWidth="667.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Harddisk">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="558.0">
+                                       <children>
+                                          <VBox layoutX="2.0" prefHeight="329.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareHarddisk" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnHarddisk" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisHarddisk" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Lagring:" />
+                                                      <TextField fx:id="txtLagreHarddisk" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="580.0" layoutY="315.0" mnemonicParsing="false" onAction="#registrerHarddisk" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Hovedkort">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="329.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareHovedkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnHovedkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisHovedkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Antall porter:" />
+                                                      <TextField fx:id="txtPorterHovedkort" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="582.0" layoutY="315.0" mnemonicParsing="false" onAction="#registrerHovedkort" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Lydkort">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="329.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareLydkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnLydkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisLydkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Frekvens" />
+                                                      <TextField fx:id="txtFrekvensLydkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ToggleButton fx:id="tbIntegrertLydkort" mnemonicParsing="false" prefHeight="27.0" prefWidth="159.0" text="Integrert" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="591.0" layoutY="317.0" mnemonicParsing="false" onAction="#registrerLydkort" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Skjermkort">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="329.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareSkjermkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnSkjermkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisSkjermkort" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Oppløsning:" />
+                                                      <TextField fx:id="txtOppløsningSkjermkort" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="588.0" layoutY="316.0" mnemonicParsing="false" onAction="#registrerSkjermkort" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Prosessor">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="335.0" prefWidth="606.0">
+                                       <children>
+                                          <VBox prefHeight="329.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareProsessor" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnProsessor" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisProsessor" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Antall kjerner:" />
+                                                      <TextField fx:id="txtKjernerProsessor" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Frekvens:" />
+                                                      <TextField fx:id="txtFrekvensProsessor" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Antall tråder:" />
+                                                      <TextField fx:id="txtTråderProsessor" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="589.0" layoutY="316.0" mnemonicParsing="false" onAction="#registrerProsessor" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Minne">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="329.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareMinne" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnMinne" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisMinne" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="RAM:" />
+                                                      <TextField fx:id="txtRamMinne" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Frekvens:" />
+                                                      <TextField fx:id="txtFrekvensMinne" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="583.0" layoutY="317.0" mnemonicParsing="false" onAction="#registrerMinne" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Tilbehør">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="1.0" layoutY="-1.0" prefHeight="385.0" prefWidth="664.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Kabinett">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="352.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareKabinett" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnKabinett" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisKabinett" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Størelse:" />
+                                                      <TextField fx:id="txtStørelseKabinett" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Antall vifter:" />
+                                                      <TextField fx:id="txtVifterKabientt" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="590.0" layoutY="319.0" mnemonicParsing="false" onAction="#registrerKabinett" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Skjerm">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="352.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareSkjerm" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnSkjerm" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisSkjerm" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Størrelse:" />
+                                                      <TextField fx:id="txtStørrelseSkjerm" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Oppløsning:" />
+                                                      <TextField fx:id="txtOppløsningSkjerm" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="584.0" layoutY="321.0" mnemonicParsing="false" onAction="#registrerSkjerm" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Tastatur">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="352.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareTastatur" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnTastatur" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisTastatur" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Språk:" />
+                                                      <TextField fx:id="txtSpråkTastatur" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ToggleButton fx:id="tbMekaniskTastatur" mnemonicParsing="false" prefHeight="27.0" prefWidth="160.0" text="Mekanisk" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ToggleButton fx:id="txtRGBTastatur" mnemonicParsing="false" prefHeight="27.0" prefWidth="158.0" text="RGB" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="587.0" layoutY="321.0" mnemonicParsing="false" onAction="#registrerTastatur" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="Mus">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox prefHeight="352.0" prefWidth="301.0">
+                                             <children>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Varekode:" />
+                                                      <TextField fx:id="txtVareMus" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Navn:" />
+                                                      <TextField fx:id="txtNavnMus" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Pris:" />
+                                                      <TextField fx:id="txtPrisMus" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <Label text="Antall knapper:" />
+                                                      <TextField fx:id="txtKnapperMus" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
+                                                   <padding>
+                                                      <Insets left="20.0" />
+                                                   </padding>
+                                                   <children>
+                                                      <ToggleButton fx:id="tbTrådløsMus" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" text="Tråløs" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="581.0" layoutY="322.0" mnemonicParsing="false" onAction="#registrerMus" text="Registrer" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="24.0" layoutY="419.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake" />
+   </children>
+</AnchorPane>

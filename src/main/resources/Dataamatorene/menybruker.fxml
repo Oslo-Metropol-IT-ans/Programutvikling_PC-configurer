@@ -16,7 +16,7 @@
          <children>
             <Label fx:id="lblVelkommen" prefHeight="26.0" prefWidth="514.0" textAlignment="CENTER">
                <font>
-                  <Font size="24.0" />
+                  <Font size="36.0" />
                </font>
             </Label>
             <Button mnemonicParsing="false" onAction="#nyBestiliing" text="Ny bestilling">

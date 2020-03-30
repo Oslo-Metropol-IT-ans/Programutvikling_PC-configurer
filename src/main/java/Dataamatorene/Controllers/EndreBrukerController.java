@@ -65,7 +65,6 @@ public class EndreBrukerController {
             lagre();
         }catch (InvalidPasswordException INE){
             Dialogs.showErrorDialog("Ugyldig passord!",INE.getMessage());
-            //lblTilbakemelding.setText(INE.getMessage());
             tableView.refresh();
         }
 
@@ -78,7 +77,6 @@ public class EndreBrukerController {
             lagre();
         }catch (IllegalArgumentException INE){
             Dialogs.showErrorDialog("Ugyldig rettigheter!",INE.getMessage());
-            //lblTilbakemelding.setText(INE.getMessage());
             tableView.refresh();
         }
 

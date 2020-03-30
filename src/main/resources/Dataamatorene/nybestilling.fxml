@@ -12,87 +12,87 @@
    <children>
       <VBox layoutX="-1.0" layoutY="80.0" prefHeight="517.0" prefWidth="1165.0" spacing="20.0">
          <children>
-            <HBox alignment="TOP_CENTER" prefHeight="185.0" prefWidth="666.0" spacing="20.0">
+            <HBox alignment="TOP_CENTER" prefHeight="225.0" prefWidth="666.0" spacing="20.0">
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Harddisk" />
                         <ChoiceBox fx:id="cbHarddisk" prefWidth="150.0" />
-                        <Label fx:id="lblUtHarddisk" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtHarddisk" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Hovedkort" />
                         <ChoiceBox fx:id="cbHovedkort" prefWidth="150.0" />
-                        <Label fx:id="lblUtHovedkort" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtHovedkort" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Lydkort" />
                         <ChoiceBox fx:id="cbLydkort" prefWidth="150.0" />
-                        <Label fx:id="lblUtLydkort" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtLydkort" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Skjermkort" />
                         <ChoiceBox fx:id="cbSkjermkort" prefWidth="150.0" />
-                        <Label fx:id="lblUtSkjermkort" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtSkjermkort" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Prosessor" />
                         <ChoiceBox fx:id="cbProsessor" prefWidth="150.0" />
-                        <Label fx:id="lblUtProsessor" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtProsessor" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="185.0" prefWidth="666.0" spacing="20.0">
+            <HBox alignment="TOP_CENTER" prefHeight="225.0" prefWidth="666.0" spacing="20.0">
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Minne" />
                         <ChoiceBox fx:id="cbMinne" prefWidth="150.0" />
-                        <Label fx:id="lblUtMinne" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtMinne" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Kabinett" />
                         <ChoiceBox fx:id="cbKabinett" prefWidth="150.0" />
-                        <Label fx:id="lblUtKabinett" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtKabinett" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Skjerm" />
                         <ChoiceBox fx:id="cbSkjerm" prefWidth="150.0" />
-                        <Label fx:id="lblUtSkjerm" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtSkjerm" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Tastatur" />
                         <ChoiceBox fx:id="cbTastatur" prefWidth="150.0" />
-                        <Label fx:id="lblUtTastatur" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtTastatur" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
                         <Label text="Mus" />
                         <ChoiceBox fx:id="cbMus" prefWidth="150.0" />
-                        <Label fx:id="lblUtMus" alignment="TOP_LEFT" prefHeight="94.0" prefWidth="96.0" wrapText="true" />
+                        <Label fx:id="lblUtMus" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
                      </children>
                   </VBox>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Label layoutX="260.0" layoutY="28.0" text="Konfigurer din PC">
+      <Label layoutX="518.0" layoutY="21.0" text="Konfigurer din PC">
          <font>
             <Font size="20.0" />
          </font>

@@ -185,7 +185,7 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
         } catch (AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes allerede");
-            txtVareKabinett.requestFocus();
+            txtVareHarddisk.requestFocus();
         }
 
     }
@@ -214,7 +214,7 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
         } catch (AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes allerede");
-            txtVareKabinett.requestFocus();
+            txtVareHovedkort.requestFocus();
         }
 
     }
@@ -277,7 +277,7 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
         } catch (AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes allerede");
-            txtVareKabinett.requestFocus();
+            txtVareLydkort.requestFocus();
         }
 
     }
@@ -309,7 +309,7 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
         } catch (AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes allerede");
-            txtVareKabinett.requestFocus();
+            txtVareMinne.requestFocus();
         }
     }
 
@@ -340,7 +340,7 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
         } catch (AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes allerede");
-            txtVareKabinett.requestFocus();
+            txtVareMus.requestFocus();
         }
     }
 
@@ -373,7 +373,7 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
         } catch (AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes allerede");
-            txtVareKabinett.requestFocus();
+            txtVareProsessor.requestFocus();
         }
     }
 
@@ -404,7 +404,7 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
         } catch (AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes allerede");
-            txtVareKabinett.requestFocus();
+            txtVareSkjerm.requestFocus();
         }
 
     }
@@ -436,7 +436,7 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
         } catch (AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes allerede");
-            txtVareKabinett.requestFocus();
+            txtVareSkjermkort.requestFocus();
         }
 
     }
@@ -470,7 +470,7 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
         } catch (AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes allerede");
-            txtVareKabinett.requestFocus();
+            txtVareTastatur.requestFocus();
         }
     }
 

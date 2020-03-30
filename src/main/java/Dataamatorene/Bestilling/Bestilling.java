@@ -3,7 +3,20 @@ package Dataamatorene.Bestilling;
 import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Datakomponenter.*;
 
-public class Bestilling {
+import java.io.Serializable;
+import java.time.LocalDate;
+
+public class Bestilling implements Serializable {
+
+    private static int teller = 10001;
+
+    public static void setTeller(int teller1) {
+        teller = teller1;
+    }
+
+    public static int getTeller() {
+        return teller;
+    }
 
     private Bruker bruker;
     private Harddisk harddisk;
@@ -16,6 +29,8 @@ public class Bestilling {
     private Skjerm skjerm;
     private Tastatur tastatur;
     private Mus mus;
+    private int bestillingsnummer;
+    private LocalDate date;
 
     public Bestilling(Bruker bruker, Harddisk harddisk, Hovedkort hovedkort, Lydkort lydkort, Skjermkort skjermkort,
                       Prosessor prosessor, Minne minne, Kabinett kabinett, Skjerm skjerm, Tastatur tastatur, Mus mus) {
@@ -30,6 +45,8 @@ public class Bestilling {
         this.skjerm = skjerm;
         this.tastatur = tastatur;
         this.mus = mus;
+        this.bestillingsnummer = teller++;
+        this.date = LocalDate.now();
     }
 
     public Bruker getBruker() {
@@ -162,5 +179,13 @@ public class Bestilling {
 
     public void setMus(Mus mus) {
         this.mus = mus;
+    }
+
+    public int getBestillingsnummer() {
+        return bestillingsnummer;
+    }
+
+    public void setBestillingsnummer(int bestillingsnummer) {
+        this.bestillingsnummer = bestillingsnummer;
     }
 }

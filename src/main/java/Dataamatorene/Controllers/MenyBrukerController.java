@@ -69,7 +69,11 @@ public class MenyBrukerController {
     }
 
     @FXML
-    void loggUy(ActionEvent event) {
-
+    void loggUt(ActionEvent event) {
+        try {
+            App.setRoot("login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

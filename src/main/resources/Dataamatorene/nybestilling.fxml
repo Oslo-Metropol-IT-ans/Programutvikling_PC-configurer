@@ -102,10 +102,11 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="1044.0" layoutY="648.0" mnemonicParsing="false" text="Bestill">
+      <Button layoutX="1044.0" layoutY="648.0" mnemonicParsing="false" onAction="#bestill" text="Bestill">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Label fx:id="lblTotPris" layoutX="923.0" layoutY="600.0" prefHeight="17.0" prefWidth="183.0" textAlignment="RIGHT" />
    </children>
 </AnchorPane>

@@ -1,5 +1,7 @@
 package Dataamatorene.Tasks;
 
+import Dataamatorene.Bestilling.Bestilling;
+import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Bestilling.VarekodeRegister;
 import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.Filbehandling.FileOpener;
@@ -73,6 +75,13 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         for (Mus m:KomponentRegister.getMusArrayList()) {
             VarekodeRegister.addVarekode(m.getVarekode());
+        }
+
+        BestillingsRegister.setBestillinger((ArrayList<Bestilling>) opener.read("src/main/java/Dataamatorene/Files/Bestillinger.jobj"));
+
+        if (!BestillingsRegister.getBestillinger().isEmpty()) {
+            Bestilling.setTeller(BestillingsRegister.getBestillinger().get(BestillingsRegister.getBestillinger().size()
+                    - 1).getBestillingsnummer() + 1);
         }
 
          try{

@@ -1,6 +1,7 @@
 package Dataamatorene.Controllers;
 
 import Dataamatorene.App;
+import Dataamatorene.Bestilling.Bestilling;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Tasks.ThreadOpenEndreKomponent;
@@ -50,7 +51,9 @@ public class MenyAdminController {
             th.start();
         }
 
-
+        if (!første) {
+            System.out.println(Bestilling.getTeller());
+        }
 
     }
 
@@ -59,6 +62,7 @@ public class MenyAdminController {
         menyAdmin.setDisable(false);
         lblTilbakemelding.setText("");
         første = false;
+        System.out.println(Bestilling.getTeller());
     }
 
     private void threadOpenKomponentRegisterFails (WorkerStateEvent e){

@@ -105,7 +105,7 @@ public class LogInController {
             //lblTilbakemeling.setText("Brukernavn eller passord er feil");
             Dialogs.showErrorDialog("Brukernavn eller passord er feil");
             txtPassword.setText("");
-            txtBrukernavn.requestFocus();
+            txtPassword.requestFocus();
         }
 
     }

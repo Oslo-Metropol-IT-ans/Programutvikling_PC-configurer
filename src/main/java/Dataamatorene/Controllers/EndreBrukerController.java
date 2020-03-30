@@ -99,7 +99,7 @@ public class EndreBrukerController {
     private void lagre() {
         FileSaver saver = new FileSaverJobj();
         try {
-            saver.save(BrukerRegister.getBrukere(), "src/main/java/Dataamatørene/Files/Login.jobj");
+            saver.save(BrukerRegister.getBrukere(), "src/main/java/Dataamatorene/Files/Login.jobj");
         } catch (IOException e) {
             Dialogs.showErrorDialog("Kunne ikke lagre");
         }

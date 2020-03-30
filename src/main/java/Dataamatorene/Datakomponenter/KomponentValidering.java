@@ -7,7 +7,7 @@ import Dataamatorene.Exceptions.InvalidVarekodeException;
 public class KomponentValidering {
 
     public static String navnValidering (String s) {
-        if (s.matches("[A-Z][a-zA-Z 0-9]+")) {
+        if (s.matches("[A-Z][a-zA-Z \\-0-9]+")) {
             return s;
         } else throw new InvalidComponentAttributeException("Ugyldig navn");
     }
@@ -54,7 +54,7 @@ public class KomponentValidering {
     public static int vifterValidering (String s) {
         if (s.matches("[0-9]+")) {
             int vifter = Integer.parseInt(s);
-            if (vifter > 0 && vifter < 5) {
+            if (vifter > 0 && vifter < 8) {
                 return vifter;
             } else throw new InvalidComponentAttributeException("Ugyldig antall vifter");
 
@@ -99,7 +99,7 @@ public class KomponentValidering {
     public static int tråderValidering (String s) {
         if (s.matches("[0-9]+")) {
             int tråder = Integer.parseInt(s);
-            if (tråder > 23 && tråder < 129 && tråder%4 == 0) {
+            if (tråder > 3 && tråder < 129 && tråder%4 == 0) {
                 return tråder;
             } else throw new InvalidComponentAttributeException("Ugyldig antall tråder");
 

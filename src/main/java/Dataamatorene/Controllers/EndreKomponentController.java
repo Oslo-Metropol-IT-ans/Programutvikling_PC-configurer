@@ -2,9 +2,11 @@ package Dataamatorene.Controllers;
 
 import Dataamatorene.App;
 
+import Dataamatorene.Bestilling.VarekodeRegister;
 import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.Dialogs;
 
+import Dataamatorene.Exceptions.AlreadyTakenVarekodeException;
 import Dataamatorene.Exceptions.InvalidComponentAttributeException;
 import Dataamatorene.Exceptions.InvalidPrisException;
 import Dataamatorene.Exceptions.InvalidVarekodeException;
@@ -205,9 +207,10 @@ public class EndreKomponentController {
     @FXML
     private void txtHarddiskVareEdit(TableColumn.CellEditEvent<Harddisk, String> event) {
         try{
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreHarddisk();
-        }catch (IOException | InvalidVarekodeException e){
+        }catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvHarddisk.refresh();
         }
@@ -268,9 +271,10 @@ public class EndreKomponentController {
     @FXML
     private void txtHovedkortVareEdit(TableColumn.CellEditEvent<Hovedkort, String> event) {
         try{
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreHovedkort();
-        }catch (IOException | InvalidVarekodeException e){
+        }catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvHovedkort.refresh();
         }
@@ -330,9 +334,10 @@ public class EndreKomponentController {
     @FXML
     private void txtLydkortVareEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
         try{
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreLydkort();
-        }catch (IOException | InvalidVarekodeException e){
+        }catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvLydkort.refresh();
         }
@@ -407,9 +412,10 @@ public class EndreKomponentController {
     @FXML
     private void txtSkjermkortVareEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
         try {
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreSkjermkort();
-        } catch (IOException | InvalidVarekodeException e) {
+        } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvSkjermkort.refresh();
         }
@@ -469,9 +475,10 @@ public class EndreKomponentController {
     @FXML
     private void txtProsessorVareEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreProsessor();
-        } catch (IOException | InvalidVarekodeException e) {
+        } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvProsessor.refresh();
         }
@@ -559,9 +566,10 @@ public class EndreKomponentController {
     @FXML
     private void txtMinneVareEdit(TableColumn.CellEditEvent<Minne, String> event) {
         try {
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreMinne();
-        } catch (IOException | InvalidVarekodeException e){
+        } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvMinne.refresh();
         }
@@ -635,9 +643,10 @@ public class EndreKomponentController {
     @FXML
     private void txtKabinettVareEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
         try {
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreKabinett();
-        } catch (IOException | InvalidVarekodeException e){
+        } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvKabinett.refresh();
         }
@@ -711,9 +720,10 @@ public class EndreKomponentController {
     @FXML
     private void txtSkjermVareEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
         try {
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreSkjerm();
-        } catch (IOException | InvalidVarekodeException e) {
+        } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvSkjerm.refresh();
         }
@@ -787,9 +797,10 @@ public class EndreKomponentController {
     @FXML
     private void txtTastaturVareEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
         try {
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreTastatur();
-        } catch (IOException | InvalidVarekodeException e) {
+        } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvTastatur.refresh();
         }
@@ -877,9 +888,10 @@ public class EndreKomponentController {
     @FXML
     private void txtMusVareEdit(TableColumn.CellEditEvent<Mus, String> event) {
         try {
+            VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreMus();
-        } catch (IOException | InvalidVarekodeException e) {
+        } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvMus.refresh();
         }

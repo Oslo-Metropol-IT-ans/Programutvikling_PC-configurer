@@ -1,5 +1,6 @@
 package Dataamatorene.Tasks;
 
+import Dataamatorene.Bestilling.VarekodeRegister;
 import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.Filbehandling.FileOpener;
 import Dataamatorene.Filbehandling.FileOpenerJobj;
@@ -33,6 +34,47 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Skjermkort>) opener.read("src/main/java/Dataamatorene/Files/Skjermkort.jobj"));
         KomponentRegister.setTastaturArrayList(
                 (ArrayList<Tastatur>) opener.read("src/main/java/Dataamatorene/Files/Tastatur.jobj"));
+
+        for (Harddisk h: KomponentRegister.getHarddiskArrayList()) {
+            VarekodeRegister.addVarekode(h.getVarekode());
+        }
+
+        for (Hovedkort h:KomponentRegister.getHovedkortArrayList()) {
+            VarekodeRegister.addVarekode(h.getVarekode());
+        }
+
+        for (Lydkort l:KomponentRegister.getLydkortArrayList()) {
+            VarekodeRegister.addVarekode(l.getVarekode());
+        }
+
+        for (Skjermkort s:KomponentRegister.getSkjermkortArrayList()) {
+            VarekodeRegister.addVarekode(s.getVarekode());
+        }
+
+        for (Prosessor p:KomponentRegister.getProsessorArrayList()) {
+            VarekodeRegister.addVarekode(p.getVarekode());
+        }
+
+        for (Minne m:KomponentRegister.getMinneArrayList()) {
+            VarekodeRegister.addVarekode(m.getVarekode());
+        }
+
+        for (Kabinett k:KomponentRegister.getKabinettArrayList()) {
+            VarekodeRegister.addVarekode(k.getVarekode());
+        }
+
+        for (Skjerm s:KomponentRegister.getSkjermArrayList()) {
+            VarekodeRegister.addVarekode(s.getVarekode());
+        }
+
+        for (Tastatur t:KomponentRegister.getTastaturArrayList()) {
+            VarekodeRegister.addVarekode(t.getVarekode());
+        }
+
+        for (Mus m:KomponentRegister.getMusArrayList()) {
+            VarekodeRegister.addVarekode(m.getVarekode());
+        }
+
          try{
              Thread.sleep(3000);
          } catch (InterruptedException e){

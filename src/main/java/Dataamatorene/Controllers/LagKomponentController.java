@@ -1,8 +1,10 @@
 package Dataamatorene.Controllers;
 
 import Dataamatorene.App;
+import Dataamatorene.Bestilling.VarekodeRegister;
 import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.Dialogs;
+import Dataamatorene.Exceptions.AlreadyTakenVarekodeException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -165,6 +167,7 @@ public class LagKomponentController {
         try {
             String navn = KomponentValidering.navnValidering(txtNavnHarddisk.getText());
             int varekode = KomponentValidering.varekodeValidering(txtVareHarddisk.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisHarddisk.getText());
             int lagre = KomponentValidering.lagringValidering(txtLagreHarddisk.getText());
             Harddisk h = new Harddisk(navn, pris, varekode, lagre);
@@ -179,6 +182,9 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Dette skjedde en feil under lagring");
         } catch (IllegalArgumentException e) {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
 
     }
@@ -189,6 +195,7 @@ public class LagKomponentController {
         try {
             String navn = KomponentValidering.navnValidering(txtNavnHovedkort.getText());
             int varekode = KomponentValidering.varekodeValidering(txtVareHovedkort.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisHovedkort.getText());
             int porter = KomponentValidering.porterValidering(txtPorterHovedkort.getText());
             Hovedkort h = new Hovedkort(navn, pris, varekode, porter);
@@ -203,6 +210,9 @@ public class LagKomponentController {
             e.printStackTrace();
         } catch (IllegalArgumentException e){
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
 
     }
@@ -213,6 +223,7 @@ public class LagKomponentController {
         try{
             String navn = KomponentValidering.navnValidering(txtNavnKabinett.getText());
             int varekode = KomponentValidering.varekodeValidering(txtVareKabinett.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisKabinett.getText());
             String størrelse = KomponentValidering.størrelseValidering(txtStørelseKabinett.getText());
             int vifter = KomponentValidering.vifterValidering(txtVifterKabientt.getText());
@@ -231,6 +242,9 @@ public class LagKomponentController {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
     }
 
@@ -240,6 +254,7 @@ public class LagKomponentController {
         try{
             String navn = KomponentValidering.navnValidering(txtNavnLydkort.getText());
             int varekode = KomponentValidering.varekodeValidering(txtVareLydkort.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisLydkort.getText());
             boolean integrert = tbIntegrertLydkort.isSelected();
             double frekvens = KomponentValidering.frekvensValidering(txtFrekvensLydkort.getText());
@@ -258,6 +273,9 @@ public class LagKomponentController {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
 
     }
@@ -268,6 +286,7 @@ public class LagKomponentController {
         try{
             String navn = KomponentValidering.navnValidering(txtNavnMinne.getText());
             int varekode = KomponentValidering.varekodeValidering(txtVareMinne.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisMinne.getText());
             int ram = KomponentValidering.ramValidering(txtRamMinne.getText());
             double frekvens = KomponentValidering.frekvensValidering(txtFrekvensMinne.getText());
@@ -286,6 +305,9 @@ public class LagKomponentController {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
     }
 
@@ -295,6 +317,7 @@ public class LagKomponentController {
         try{
             String navn = KomponentValidering.navnValidering(txtNavnMus.getText());
             int varekode = KomponentValidering.varekodeValidering(txtVareMus.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisMus.getText());
             boolean tråd = tbTrådløsMus.isSelected();
             int knapper = KomponentValidering.knapperValidering(txtKnapperMus.getText());
@@ -313,6 +336,9 @@ public class LagKomponentController {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
     }
 
@@ -322,6 +348,7 @@ public class LagKomponentController {
         try{
             String navn = KomponentValidering.navnValidering(txtNavnProsessor.getText());
             int varekode = KomponentValidering.varekodeValidering(txtVareProsessor.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisProsessor.getText());
             int kjerner = KomponentValidering.kjernerValidering(txtKjernerProsessor.getText());
             double frekvens = KomponentValidering.frekvensValidering(txtFrekvensProsessor.getText());
@@ -342,6 +369,9 @@ public class LagKomponentController {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
     }
 
@@ -350,12 +380,13 @@ public class LagKomponentController {
 
         try {
             String navn = KomponentValidering.navnValidering(txtNavnSkjerm.getText());
-            int vare = KomponentValidering.varekodeValidering(txtVareSkjerm.getText());
+            int varekode = KomponentValidering.varekodeValidering(txtVareSkjerm.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisSkjerm.getText());
             String oppløsning = KomponentValidering.oppløsningValidering(txtOppløsningSkjerm.getText());
             double størrelse = KomponentValidering.skjermstørrelseValidering(txtStørrelseSkjerm.getText());
 
-            Skjerm s = new Skjerm(navn, pris, vare, oppløsning, størrelse);
+            Skjerm s = new Skjerm(navn, pris, varekode, oppløsning, størrelse);
             KomponentRegister.addSkjerm(s);
 
             LagreKomponent.lagreSkjerm();
@@ -369,6 +400,9 @@ public class LagKomponentController {
             Dialogs.showErrorDialog("Dette skjedde en feil under lagring");
         } catch (IllegalArgumentException e) {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
 
     }
@@ -379,6 +413,7 @@ public class LagKomponentController {
         try{
             String navn = KomponentValidering.navnValidering(txtNavnSkjermkort.getText());
             int varekode = KomponentValidering.varekodeValidering(txtVareSkjermkort.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisSkjermkort.getText());
             String oppløsning = KomponentValidering.oppløsningValidering(txtOppløsningSkjermkort.getText());
 
@@ -397,6 +432,9 @@ public class LagKomponentController {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
 
     }
@@ -407,6 +445,7 @@ public class LagKomponentController {
         try{
             String navn = KomponentValidering.navnValidering(txtNavnTastatur.getText());
             int varekode = KomponentValidering.varekodeValidering(txtVareTastatur.getText());
+            VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisTastatur.getText());
             String språk = txtSpråkTastatur.getText();
             boolean mekanisk = tbMekaniskTastatur.isSelected();
@@ -427,6 +466,9 @@ public class LagKomponentController {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
             Dialogs.showErrorDialog("Det har skjedd en feil\n" + e.getMessage());
+        } catch (AlreadyTakenVarekodeException e) {
+            Dialogs.showErrorDialog("Denne varekoden finnes allerede");
+            txtVareKabinett.requestFocus();
         }
     }
 

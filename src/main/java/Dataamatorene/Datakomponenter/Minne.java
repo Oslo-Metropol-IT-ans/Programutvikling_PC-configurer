@@ -31,6 +31,6 @@ public class Minne extends Datakomponent implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("%s %sGB RAM %sGHz, %skr, %s", navn, ram, frekvens, pris, varekode);
+        return String.format("%s %sGB RAM %sGHz, %skr, VNr: %s", navn, ram, frekvens, pris, varekode);
     }
 }

@@ -34,8 +34,8 @@ public class Mus extends Datakomponent implements Serializable {
     @Override
     public String toString() {
         if(tråd)
-            return String.format("%s trådløs %s knapper, %skr, %s", navn, antallKnapper, pris, varekode);
+            return String.format("%s trådløs %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, varekode);
         else
-            return String.format("%s med tråd %s knapper, %skr, %s", navn, antallKnapper, pris, varekode);
+            return String.format("%s med tråd %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, varekode);
     }
 }

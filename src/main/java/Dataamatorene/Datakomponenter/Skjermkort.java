@@ -21,6 +21,6 @@ public class Skjermkort extends Datakomponent implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("%s %s, %skr, %s", navn, oppløsning, pris, varekode);
+        return String.format("%s %s, %skr, VNr: %s", navn, oppløsning, pris, varekode);
     }
 }

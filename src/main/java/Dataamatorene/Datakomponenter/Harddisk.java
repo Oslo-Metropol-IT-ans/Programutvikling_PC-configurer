@@ -22,7 +22,7 @@ public class Harddisk extends Datakomponent implements Serializable {
     @Override
     public String toString() {
         if(lagring < 1000) return String.format("%s %sGB, %skr, %s", navn, lagring, pris, varekode);
-        else return String.format("%s %sTB, %skr, %s", navn, (lagring/1000), pris, varekode);
+        else return String.format("%s %sTB, %skr, VNr: %s", navn, (lagring/1000), pris, varekode);
 
     }
 }

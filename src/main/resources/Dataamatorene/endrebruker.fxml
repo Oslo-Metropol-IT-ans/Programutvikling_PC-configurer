@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreBrukerController">
+<AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreBrukerController">
    <children>
-      <TableView fx:id="tableView" editable="true" layoutY="42.0" prefHeight="323.0" prefWidth="600.0">
+      <TableView fx:id="tableView" editable="true" layoutX="66.0" layoutY="73.0" prefHeight="526.0" prefWidth="1009.0">
         <columns>
-          <TableColumn fx:id="tbBrukernavn" onEditCommit="#txtBrukernavnEdited" prefWidth="200.0" text="Brukernavn">
+          <TableColumn fx:id="tbBrukernavn" onEditCommit="#txtBrukernavnEdited" prefWidth="240.39047241210938" text="Brukernavn">
             <cellValueFactory>
                 <PropertyValueFactory property="txtData" />
             </cellValueFactory>
@@ -22,7 +22,7 @@
                 <TextFieldTableCell fx:factory="forTableColumn" />
             </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbPassord" minWidth="5.0" onEditCommit="#txtPasswordEdited" prefWidth="269.0" text="Passord">
+          <TableColumn fx:id="tbPassord" minWidth="5.0" onEditCommit="#txtPasswordEdited" prefWidth="595.1095275878906" text="Passord">
             <cellValueFactory>
                 <PropertyValueFactory property="txtData" />
             </cellValueFactory>
@@ -30,7 +30,7 @@
                 <TextFieldTableCell fx:factory="forTableColumn" />
             </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbRettigheter" onEditCommit="#txtRettigheterEdited" prefWidth="130.0" text="Rettigheter">
+          <TableColumn fx:id="tbRettigheter" onEditCommit="#txtRettigheterEdited" prefWidth="172.70025634765625" text="Rettigheter">
             <cellValueFactory>
                 <PropertyValueFactory property="txtData" />
             </cellValueFactory>
@@ -40,13 +40,19 @@
           </TableColumn>
         </columns>
       </TableView>
-      <Label layoutX="13.0" layoutY="10.0" text="Endre bruker">
+      <Label layoutX="64.0" layoutY="25.0" text="Endre bruker">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="528.0" layoutY="369.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake" />
-      <TextField fx:id="txtSøk" layoutX="437.0" layoutY="8.0" onKeyTyped="#Søk" promptText="Søk" />
-      <Button layoutX="13.0" layoutY="369.0" mnemonicParsing="false" onAction="#slett" text="Slett" />
+      <Button layoutX="995.0" layoutY="620.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <TextField fx:id="txtSøk" layoutX="886.0" layoutY="23.0" onKeyTyped="#Søk" promptText="Søk" />
+      <Button layoutX="68.0" layoutY="619.0" mnemonicParsing="false" onAction="#slett" text="Slett">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>

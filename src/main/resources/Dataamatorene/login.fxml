@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="457.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.LogInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.LogInController">
    <children>
-      <VBox layoutX="66.0" layoutY="80.0" prefHeight="220.0" prefWidth="402.0">
+      <VBox layoutX="317.0" layoutY="258.0" prefHeight="220.0" prefWidth="499.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="402.0">
+            <HBox prefHeight="100.0" prefWidth="460.0">
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
                      <children>
@@ -21,10 +21,10 @@
                         <Label prefHeight="28.0" prefWidth="48.0" text="Passord:" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="100.0" prefWidth="301.0" spacing="20.0">
+                  <VBox prefHeight="100.0" prefWidth="398.0" spacing="20.0">
                      <children>
                         <TextField fx:id="txtBrukernavn" />
-                        <PasswordField fx:id="txtPassword" prefHeight="27.0">
+                        <PasswordField fx:id="txtPassword" prefHeight="27.0" prefWidth="336.0">
                            <font>
                               <Font size="8.0" />
                            </font></PasswordField>
@@ -34,16 +34,22 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="400.0" spacing="20.0">
                <children>
-                  <Label fx:id="lblTilbakemelding" prefHeight="17.0" prefWidth="210.0" />
-                  <Button fx:id="btnNyBruker" mnemonicParsing="false" onAction="#nyBruker" text="Ny bruker" />
-                  <Button fx:id="btnLoggInn" mnemonicParsing="false" onAction="#loggInn" text="Logg Inn" />
+                  <Label fx:id="lblTilbakemelding" prefHeight="21.0" prefWidth="169.0" />
+                  <Button fx:id="btnNyBruker" mnemonicParsing="false" onAction="#nyBruker" prefHeight="35.0" prefWidth="139.0" text="Ny bruker">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
+                  <Button fx:id="btnLoggInn" mnemonicParsing="false" onAction="#loggInn" prefHeight="35.0" prefWidth="141.0" text="Logg Inn">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Label layoutX="262.0" layoutY="32.0" text="Logg Inn">
+      <Label layoutX="532.0" layoutY="154.0" text="Logg Inn">
          <font>
-            <Font size="21.0" />
+            <Font size="24.0" />
          </font>
       </Label>
    </children>

@@ -41,7 +41,7 @@ public class Prosessor extends Datakomponent implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("%s %sGHz %s kjerner %s tråder, %skr, %s", navn, frekvens, antallKjerner, antallTråder
+        return String.format("%s %sGHz %s kjerner %s tråder, %skr, VNr: %s", navn, frekvens, antallKjerner, antallTråder
                             , pris, varekode);
     }
 }

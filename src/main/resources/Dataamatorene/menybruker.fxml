@@ -7,21 +7,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.MenyBrukerController">
+<AnchorPane fx:id="menyBruker" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.MenyBrukerController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="552.0" spacing="20.0">
+      <VBox prefHeight="718.0" prefWidth="1162.0" spacing="40.0">
          <padding>
-            <Insets left="20.0" top="20.0" />
+            <Insets left="40.0" top="20.0" />
          </padding>
          <children>
             <Label fx:id="lblVelkommen" prefHeight="26.0" prefWidth="514.0" textAlignment="CENTER">
                <font>
-                  <Font size="20.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#nyBestiliing" text="Ny bestilling" />
-            <Button mnemonicParsing="false" onAction="#mineBestillinger" text="Mine bestillinger" />
+            <Button mnemonicParsing="false" onAction="#nyBestiliing" text="Ny bestilling">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#mineBestillinger" text="Mine bestillinger">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#loggUt" text="Logg ut">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblTilbakemelding" prefHeight="18.0" prefWidth="452.0">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
          </children>
       </VBox>
    </children>

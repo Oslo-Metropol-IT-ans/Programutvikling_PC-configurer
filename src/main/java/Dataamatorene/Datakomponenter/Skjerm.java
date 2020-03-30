@@ -32,6 +32,6 @@ public class Skjerm extends Datakomponent implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("%s %s %s'', %skr, %s", navn, oppløsning, størrelse, pris, varekode);
+        return String.format("%s %s %s'', %skr, VNr: %s", navn, oppløsning, størrelse, pris, varekode);
     }
 }

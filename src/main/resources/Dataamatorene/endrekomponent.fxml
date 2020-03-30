@@ -8,24 +8,25 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="451.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreKomponentController">
+<AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreKomponentController">
    <children>
-      <TabPane  prefHeight="415.0" prefWidth="666.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="598.0" prefWidth="1168.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Teknisk">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TabPane prefHeight="381.0" prefWidth="667.0" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane prefHeight="564.0" prefWidth="1169.0" tabClosingPolicy="UNAVAILABLE">
                            <tabs>
                               <Tab fx:id="Harddisk" text="Harddisk">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="558.0">
                                        <children>
-                                          <TableView fx:id="tvHarddisk" editable="true" layoutX="-1.0" prefHeight="342.0" prefWidth="666.0">
+                                          <TableView fx:id="tvHarddisk" editable="true" layoutX="-1.0" prefHeight="511.0" prefWidth="1168.0">
                                             <columns>
-                                              <TableColumn fx:id="tbVarHarddisk" onEditCommit="#txtHarddiskVareEdit" prefWidth="108.35696935653687" text="Varekode">
+                                              <TableColumn fx:id="tbVarHarddisk" onEditCommit="#txtHarddiskVareEdit" prefWidth="228.59542578458786" text="Varekode">
                                                  <cellValueFactory>
                                                     <PropertyValueFactory property="txtData" />
                                                  </cellValueFactory>
@@ -33,7 +34,7 @@
                                                     <TextFieldTableCell fx:factory="forTableColumn" />
                                                  </cellFactory>
                                               </TableColumn>
-                                              <TableColumn fx:id="tbNavnHarddisk" onEditCommit="#txtHarddiskNavnEdit" prefWidth="269.1430358886719" text="Navn">
+                                              <TableColumn fx:id="tbNavnHarddisk" onEditCommit="#txtHarddiskNavnEdit" prefWidth="528.6882934570312" text="Navn">
                                                  <cellValueFactory>
                                                     <PropertyValueFactory property="txtData" />
                                                  </cellValueFactory>
@@ -41,7 +42,7 @@
                                                     <TextFieldTableCell fx:factory="forTableColumn" />
                                                  </cellFactory>
                                               </TableColumn>
-                                              <TableColumn fx:id="tbPrisHarddisk" onEditCommit="#txtHarddiskPrisEdit" prefWidth="158.5661163330078" text="Pris">
+                                              <TableColumn fx:id="tbPrisHarddisk" onEditCommit="#txtHarddiskPrisEdit" prefWidth="226.899169921875" text="Pris">
                                                  <cellValueFactory>
                                                     <PropertyValueFactory property="txtData" />
                                                  </cellValueFactory>
@@ -49,7 +50,7 @@
                                                     <TextFieldTableCell fx:factory="forTableColumn" />
                                                  </cellFactory>
                                               </TableColumn>
-                                              <TableColumn fx:id="tbLagringHarddisk" onEditCommit="#txtHarddiskLagringEdit" prefWidth="129.17361450195312" text="Lagring">
+                                              <TableColumn fx:id="tbLagringHarddisk" onEditCommit="#txtHarddiskLagringEdit" prefWidth="184.600830078125" text="Lagring">
                                                  <cellValueFactory>
                                                     <PropertyValueFactory property="txtData" />
                                                  </cellValueFactory>
@@ -67,9 +68,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="tvHovedkort" editable="true" prefHeight="347.0" prefWidth="666.0">
+                                          <TableView fx:id="tvHovedkort" editable="true" prefHeight="510.0" prefWidth="1166.0">
                                             <columns>
-                                              <TableColumn fx:id="tbVareHovedkort" onEditCommit="#txtHovedkortVareEdit" prefWidth="104.0" text="Varekode">
+                                              <TableColumn fx:id="tbVareHovedkort" onEditCommit="#txtHovedkortVareEdit" prefWidth="222.6657338142395" text="Varekode">
                                                  <cellValueFactory>
                                                     <PropertyValueFactory property="txtData" />
                                                  </cellValueFactory>
@@ -77,7 +78,7 @@
                                                     <TextFieldTableCell fx:factory="forTableColumn" />
                                                  </cellFactory>
                                               </TableColumn>
-                                              <TableColumn fx:id="tbNavnHovedkort" onEditCommit="#txtHovedkortNavnEdit" prefWidth="194.0" text="Navn">
+                                              <TableColumn fx:id="tbNavnHovedkort" onEditCommit="#txtHovedkortNavnEdit" prefWidth="587.3342514038086" text="Navn">
                                                  <cellValueFactory>
                                                     <PropertyValueFactory property="txtData" />
                                                  </cellValueFactory>
@@ -85,7 +86,7 @@
                                                     <TextFieldTableCell fx:factory="forTableColumn" />
                                                  </cellFactory>
                                               </TableColumn>
-                                              <TableColumn fx:id="tbPrisHovedkort" onEditCommit="#txtHovedkortPrisEdit" prefWidth="151.0" text="Pris">
+                                              <TableColumn fx:id="tbPrisHovedkort" onEditCommit="#txtHovedkortPrisEdit" prefWidth="168.16473388671875" text="Pris">
                                                  <cellValueFactory>
                                                     <PropertyValueFactory property="txtData" />
                                                  </cellValueFactory>
@@ -93,7 +94,7 @@
                                                     <TextFieldTableCell fx:factory="forTableColumn" />
                                                  </cellFactory>
                                               </TableColumn>
-                                              <TableColumn fx:id="tbPorterHovedkort" onEditCommit="#txtHovedkortPorterEdit" prefWidth="216.0" text="Porter">
+                                              <TableColumn fx:id="tbPorterHovedkort" onEditCommit="#txtHovedkortPorterEdit" prefWidth="187.0081787109375" text="Porter">
                                                  <cellValueFactory>
                                                     <PropertyValueFactory property="txtData" />
                                                  </cellValueFactory>
@@ -111,7 +112,7 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="tvLydkort" editable="true" prefHeight="347.0" prefWidth="666.0">
+                                          <TableView fx:id="tvLydkort" editable="true" prefHeight="510.0" prefWidth="1168.0">
                                              <columns>
                                                 <TableColumn fx:id="tbVareLydkort" onEditCommit="#txtLydkortVareEdit" prefWidth="116.0" text="Varekode">
                                                    <cellValueFactory>
@@ -163,9 +164,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="tvSkjermkort" editable="true" prefHeight="347.0" prefWidth="666.0">
+                                          <TableView fx:id="tvSkjermkort" editable="true" prefHeight="511.0" prefWidth="1168.0">
                                              <columns>
-                                                <TableColumn fx:id="tbVareSkjermkort" onEditCommit="#txtSkjermkortVareEdit" prefWidth="116.0" text="Varekode">
+                                                <TableColumn fx:id="tbVareSkjermkort" onEditCommit="#txtSkjermkortVareEdit" prefWidth="248.96278429031372" text="Varekode">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -173,7 +174,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbNavnSkjermkort" onEditCommit="#txtSkjermkortNavnEdit" prefWidth="252.0" text="Navn">
+                                                <TableColumn fx:id="tbNavnSkjermkort" onEditCommit="#txtSkjermkortNavnEdit" prefWidth="538.0372009277344" text="Navn">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -181,7 +182,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbPrisSkjermkort" onEditCommit="#txtSkjermkortPrisEdit" prefWidth="103.0" text="Pris">
+                                                <TableColumn fx:id="tbPrisSkjermkort" onEditCommit="#txtSkjermkortPrisEdit" prefWidth="140.595703125" text="Pris">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -189,7 +190,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbOppløsningSkjermkort" onEditCommit="#txtSkjermkortOppløsningEdit" prefWidth="194.0" text="Oppløsning">
+                                                <TableColumn fx:id="tbOppløsningSkjermkort" onEditCommit="#txtSkjermkortOppløsningEdit" prefWidth="239.92327880859375" text="Oppløsning">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -207,9 +208,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="335.0" prefWidth="606.0">
                                        <children>
-                                          <TableView fx:id="tvProsessor" editable="true" prefHeight="347.0" prefWidth="666.0">
+                                          <TableView fx:id="tvProsessor" editable="true" prefHeight="513.0" prefWidth="1166.0">
                                              <columns>
-                                                <TableColumn fx:id="tbVareProsessor" onEditCommit="#txtProsessorVareEdit" prefWidth="108.0" text="Varekode">
+                                                <TableColumn fx:id="tbVareProsessor" onEditCommit="#txtProsessorVareEdit" prefWidth="208.07950639724731" text="Varekode">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -217,7 +218,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbNavnProsessor" onEditCommit="#txtProsessorNavnEdit" prefWidth="202.0" text="Navn">
+                                                <TableColumn fx:id="tbNavnProsessor" onEditCommit="#txtProsessorNavnEdit" prefWidth="433.9204788208008" text="Navn">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -225,7 +226,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbPrisProsessor" onEditCommit="#txtProsessorPrisEdit" prefWidth="102.0" text="Pris">
+                                                <TableColumn fx:id="tbPrisProsessor" onEditCommit="#txtProsessorPrisEdit" prefWidth="127.80792236328125" text="Pris">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -233,7 +234,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbKjernerProsessor" onEditCommit="#txtProsessorKjernerEdit" prefWidth="73.0" text="Kjerner">
+                                                <TableColumn fx:id="tbKjernerProsessor" onEditCommit="#txtProsessorKjernerEdit" prefWidth="122.07315063476562" text="Kjerner">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -241,7 +242,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbFrekvenserProsessor" onEditCommit="#txtProsessorFrekvensEdit" prefWidth="92.0" text="Frekvens">
+                                                <TableColumn fx:id="tbFrekvenserProsessor" onEditCommit="#txtProsessorFrekvensEdit" prefWidth="126.46310424804688" text="Frekvens">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -249,7 +250,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbTråderProsessor" onEditCommit="#txtProsessorTråderEdit" prefWidth="88.0" text="Tråder">
+                                                <TableColumn fx:id="tbTråderProsessor" onEditCommit="#txtProsessorTråderEdit" prefWidth="147.6500244140625" text="Tråder">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -267,9 +268,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="tvMinne" editable="true" prefHeight="347.0" prefWidth="666.0">
+                                          <TableView fx:id="tvMinne" editable="true" prefHeight="504.0" prefWidth="1168.0">
                                              <columns>
-                                                <TableColumn fx:id="tbVareMinne" onEditCommit="#txtMinneVareEdit" prefWidth="123.0" text="Varekode">
+                                                <TableColumn fx:id="tbVareMinne" onEditCommit="#txtMinneVareEdit" prefWidth="247.38454484939575" text="Varekode">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -277,7 +278,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbNavnMinne" onEditCommit="#txtMinneNavnEdit" prefWidth="275.0" text="Navn">
+                                                <TableColumn fx:id="tbNavnMinne" onEditCommit="#txtMinneNavnEdit" prefWidth="525.6154403686523" text="Navn">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -285,7 +286,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbPrisMinne" onEditCommit="#txtMinnePrisEdit" prefWidth="96.0" text="Pris">
+                                                <TableColumn fx:id="tbPrisMinne" onEditCommit="#txtMinnePrisEdit" prefWidth="94.91659545898438" text="Pris">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -293,7 +294,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbRamMinne" onEditCommit="#txtMinneRamEdit" prefWidth="69.0" text="RAM">
+                                                <TableColumn fx:id="tbRamMinne" onEditCommit="#txtMinneRamEdit" prefWidth="119.34628295898438" text="RAM">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -301,7 +302,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbFrekvensMinne" onEditCommit="#txtMinneFrekvensEdit" prefWidth="102.0" text="Frekvens">
+                                                <TableColumn fx:id="tbFrekvensMinne" onEditCommit="#txtMinneFrekvensEdit" prefWidth="180.80657958984375" text="Frekvens">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -325,15 +326,15 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TabPane fx:id="Tilbehør" layoutX="-1.0" layoutY="-1.0" prefHeight="385.0" prefWidth="666.0" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane fx:id="Tilbehør" layoutX="-1.0" layoutY="-1.0" prefHeight="545.0" prefWidth="1169.0" tabClosingPolicy="UNAVAILABLE">
                            <tabs>
-                              <Tab text="Kabinett" fx:id="Kabinett" >
+                              <Tab fx:id="Kabinett" text="Kabinett">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="548.0" prefWidth="1156.0">
                                        <children>
-                                          <TableView fx:id="tvKabinett" editable="true" prefHeight="347.0" prefWidth="666.0">
+                                          <TableView fx:id="tvKabinett" editable="true" prefHeight="490.0" prefWidth="1168.0">
                                              <columns>
-                                                <TableColumn fx:id="tbVareKabinett" onEditCommit="#txtKabinettVareEdit" prefWidth="111.0" text="Varekode">
+                                                <TableColumn fx:id="tbVareKabinett" onEditCommit="#txtKabinettVareEdit" prefWidth="246.82223242521286" text="Varekode">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -341,7 +342,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbNavnKabinett" onEditCommit="#txtKabinettNavnEdit" prefWidth="219.0" text="Navn">
+                                                <TableColumn fx:id="tbNavnKabinett" onEditCommit="#txtKabinettNavnEdit" prefWidth="442.1777801513672" text="Navn">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -349,7 +350,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbPrisKabinett" onEditCommit="#txtKabinettPrisEdit" prefWidth="82.0" text="Pris">
+                                                <TableColumn fx:id="tbPrisKabinett" onEditCommit="#txtKabinettPrisEdit" prefWidth="178.14346313476562" text="Pris">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -357,7 +358,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbStørrelseKabinett" onEditCommit="#txtKabinettStørrelseEdit" prefWidth="184.0" text="Størrelse">
+                                                <TableColumn fx:id="tbStørrelseKabinett" onEditCommit="#txtKabinettStørrelseEdit" prefWidth="185.85299682617188" text="Størrelse">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -365,7 +366,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbVifterKabinett" onEditCommit="#txtKabinettVifterEdit" prefWidth="69.0" text="Vifter">
+                                                <TableColumn fx:id="tbVifterKabinett" onEditCommit="#txtKabinettVifterEdit" prefWidth="114.92327880859375" text="Vifter">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -383,9 +384,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="tvSkjerm" editable="true" prefHeight="347.0" prefWidth="666.0">
+                                          <TableView fx:id="tvSkjerm" editable="true" prefHeight="494.0" prefWidth="1169.0">
                                              <columns>
-                                                <TableColumn fx:id="tbVareSkjerm" onEditCommit="#txtSkjermVareEdit" prefWidth="114.0" text="Varekode">
+                                                <TableColumn fx:id="tbVareSkjerm" onEditCommit="#txtSkjermVareEdit" prefWidth="224.1565219759941" text="Varekode">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -393,7 +394,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbNavnSkjerm" onEditCommit="#txtSkjermNavnEdit" prefWidth="242.0" text="Navn">
+                                                <TableColumn fx:id="tbNavnSkjerm" onEditCommit="#txtSkjermNavnEdit" prefWidth="535.8435516357422" text="Navn">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -401,7 +402,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbPrisSkjerm" onEditCommit="#txtSkjermPrisEdit" prefWidth="78.0" text="Pris">
+                                                <TableColumn fx:id="tbPrisSkjerm" onEditCommit="#txtSkjermPrisEdit" prefWidth="72.87396240234375" text="Pris">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -409,7 +410,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbOppløsningSkjerm" onEditCommit="#txtSkjermOppløsningEdit" prefWidth="114.0" text="Oppløsning">
+                                                <TableColumn fx:id="tbOppløsningSkjerm" onEditCommit="#txtSkjermOppløsningEdit" prefWidth="197.12615966796875" text="Oppløsning">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -417,7 +418,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbStørrelseSkjerm" onEditCommit="#txtSkjermStørrelseEdit" prefWidth="117.0" text="Størrelse">
+                                                <TableColumn fx:id="tbStørrelseSkjerm" onEditCommit="#txtSkjermStørrelseEdit" prefWidth="139.61834716796875" text="Størrelse">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -435,9 +436,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="tvTastatur" editable="true" prefHeight="347.0" prefWidth="666.0">
+                                          <TableView fx:id="tvTastatur" editable="true" prefHeight="489.0" prefWidth="1169.0">
                                              <columns>
-                                                <TableColumn fx:id="tbVareTastatur" onEditCommit="#txtTastaturVareEdit" prefWidth="131.0" text="Varekode">
+                                                <TableColumn fx:id="tbVareTastatur" onEditCommit="#txtTastaturVareEdit" prefWidth="219.64185827970505" text="Varekode">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -445,7 +446,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbNavnTastatur" onEditCommit="#txtTastaturNavnEdit" prefWidth="237.0" text="Navn">
+                                                <TableColumn fx:id="tbNavnTastatur" onEditCommit="#txtTastaturNavnEdit" prefWidth="455.858154296875" text="Navn">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -453,7 +454,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbPrisTastatur" onEditCommit="#txtTastaturPrisEdit" prefWidth="81.0" text="Pris">
+                                                <TableColumn fx:id="tbPrisTastatur" onEditCommit="#txtTastaturPrisEdit" prefWidth="174.11297607421875" text="Pris">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -461,7 +462,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbSpråkTastatur" onEditCommit="#txtTastaturSpråkEdit" prefWidth="73.0" text="Språk">
+                                                <TableColumn fx:id="tbSpråkTastatur" onEditCommit="#txtTastaturSpråkEdit" prefWidth="89.181884765625" text="Språk">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -469,7 +470,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbMekaniskTastatur" onEditCommit="#txtTastaturMekaniskEdit" prefWidth="75.0" text="Mekanisk">
+                                                <TableColumn fx:id="tbMekaniskTastatur" onEditCommit="#txtTastaturMekaniskEdit" prefWidth="119.45513916015625" text="Mekanisk">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -477,7 +478,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbRgbTastatur" onEditCommit="#txtTastaturRgbEdit" prefWidth="68.0" text="RGB">
+                                                <TableColumn fx:id="tbRgbTastatur" onEditCommit="#txtTastaturRgbEdit" prefWidth="110.6341552734375" text="RGB">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -495,9 +496,9 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="tvMus" editable="true" prefHeight="347.0" prefWidth="666.0">
+                                          <TableView fx:id="tvMus" editable="true" prefHeight="489.0" prefWidth="1169.0">
                                              <columns>
-                                                <TableColumn fx:id="tbVareMus" onEditCommit="#txtMusVareEdit" prefWidth="118.0" text="Varekode">
+                                                <TableColumn fx:id="tbVareMus" onEditCommit="#txtMusVareEdit" prefWidth="218.0795184969902" text="Varekode">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -505,7 +506,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbNavnMus" onEditCommit="#txtMusNavnEdit" prefWidth="257.0" text="Navn">
+                                                <TableColumn fx:id="tbNavnMus" onEditCommit="#txtMusNavnEdit" prefWidth="570.4204940795898" text="Navn">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -513,7 +514,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbPrisMus" onEditCommit="#txtMusPrisEdit" prefWidth="115.0" text="Pris">
+                                                <TableColumn fx:id="tbPrisMus" onEditCommit="#txtMusPrisEdit" prefWidth="149.3145751953125" text="Pris">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -521,7 +522,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbTrådMus" onEditCommit="#txtMusTrådEdit" prefWidth="76.0" text="Trådløs">
+                                                <TableColumn fx:id="tbTrådMus" onEditCommit="#txtMusTrådEdit" prefWidth="125.00146484375" text="Trådløs">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -529,7 +530,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbKnapperMus" onEditCommit="#txtMusKnapperEdit" prefWidth="99.0" text="Knapper">
+                                                <TableColumn fx:id="tbKnapperMus" onEditCommit="#txtMusKnapperEdit" prefWidth="106.3916015625" text="Knapper">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>
@@ -551,8 +552,17 @@
             </Tab>
          </tabs>
       </TabPane>
-      <Button layoutX="31.0" layoutY="413.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake" />
-      <Button layoutX="586.0" layoutY="413.0" mnemonicParsing="false" onAction="#slett" text="Slett" />
-      <Button layoutX="493.0" layoutY="413.0" mnemonicParsing="false" onAction="#vis" text="Vis" />
+      <Button layoutX="50.0" layoutY="636.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="992.0" layoutY="638.0" mnemonicParsing="false" onAction="#slett" text="Slett">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="890.0" layoutY="639.0" mnemonicParsing="false" onAction="#vis" text="Vis">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>

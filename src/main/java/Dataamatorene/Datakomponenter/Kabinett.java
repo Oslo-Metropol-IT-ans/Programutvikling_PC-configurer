@@ -31,6 +31,6 @@ public class Kabinett extends Datakomponent implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("%s %s %s vifter, %skr, %s", navn, størrelse, antallVifter, pris, varekode);
+        return String.format("%s %s %s vifter, %skr, VNr: %s", navn, størrelse, antallVifter, pris, varekode);
     }
 }

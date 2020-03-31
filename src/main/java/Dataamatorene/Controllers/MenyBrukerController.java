@@ -56,7 +56,11 @@ public class MenyBrukerController {
 
     @FXML
     void mineBestillinger(ActionEvent event) {
-
+        try {
+            App.setRoot("bestillingshistorikkbruker");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

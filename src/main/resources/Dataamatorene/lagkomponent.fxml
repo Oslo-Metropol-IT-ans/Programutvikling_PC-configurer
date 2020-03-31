@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.LagKomponentController">
    <children>
       <TabPane layoutY="-1.0" prefHeight="608.0" prefWidth="1163.0" tabClosingPolicy="UNAVAILABLE">
@@ -27,7 +27,7 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="558.0">
                                        <children>
-                                          <VBox layoutX="2.0" prefHeight="543.0" prefWidth="383.0" spacing="20.0">
+                                          <VBox layoutX="2.0" prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -35,7 +35,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareHarddisk" />
+                                                      <TextField fx:id="txtVareHarddisk" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -44,7 +44,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnHarddisk" />
+                                                      <TextField fx:id="txtNavnHarddisk" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -53,7 +53,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisHarddisk" />
+                                                      <TextField fx:id="txtPrisHarddisk" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -62,12 +62,15 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Lagring:" />
-                                                      <TextField fx:id="txtLagreHarddisk" />
+                                                      <TextField fx:id="txtLagreHarddisk" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1080.0" layoutY="509.0" mnemonicParsing="false" onAction="#registrerHarddisk" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerHarddisk" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -76,7 +79,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <VBox prefHeight="543.0" prefWidth="386.0" spacing="20.0">
+                                          <VBox prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -84,7 +87,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareHovedkort" />
+                                                      <TextField fx:id="txtVareHovedkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -93,7 +96,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnHovedkort" />
+                                                      <TextField fx:id="txtNavnHovedkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -102,7 +105,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisHovedkort" />
+                                                      <TextField fx:id="txtPrisHovedkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -111,12 +114,15 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Antall porter:" />
-                                                      <TextField fx:id="txtPorterHovedkort" />
+                                                      <TextField fx:id="txtPorterHovedkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1082.0" layoutY="509.0" mnemonicParsing="false" onAction="#registrerHovedkort" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerHovedkort" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -125,7 +131,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <VBox prefHeight="542.0" prefWidth="385.0" spacing="20.0">
+                                          <VBox prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -133,7 +139,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareLydkort" />
+                                                      <TextField fx:id="txtVareLydkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -142,7 +148,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnLydkort" />
+                                                      <TextField fx:id="txtNavnLydkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -151,7 +157,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisLydkort" />
+                                                      <TextField fx:id="txtPrisLydkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -160,7 +166,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Frekvens" />
-                                                      <TextField fx:id="txtFrekvensLydkort" />
+                                                      <TextField fx:id="txtFrekvensLydkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -168,12 +174,15 @@
                                                       <Insets left="20.0" />
                                                    </padding>
                                                    <children>
-                                                      <ToggleButton fx:id="tbIntegrertLydkort" mnemonicParsing="false" prefHeight="27.0" prefWidth="159.0" text="Integrert" />
+                                                      <ToggleButton fx:id="tbIntegrertLydkort" mnemonicParsing="false" prefHeight="27.0" prefWidth="350.0" text="Integrert" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1084.0" layoutY="509.0" mnemonicParsing="false" onAction="#registrerLydkort" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerLydkort" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -182,7 +191,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <VBox prefHeight="545.0" prefWidth="385.0" spacing="20.0">
+                                          <VBox prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -190,7 +199,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareSkjermkort" />
+                                                      <TextField fx:id="txtVareSkjermkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -199,7 +208,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnSkjermkort" />
+                                                      <TextField fx:id="txtNavnSkjermkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -208,7 +217,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisSkjermkort" />
+                                                      <TextField fx:id="txtPrisSkjermkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -217,12 +226,15 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Oppløsning:" />
-                                                      <TextField fx:id="txtOppløsningSkjermkort" />
+                                                      <TextField fx:id="txtOppløsningSkjermkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1077.0" layoutY="508.0" mnemonicParsing="false" onAction="#registrerSkjermkort" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerSkjermkort" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -231,7 +243,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="335.0" prefWidth="606.0">
                                        <children>
-                                          <VBox prefHeight="542.0" prefWidth="385.0" spacing="20.0">
+                                          <VBox prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -239,7 +251,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareProsessor" />
+                                                      <TextField fx:id="txtVareProsessor" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -248,7 +260,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnProsessor" />
+                                                      <TextField fx:id="txtNavnProsessor" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -257,7 +269,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisProsessor" />
+                                                      <TextField fx:id="txtPrisProsessor" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -266,7 +278,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Antall kjerner:" />
-                                                      <TextField fx:id="txtKjernerProsessor" />
+                                                      <TextField fx:id="txtKjernerProsessor" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -275,7 +287,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Frekvens:" />
-                                                      <TextField fx:id="txtFrekvensProsessor" />
+                                                      <TextField fx:id="txtFrekvensProsessor" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="356.0" spacing="20.0">
@@ -284,12 +296,15 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Antall tråder:" />
-                                                      <TextField fx:id="txtTråderProsessor" />
+                                                      <TextField fx:id="txtTråderProsessor" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1083.0" layoutY="511.0" mnemonicParsing="false" onAction="#registrerProsessor" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerProsessor" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -298,7 +313,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <VBox prefHeight="542.0" prefWidth="383.0" spacing="20.0">
+                                          <VBox prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -306,7 +321,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareMinne" />
+                                                      <TextField fx:id="txtVareMinne" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -315,7 +330,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnMinne" />
+                                                      <TextField fx:id="txtNavnMinne" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -324,7 +339,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisMinne" />
+                                                      <TextField fx:id="txtPrisMinne" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -333,7 +348,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="RAM:" />
-                                                      <TextField fx:id="txtRamMinne" />
+                                                      <TextField fx:id="txtRamMinne" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -342,12 +357,15 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Frekvens:" />
-                                                      <TextField fx:id="txtFrekvensMinne" />
+                                                      <TextField fx:id="txtFrekvensMinne" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1081.0" layoutY="510.0" mnemonicParsing="false" onAction="#registrerMinne" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerMinne" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -362,13 +380,13 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TabPane layoutX="1.0" layoutY="-1.0" prefHeight="577.0" prefWidth="1164.0" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane prefHeight="577.0" prefWidth="1164.0" tabClosingPolicy="UNAVAILABLE">
                           <tabs>
                             <Tab text="Kabinett">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <VBox prefHeight="542.0" prefWidth="383.0" spacing="20.0">
+                                          <VBox prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -376,7 +394,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareKabinett" />
+                                                      <TextField fx:id="txtVareKabinett" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -385,7 +403,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnKabinett" />
+                                                      <TextField fx:id="txtNavnKabinett" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -394,7 +412,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisKabinett" />
+                                                      <TextField fx:id="txtPrisKabinett" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -403,7 +421,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Størelse:" />
-                                                      <TextField fx:id="txtStørelseKabinett" />
+                                                      <TextField fx:id="txtStørelseKabinett" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -412,12 +430,15 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Antall vifter:" />
-                                                      <TextField fx:id="txtVifterKabientt" />
+                                                      <TextField fx:id="txtVifterKabientt" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1079.0" layoutY="512.0" mnemonicParsing="false" onAction="#registrerKabinett" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerKabinett" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -426,7 +447,7 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <VBox prefHeight="547.0" prefWidth="383.0" spacing="20.0">
+                                          <VBox prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -434,7 +455,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareSkjerm" />
+                                                      <TextField fx:id="txtVareSkjerm" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -443,7 +464,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnSkjerm" />
+                                                      <TextField fx:id="txtNavnSkjerm" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -452,7 +473,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisSkjerm" />
+                                                      <TextField fx:id="txtPrisSkjerm" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -461,7 +482,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Størrelse:" />
-                                                      <TextField fx:id="txtStørrelseSkjerm" />
+                                                      <TextField fx:id="txtStørrelseSkjerm" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -470,12 +491,15 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Oppløsning:" />
-                                                      <TextField fx:id="txtOppløsningSkjerm" />
+                                                      <TextField fx:id="txtOppløsningSkjerm" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1077.0" layoutY="513.0" mnemonicParsing="false" onAction="#registrerSkjerm" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerSkjerm" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -484,7 +508,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <VBox prefHeight="544.0" prefWidth="383.0" spacing="20.0">
+                                          <VBox prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -492,7 +516,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareTastatur" />
+                                                      <TextField fx:id="txtVareTastatur" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -501,7 +525,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnTastatur" />
+                                                      <TextField fx:id="txtNavnTastatur" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -510,7 +534,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisTastatur" />
+                                                      <TextField fx:id="txtPrisTastatur" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -519,7 +543,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Språk:" />
-                                                      <TextField fx:id="txtSpråkTastatur" />
+                                                      <TextField fx:id="txtSpråkTastatur" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -527,7 +551,7 @@
                                                       <Insets left="20.0" />
                                                    </padding>
                                                    <children>
-                                                      <ToggleButton fx:id="tbMekaniskTastatur" mnemonicParsing="false" prefHeight="27.0" prefWidth="160.0" text="Mekanisk" />
+                                                      <ToggleButton fx:id="tbMekaniskTastatur" mnemonicParsing="false" prefHeight="27.0" prefWidth="350.0" text="Mekanisk" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -535,12 +559,15 @@
                                                       <Insets left="20.0" />
                                                    </padding>
                                                    <children>
-                                                      <ToggleButton fx:id="txtRGBTastatur" mnemonicParsing="false" prefHeight="27.0" prefWidth="158.0" text="RGB" />
+                                                      <ToggleButton fx:id="txtRGBTastatur" mnemonicParsing="false" prefHeight="27.0" prefWidth="350.0" text="RGB" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1082.0" layoutY="510.0" mnemonicParsing="false" onAction="#registrerTastatur" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerTastatur" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -549,7 +576,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <VBox prefHeight="544.0" prefWidth="383.0" spacing="20.0">
+                                          <VBox prefHeight="540.0" prefWidth="520.0" spacing="20.0">
                                              <children>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
                                                    <padding>
@@ -557,7 +584,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Varekode:" />
-                                                      <TextField fx:id="txtVareMus" />
+                                                      <TextField fx:id="txtVareMus" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -566,7 +593,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Navn:" />
-                                                      <TextField fx:id="txtNavnMus" />
+                                                      <TextField fx:id="txtNavnMus" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -575,7 +602,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Pris:" />
-                                                      <TextField fx:id="txtPrisMus" />
+                                                      <TextField fx:id="txtPrisMus" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -584,7 +611,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Antall knapper:" />
-                                                      <TextField fx:id="txtKnapperMus" />
+                                                      <TextField fx:id="txtKnapperMus" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -592,12 +619,15 @@
                                                       <Insets left="20.0" />
                                                    </padding>
                                                    <children>
-                                                      <ToggleButton fx:id="tbTrådløsMus" mnemonicParsing="false" prefHeight="27.0" prefWidth="161.0" text="Tråløs" />
+                                                      <ToggleButton fx:id="tbTrådløsMus" mnemonicParsing="false" prefHeight="27.0" prefWidth="350.0" text="Tråløs" />
                                                    </children>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1081.0" layoutY="510.0" mnemonicParsing="false" onAction="#registrerMus" text="Registrer" />
+                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerMus" text="Registrer">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                 </content>

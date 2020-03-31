@@ -1,5 +1,9 @@
 package Dataamatorene.Bestilling;
 
+import Dataamatorene.Filbehandling.FileSaver;
+import Dataamatorene.Filbehandling.FileSaverJobj;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class BestillingsRegister {
@@ -16,5 +20,14 @@ public class BestillingsRegister {
 
     public static void setBestillinger(ArrayList<Bestilling> bestillinger) {
         BestillingsRegister.bestillinger = bestillinger;
+    }
+
+    public static void lagreBestillinger() {
+        try {
+            FileSaver saver = new FileSaverJobj();
+            saver.save(bestillinger, "src/main/java/Dataamatorene/Files/Bestillinger.jobj");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

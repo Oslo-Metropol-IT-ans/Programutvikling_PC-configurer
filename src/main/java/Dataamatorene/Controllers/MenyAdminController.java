@@ -120,7 +120,7 @@ public class MenyAdminController {
     void seBestillinger(ActionEvent event) {
 
         try {
-            App.setRoot("endrekomponent");
+            App.setRoot("bestillingshistorikkadmin");
         } catch (IOException e) {
             e.printStackTrace();
         }

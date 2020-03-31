@@ -29,6 +29,7 @@ public class Bestilling implements Serializable {
     private Skjerm skjerm;
     private Tastatur tastatur;
     private Mus mus;
+    private double pris;
     private int bestillingsnummer;
     private LocalDate date;
 
@@ -47,6 +48,7 @@ public class Bestilling implements Serializable {
         this.mus = mus;
         this.bestillingsnummer = teller++;
         this.date = LocalDate.now();
+        setPris();
     }
 
     public Bruker getBruker() {
@@ -71,6 +73,7 @@ public class Bestilling implements Serializable {
 
     public void setHarddisk(Harddisk harddisk) {
         this.harddisk = harddisk;
+        setPris();
     }
 
     public Hovedkort getHovedkort() {
@@ -83,6 +86,7 @@ public class Bestilling implements Serializable {
 
     public void setHovedkort(Hovedkort hovedkort) {
         this.hovedkort = hovedkort;
+        setPris();
     }
 
     public Lydkort getLydkort() {
@@ -95,18 +99,20 @@ public class Bestilling implements Serializable {
 
     public void setLydkort(Lydkort lydkort) {
         this.lydkort = lydkort;
+        setPris();
     }
 
     public Skjermkort getSkjermkort() {
         return skjermkort;
     }
 
-    public String getSkjermKortT() {
+    public String getSkjermkortT() {
         return skjermkort.getVarekode();
     }
 
     public void setSkjermkort(Skjermkort skjermkort) {
         this.skjermkort = skjermkort;
+        setPris();
     }
 
     public Prosessor getProsessor() {
@@ -119,6 +125,7 @@ public class Bestilling implements Serializable {
 
     public void setProsessor(Prosessor prosessor) {
         this.prosessor = prosessor;
+        setPris();
     }
 
     public Minne getMinne() {
@@ -131,6 +138,7 @@ public class Bestilling implements Serializable {
 
     public void setMinne(Minne minne) {
         this.minne = minne;
+        setPris();
     }
 
     public Kabinett getKabinett() {
@@ -143,6 +151,7 @@ public class Bestilling implements Serializable {
 
     public void setKabinett(Kabinett kabinett) {
         this.kabinett = kabinett;
+        setPris();
     }
 
     public Skjerm getSkjerm() {
@@ -155,6 +164,7 @@ public class Bestilling implements Serializable {
 
     public void setSkjerm(Skjerm skjerm) {
         this.skjerm = skjerm;
+        setPris();
     }
 
     public Tastatur getTastatur() {
@@ -167,6 +177,7 @@ public class Bestilling implements Serializable {
 
     public void setTastatur(Tastatur tastatur) {
         this.tastatur = tastatur;
+        setPris();
     }
 
     public Mus getMus() {
@@ -179,13 +190,44 @@ public class Bestilling implements Serializable {
 
     public void setMus(Mus mus) {
         this.mus = mus;
+        setPris();
     }
 
     public int getBestillingsnummer() {
         return bestillingsnummer;
     }
 
+    public String getBestillingsnummerT() {
+        return String.valueOf(bestillingsnummer);
+    }
+
     public void setBestillingsnummer(int bestillingsnummer) {
         this.bestillingsnummer = bestillingsnummer;
+    }
+
+    public String getDatoT() {
+        return String.valueOf(date);
+    }
+
+    private void setPris() {
+        this.pris = this.harddisk.getPris() + this.hovedkort.getPris() + this.lydkort.getPris() + this.skjermkort.getPris() +
+                this.prosessor.getPris() + this.minne.getPris() + this.kabinett.getPris() + this.skjerm.getPris() +
+                this.tastatur.getPris() + this.mus.getPris();
+    }
+
+    public double getPris() {
+        return pris;
+    }
+
+    public String getPrisT() {
+        return String.valueOf(pris);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Din bestilling %s med %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, koster %skr ble registrert %s",
+                bestillingsnummer, harddisk.getNavn(), hovedkort.getNavn(), lydkort.getNavn(), skjermkort.getNavn(),
+                prosessor.getNavn(), minne.getNavn(), kabinett.getNavn(), skjerm.getNavn(), tastatur.getNavn(), mus.getNavn(),
+                getPrisT(), getDatoT());
     }
 }

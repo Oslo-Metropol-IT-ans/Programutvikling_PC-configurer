@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.TextFieldTableCell?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.BestillingshistorikkAdminController">
+   <children>
+      <TableView fx:id="tvBestillinger" editable="true" layoutY="65.0" prefHeight="587.0" prefWidth="1165.0">
+        <columns>
+            <TableColumn fx:id="tbBruker" prefWidth="83.2" text="Bruker">
+            </TableColumn>
+          <TableColumn fx:id="tbHarddisk" onEditCommit="#txtHarddiskEdit" prefWidth="83.2" text="Harddisk">
+              <cellValueFactory>
+                  <PropertyValueFactory property="txtData" />
+              </cellValueFactory>
+              <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+              </cellFactory>
+          </TableColumn>
+          <TableColumn fx:id="tbHovedkort" onEditCommit="#txtHovedkortEdit" prefWidth="83.2" text="Hovedkort">
+              <cellValueFactory>
+                  <PropertyValueFactory property="txtData" />
+              </cellValueFactory>
+              <cellFactory>
+                  <TextFieldTableCell fx:factory="forTableColumn" />
+              </cellFactory>
+          </TableColumn>
+            <TableColumn fx:id="bLydkort" onEditCommit="#txtLydkortEdit" prefWidth="83.2" text="Lydkort">
+                <cellValueFactory>
+                    <PropertyValueFactory property="txtData" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbSkjermkort" onEditCommit="#txtSkjermkortEdit" prefWidth="83.2" text="Skjermkort">
+                <cellValueFactory>
+                    <PropertyValueFactory property="txtData" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbProsessor" onEditCommit="#txtProsessorEdit" prefWidth="83.2" text="Prosessor">
+                <cellValueFactory>
+                    <PropertyValueFactory property="txtData" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbMinne" onEditCommit="#txtMinneEdit" prefWidth="83.2" text="Minne">
+                <cellValueFactory>
+                    <PropertyValueFactory property="txtData" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbKabinett" onEditCommit="#txtKabinettEdit" prefWidth="83.2" text="Kabinett">
+                <cellValueFactory>
+                    <PropertyValueFactory property="txtData" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbSkjerm" onEditCommit="#txtSkjermEdit" prefWidth="83.2" text="Skjerm">
+                <cellValueFactory>
+                    <PropertyValueFactory property="txtData" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbTastatur" onEditCommit="#txtTastaturEdit" prefWidth="83.2" text="Tastatur">
+                <cellValueFactory>
+                    <PropertyValueFactory property="txtData" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbMus" onEditCommit="#txtMusEdit" prefWidth="83.2" text="Mus">
+                <cellValueFactory>
+                    <PropertyValueFactory property="txtData" />
+                </cellValueFactory>
+                <cellFactory>
+                    <TextFieldTableCell fx:factory="forTableColumn" />
+                </cellFactory>
+            </TableColumn>
+            <TableColumn fx:id="tbDato" prefWidth="83.2" text="Dato" />
+            <TableColumn fx:id="tbOrdrenummer" prefWidth="83.2" text="Ordrenummer" />
+            <TableColumn fx:id="tbPris" prefWidth="83.2" text="Pris" />
+        </columns>
+      </TableView>
+      <Button layoutX="26.0" layoutY="665.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="496.0" layoutY="19.0" text="Aktive bestillinger">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSøk" layoutX="981.0" layoutY="20.0" onKeyTyped="#søk" promptText="Søk" />
+      <ChoiceBox fx:id="cbValg" layoutX="811.0" layoutY="20.0" prefWidth="150.0" />
+      <Button layoutX="1086.0" layoutY="666.0" mnemonicParsing="false" onAction="#slett" text="Slett">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="930.0" layoutY="666.0" mnemonicParsing="false" onAction="#vis" text="Vis bestilling">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

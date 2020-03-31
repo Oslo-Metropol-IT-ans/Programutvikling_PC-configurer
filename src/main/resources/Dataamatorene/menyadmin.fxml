@@ -7,6 +7,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
+<?import java.net.URL?>
 <AnchorPane fx:id="menyAdmin" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.MenyAdminController">
    <children>
       <VBox prefHeight="717.0" prefWidth="1164.0" spacing="40.0">
@@ -46,4 +48,7 @@
          </padding>
       </VBox>
    </children>
+   <stylesheets>
+      <URL value="@style.css" />
+   </stylesheets>
 </AnchorPane>

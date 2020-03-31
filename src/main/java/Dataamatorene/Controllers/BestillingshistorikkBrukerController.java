@@ -44,8 +44,8 @@ public class BestillingshistorikkBrukerController {
         String path;
 
         FileChooser fc = new FileChooser();
-
-        fc.setInitialDirectory(new File("/Users/NicolaiMolstad/Desktop"));
+        var test = System.getProperty("user.home") + "/Desktop";
+        fc.setInitialDirectory(new File(test));
         fc.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("TXT Files", "*.txt")
         );

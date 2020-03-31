@@ -22,6 +22,14 @@ public class Dialogs { // GUI feilmeldinger
         alert.showAndWait();
     }
 
+    public static boolean showErrorLukkDialog (String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Feil!");
+        alert.setContentText(content);
+        alert.showAndWait();
+        return true;
+    }
+
     public static void showSuccessDialog(String content) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Riktig!");

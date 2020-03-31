@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.NyBrukerController">
    <children>
       <VBox layoutX="66.0" layoutY="80.0" prefHeight="220.0" prefWidth="402.0">
@@ -45,4 +46,7 @@
       </Label>
       <Button layoutX="14.0" layoutY="359.0" mnemonicParsing="false" onAction="#TEST" text="TEST" />
    </children>
+   <stylesheets>
+      <URL value="@style.css" />
+   </stylesheets>
 </AnchorPane>

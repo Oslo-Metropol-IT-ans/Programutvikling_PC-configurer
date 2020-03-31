@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreBrukerController">
    <children>
       <TableView fx:id="tableView" editable="true" layoutX="66.0" layoutY="73.0" prefHeight="526.0" prefWidth="1009.0">
@@ -30,7 +31,7 @@
                 <TextFieldTableCell fx:factory="forTableColumn" />
             </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbRettigheter" onEditCommit="#txtRettigheterEdited" prefWidth="172.70025634765625" text="Rettigheter">
+          <TableColumn fx:id="tbRettigheter" onEditCommit="#txtRettigheterEdited" prefWidth="171.70025634765625" text="Rettigheter">
             <cellValueFactory>
                 <PropertyValueFactory property="txtData" />
             </cellValueFactory>
@@ -55,4 +56,7 @@
             <Font size="18.0" />
          </font></Button>
    </children>
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
 </AnchorPane>

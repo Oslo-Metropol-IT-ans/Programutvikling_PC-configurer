@@ -66,8 +66,9 @@ public class MenyAdminController {
     }
 
     private void threadOpenKomponentRegisterFails (WorkerStateEvent e){
-        Dialogs.showErrorDialog("Kunne ikke laste filer\nKontakt systemansvarlig");
-        menyAdmin.setDisable(false);
+        if (Dialogs.showErrorLukkDialog("Kunne ikke laste filer\nKontakt systemansvarlig")) {
+            System.exit(0);
+        }
     }
 
     @FXML

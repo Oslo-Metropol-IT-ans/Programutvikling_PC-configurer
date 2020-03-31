@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.BestillingshistorikkAdminController">
    <children>
       <TableView fx:id="tvBestillinger" editable="true" layoutY="65.0" prefHeight="587.0" prefWidth="1165.0">
@@ -125,4 +126,7 @@
          </font>
       </Button>
    </children>
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
 </AnchorPane>

@@ -7,6 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
+<?import java.net.URL?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.BestillingshistorikkBrukerController">
    <children>
       <ListView fx:id="lvBestillinger" layoutX="1.0" layoutY="102.0" prefHeight="536.0" prefWidth="567.0" />
@@ -31,4 +32,7 @@
          </font>
       </Button>
    </children>
+   <stylesheets>
+      <URL value="@style.css" />
+   </stylesheets>
 </AnchorPane>

@@ -41,8 +41,10 @@ public class MenyBrukerController {
     }
 
     private void threadOpenKomponentRegisterFails (WorkerStateEvent e){
-        Dialogs.showErrorDialog("Kunne ikke laste filer\nKontakt systemansvarlig");
-        menyBruker.setDisable(false);
+        if (Dialogs.showErrorLukkDialog("Det har skjedd en feil med bestillingssytemet\nKontakt butikken på " +
+                "tlf: 12345678")) {
+            System.exit(0);
+        }
     }
 
     @FXML

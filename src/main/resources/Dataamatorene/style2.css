@@ -1,6 +1,6 @@
 
 .button {
-    -fx-background-color: #044474;
+    -fx-background-color: #96b946;
     -fx-text-fill: white;
     -fx-border-width: 1px;
     -fx-border-color: black;
@@ -8,11 +8,11 @@
 }
 
 .button:hover {
-    -fx-background-color: #27bd;
+    -fx-background-color: #7FB96E;
 }
 
 .button:focused {
-    -fx-background-color: #27bd;
+    -fx-background-color: #7FB96E;
 }
 
 .root {

@@ -124,6 +124,9 @@ public class EndreKomponentController {
         tvSkjermkort.setItems(oSkjermkort);
         tvTastatur.setItems(oTastatur);
 
+        Harddisk.setOnSelectionChanged(event -> {
+            aktiv = "Harddisk";
+        });
 
         Hovedkort.setOnSelectionChanged(event -> {
             aktiv = "Hovedkort";
@@ -1245,70 +1248,70 @@ public class EndreKomponentController {
         if (aktiv.equalsIgnoreCase("Harddisk")) {
             if (tvHarddisk.getSelectionModel().getSelectedItem() != null) {
                 Harddisk h = tvHarddisk.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", h.toString());
+                Dialogs.showInformationDialog("Harddisk", h.toString());
             }
         }
 
         if (aktiv.equalsIgnoreCase("Hovedkort")) {
             if (tvHovedkort.getSelectionModel().getSelectedItem() != null) {
                 Hovedkort h = tvHovedkort.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", h.toString());
+                Dialogs.showInformationDialog("Hovedkort", h.toString());
             }
         }
 
         if (aktiv.equalsIgnoreCase("Lydkort")) {
             if (tvLydkort.getSelectionModel().getSelectedItem() != null) {
                 Lydkort l = tvLydkort.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", l.toString());
+                Dialogs.showInformationDialog("Lydkort", l.toString());
             }
         }
 
         if (aktiv.equalsIgnoreCase("Skjermkort")) {
             if (tvSkjermkort.getSelectionModel().getSelectedItem() != null) {
                 Skjermkort s = tvSkjermkort.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", s.toString());
+                Dialogs.showInformationDialog("Skjermkort", s.toString());
             }
         }
 
         if (aktiv.equalsIgnoreCase("Prosessor")) {
             if (tvProsessor.getSelectionModel().getSelectedItem() != null) {
                 Prosessor p = tvProsessor.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", p.toString());
+                Dialogs.showInformationDialog("Prosessor", p.toString());
             }
         }
 
         if (aktiv.equalsIgnoreCase("Minne")) {
             if (tvMinne.getSelectionModel().getSelectedItem() != null) {
                 Minne m = tvMinne.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", m.toString());
+                Dialogs.showInformationDialog("Minne", m.toString());
             }
         }
 
         if (aktiv.equalsIgnoreCase("Kabinett")) {
             if (tvHarddisk.getSelectionModel().getSelectedItem() != null) {
                 Kabinett k = tvKabinett.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", k.toString());
+                Dialogs.showInformationDialog("Kabinett", k.toString());
             }
         }
 
         if(aktiv.equalsIgnoreCase("Skjerm")) {
             if (tvSkjerm.getSelectionModel().getSelectedItem() != null) {
                 Skjerm s = tvSkjerm.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", s.toString());
+                Dialogs.showInformationDialog("Skjerm", s.toString());
             }
         }
 
         if (aktiv.equalsIgnoreCase("Tastatur")) {
             if (tvTastatur.getSelectionModel().getSelectedItem() != null) {
                 Tastatur t = tvTastatur.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", t.toString());
+                Dialogs.showInformationDialog("Tastatur", t.toString());
             }
         }
 
         if(aktiv.equalsIgnoreCase("Mus")) {
             if (tvMus.getSelectionModel().getSelectedItem() != null) {
                 Mus m = tvMus.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("TEST", m.toString());
+                Dialogs.showInformationDialog("Mus", m.toString());
             }
         }
     }

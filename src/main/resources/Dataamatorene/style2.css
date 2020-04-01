@@ -68,7 +68,6 @@
 }
 
 .table-view .column-header-background{
-    //-fx-background-color: linear-gradient(grey 0%, #424141 100%);
     -fx-text-alignment: center;
     -fx-background-color: #424242;
 }

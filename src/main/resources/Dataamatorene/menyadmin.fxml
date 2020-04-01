@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="menyAdmin" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.MenyAdminController">
+<AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.MenyAdminController">
    <children>
-      <VBox layoutY="2.0" prefHeight="578.0" prefWidth="1164.0" spacing="40.0">
+      <VBox fx:id="menyAdmin" layoutY="2.0" prefHeight="578.0" prefWidth="1164.0" spacing="40.0">
          <children>
             <Label fx:id="lblVelkommen" prefHeight="17.0" prefWidth="559.0" textAlignment="CENTER">
                <font>
@@ -48,7 +48,7 @@
             <Insets left="40.0" top="20.0" />
          </padding>
       </VBox>
-      <VBox alignment="BOTTOM_LEFT" layoutX="20.0" layoutY="598.0" prefHeight="119.0" prefWidth="365.0" spacing="20.0">
+      <VBox alignment="CENTER" layoutX="482.0" prefHeight="720.0" spacing="20.0">
          <children>
             <Label fx:id="lblTilbakemelding" prefHeight="23.0" prefWidth="189.0">
                <font>
@@ -57,9 +57,6 @@
             </Label>
             <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="200.0" progress="0.0" />
          </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" top="20.0" />
-         </padding>
       </VBox>
    </children>
    <stylesheets>

@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
@@ -24,7 +25,7 @@ public class MenyAdminController {
     ThreadOpenKomponentRegister2 threadOpenKomponentRegister;
 
     @FXML
-    private AnchorPane menyAdmin;
+    private VBox menyAdmin;
 
     @FXML
     private Label lblVelkommen;
@@ -42,7 +43,7 @@ public class MenyAdminController {
 
         if (!KomponentRegister.isLasta()){
             threadOpenKomponentRegister = new ThreadOpenKomponentRegister2();
-            menyAdmin.setDisable(true);
+            menyAdmin.setVisible(false);
             progressBar.setVisible(true);
             progressBar.progressProperty().bind(threadOpenKomponentRegister.progressProperty());
             threadOpenKomponentRegister.setOnSucceeded(this::threadOpenKomponentRegisterDone);
@@ -61,7 +62,7 @@ public class MenyAdminController {
 
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
         Dialogs.showSuccessDialog("Alle filer er åpnet");
-        menyAdmin.setDisable(false);
+        menyAdmin.setVisible(true);
         progressBar.setVisible(false);
         lblTilbakemelding.setText("");
         KomponentRegister.setLasta(true);

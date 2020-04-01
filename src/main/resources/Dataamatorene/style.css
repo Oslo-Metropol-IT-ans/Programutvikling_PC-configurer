@@ -35,6 +35,10 @@
     
 }
 
+.button {
+    -fx-min-width: 180px;
+}
+
 
 
 

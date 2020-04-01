@@ -135,4 +135,14 @@ public class KomponentRegister {
     public static void setTastaturArrayList(ArrayList<Tastatur> tastaturArrayList1) {
         tastaturArrayList = tastaturArrayList1;
     }
+
+    private static boolean lasta = false;
+
+    public static void setLasta(boolean b) {
+        lasta = b;
+    }
+
+    public static boolean isLasta() {
+        return lasta;
+    }
 }

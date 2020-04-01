@@ -31,7 +31,7 @@
                 <TextFieldTableCell fx:factory="forTableColumn" />
             </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbRettigheter" onEditCommit="#txtRettigheterEdited" prefWidth="171.70025634765625" text="Rettigheter">
+          <TableColumn fx:id="tbRettigheter" onEditCommit="#txtRettigheterEdited" prefWidth="170.70025634765625" text="Rettigheter">
             <cellValueFactory>
                 <PropertyValueFactory property="txtData" />
             </cellValueFactory>

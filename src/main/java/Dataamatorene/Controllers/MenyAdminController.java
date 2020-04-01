@@ -3,6 +3,7 @@ package Dataamatorene.Controllers;
 import Dataamatorene.App;
 import Dataamatorene.Bestilling.Bestilling;
 import Dataamatorene.Brukere.BrukerRegister;
+import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Tasks.ThreadOpenEndreKomponent;
 import Dataamatorene.Tasks.ThreadOpenKomponentRegister;
@@ -17,8 +18,6 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class MenyAdminController {
-
-    static boolean første = true;
 
 
     ThreadOpenLagKomponent threadOpenLagKomponent;
@@ -40,7 +39,7 @@ public class MenyAdminController {
         lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getBrukernavn()));
         menyAdmin.setDisable(false);
 
-        if (første){
+        if (!KomponentRegister.isLasta()){
             threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
             menyAdmin.setDisable(true);
             threadOpenKomponentRegister.setOnSucceeded(this::threadOpenKomponentRegisterDone);
@@ -51,7 +50,7 @@ public class MenyAdminController {
             th.start();
         }
 
-        if (!første) {
+        if (KomponentRegister.isLasta()) {
             System.out.println(Bestilling.getTeller());
         }
 
@@ -61,7 +60,7 @@ public class MenyAdminController {
         Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyAdmin.setDisable(false);
         lblTilbakemelding.setText("");
-        første = false;
+        KomponentRegister.setLasta(true);
         System.out.println(Bestilling.getTeller());
     }
 
@@ -134,6 +133,15 @@ public class MenyAdminController {
             App.setRoot("login");
         } catch (IOException IOE){
             IOE.printStackTrace();
+        }
+    }
+
+    @FXML
+    void brukerside(ActionEvent event) {
+        try {
+            App.setRoot("menybruker");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

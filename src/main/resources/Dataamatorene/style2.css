@@ -1,4 +1,25 @@
+.button {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 1 3 0, 0 2 4 0, 0 3 5 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #6a7d9e 0%, #335d9f 100%),
+            #7ea3d5,
+            #98b9df,
+            radial-gradient(center 50% 50%, radius 100%, #b3d2f7, #98b9df);
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.75) , 4,0,2,2 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+.button:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #6a7d9e 0%, #335d9f 100%),
+            #7ea3d5,
+            #98b9df,
+            radial-gradient(center 50% 50%, radius 100%, #b8daff, #add4ff);
+}
 
+/*
 .button {
     -fx-background-color: #96b946;
     -fx-text-fill: white;
@@ -14,6 +35,8 @@
 .button:focused {
     -fx-background-color: #7FB96E;
 }
+
+ */
 
 .root {
     -fx-background-color: #212121;

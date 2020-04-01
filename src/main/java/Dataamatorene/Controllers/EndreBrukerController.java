@@ -62,6 +62,7 @@ public class EndreBrukerController {
     private void txtPasswordEdited(TableColumn.CellEditEvent<Bruker, String> event) {
         try{
             event.getRowValue().setPassord(BrukerValidering.sjekkPassord(event.getNewValue()));
+            //event.getRowValue().setPassord(event.getNewValue());
             lagre();
         }catch (InvalidPasswordException INE){
             Dialogs.showErrorDialog("Ugyldig passord!",INE.getMessage());

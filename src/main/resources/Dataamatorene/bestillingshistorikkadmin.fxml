@@ -16,7 +16,7 @@
    <children>
       <TableView fx:id="tvBestillinger" editable="true" layoutY="65.0" prefHeight="587.0" prefWidth="1165.0">
         <columns>
-            <TableColumn fx:id="tbBruker" prefWidth="83.2" text="Bruker">
+            <TableColumn fx:id="tbBruker" prefWidth="82.2" text="Bruker">
             </TableColumn>
           <TableColumn fx:id="tbHarddisk" onEditCommit="#txtHarddiskEdit" prefWidth="83.2" text="Harddisk">
               <cellValueFactory>
@@ -26,7 +26,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
               </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbHovedkort" onEditCommit="#txtHovedkortEdit" prefWidth="83.2" text="Hovedkort">
+          <TableColumn fx:id="tbHovedkort" onEditCommit="#txtHovedkortEdit" prefWidth="82.2" text="Hovedkort">
               <cellValueFactory>
                   <PropertyValueFactory property="txtData" />
               </cellValueFactory>
@@ -42,7 +42,7 @@
                     <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
-            <TableColumn fx:id="tbSkjermkort" onEditCommit="#txtSkjermkortEdit" prefWidth="83.2" text="Skjermkort">
+            <TableColumn fx:id="tbSkjermkort" onEditCommit="#txtSkjermkortEdit" prefWidth="82.2" text="Skjermkort">
                 <cellValueFactory>
                     <PropertyValueFactory property="txtData" />
                 </cellValueFactory>
@@ -58,7 +58,7 @@
                     <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
-            <TableColumn fx:id="tbMinne" onEditCommit="#txtMinneEdit" prefWidth="83.2" text="Minne">
+            <TableColumn fx:id="tbMinne" onEditCommit="#txtMinneEdit" prefWidth="82.2" text="Minne">
                 <cellValueFactory>
                     <PropertyValueFactory property="txtData" />
                 </cellValueFactory>
@@ -74,7 +74,7 @@
                     <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
-            <TableColumn fx:id="tbSkjerm" onEditCommit="#txtSkjermEdit" prefWidth="83.2" text="Skjerm">
+            <TableColumn fx:id="tbSkjerm" onEditCommit="#txtSkjermEdit" prefWidth="82.2" text="Skjerm">
                 <cellValueFactory>
                     <PropertyValueFactory property="txtData" />
                 </cellValueFactory>
@@ -90,7 +90,7 @@
                     <TextFieldTableCell fx:factory="forTableColumn" />
                 </cellFactory>
             </TableColumn>
-            <TableColumn fx:id="tbMus" onEditCommit="#txtMusEdit" prefWidth="83.2" text="Mus">
+            <TableColumn fx:id="tbMus" onEditCommit="#txtMusEdit" prefWidth="82.2" text="Mus">
                 <cellValueFactory>
                     <PropertyValueFactory property="txtData" />
                 </cellValueFactory>

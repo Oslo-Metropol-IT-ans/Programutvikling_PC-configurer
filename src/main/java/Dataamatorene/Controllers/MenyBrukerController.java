@@ -2,11 +2,13 @@ package Dataamatorene.Controllers;
 
 import Dataamatorene.App;
 import Dataamatorene.Brukere.BrukerRegister;
+import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Tasks.ThreadOpenKomponentRegister;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -16,12 +18,14 @@ public class MenyBrukerController {
 
     ThreadOpenKomponentRegister threadOpenKomponentRegister;
 
-    private static boolean første = true;
-
     public void initialize() {
         lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getBrukernavn()));
 
-        if (første){
+        if (BrukerRegister.getAktivBruker().getRettigheter().equalsIgnoreCase("Admin")) {
+            btnAdmin.setVisible(true);
+        } else btnAdmin.setVisible(false);
+
+        if (!KomponentRegister.isLasta()){
             threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
             menyBruker.setDisable(true);
             threadOpenKomponentRegister.setOnSucceeded(this::threadOpenKomponentRegisterDone);
@@ -37,7 +41,7 @@ public class MenyBrukerController {
         Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyBruker.setDisable(false);
         lblTilbakemelding.setText("");
-        første = false;
+        KomponentRegister.setLasta(true);
     }
 
     private void threadOpenKomponentRegisterFails (WorkerStateEvent e){
@@ -69,6 +73,18 @@ public class MenyBrukerController {
     void nyBestiliing(ActionEvent event) {
         try {
             App.setRoot("nybestilling");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private Button btnAdmin;
+
+    @FXML
+    void admin(ActionEvent event) {
+        try {
+            App.setRoot("menyadmin");
         } catch (IOException e) {
             e.printStackTrace();
         }

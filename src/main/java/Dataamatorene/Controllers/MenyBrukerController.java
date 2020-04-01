@@ -4,19 +4,23 @@ import Dataamatorene.App;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Dialogs;
-import Dataamatorene.Tasks.ThreadOpenKomponentRegister;
+import Dataamatorene.Tasks.ThreadOpenKomponentRegister2;
+import Dataamatorene.Tasks.ThreadOpenNewPage;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class MenyBrukerController {
 
-    ThreadOpenKomponentRegister threadOpenKomponentRegister;
+    ThreadOpenKomponentRegister2 threadOpenKomponentRegister;
+
+    ThreadOpenNewPage threadOpenNewPage;
 
     public void initialize() {
         lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getBrukernavn()));
@@ -25,12 +29,16 @@ public class MenyBrukerController {
             btnAdmin.setVisible(true);
         } else btnAdmin.setVisible(false);
 
+        progressBar.setVisible(false);
+
         if (!KomponentRegister.isLasta()){
-            threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
+            threadOpenKomponentRegister = new ThreadOpenKomponentRegister2();
             menyBruker.setDisable(true);
             threadOpenKomponentRegister.setOnSucceeded(this::threadOpenKomponentRegisterDone);
             threadOpenKomponentRegister.setOnFailed(this::threadOpenKomponentRegisterFails);
             lblTilbakemelding.setText("Venligst vent...");
+            progressBar.setVisible(true);
+            progressBar.progressProperty().bind(threadOpenKomponentRegister.progressProperty());
             Thread th = new Thread(threadOpenKomponentRegister);
             th.setDaemon(true);
             th.start();
@@ -40,6 +48,7 @@ public class MenyBrukerController {
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
         Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyBruker.setDisable(false);
+        progressBar.setVisible(false);
         lblTilbakemelding.setText("");
         KomponentRegister.setLasta(true);
     }
@@ -61,21 +70,42 @@ public class MenyBrukerController {
     private Label lblTilbakemelding;
 
     @FXML
+    private ProgressBar progressBar;
+
+    @FXML
     void mineBestillinger(ActionEvent event) {
-        try {
-            App.setRoot("bestillingshistorikkbruker");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        threadOpenNewPage = new ThreadOpenNewPage("bestillingshistorikkbruker");
+        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
+        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
+        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
+        Thread th = new Thread(threadOpenNewPage);
+        th.setDaemon(true);
+        th.start();
     }
 
     @FXML
     void nyBestiliing(ActionEvent event) {
-        try {
-            App.setRoot("nybestilling");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        threadOpenNewPage = new ThreadOpenNewPage("nybestilling");
+        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
+        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
+        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
+        Thread th = new Thread(threadOpenNewPage);
+        th.setDaemon(true);
+        th.start();
+    }
+
+    private void threadOpenPageDone(WorkerStateEvent e){
+        menyBruker.setDisable(false);
+    }
+
+    private void threadOpenPageRunning(WorkerStateEvent e) {
+        lblTilbakemelding.setText("Venligst vent...");
+        menyBruker.setDisable(true);
+    }
+
+    private void threadOpenPageFailes(WorkerStateEvent e){
+        menyBruker.setDisable(false);
+        lblTilbakemelding.setText("Det har skjedd en feil");
     }
 
     @FXML

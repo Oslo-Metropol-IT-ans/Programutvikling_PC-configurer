@@ -7,7 +7,7 @@ import Dataamatorene.Exceptions.InvalidVarekodeException;
 public class KomponentValidering {
 
     public static String navnValidering (String s) {
-        if (s.matches("[A-Z][a-zA-Z \\-0-9]+")) {
+        if (s.matches("[A-Z][a-zøæåA-ZÆØÅ \\-0-9./,]+")) {
             return s;
         } else throw new InvalidComponentAttributeException("Ugyldig navn");
     }

@@ -4,13 +4,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="menyBruker" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.MenyBrukerController">
    <children>
-      <VBox prefHeight="718.0" prefWidth="1162.0" spacing="40.0">
+      <VBox layoutX="2.0" layoutY="1.0" prefHeight="517.0" prefWidth="1162.0" spacing="40.0">
          <padding>
             <Insets left="40.0" top="20.0" />
          </padding>
@@ -33,16 +34,25 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Label fx:id="lblTilbakemelding" prefHeight="18.0" prefWidth="452.0">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
             <Button fx:id="btnAdmin" mnemonicParsing="false" onAction="#admin" text="Adminsiden">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
          </children>
+      </VBox>
+      <VBox alignment="BOTTOM_LEFT" layoutX="18.0" layoutY="505.0" prefHeight="200.0" prefWidth="375.0" spacing="30.0">
+         <children>
+            <Label fx:id="lblTilbakemelding" prefHeight="23.0" prefWidth="189.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" top="20.0" />
+         </padding>
       </VBox>
    </children>
    <stylesheets>

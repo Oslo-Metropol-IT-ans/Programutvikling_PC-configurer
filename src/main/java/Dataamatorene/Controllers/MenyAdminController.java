@@ -5,14 +5,13 @@ import Dataamatorene.Bestilling.Bestilling;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Dialogs;
-import Dataamatorene.Tasks.ThreadOpenEndreKomponent;
-import Dataamatorene.Tasks.ThreadOpenKomponentRegister;
-import Dataamatorene.Tasks.ThreadOpenLagKomponent;
+import Dataamatorene.Tasks.*;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -20,11 +19,9 @@ import java.io.IOException;
 public class MenyAdminController {
 
 
-    ThreadOpenLagKomponent threadOpenLagKomponent;
+    ThreadOpenNewPage threadOpenNewPage;
 
-    ThreadOpenEndreKomponent threadOpenEndreKomponent;
-
-    ThreadOpenKomponentRegister threadOpenKomponentRegister;
+    ThreadOpenKomponentRegister2 threadOpenKomponentRegister;
 
     @FXML
     private AnchorPane menyAdmin;
@@ -35,13 +32,19 @@ public class MenyAdminController {
     @FXML
     private Label lblTilbakemelding;
 
+    @FXML
+    private ProgressBar progressBar;
+
     public void initialize() {
         lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getBrukernavn()));
         menyAdmin.setDisable(false);
+        progressBar.setVisible(false);
 
         if (!KomponentRegister.isLasta()){
-            threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
+            threadOpenKomponentRegister = new ThreadOpenKomponentRegister2();
             menyAdmin.setDisable(true);
+            progressBar.setVisible(true);
+            progressBar.progressProperty().bind(threadOpenKomponentRegister.progressProperty());
             threadOpenKomponentRegister.setOnSucceeded(this::threadOpenKomponentRegisterDone);
             threadOpenKomponentRegister.setOnFailed(this::threadOpenKomponentRegisterFails);
             lblTilbakemelding.setText("Venligst vent...");
@@ -59,6 +62,7 @@ public class MenyAdminController {
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
         Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyAdmin.setDisable(false);
+        progressBar.setVisible(false);
         lblTilbakemelding.setText("");
         KomponentRegister.setLasta(true);
         System.out.println(Bestilling.getTeller());
@@ -72,45 +76,48 @@ public class MenyAdminController {
 
     @FXML
     void endreBrukere(ActionEvent event) {
-
-        try {
-            App.setRoot("endrebruker");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        threadOpenNewPage = new ThreadOpenNewPage("endrebruker");
+        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
+        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
+        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
+        Thread th = new Thread(threadOpenNewPage);
+        th.setDaemon(true);
+        th.start();
 
     }
-
-    Alert dialogs = new Alert(Alert.AlertType.INFORMATION);
 
     @FXML
     void leggTil(ActionEvent event) {
-        threadOpenLagKomponent = new ThreadOpenLagKomponent();
-        menyAdmin.setDisable(true);
-        threadOpenLagKomponent.setOnSucceeded(this::threadOpenDone);
-        lblTilbakemelding.setText("Venligst vent...");
-        Thread th = new Thread(threadOpenLagKomponent);
+        threadOpenNewPage = new ThreadOpenNewPage("lagkomponent");
+        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
+        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
+        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
+        Thread th = new Thread(threadOpenNewPage);
         th.setDaemon(true);
         th.start();
-    }
-
-    private void threadOpenDone(WorkerStateEvent e){
-
     }
 
     @FXML
     void endreKompnenter(ActionEvent event) {
-        threadOpenEndreKomponent = new ThreadOpenEndreKomponent();
-        menyAdmin.setDisable(true);
-        threadOpenEndreKomponent.setOnSucceeded(this::threadOpenDone);
-        threadOpenEndreKomponent.setOnFailed(this::threadReadFailes);
-        lblTilbakemelding.setText("Venligst vent...");
-        Thread th = new Thread(threadOpenEndreKomponent);
+        threadOpenNewPage = new ThreadOpenNewPage("endrekomponent");
+        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
+        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
+        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
+        Thread th = new Thread(threadOpenNewPage);
         th.setDaemon(true);
         th.start();
     }
 
-    private void threadReadFailes(WorkerStateEvent e){
+    private void threadOpenPageDone(WorkerStateEvent e){
+
+    }
+
+    private void threadOpenPageRunning(WorkerStateEvent e) {
+        lblTilbakemelding.setText("Venligst vent...");
+        menyAdmin.setDisable(true);
+    }
+
+    private void threadOpenPageFailes(WorkerStateEvent e){
         lblTilbakemelding.setText("Det har skjedd en feil");
         menyAdmin.setDisable(false);
     }
@@ -118,12 +125,13 @@ public class MenyAdminController {
 
     @FXML
     void seBestillinger(ActionEvent event) {
-
-        try {
-            App.setRoot("bestillingshistorikkadmin");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        threadOpenNewPage = new ThreadOpenNewPage("bestillingshistorikkadmin");
+        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
+        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
+        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
+        Thread th = new Thread(threadOpenNewPage);
+        th.setDaemon(true);
+        th.start();
 
     }
 

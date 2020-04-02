@@ -56,8 +56,6 @@ public class BestillingshistorikkBrukerController {
             selectedFile = fc.showSaveDialog(null);
         } catch (Exception e) {
             FileChooser fc = new FileChooser();
-            var test = System.getProperty("user.home") + "/Desktop";
-            //fc.setInitialDirectory(new File(test));
             fc.getExtensionFilters().addAll(
                     new FileChooser.ExtensionFilter("TXT Files", "*.txt")
             );

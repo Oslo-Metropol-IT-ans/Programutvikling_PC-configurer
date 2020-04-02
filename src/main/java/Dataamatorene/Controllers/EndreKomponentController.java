@@ -14,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
@@ -163,6 +164,7 @@ public class EndreKomponentController {
         Mus.setOnSelectionChanged(event -> {
             aktiv = "Mus";
         });
+
     }
 
     @FXML
@@ -381,7 +383,7 @@ public class EndreKomponentController {
     @FXML
     private void txtLydkortFrekvensEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
         try{
-            event.getRowValue().setFrekvens(KomponentValidering.frekvensValidering(event.getNewValue()));
+            event.getRowValue().setFrekvens(KomponentValidering.frekvensValideringKHz(event.getNewValue()));
             LagreKomponent.lagreLydkort();
         }catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -535,7 +537,7 @@ public class EndreKomponentController {
     @FXML
     private void txtProsessorFrekvensEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
-            event.getRowValue().setFrekvens(KomponentValidering.frekvensValidering(event.getNewValue()));
+            event.getRowValue().setFrekvens(KomponentValidering.frekvensValideringGHz(event.getNewValue()));
             LagreKomponent.lagreProsessor();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -626,7 +628,7 @@ public class EndreKomponentController {
     @FXML
     private void txtMinneFrekvensEdit(TableColumn.CellEditEvent<Minne, String> event) {
         try {
-            event.getRowValue().setFrekvens(KomponentValidering.frekvensValidering(event.getNewValue()));
+            event.getRowValue().setFrekvens(KomponentValidering.frekvensValideringGHz(event.getNewValue()));
             LagreKomponent.lagreMinne();
         } catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig frekvens!",e.getMessage());

@@ -6,13 +6,111 @@ import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Exceptions.AlreadyTakenVarekodeException;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.input.KeyCode;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
 public class LagKomponentController {
+
+    public void initialize() {
+
+        TextField[] harddiskfelt = {txtVareHarddisk, txtNavnHarddisk, txtPrisHarddisk, txtLagreHarddisk};
+        for(TextField t:harddiskfelt){
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerHarddisk(keyEvent);
+                }
+            });
+        }
+
+        TextField[] hovedkortfelt = {txtVareHovedkort, txtNavnHovedkort, txtPrisHovedkort, txtPorterHovedkort};
+        for (TextField t:hovedkortfelt) {
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerHovedkort(keyEvent);
+                }
+            });
+        }
+
+        TextField[] lydkortfelt = {txtVareLydkort, txtNavnLydkort, txtPrisLydkort, txtFrekvensLydkort};
+        for (TextField t:lydkortfelt) {
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerLydkort(keyEvent);
+                }
+            });
+        }
+
+        TextField[] skjermkortfelt = {txtVareSkjermkort, txtNavnSkjermkort, txtPrisSkjermkort, txtOppløsningSkjermkort};
+        for (TextField t:skjermkortfelt) {
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerSkjermkort(keyEvent);
+                }
+            });
+        }
+
+        TextField[] prosessorfelt = {txtVareProsessor, txtNavnProsessor, txtPrisProsessor, txtKjernerProsessor,
+                txtFrekvensProsessor, txtTråderProsessor};
+        for (TextField t:prosessorfelt) {
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerProsessor(keyEvent);
+                }
+            });
+        }
+
+        TextField[] minnefelt = {txtVareMinne, txtNavnMinne, txtPrisMinne, txtFrekvensMinne};
+        for (TextField t:minnefelt) {
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerMinne(keyEvent);
+                }
+            });
+        }
+
+        TextField[] kabinettfelt = {txtVareKabinett, txtNavnKabinett, txtPrisKabinett, txtStørelseKabinett, txtVifterKabientt};
+        for (TextField t:kabinettfelt) {
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerKabinett(keyEvent);
+                }
+            });
+        }
+
+        TextField[] skjermfelt = {txtVareSkjerm, txtNavnSkjerm, txtPrisSkjerm, txtStørrelseSkjerm, txtOppløsningSkjerm};
+        for (TextField t:skjermfelt) {
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerSkjerm(keyEvent);
+                }
+            });
+        }
+
+        TextField[] tastaturfelt = {txtVareTastatur, txtNavnTastatur, txtPrisTastatur, txtSpråkTastatur};
+        for (TextField t:tastaturfelt) {
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerTastatur(keyEvent);
+                }
+            });
+        }
+
+        TextField[] musfelt = {txtVareMus, txtNavnMus, txtPrisMus, txtKnapperMus};
+        for (TextField t:musfelt) {
+            t.setOnKeyTyped(keyEvent -> {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    registrerMus(keyEvent);
+                }
+            });
+        }
+        
+    }
 
     @FXML
     private TextField txtVareHarddisk;
@@ -162,7 +260,7 @@ public class LagKomponentController {
     private ToggleButton tbTrådløsMus;
 
     @FXML
-    void registrerHarddisk(ActionEvent event) {
+    void registrerHarddisk(Event event) {
 
         try {
             String navn = KomponentValidering.navnValidering(txtNavnHarddisk.getText());
@@ -191,7 +289,7 @@ public class LagKomponentController {
     }
 
     @FXML
-    void registrerHovedkort(ActionEvent event) {
+    void registrerHovedkort(Event event) {
 
         try {
             String navn = KomponentValidering.navnValidering(txtNavnHovedkort.getText());
@@ -220,7 +318,7 @@ public class LagKomponentController {
     }
 
     @FXML
-    void registrerKabinett(ActionEvent event) {
+    void registrerKabinett(Event event) {
 
         try{
             String navn = KomponentValidering.navnValidering(txtNavnKabinett.getText());
@@ -251,7 +349,7 @@ public class LagKomponentController {
     }
 
     @FXML
-    void registrerLydkort(ActionEvent event) {
+    void registrerLydkort(Event event) {
 
         try{
             String navn = KomponentValidering.navnValidering(txtNavnLydkort.getText());
@@ -259,7 +357,7 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisLydkort.getText());
             boolean integrert = tbIntegrertLydkort.isSelected();
-            double frekvens = KomponentValidering.frekvensValidering(txtFrekvensLydkort.getText());
+            double frekvens = KomponentValidering.frekvensValideringKHz(txtFrekvensLydkort.getText());
 
             Lydkort l = new Lydkort(navn, pris, varekode, integrert, frekvens);
             KomponentRegister.addLydkort(l);
@@ -283,7 +381,7 @@ public class LagKomponentController {
     }
 
     @FXML
-    void registrerMinne(ActionEvent event) {
+    void registrerMinne(Event event) {
 
         try{
             String navn = KomponentValidering.navnValidering(txtNavnMinne.getText());
@@ -291,7 +389,7 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisMinne.getText());
             int ram = KomponentValidering.ramValidering(txtRamMinne.getText());
-            double frekvens = KomponentValidering.frekvensValidering(txtFrekvensMinne.getText());
+            double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensMinne.getText());
 
             Minne m = new Minne(navn, pris, varekode, ram, frekvens);
             KomponentRegister.addMinne(m);
@@ -314,7 +412,7 @@ public class LagKomponentController {
     }
 
     @FXML
-    void registrerMus(ActionEvent event) {
+    void registrerMus(Event event) {
 
         try{
             String navn = KomponentValidering.navnValidering(txtNavnMus.getText());
@@ -345,7 +443,7 @@ public class LagKomponentController {
     }
 
     @FXML
-    void registrerProsessor(ActionEvent event) {
+    void registrerProsessor(Event event) {
 
         try{
             String navn = KomponentValidering.navnValidering(txtNavnProsessor.getText());
@@ -353,7 +451,7 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisProsessor.getText());
             int kjerner = KomponentValidering.kjernerValidering(txtKjernerProsessor.getText());
-            double frekvens = KomponentValidering.frekvensValidering(txtFrekvensProsessor.getText());
+            double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensProsessor.getText());
             int tråder = KomponentValidering.tråderValidering(txtTråderProsessor.getText());
 
             Prosessor p = new Prosessor(navn, pris, varekode, kjerner, frekvens, tråder);
@@ -378,7 +476,7 @@ public class LagKomponentController {
     }
 
     @FXML
-    void registrerSkjerm(ActionEvent event) {
+    void registrerSkjerm(Event event) {
 
         try {
             String navn = KomponentValidering.navnValidering(txtNavnSkjerm.getText());
@@ -410,7 +508,7 @@ public class LagKomponentController {
     }
 
     @FXML
-    void registrerSkjermkort(ActionEvent event) {
+    void registrerSkjermkort(Event event) {
 
         try{
             String navn = KomponentValidering.navnValidering(txtNavnSkjermkort.getText());
@@ -442,7 +540,7 @@ public class LagKomponentController {
     }
 
     @FXML
-    void registrerTastatur(ActionEvent event) {
+    void registrerTastatur(Event event) {
 
         try{
             String navn = KomponentValidering.navnValidering(txtNavnTastatur.getText());

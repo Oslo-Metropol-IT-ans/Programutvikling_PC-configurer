@@ -420,7 +420,7 @@
                                                       <Insets left="20.0" />
                                                    </padding>
                                                    <children>
-                                                      <Label text="Størelse:" />
+                                                      <Label text="Størelse (bxdxh):" />
                                                       <TextField fx:id="txtStørelseKabinett" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>

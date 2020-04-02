@@ -61,8 +61,14 @@ public class KomponentValidering {
         } else throw new InvalidComponentAttributeException("Ugyldig antall vifter");
     }
 
-    public static double frekvensValidering (String s) {
+    public static double frekvensValideringGHz (String s) {
         if (s.matches("[1-9]{1}[.][0-9]{1}")) {
+            return Double.parseDouble(s);
+        } else throw new InvalidComponentAttributeException("Ugyldig frekvens");
+    }
+
+    public static double frekvensValideringKHz (String s) {
+        if (s.matches("[0-9]{3}")) {
             return Double.parseDouble(s);
         } else throw new InvalidComponentAttributeException("Ugyldig frekvens");
     }

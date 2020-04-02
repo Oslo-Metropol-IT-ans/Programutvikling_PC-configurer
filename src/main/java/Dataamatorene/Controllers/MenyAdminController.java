@@ -69,7 +69,8 @@ public class MenyAdminController {
         menyAdmin.setVisible(true);
         progressBar.setVisible(false);
         lblTilbakemelding.setText("");
-        lblUpdate.setVisible(false);
+        lblUpdate.textProperty().unbind();
+        lblUpdate.setText("");
         KomponentRegister.setLasta(true);
         System.out.println(Bestilling.getTeller());
     }

@@ -21,7 +21,7 @@ public class LagKomponentController {
 
         TextField[] harddiskfelt = {txtVareHarddisk, txtNavnHarddisk, txtPrisHarddisk, txtLagreHarddisk};
         for(TextField t:harddiskfelt){
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerHarddisk(keyEvent);
                 }
@@ -30,7 +30,7 @@ public class LagKomponentController {
 
         TextField[] hovedkortfelt = {txtVareHovedkort, txtNavnHovedkort, txtPrisHovedkort, txtPorterHovedkort};
         for (TextField t:hovedkortfelt) {
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerHovedkort(keyEvent);
                 }
@@ -39,7 +39,7 @@ public class LagKomponentController {
 
         TextField[] lydkortfelt = {txtVareLydkort, txtNavnLydkort, txtPrisLydkort, txtFrekvensLydkort};
         for (TextField t:lydkortfelt) {
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerLydkort(keyEvent);
                 }
@@ -48,7 +48,7 @@ public class LagKomponentController {
 
         TextField[] skjermkortfelt = {txtVareSkjermkort, txtNavnSkjermkort, txtPrisSkjermkort, txtOppløsningSkjermkort};
         for (TextField t:skjermkortfelt) {
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerSkjermkort(keyEvent);
                 }
@@ -58,7 +58,7 @@ public class LagKomponentController {
         TextField[] prosessorfelt = {txtVareProsessor, txtNavnProsessor, txtPrisProsessor, txtKjernerProsessor,
                 txtFrekvensProsessor, txtTråderProsessor};
         for (TextField t:prosessorfelt) {
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerProsessor(keyEvent);
                 }
@@ -67,7 +67,7 @@ public class LagKomponentController {
 
         TextField[] minnefelt = {txtVareMinne, txtNavnMinne, txtPrisMinne, txtFrekvensMinne};
         for (TextField t:minnefelt) {
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerMinne(keyEvent);
                 }
@@ -76,7 +76,7 @@ public class LagKomponentController {
 
         TextField[] kabinettfelt = {txtVareKabinett, txtNavnKabinett, txtPrisKabinett, txtStørelseKabinett, txtVifterKabientt};
         for (TextField t:kabinettfelt) {
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerKabinett(keyEvent);
                 }
@@ -85,7 +85,7 @@ public class LagKomponentController {
 
         TextField[] skjermfelt = {txtVareSkjerm, txtNavnSkjerm, txtPrisSkjerm, txtStørrelseSkjerm, txtOppløsningSkjerm};
         for (TextField t:skjermfelt) {
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerSkjerm(keyEvent);
                 }
@@ -94,7 +94,7 @@ public class LagKomponentController {
 
         TextField[] tastaturfelt = {txtVareTastatur, txtNavnTastatur, txtPrisTastatur, txtSpråkTastatur};
         for (TextField t:tastaturfelt) {
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerTastatur(keyEvent);
                 }
@@ -103,7 +103,7 @@ public class LagKomponentController {
 
         TextField[] musfelt = {txtVareMus, txtNavnMus, txtPrisMus, txtKnapperMus};
         for (TextField t:musfelt) {
-            t.setOnKeyTyped(keyEvent -> {
+            t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     registrerMus(keyEvent);
                 }

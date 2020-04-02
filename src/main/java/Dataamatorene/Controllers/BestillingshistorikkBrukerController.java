@@ -43,14 +43,28 @@ public class BestillingshistorikkBrukerController {
 
         String path;
 
-        FileChooser fc = new FileChooser();
-        var test = System.getProperty("user.home") + "/Desktop";
-        fc.setInitialDirectory(new File(test));
-        fc.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("TXT Files", "*.txt")
-        );
+        File selectedFile;
 
-        File selectedFile = fc.showSaveDialog(null);
+        try {
+            FileChooser fc = new FileChooser();
+            var test = System.getProperty("user.home") + "/Desktop";
+            fc.setInitialDirectory(new File(test));
+            fc.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("TXT Files", "*.txt")
+            );
+
+            selectedFile = fc.showSaveDialog(null);
+        } catch (Exception e) {
+            FileChooser fc = new FileChooser();
+            var test = System.getProperty("user.home") + "/Desktop";
+            //fc.setInitialDirectory(new File(test));
+            fc.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("TXT Files", "*.txt")
+            );
+
+            selectedFile = fc.showSaveDialog(null);
+        }
+
 
         if(selectedFile != null) {
             path = selectedFile.getAbsolutePath();

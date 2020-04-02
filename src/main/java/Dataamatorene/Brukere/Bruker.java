@@ -1,8 +1,10 @@
 package Dataamatorene.Brukere;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
 
-public class Bruker implements Serializable {
+public class Bruker implements Serializable, Comparable<Bruker> {
 
     private String brukernavn;
     private String passord;
@@ -47,5 +49,11 @@ public class Bruker implements Serializable {
     @Override
     public String toString() {
         return String.format("%s, %s", brukernavn, getRettigheter());
+    }
+
+
+    @Override
+    public int compareTo(@NotNull Bruker o) {
+        return this.brukernavn.compareTo(o.brukernavn);
     }
 }

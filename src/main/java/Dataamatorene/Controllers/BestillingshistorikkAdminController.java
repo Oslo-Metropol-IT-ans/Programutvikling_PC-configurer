@@ -47,8 +47,8 @@ public class BestillingshistorikkAdminController {
 
         tvBestillinger.setItems(oBestilling);
 
-        String[] valg = {"Bruker", "Harddisk", "Hovedkort", "Lydkort", "Skjermkort", "Prosessor","Minne", "Kabinett",
-        "Skjerm", "Tastatur", "Mus", "Dato"};
+        String[] valg = {"Bruker", "Rettigheter", "Harddisk", "Hovedkort", "Lydkort", "Skjermkort", "Prosessor","Minne",
+                "Kabinett", "Skjerm", "Tastatur", "Mus", "Dato"};
 
         ObservableList<String> oValg = FXCollections.observableArrayList(valg);
 
@@ -240,6 +240,13 @@ public class BestillingshistorikkAdminController {
         if(!søk.isEmpty()) {
             if(cbValg.getSelectionModel().getSelectedItem().equalsIgnoreCase("Bruker")) {
                 aktivList = oBestilling.stream().filter(x -> x.getBrukerT().toLowerCase().contains(søk.toLowerCase()))
+                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                tvBestillinger.setItems(aktivList);
+            }
+
+            if(cbValg.getSelectionModel().getSelectedItem().equalsIgnoreCase("Rettigheter")) {
+                aktivList = oBestilling.stream().filter(x -> x.getBruker().getRettigheter().toLowerCase()
+                        .contains(søk.toLowerCase()))
                         .collect(Collectors.toCollection(FXCollections::observableArrayList));
                 tvBestillinger.setItems(aktivList);
             }

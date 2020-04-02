@@ -1,11 +1,15 @@
 package Dataamatorene;
 
+import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Datakomponenter.LagreKomponent;
 
 import java.io.IOException;
 
 public class ScriptKomponentTom {
     public static void main(String[] args) {
+
+        BestillingsRegister.lagreBestillinger();
+        /*
         try{
             LagreKomponent.lagreHarddisk();
             LagreKomponent.lagreHovedkort();
@@ -20,5 +24,6 @@ public class ScriptKomponentTom {
         } catch (IOException e){
             e.printStackTrace();
         }
+         */
     }
 }

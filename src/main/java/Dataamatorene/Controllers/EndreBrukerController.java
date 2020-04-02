@@ -2,9 +2,12 @@ package Dataamatorene.Controllers;
 
 import Dataamatorene.*;
 
+import Dataamatorene.Bestilling.Bestilling;
+import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Brukere.BrukerValidering;
+import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Exceptions.InvalidBrukerException;
 import Dataamatorene.Exceptions.InvalidPasswordException;
 import Dataamatorene.Filbehandling.FileSaver;
@@ -48,7 +51,16 @@ public class EndreBrukerController {
     @FXML
     private void txtBrukernavnEdited(TableColumn.CellEditEvent<Bruker, String> event) {
         try{
+            String bruker = event.getOldValue();
             event.getRowValue().setBrukernavn(BrukerValidering.sjekkBrukernavn(event.getNewValue()));
+            ArrayList<Bestilling> aktiv = BestillingsRegister.getBestillinger();
+            for (Bestilling b:aktiv) {
+                if (b.getBrukerT().equals(bruker)) {
+                    b.setBruker(event.getRowValue());
+                }
+            }
+            BestillingsRegister.setBestillinger(aktiv);
+            BestillingsRegister.lagreBestillinger();
             lagre();
         }catch (InvalidBrukerException INE){
             Dialogs.showErrorDialog("Ugyldig navn!",INE.getMessage());
@@ -62,8 +74,7 @@ public class EndreBrukerController {
     private void txtPasswordEdited(TableColumn.CellEditEvent<Bruker, String> event) {
         try{
             event.getRowValue().setPassord(BrukerValidering.sjekkPassord(event.getNewValue()));
-            //event.getRowValue().setPassord(event.getNewValue());
-            lagre();
+            oppdaterBestilling(event);
         }catch (InvalidPasswordException INE){
             Dialogs.showErrorDialog("Ugyldig passord!",INE.getMessage());
             tableView.refresh();
@@ -74,13 +85,30 @@ public class EndreBrukerController {
     @FXML
     private void txtRettigheterEdited(TableColumn.CellEditEvent<Bruker, String> event) {
         try{
-            event.getRowValue().setSuperbruker(BrukerValidering.sjekkRettigheter(event.getNewValue()));
-            lagre();
+            if (!event.getRowValue().getBrukernavn().equalsIgnoreCase("Admin")) {
+                event.getRowValue().setSuperbruker(BrukerValidering.sjekkRettigheter(event.getNewValue()));
+                oppdaterBestilling(event);
+            } else {
+                Dialogs.showErrorDialog("Admin kan kun ha administratorrettigheter");
+                tableView.refresh();
+            }
         }catch (IllegalArgumentException INE){
             Dialogs.showErrorDialog("Ugyldig rettigheter!",INE.getMessage());
             tableView.refresh();
         }
 
+    }
+
+    private void oppdaterBestilling(TableColumn.CellEditEvent<Bruker, String> event) {
+        ArrayList<Bestilling> aktiv = BestillingsRegister.getBestillinger();
+        for (Bestilling b:aktiv) {
+            if (b.getBrukerT().equals(event.getRowValue().getBrukernavn())) {
+                b.setBruker(event.getRowValue());
+            }
+        }
+        BestillingsRegister.setBestillinger(aktiv);
+        BestillingsRegister.lagreBestillinger();
+        lagre();
     }
 
     @FXML

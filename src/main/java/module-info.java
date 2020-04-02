@@ -1,6 +1,7 @@
 module Dataamatorene {
     requires javafx.controls;
     requires javafx.fxml;
+    requires annotations;
 
     opens Dataamatorene to javafx.fxml;
     opens Dataamatorene.Controllers to javafx.fxml;

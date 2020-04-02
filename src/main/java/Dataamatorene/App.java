@@ -13,8 +13,7 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    // HUSK Å ENDRE TIL PRIVATE
-    public static Scene scene;
+    private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {

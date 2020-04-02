@@ -33,7 +33,7 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
 
     @Override
     public String toString() {
-        return String.format("%s %sGB RAM %sGHz, %skr, VNr: %s", navn, ram, frekvens, pris, varekode);
+        return String.format("%s %sGB RAM %sGHz, %skr, VNr: %s", navn, ram, frekvens, pris, getVarekode());
     }
 
     @Override

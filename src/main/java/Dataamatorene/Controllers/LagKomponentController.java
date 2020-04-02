@@ -110,7 +110,47 @@ public class LagKomponentController {
             });
         }
 
+        if (KomponentRegister.getHarddiskArrayList().size() < 9) {
+            txtVareHarddisk.setText("0100" + (KomponentRegister.getHarddiskArrayList().size() + 1));
+        } else txtVareHarddisk.setText("010" + (KomponentRegister.getHarddiskArrayList().size() + 1));
+
+        if (KomponentRegister.getHovedkortArrayList().size() < 9) {
+            txtVareHovedkort.setText("0200" + (KomponentRegister.getHovedkortArrayList().size() + 1));
+        } else txtVareHovedkort.setText("020" + (KomponentRegister.getHovedkortArrayList().size() + 1));
+
+        if (KomponentRegister.getLydkortArrayList().size() < 9) {
+            txtVareLydkort.setText("0300" + (KomponentRegister.getLydkortArrayList().size() + 1));
+        } else txtVareLydkort.setText("030" + (KomponentRegister.getLydkortArrayList().size() + 1));
+
+        if (KomponentRegister.getSkjermkortArrayList().size() < 9) {
+            txtVareSkjermkort.setText("0400" + (KomponentRegister.getSkjermkortArrayList().size() + 1));
+        } else txtVareSkjermkort.setText("040" + (KomponentRegister.getSkjermkortArrayList().size() + 1));
+
+        if (KomponentRegister.getProsessorArrayList().size() < 9) {
+            txtVareProsessor.setText("0500" + (KomponentRegister.getProsessorArrayList().size() + 1));
+        } else txtVareProsessor.setText("050" + (KomponentRegister.getProsessorArrayList().size() + 1));
+
+        if (KomponentRegister.getMinneArrayList().size() < 9) {
+            txtVareMinne.setText("0600" + (KomponentRegister.getMinneArrayList().size() + 1));
+        } else txtVareMinne.setText("060" + (KomponentRegister.getMinneArrayList().size() + 1));
+
+        if (KomponentRegister.getKabinettArrayList().size() < 9) {
+            txtVareKabinett.setText("0700" + (KomponentRegister.getKabinettArrayList().size() + 1));
+        } else txtVareKabinett.setText("070" + (KomponentRegister.getKabinettArrayList().size() + 1));
+
+        if (KomponentRegister.getSkjermArrayList().size() < 9) {
+            txtVareSkjerm.setText("0800" + (KomponentRegister.getSkjermArrayList().size() + 1));
+        } else txtVareSkjerm.setText("080" + (KomponentRegister.getSkjermArrayList().size() + 1));
+
+        if (KomponentRegister.getTastaturArrayList().size() < 9) {
+            txtVareTastatur.setText("0900" + (KomponentRegister.getTastaturArrayList().size() + 1));
+        } else txtVareTastatur.setText("090" + (KomponentRegister.getTastaturArrayList().size() + 1));
+
+        if (KomponentRegister.getMusArrayList().size() < 9) {
+            txtVareMus.setText("1000" + (KomponentRegister.getMusArrayList().size() + 1));
+        } else txtVareMus.setText("100" + (KomponentRegister.getMusArrayList().size() + 1));
     }
+
 
     @FXML
     private TextField txtVareHarddisk;
@@ -275,8 +315,10 @@ public class LagKomponentController {
             txtNavnHarddisk.setText("");
             txtLagreHarddisk.setText("");
             txtPrisHarddisk.setText("");
-            txtVareHarddisk.setText("");
             Dialogs.showSuccessDialog("Harddisken ble lagret");
+            if (KomponentRegister.getHarddiskArrayList().size() < 9) {
+                txtVareHarddisk.setText("0100" + (KomponentRegister.getHarddiskArrayList().size() + 1));
+            } else txtVareHarddisk.setText("010" + (KomponentRegister.getHarddiskArrayList().size() + 1));
         } catch (IOException e) {
             Dialogs.showErrorDialog("Dette skjedde en feil under lagring");
         } catch (IllegalArgumentException e) {
@@ -303,9 +345,11 @@ public class LagKomponentController {
             LagreKomponent.lagreHovedkort();
             txtNavnHovedkort.setText("");
             txtPorterHovedkort.setText("");
-            txtVareHovedkort.setText("");
             txtPrisHovedkort.setText("");
             Dialogs.showSuccessDialog("Hovedkortet er lagret");
+            if (KomponentRegister.getHovedkortArrayList().size() < 9) {
+                txtVareHovedkort.setText("0200" + (KomponentRegister.getHovedkortArrayList().size() + 1));
+            } else txtVareHovedkort.setText("020" + (KomponentRegister.getHovedkortArrayList().size() + 1));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e){
@@ -334,9 +378,11 @@ public class LagKomponentController {
             txtNavnKabinett.setText("");
             txtPrisKabinett.setText("");
             txtStørelseKabinett.setText("");
-            txtVareKabinett.setText("");
             txtVifterKabientt.setText("");
             Dialogs.showSuccessDialog("Kabinettet ble lagret");
+            if (KomponentRegister.getKabinettArrayList().size() < 9) {
+                txtVareKabinett.setText("0700" + (KomponentRegister.getKabinettArrayList().size() + 1));
+            } else txtVareKabinett.setText("070" + (KomponentRegister.getKabinettArrayList().size() + 1));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -364,11 +410,13 @@ public class LagKomponentController {
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreLydkort();
             txtNavnLydkort.setText("");
-            txtVareLydkort.setText("");
             txtPrisLydkort.setText("");
             txtFrekvensLydkort.setText("");
             tbIntegrertLydkort.setSelected(false);
             Dialogs.showSuccessDialog("Lydkortet er lagret");
+            if (KomponentRegister.getLydkortArrayList().size() < 9) {
+                txtVareLydkort.setText("0300" + (KomponentRegister.getLydkortArrayList().size() + 1));
+            } else txtVareLydkort.setText("030" + (KomponentRegister.getLydkortArrayList().size() + 1));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -397,10 +445,12 @@ public class LagKomponentController {
             LagreKomponent.lagreMinne();
             txtNavnMinne.setText("");
             txtPrisMinne.setText("");
-            txtVareMinne.setText("");
             txtRamMinne.setText("");
             txtFrekvensMinne.setText("");
             Dialogs.showSuccessDialog("Minnet er lagret");
+            if (KomponentRegister.getMinneArrayList().size() < 9) {
+                txtVareMinne.setText("0600" + (KomponentRegister.getMinneArrayList().size() + 1));
+            } else txtVareMinne.setText("060" + (KomponentRegister.getMinneArrayList().size() + 1));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -428,10 +478,12 @@ public class LagKomponentController {
             LagreKomponent.lagreMus();
             txtNavnMus.setText("");
             txtPrisMus.setText("");
-            txtVareMus.setText("");
             tbTrådløsMus.setSelected(false);
             txtKnapperMus.setText("");
             Dialogs.showSuccessDialog("Musen er lagret");
+            if (KomponentRegister.getMusArrayList().size() < 9) {
+                txtVareMus.setText("1000" + (KomponentRegister.getMusArrayList().size() + 1));
+            } else txtVareMus.setText("100" + (KomponentRegister.getMusArrayList().size() + 1));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -460,11 +512,13 @@ public class LagKomponentController {
             LagreKomponent.lagreProsessor();
             txtNavnProsessor.setText("");
             txtPrisProsessor.setText("");
-            txtVareProsessor.setText("");
             txtKjernerProsessor.setText("");
             txtFrekvensProsessor.setText("");
             txtTråderProsessor.setText("");
             Dialogs.showSuccessDialog("Prosessoren er lagret");
+            if (KomponentRegister.getProsessorArrayList().size() < 9) {
+                txtVareProsessor.setText("0500" + (KomponentRegister.getProsessorArrayList().size() + 1));
+            } else txtVareProsessor.setText("050" + (KomponentRegister.getProsessorArrayList().size() + 1));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -493,9 +547,11 @@ public class LagKomponentController {
             txtNavnSkjerm.setText("");
             txtOppløsningSkjerm.setText("");
             txtPrisSkjerm.setText("");
-            txtVareSkjerm.setText("");
             txtStørrelseSkjerm.setText("");
             Dialogs.showSuccessDialog("Skjermen ble lagret");
+            if (KomponentRegister.getSkjermArrayList().size() < 9) {
+                txtVareSkjerm.setText("0800" + (KomponentRegister.getSkjermArrayList().size() + 1));
+            } else txtVareSkjerm.setText("080" + (KomponentRegister.getSkjermArrayList().size() + 1));
         } catch (IOException e) {
             Dialogs.showErrorDialog("Dette skjedde en feil under lagring");
         } catch (IllegalArgumentException e) {
@@ -523,10 +579,12 @@ public class LagKomponentController {
             LagreKomponent.lagreSkjermkort();
 
             txtNavnSkjermkort.setText("");
-            txtVareSkjermkort.setText("");
             txtPrisSkjermkort.setText("");
             txtOppløsningSkjermkort.setText("");
             Dialogs.showSuccessDialog("Skjermkortet ble lagret");
+            if (KomponentRegister.getSkjermkortArrayList().size() < 9) {
+                txtVareSkjermkort.setText("0400" + (KomponentRegister.getSkjermkortArrayList().size() + 1));
+            } else txtVareSkjermkort.setText("040" + (KomponentRegister.getSkjermkortArrayList().size() + 1));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -557,11 +615,13 @@ public class LagKomponentController {
             LagreKomponent.lagreTastatur();
             txtNavnTastatur.setText("");
             txtPrisTastatur.setText("");
-            txtVareTastatur.setText("");
             txtSpråkTastatur.setText("");
             tbMekaniskTastatur.setSelected(false);
             txtRGBTastatur.setSelected(false);
             Dialogs.showSuccessDialog("Tastaturet ble lagret");
+            if (KomponentRegister.getTastaturArrayList().size() < 9) {
+                txtVareTastatur.setText("0900" + (KomponentRegister.getTastaturArrayList().size() + 1));
+            } else txtVareTastatur.setText("090" + (KomponentRegister.getTastaturArrayList().size() + 1));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {

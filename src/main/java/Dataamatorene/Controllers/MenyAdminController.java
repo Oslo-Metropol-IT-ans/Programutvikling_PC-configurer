@@ -34,6 +34,9 @@ public class MenyAdminController {
     private Label lblTilbakemelding;
 
     @FXML
+    private Label lblUpdate;
+
+    @FXML
     private ProgressBar progressBar;
 
     public void initialize() {
@@ -46,6 +49,7 @@ public class MenyAdminController {
             menyAdmin.setVisible(false);
             progressBar.setVisible(true);
             progressBar.progressProperty().bind(threadOpenKomponentRegister.progressProperty());
+            lblUpdate.textProperty().bind(threadOpenKomponentRegister.messageProperty());
             threadOpenKomponentRegister.setOnSucceeded(this::threadOpenKomponentRegisterDone);
             threadOpenKomponentRegister.setOnFailed(this::threadOpenKomponentRegisterFails);
             lblTilbakemelding.setText("Venligst vent...");
@@ -65,6 +69,7 @@ public class MenyAdminController {
         menyAdmin.setVisible(true);
         progressBar.setVisible(false);
         lblTilbakemelding.setText("");
+        lblUpdate.setVisible(false);
         KomponentRegister.setLasta(true);
         System.out.println(Bestilling.getTeller());
     }

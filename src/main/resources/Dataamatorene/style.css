@@ -280,3 +280,23 @@
 .text {
     -fx-cursor: pointer;
 }
+
+#lblTilbakemelding {
+    -fx-alignment: CENTER;
+}
+
+#lblUpdate {
+    -fx-alignment: CENTER;
+}
+
+#tbPrisHarddisk {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbLagringHarddisk {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbPris {
+    -fx-alignment: CENTER-RIGHT;
+}

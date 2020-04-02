@@ -1,6 +1,7 @@
 package Dataamatorene.Datakomponenter;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 public class Datakomponent implements Serializable {
 
@@ -15,7 +16,8 @@ public class Datakomponent implements Serializable {
     }
 
     public String getVarekode() {
-        return String.valueOf(varekode);
+        DecimalFormat df = new DecimalFormat("00000");
+        return df.format(varekode);
     }
 
     public void setVarekode(int varekode) {
@@ -35,7 +37,8 @@ public class Datakomponent implements Serializable {
     }
 
     public String getPrisT() {
-        return String.valueOf(pris);
+        DecimalFormat df = new DecimalFormat("###,###.00");
+        return df.format(pris);
     }
 
     public void setPris(double pris) {

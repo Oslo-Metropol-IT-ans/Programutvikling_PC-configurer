@@ -4,6 +4,7 @@ import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Datakomponenter.*;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 public class Bestilling implements Serializable {
@@ -220,13 +221,14 @@ public class Bestilling implements Serializable {
     }
 
     public String getPrisT() {
-        return String.valueOf(pris);
+        DecimalFormat df = new DecimalFormat("###,###.00");
+        return df.format(pris);
     }
 
     @Override
     public String toString() {
         return String.format("Din bestilling %s med\nHarddisk: %s, Hovedkort: %s\nLydkort: %s, Skjermkort %s" +
-                        "\nProsessor: %s, Minne: %s\nKabinett: %s, Skjerm: %s\nTastatur: %s, Mus: %s, koster %skr " +
+                        "\nProsessor: %s, Minne: %s\nKabinett: %s, Skjerm: %s\nTastatur: %s, Mus: %s\nTotalpris: %skr " +
                         "ble registrert %s",
                 bestillingsnummer, harddisk.getNavn(), hovedkort.getNavn(), lydkort.getNavn(), skjermkort.getNavn(),
                 prosessor.getNavn(), minne.getNavn(), kabinett.getNavn(), skjerm.getNavn(), tastatur.getNavn(), mus.getNavn(),

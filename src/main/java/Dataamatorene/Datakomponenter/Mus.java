@@ -36,9 +36,9 @@ public class Mus extends Datakomponent implements Serializable, Comparable<Mus> 
     @Override
     public String toString() {
         if(tråd)
-            return String.format("%s trådløs %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, varekode);
+            return String.format("%s trådløs %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, getVarekode());
         else
-            return String.format("%s med tråd %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, varekode);
+            return String.format("%s med tråd %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, getVarekode());
     }
 
     @Override

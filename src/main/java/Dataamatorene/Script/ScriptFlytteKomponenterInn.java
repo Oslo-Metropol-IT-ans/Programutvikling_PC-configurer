@@ -1,4 +1,4 @@
-package Dataamatorene;
+package Dataamatorene.Script;
 
 import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.DatakomponenterReserve.*;

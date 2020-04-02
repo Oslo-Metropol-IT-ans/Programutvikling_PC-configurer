@@ -1,4 +1,4 @@
-package Dataamatorene;
+package Dataamatorene.Script;
 
 import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Brukere.BrukerRegister;

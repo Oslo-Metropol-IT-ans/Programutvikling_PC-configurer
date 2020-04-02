@@ -1,4 +1,4 @@
-package Dataamatorene;
+package Dataamatorene.Script;
 
 import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Datakomponenter.LagreKomponent;

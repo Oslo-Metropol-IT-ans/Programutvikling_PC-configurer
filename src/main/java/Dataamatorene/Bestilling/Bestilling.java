@@ -225,7 +225,9 @@ public class Bestilling implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Din bestilling %s med %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, koster %skr ble registrert %s",
+        return String.format("Din bestilling %s med\nHarddisk: %s, Hovedkort: %s\nLydkort: %s, Skjermkort %s" +
+                        "\nProsessor: %s, Minne: %s\nKabinett: %s, Skjerm: %s\nTastatur: %s, Mus: %s, koster %skr " +
+                        "ble registrert %s",
                 bestillingsnummer, harddisk.getNavn(), hovedkort.getNavn(), lydkort.getNavn(), skjermkort.getNavn(),
                 prosessor.getNavn(), minne.getNavn(), kabinett.getNavn(), skjerm.getNavn(), tastatur.getNavn(), mus.getNavn(),
                 getPrisT(), getDatoT());

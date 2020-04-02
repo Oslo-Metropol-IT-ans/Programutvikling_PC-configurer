@@ -1,15 +1,15 @@
-package Dataamatorene.Datakomponenter;
+package Dataamatorene.DatakomponenterReserve;
 
-import org.jetbrains.annotations.NotNull;
+import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Minne extends Datakomponent implements Serializable, Comparable<Minne> {
+public class Minne2 extends Datakomponent implements Serializable {
 
     protected int ram;
     protected double frekvens;
 
-    public Minne(String navn, double pris, int varekode, int ram, double frekvens) {
+    public Minne2(String navn, double pris, int varekode, int ram, double frekvens) {
         super(navn, pris, varekode);
         this.ram = ram;
         this.frekvens = frekvens;
@@ -34,10 +34,5 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
     @Override
     public String toString() {
         return String.format("%s %sGB RAM %sGHz, %skr, VNr: %s", navn, ram, frekvens, pris, varekode);
-    }
-
-    @Override
-    public int compareTo(@NotNull Minne o) {
-        return this.navn.compareTo(o.navn);
     }
 }

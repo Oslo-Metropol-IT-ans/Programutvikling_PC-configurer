@@ -27,7 +27,7 @@ public class BestillingshistorikkBrukerController {
         for (Bestilling b: BestillingsRegister.getBestillinger()) {
             if (b.getBrukerT().equals(BrukerRegister.getAktivBruker().getBrukernavn())) {
                 liste.add(b);
-                navn.add(b.getBestillingsnummerT());
+                navn.add(b.getBestillingsnummerT() + "\t\t\t" + b.getDatoT());
             }
         }
 

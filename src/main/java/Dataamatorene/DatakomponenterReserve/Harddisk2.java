@@ -1,14 +1,14 @@
-package Dataamatorene.Datakomponenter;
+package Dataamatorene.DatakomponenterReserve;
 
-import org.jetbrains.annotations.NotNull;
+import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Harddisk extends Datakomponent implements Serializable, Comparable<Harddisk> {
+public class Harddisk2 extends Datakomponent implements Serializable {
 
     protected int lagring;
 
-    public Harddisk(String navn, double pris, int varekode, int lagring) {
+    public Harddisk2(String navn, double pris, int varekode, int lagring) {
         super(navn, pris, varekode);
         this.lagring = lagring;
     }
@@ -26,10 +26,5 @@ public class Harddisk extends Datakomponent implements Serializable, Comparable<
         if(lagring < 1000) return String.format("%s %sGB, %skr, %s", navn, lagring, pris, varekode);
         else return String.format("%s %sTB, %skr, VNr: %s", navn, (lagring/1000), pris, varekode);
 
-    }
-
-    @Override
-    public int compareTo(@NotNull Harddisk o) {
-        return this.navn.compareTo(o.navn);
     }
 }

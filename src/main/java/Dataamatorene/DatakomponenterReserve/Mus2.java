@@ -1,15 +1,15 @@
-package Dataamatorene.Datakomponenter;
+package Dataamatorene.DatakomponenterReserve;
 
-import org.jetbrains.annotations.NotNull;
+import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Mus extends Datakomponent implements Serializable, Comparable<Mus> {
+public class Mus2 extends Datakomponent implements Serializable {
 
     protected boolean tråd;
     protected int antallKnapper;
 
-    public Mus(String navn, double pris, int varekode, boolean tråd, int antallKnapper) {
+    public Mus2(String navn, double pris, int varekode, boolean tråd, int antallKnapper) {
         super(navn, pris, varekode);
         this.tråd = tråd;
         this.antallKnapper = antallKnapper;
@@ -39,10 +39,5 @@ public class Mus extends Datakomponent implements Serializable, Comparable<Mus> 
             return String.format("%s trådløs %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, varekode);
         else
             return String.format("%s med tråd %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, varekode);
-    }
-
-    @Override
-    public int compareTo(@NotNull Mus o) {
-        return this.navn.compareTo(o.navn);
     }
 }

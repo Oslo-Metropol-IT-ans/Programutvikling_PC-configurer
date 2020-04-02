@@ -1,16 +1,16 @@
-package Dataamatorene.Datakomponenter;
+package Dataamatorene.DatakomponenterReserve;
 
-import org.jetbrains.annotations.NotNull;
+import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Prosessor extends Datakomponent implements Serializable, Comparable<Prosessor> {
+public class Prosessor2 extends Datakomponent implements Serializable {
 
     protected int antallKjerner;
     protected double frekvens;
     protected int antallTråder;
 
-    public Prosessor(String navn, double pris, int varekode, int antallKjerner, double frekvens, int antallTråder) {
+    public Prosessor2(String navn, double pris, int varekode, int antallKjerner, double frekvens, int antallTråder) {
         super(navn, pris, varekode);
         this.antallKjerner = antallKjerner;
         this.frekvens = frekvens;
@@ -45,10 +45,5 @@ public class Prosessor extends Datakomponent implements Serializable, Comparable
     public String toString() {
         return String.format("%s %sGHz %s kjerner %s tråder, %skr, VNr: %s", navn, frekvens, antallKjerner, antallTråder
                             , pris, varekode);
-    }
-
-    @Override
-    public int compareTo(@NotNull Prosessor o) {
-        return this.navn.compareTo(o.navn);
     }
 }

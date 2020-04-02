@@ -1,14 +1,14 @@
-package Dataamatorene.Datakomponenter;
+package Dataamatorene.DatakomponenterReserve;
 
-import org.jetbrains.annotations.NotNull;
+import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Skjermkort extends Datakomponent implements Serializable, Comparable<Skjermkort> {
+public class Skjermkort2 extends Datakomponent implements Serializable {
 
     protected String oppløsning;
 
-    public Skjermkort(String navn, double pris, int varekode, String oppløsning) {
+    public Skjermkort2(String navn, double pris, int varekode, String oppløsning) {
         super(navn, pris, varekode);
         this.oppløsning = oppløsning;
     }
@@ -24,10 +24,5 @@ public class Skjermkort extends Datakomponent implements Serializable, Comparabl
     @Override
     public String toString() {
         return String.format("%s %s, %skr, VNr: %s", navn, oppløsning, pris, varekode);
-    }
-
-    @Override
-    public int compareTo(@NotNull Skjermkort o) {
-        return this.navn.compareTo(o.navn);
     }
 }

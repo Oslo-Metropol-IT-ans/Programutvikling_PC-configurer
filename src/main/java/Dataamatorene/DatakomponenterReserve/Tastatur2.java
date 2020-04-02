@@ -1,16 +1,16 @@
-package Dataamatorene.Datakomponenter;
+package Dataamatorene.DatakomponenterReserve;
 
-import org.jetbrains.annotations.NotNull;
+import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Tastatur extends Datakomponent implements Serializable, Comparable<Tastatur> {
+public class Tastatur2 extends Datakomponent implements Serializable {
 
     protected String språk;
     protected boolean mekanisk;
     protected boolean rgb;
 
-    public Tastatur(String navn, double pris, int varekode, String språk, boolean mekanisk, boolean rgb) {
+    public Tastatur2(String navn, double pris, int varekode, String språk, boolean mekanisk, boolean rgb) {
         super(navn, pris, varekode);
         this.språk = språk;
         this.mekanisk = mekanisk;
@@ -55,10 +55,5 @@ public class Tastatur extends Datakomponent implements Serializable, Comparable<
         else
             return String.format("%s er ikke mekanisk og uten lys, %s, %skr, VNr: %s", navn, språk
                     , pris, varekode);
-    }
-
-    @Override
-    public int compareTo(@NotNull Tastatur o) {
-        return this.navn.compareTo(o.navn);
     }
 }

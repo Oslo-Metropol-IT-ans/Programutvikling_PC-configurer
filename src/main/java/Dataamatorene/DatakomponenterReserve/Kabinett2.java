@@ -1,15 +1,15 @@
-package Dataamatorene.Datakomponenter;
+package Dataamatorene.DatakomponenterReserve;
 
-import org.jetbrains.annotations.NotNull;
+import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Kabinett extends Datakomponent implements Serializable, Comparable<Datakomponent> {
+public class Kabinett2 extends Datakomponent implements Serializable {
 
     protected String størrelse;
     protected int antallVifter;
 
-    public Kabinett(String navn, double pris, int varekode, String størrelse, int antallVifter) {
+    public Kabinett2(String navn, double pris, int varekode, String størrelse, int antallVifter) {
         super(navn, pris, varekode);
         this.størrelse = størrelse;
         this.antallVifter = antallVifter;
@@ -34,10 +34,5 @@ public class Kabinett extends Datakomponent implements Serializable, Comparable<
     @Override
     public String toString() {
         return String.format("%s %s %s vifter, %skr, VNr: %s", navn, størrelse, antallVifter, pris, varekode);
-    }
-
-    @Override
-    public int compareTo(@NotNull Datakomponent o) {
-        return this.navn.compareTo(o.navn);
     }
 }

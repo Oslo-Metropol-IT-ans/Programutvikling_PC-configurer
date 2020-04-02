@@ -19,20 +19,34 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 
 public class NyBrukerController {
 
     public void initialize() {
-        txtBrukernavn.setOnKeyPressed(keyEvent -> {
+
+        txtPassword.setVisible(false);
+
+        txtBrukernavn.setOnKeyTyped(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.ENTER)
             txtPassword.requestFocus();
         });
 
-        txtPassword.setOnKeyPressed(keyEvent -> {
+        txtPassword.setOnKeyTyped(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.ENTER){
                 registrer(keyEvent);
+            } else {
+                pwPassword.setText(txtPassword.getText());
             }
 
+        });
+
+        pwPassword.setOnKeyTyped(keyEvent -> {
+            if(keyEvent.getCode() == KeyCode.ENTER){
+                registrer(keyEvent);
+            } else {
+                txtPassword.setText(pwPassword.getText());
+            }
         });
     }
 
@@ -40,10 +54,13 @@ public class NyBrukerController {
     private TextField txtBrukernavn;
 
     @FXML
-    private PasswordField txtPassword;
+    private Label lblTilbakemelding;
 
     @FXML
-    private Label lblTilbakemelding;
+    private PasswordField pwPassword;
+
+    @FXML
+    private TextField txtPassword;
 
     @FXML
     private Button btnTilbake;
@@ -111,7 +128,14 @@ public class NyBrukerController {
     }
 
     @FXML
-    void TEST(ActionEvent event) {
+    void TEST(MouseEvent event) {
+        if (pwPassword.isVisible()) {
+            txtPassword.setVisible(true);
+            pwPassword.setVisible(false);
+        } else {
+            txtPassword.setVisible(false);
+            pwPassword.setVisible(true);
+        }
 
     }
 

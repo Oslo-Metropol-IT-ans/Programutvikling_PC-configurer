@@ -59,7 +59,7 @@ public class MenyAdminController {
         }
 
         if (KomponentRegister.isLasta()) {
-            System.out.println(Bestilling.getTeller());
+          //  System.out.println(Bestilling.getTeller());
         }
 
     }
@@ -71,7 +71,7 @@ public class MenyAdminController {
         lblTilbakemelding.setText("");
         lblUpdate.setVisible(false);
         KomponentRegister.setLasta(true);
-        System.out.println(Bestilling.getTeller());
+       // System.out.println(Bestilling.getTeller());
     }
 
     private void threadOpenKomponentRegisterFails (WorkerStateEvent e){

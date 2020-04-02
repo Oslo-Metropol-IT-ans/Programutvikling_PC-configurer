@@ -37,7 +37,7 @@ public class LogInController {
 
 
 
-        System.out.println(BrukerRegister.getBrukere().stream().map(Bruker::getBrukernavn).collect(Collectors.joining(" | ")));
+       // System.out.println(BrukerRegister.getBrukere().stream().map(Bruker::getBrukernavn).collect(Collectors.joining(" | ")));
 
         txtBrukernavn.setOnKeyPressed(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.ENTER){

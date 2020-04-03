@@ -4,7 +4,7 @@ import Dataamatorene.App;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Dialogs;
-import Dataamatorene.Tasks.ThreadOpenKomponentRegister2;
+import Dataamatorene.Tasks.ThreadOpenKomponentRegister;
 import Dataamatorene.Tasks.ThreadOpenNewPage;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
@@ -12,14 +12,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
 public class MenyBrukerController {
 
-    ThreadOpenKomponentRegister2 threadOpenKomponentRegister;
+    ThreadOpenKomponentRegister threadOpenKomponentRegister;
 
     ThreadOpenNewPage threadOpenNewPage;
 
@@ -33,7 +32,7 @@ public class MenyBrukerController {
         progressBar.setVisible(false);
 
         if (!KomponentRegister.isLasta()){
-            threadOpenKomponentRegister = new ThreadOpenKomponentRegister2();
+            threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
             menyBruker.setVisible(false);
             threadOpenKomponentRegister.setOnSucceeded(this::threadOpenKomponentRegisterDone);
             threadOpenKomponentRegister.setOnFailed(this::threadOpenKomponentRegisterFails);

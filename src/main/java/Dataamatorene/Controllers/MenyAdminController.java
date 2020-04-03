@@ -1,7 +1,6 @@
 package Dataamatorene.Controllers;
 
 import Dataamatorene.App;
-import Dataamatorene.Bestilling.Bestilling;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Dialogs;
@@ -9,10 +8,8 @@ import Dataamatorene.Tasks.*;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -22,7 +19,7 @@ public class MenyAdminController {
 
     ThreadOpenNewPage threadOpenNewPage;
 
-    ThreadOpenKomponentRegister2 threadOpenKomponentRegister;
+    ThreadOpenKomponentRegister threadOpenKomponentRegister;
 
     @FXML
     private VBox menyAdmin;
@@ -45,7 +42,7 @@ public class MenyAdminController {
         progressBar.setVisible(false);
 
         if (!KomponentRegister.isLasta()){
-            threadOpenKomponentRegister = new ThreadOpenKomponentRegister2();
+            threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
             menyAdmin.setVisible(false);
             progressBar.setVisible(true);
             progressBar.progressProperty().bind(threadOpenKomponentRegister.progressProperty());

@@ -36,11 +36,11 @@
             <HBox alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="400.0" spacing="20.0">
                <children>
                   <Label fx:id="lblTilbakemelding" prefHeight="21.0" prefWidth="169.0" />
-                  <Button fx:id="btnNyBruker" mnemonicParsing="false" onAction="#nyBruker" prefHeight="35.0" prefWidth="100.0" text="Ny bruker">
+                  <Button fx:id="btnNyBruker" mnemonicParsing="false" onAction="#nyBruker" prefHeight="35.0"  text="Ny bruker">
                      <font>
                         <Font size="18.0" />
                      </font></Button>
-                  <Button fx:id="btnLoggInn" mnemonicParsing="false" onAction="#loggInn" prefHeight="35.0" prefWidth="100.0" text="Logg Inn">
+                  <Button fx:id="btnLoggInn" mnemonicParsing="false" onAction="#loggInn" prefHeight="35.0"  text="Logg Inn">
                      <font>
                         <Font size="18.0" />
                      </font></Button>

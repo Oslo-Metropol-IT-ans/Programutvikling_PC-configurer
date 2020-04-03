@@ -21,7 +21,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Harddisk>) opener.read("src/main/java/Dataamatorene/Files/Harddisk.jobj"));
         updateProgress(1, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -31,7 +31,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Hovedkort>) opener.read("src/main/java/Dataamatorene/Files/Hovedkort.jobj"));
         updateProgress(2, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -41,7 +41,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Kabinett>) opener.read("src/main/java/Dataamatorene/Files/Kabinett.jobj"));
         updateProgress(3, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -51,7 +51,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Lydkort>) opener.read("src/main/java/Dataamatorene/Files/Lydkort.jobj"));
         updateProgress(4, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -61,7 +61,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Minne>) opener.read("src/main/java/Dataamatorene/Files/Minne.jobj"));
         updateProgress(5, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -71,7 +71,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Mus>) opener.read("src/main/java/Dataamatorene/Files/Mus.jobj"));
         updateProgress(6, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -81,7 +81,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Prosessor>) opener.read("src/main/java/Dataamatorene/Files/Prosessor.jobj"));
         updateProgress(7, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -91,7 +91,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Skjerm>) opener.read("src/main/java/Dataamatorene/Files/Skjerm.jobj"));
         updateProgress(8, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -101,7 +101,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Skjermkort>) opener.read("src/main/java/Dataamatorene/Files/Skjermkort.jobj"));
         updateProgress(9, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -111,7 +111,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Tastatur>) opener.read("src/main/java/Dataamatorene/Files/Tastatur.jobj"));
         updateProgress(10, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -121,7 +121,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(h.getVarekode());
         } updateProgress(11, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -131,7 +131,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(h.getVarekode());
         } updateProgress(12, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -141,7 +141,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(l.getVarekode());
         } updateProgress(13, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -151,7 +151,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(s.getVarekode());
         } updateProgress(14, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -161,7 +161,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(p.getVarekode());
         } updateProgress(15, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -171,7 +171,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(m.getVarekode());
         } updateProgress(16, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -181,7 +181,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(k.getVarekode());
         } updateProgress(17, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -191,7 +191,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(s.getVarekode());
         } updateProgress(18, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -201,7 +201,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(t.getVarekode());
         } updateProgress(19, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -211,7 +211,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
             VarekodeRegister.addVarekode(m.getVarekode());
         } updateProgress(20, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -220,7 +220,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
         BestillingsRegister.setBestillinger((ArrayList<Bestilling>) opener.read("src/main/java/Dataamatorene/Files/Bestillinger.jobj"));
         updateProgress(21, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }
@@ -231,7 +231,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                     - 1).getBestillingsnummer() + 1);
         } updateProgress(22, 22);
         try{
-            Thread.sleep(25);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }

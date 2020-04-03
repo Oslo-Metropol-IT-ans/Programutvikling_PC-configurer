@@ -1,4 +1,4 @@
-module Dataamatorene {
+module ProsjektoppgaveEMNMEM {
     requires javafx.controls;
     requires javafx.fxml;
     requires annotations;

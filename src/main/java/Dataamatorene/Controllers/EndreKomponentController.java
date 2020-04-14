@@ -264,6 +264,12 @@ public class EndreKomponentController {
         }
     }
 
+    @FXML
+    private TableColumn<Harddisk, String> tbBrukerHarddisk;
+
+    @FXML
+    private TableColumn<Harddisk, String> tbDatoHarddisk;
+
 
     //Hovedkort
 
@@ -326,6 +332,12 @@ public class EndreKomponentController {
             tvHovedkort.refresh();
         }
     }
+
+    @FXML
+    private TableColumn<Hovedkort, String> tbBrukerHovedkort;
+
+    @FXML
+    private TableColumn<Hovedkort, String> tbDatoHovedkort;
 
 
     //Lydkort
@@ -405,6 +417,12 @@ public class EndreKomponentController {
         }
     }
 
+    @FXML
+    private TableColumn<Lydkort, String> tbBrukerLydkort;
+
+    @FXML
+    private TableColumn<Lydkort, String> tbDatoLydkort;
+
 
     // Skjermkort
 
@@ -467,6 +485,12 @@ public class EndreKomponentController {
             tvSkjermkort.refresh();
         }
     }
+
+    @FXML
+    private TableColumn<Skjermkort, String> tbBrukerSkjermkort;
+
+    @FXML
+    private TableColumn<Skjermkort, String> tbDatoSkjermkort;
 
 
     // Prosessor
@@ -559,6 +583,12 @@ public class EndreKomponentController {
         }
     }
 
+    @FXML
+    private TableColumn<Prosessor, String> tbBrukerProsessor;
+
+    @FXML
+    private TableColumn<Prosessor, String> tbDatoProsessor;
+
 
     // Minne
 
@@ -635,6 +665,12 @@ public class EndreKomponentController {
             tvMinne.refresh();
         }
     }
+
+    @FXML
+    private TableColumn<Minne, String> tbBrukerMinne;
+
+    @FXML
+    private TableColumn<Minne, String> tbDatoMinne;
 
 
     // Kabinett
@@ -713,6 +749,12 @@ public class EndreKomponentController {
         }
     }
 
+    @FXML
+    private TableColumn<Kabinett, String> tbBrukerKabinett;
+
+    @FXML
+    private TableColumn<Kabinett, String> tbDatoKabinett;
+
 
     // Skjerm
 
@@ -789,6 +831,12 @@ public class EndreKomponentController {
             tvSkjerm.refresh();
         }
     }
+
+    @FXML
+    private TableColumn<Skjerm, String> tbBrukerSkjerm;
+
+    @FXML
+    private TableColumn<Skjerm, String> tbDatoSkjerm;
 
 
     // Tastatur
@@ -881,6 +929,12 @@ public class EndreKomponentController {
         }
     }
 
+    @FXML
+    private TableColumn<Tastatur, String> tbBrukerTastatur;
+
+    @FXML
+    private TableColumn<Tastatur, String> tbDatoTastatur;
+
 
     // Mus
 
@@ -957,6 +1011,15 @@ public class EndreKomponentController {
             tvMus.refresh();
         }
     }
+
+    @FXML
+    private TableColumn<Mus, String> tbBrukerMus;
+
+    @FXML
+    private TableColumn<Mus, String> tbDatoMus;
+
+
+    // Knappefunksjoner
 
     @FXML
     void tilbake(ActionEvent event) {

@@ -87,14 +87,14 @@
     -fx-border-width: 0.5 0.5 0 0;
 }
 
-.table-view .table-cell .label {
-    -fx-text-alignment: center;
+.table-view .table-cell {
+    -fx-padding: 0 5 0 5;
 }
 
 .table-row-cell{
     -fx-background-color: #616161;
     -fx-background-insets: 0, 0 0 0 0;
-    -fx-padding: 0.0em; /* 0 */
+    -fx-padding: 0;
 }
 
 .table-view .table-cell:odd .label {
@@ -104,7 +104,7 @@
 .table-row-cell:odd{
     -fx-background-color: #424242;
     -fx-background-insets: 0, 0 0 0 0;
-    -fx-padding: 0.0em; /* 0 */
+    -fx-padding: 0;
 }
 
 .table-row-cell:selected {
@@ -297,6 +297,91 @@
     -fx-alignment: CENTER-RIGHT;
 }
 
-#tbPris {
+#tbPrisHovedkort {
     -fx-alignment: CENTER-RIGHT;
 }
+
+#tbPorterHovedkort {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbPrisLydkort {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbFrekvensLydkort {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbPrisSkjermkort {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbOppløsningSkjermkort {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbPrisProsessor {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbKjernerProsessor {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbFrekvenserProsessor {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbTråderProsessor {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbPrisMinne {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbRamMinne {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbFrekvensMinne {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbPrisKabinett {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbStørrelseKabinett {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbVifterKabinett {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbPrisSkjerm {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbOppløsningSkjerm {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbStørrelseSkjerm {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbPrisTastatur {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbPrisMus {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+#tbKnapperMus {
+    -fx-alignment: CENTER-RIGHT;
+}
+

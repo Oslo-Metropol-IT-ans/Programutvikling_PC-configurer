@@ -34,14 +34,14 @@ public class MenyAdminController {
     private Label lblUpdate;
 
     @FXML
-    private ProgressBar progressBar;
+    public ProgressBar progressBar;
 
     public void initialize() {
         lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getBrukernavn()));
         menyAdmin.setDisable(false);
         progressBar.setVisible(false);
 
-        if (!KomponentRegister.isLasta()){
+        if (!KomponentRegister.isLasta()) {
             threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
             menyAdmin.setVisible(false);
             progressBar.setVisible(true);
@@ -54,22 +54,17 @@ public class MenyAdminController {
             th.setDaemon(true);
             th.start();
         }
-
-        if (KomponentRegister.isLasta()) {
-          //  System.out.println(Bestilling.getTeller());
-        }
-
     }
 
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
         Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyAdmin.setVisible(true);
         progressBar.setVisible(false);
+        progressBar.progressProperty().unbind();
         lblTilbakemelding.setText("");
         lblUpdate.textProperty().unbind();
         lblUpdate.setText("");
         KomponentRegister.setLasta(true);
-       // System.out.println(Bestilling.getTeller());
     }
 
     private void threadOpenKomponentRegisterFails (WorkerStateEvent e){
@@ -79,45 +74,50 @@ public class MenyAdminController {
     }
 
     @FXML
-    void endreBrukere(ActionEvent event) {
-        threadOpenNewPage = new ThreadOpenNewPage("endrebruker");
-        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
-        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
-        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
-        Thread th = new Thread(threadOpenNewPage);
-        th.setDaemon(true);
-        th.start();
+    void seBestillinger(ActionEvent event) {
+        threadOpenPageSet("bestillingshistorikkadmin");
+    }
 
+    @FXML
+    void endreBrukere(ActionEvent event) {
+        threadOpenPageSet("endrebruker");
     }
 
     @FXML
     void leggTil(ActionEvent event) {
-        threadOpenNewPage = new ThreadOpenNewPage("lagkomponent");
-        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
-        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
-        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
-        Thread th = new Thread(threadOpenNewPage);
-        th.setDaemon(true);
-        th.start();
+        threadOpenPageSet("lagkomponent");
     }
 
     @FXML
     void endreKompnenter(ActionEvent event) {
-        threadOpenNewPage = new ThreadOpenNewPage("endrekomponent");
+        threadOpenPageSet("endrekomponent");
+    }
+
+    private void threadOpenPageSet(String s) {
+        threadOpenNewPage = new ThreadOpenNewPage(s);
         threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
         threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
         threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
+        progressBar.progressProperty().bind(threadOpenNewPage.progressProperty());
+        lblTilbakemelding.setText("Venligst vent...");
+        lblUpdate.textProperty().bind(threadOpenNewPage.messageProperty());
+        progressBar.setVisible(true);
         Thread th = new Thread(threadOpenNewPage);
         th.setDaemon(true);
         th.start();
     }
 
     private void threadOpenPageDone(WorkerStateEvent e){
+        lblTilbakemelding.setText("");
+        lblUpdate.textProperty().unbind();
+        progressBar.progressProperty().unbind();
 
+        App.setRoot(threadOpenNewPage.getValue());
     }
 
     private void threadOpenPageRunning(WorkerStateEvent e) {
         lblTilbakemelding.setText("Venligst vent...");
+
         menyAdmin.setDisable(true);
     }
 
@@ -126,18 +126,6 @@ public class MenyAdminController {
         menyAdmin.setDisable(false);
     }
 
-
-    @FXML
-    void seBestillinger(ActionEvent event) {
-        threadOpenNewPage = new ThreadOpenNewPage("bestillingshistorikkadmin");
-        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
-        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
-        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
-        Thread th = new Thread(threadOpenNewPage);
-        th.setDaemon(true);
-        th.start();
-
-    }
 
     @FXML
     void loggUt(ActionEvent event) {

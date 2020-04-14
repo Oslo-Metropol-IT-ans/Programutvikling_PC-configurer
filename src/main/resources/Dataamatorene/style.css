@@ -321,6 +321,10 @@
     -fx-alignment: CENTER-RIGHT;
 }
 
+#tbOppløsningSkjermkort {
+    -fx-alignment: CENTER-RIGHT;
+}
+
 #tbPrisProsessor {
     -fx-alignment: CENTER-RIGHT;
 }

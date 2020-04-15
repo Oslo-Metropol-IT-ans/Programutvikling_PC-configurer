@@ -3,7 +3,6 @@ package Dataamatorene.Controllers;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 import Dataamatorene.App;
@@ -25,6 +24,9 @@ public class LogInController {
 
 
     public void initialize() {
+
+        BrukerRegister.setAktivBruker(null);
+
         FileOpener opener = new FileOpenerJobj();
         try {
             BrukerRegister.setBrukere((ArrayList<Bruker>) opener.read("src/main/java/Dataamatorene/Files/Login.jobj"));
@@ -33,11 +35,6 @@ public class LogInController {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
-
-
-       // System.out.println(BrukerRegister.getBrukere().stream().map(Bruker::getBrukernavn).collect(Collectors.joining(" | ")));
 
         txtBrukernavn.setOnKeyPressed(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.ENTER){
@@ -102,7 +99,6 @@ public class LogInController {
         }
 
         if(!finnes){
-            //lblTilbakemeling.setText("Brukernavn eller passord er feil");
             Dialogs.showErrorDialog("Brukernavn eller passord er feil");
             txtPassword.setText("");
             txtPassword.requestFocus();

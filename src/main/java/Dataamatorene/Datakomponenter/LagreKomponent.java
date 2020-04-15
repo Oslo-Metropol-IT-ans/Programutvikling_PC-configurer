@@ -1,9 +1,11 @@
 package Dataamatorene.Datakomponenter;
 
+import Dataamatorene.Comparators.DatakomponentVarekodeComparator;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LagreKomponent {
 
@@ -49,7 +51,9 @@ public class LagreKomponent {
 
     public static void lagreSkjermkort() throws IOException {
         FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getSkjermkortArrayList(), "src/main/java/Dataamatorene/Files/Skjermkort.jobj" );
+        ArrayList<Skjermkort> midlertidig = KomponentRegister.getSkjermkortArrayList();
+        midlertidig.sort(new DatakomponentVarekodeComparator());
+        saver.save(midlertidig, "src/main/java/Dataamatorene/Files/Skjermkort.jobj" );
     }
 
     public static void lagreTastatur() throws IOException {

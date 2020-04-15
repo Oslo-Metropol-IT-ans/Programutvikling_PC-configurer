@@ -29,11 +29,6 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#loggUt" text="Logg ut">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
             <Button fx:id="btnAdmin" mnemonicParsing="false" onAction="#admin" text="Adminsiden">
                <font>
                   <Font size="18.0" />
@@ -49,8 +44,14 @@
                </font>
             </Label>
             <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="200.0" progress="0.0" />
+            <Label fx:id="lblUpdate" prefWidth="200.0" />
          </children>
       </VBox>
+      <Button fx:id="loggUtButton" layoutX="980.0" layoutY="600.0" mnemonicParsing="false" onAction="#loggUt" text="Logg ut">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
    <stylesheets>
       <URL value="@style.css" />

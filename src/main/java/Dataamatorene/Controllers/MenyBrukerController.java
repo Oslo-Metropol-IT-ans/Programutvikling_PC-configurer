@@ -34,6 +34,7 @@ public class MenyBrukerController {
         if (!KomponentRegister.isLasta()){
             threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
             menyBruker.setVisible(false);
+            loggUtButton.setVisible(false);
             threadOpenKomponentRegister.setOnSucceeded(this::threadOpenKomponentRegisterDone);
             threadOpenKomponentRegister.setOnFailed(this::threadOpenKomponentRegisterFails);
             lblTilbakemelding.setText("Venligst vent...");
@@ -48,6 +49,7 @@ public class MenyBrukerController {
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
         Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyBruker.setVisible(true);
+        loggUtButton.setVisible(true);
         progressBar.setVisible(false);
         lblTilbakemelding.setText("");
         KomponentRegister.setLasta(true);
@@ -70,46 +72,60 @@ public class MenyBrukerController {
     private Label lblTilbakemelding;
 
     @FXML
+    private Label lblUpdate;
+
+    @FXML
     private ProgressBar progressBar;
 
     @FXML
     void mineBestillinger(ActionEvent event) {
-        threadOpenNewPage = new ThreadOpenNewPage("bestillingshistorikkbruker");
-        threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
-        threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
-        threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
-        Thread th = new Thread(threadOpenNewPage);
-        th.setDaemon(true);
-        th.start();
+        threadOpenPageSet("bestillingshistorikkbruker");
     }
 
     @FXML
     void nyBestiliing(ActionEvent event) {
-        threadOpenNewPage = new ThreadOpenNewPage("nybestilling");
+        threadOpenPageSet("nybestilling");
+    }
+
+    private void threadOpenPageSet(String s) {
+        threadOpenNewPage = new ThreadOpenNewPage(s);
         threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
         threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
         threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
+        progressBar.progressProperty().bind(threadOpenNewPage.progressProperty());
+        lblTilbakemelding.setText("Venligst vent...");
+        lblUpdate.textProperty().bind(threadOpenNewPage.messageProperty());
+        progressBar.setVisible(true);
+        menyBruker.setVisible(false);
+        loggUtButton.setVisible(false);
         Thread th = new Thread(threadOpenNewPage);
         th.setDaemon(true);
         th.start();
     }
 
     private void threadOpenPageDone(WorkerStateEvent e){
-        menyBruker.setDisable(false);
+        App.setRoot(threadOpenNewPage.getValue());
+        menyBruker.setVisible(true);
     }
 
     private void threadOpenPageRunning(WorkerStateEvent e) {
         lblTilbakemelding.setText("Venligst vent...");
-        menyBruker.setDisable(true);
+        menyBruker.setVisible(false);
+        loggUtButton.setVisible(false);
     }
 
     private void threadOpenPageFailes(WorkerStateEvent e){
-        menyBruker.setDisable(false);
+        menyBruker.setVisible(true);
+        loggUtButton.setVisible(true);
+
         lblTilbakemelding.setText("Det har skjedd en feil");
     }
 
     @FXML
     private Button btnAdmin;
+
+    @FXML
+    private Button loggUtButton;
 
     @FXML
     void admin(ActionEvent event) {

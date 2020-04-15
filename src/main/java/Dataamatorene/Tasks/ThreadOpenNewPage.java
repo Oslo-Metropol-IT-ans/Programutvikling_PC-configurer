@@ -11,7 +11,7 @@ import javafx.util.Duration;
 
 public class ThreadOpenNewPage extends Task<Parent> {
 
-    private String page;
+    private final String page;
 
     public ThreadOpenNewPage(String page) {
         this.page = page;

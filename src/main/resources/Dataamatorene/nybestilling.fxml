@@ -98,7 +98,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="77.0" layoutY="650.0" mnemonicParsing="false" onAction="#tilbake" text="&lt;- Tilbake">
+      <Button layoutX="77.0" layoutY="650.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
          <font>
             <Font size="18.0" />
          </font>

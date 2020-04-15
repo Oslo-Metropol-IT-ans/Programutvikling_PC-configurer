@@ -37,6 +37,7 @@ public class NyBestillingController {
 
     public void initialize() {
 
+        /*
         oHarddisk.setAll(KomponentRegister.getHarddiskArrayList());
         oHovedkort.setAll(KomponentRegister.getHovedkortArrayList());
         oKabinett.setAll(KomponentRegister.getKabinettArrayList());
@@ -48,6 +49,8 @@ public class NyBestillingController {
         oSkjermkort.setAll(KomponentRegister.getSkjermkortArrayList());
         oTastatur.setAll(KomponentRegister.getTastaturArrayList());
 
+
+         */
         ObservableList<String> oHarddiskNavn = FXCollections.observableArrayList();
         for(Harddisk h:oHarddisk) {
             oHarddiskNavn.add(h.getNavn());

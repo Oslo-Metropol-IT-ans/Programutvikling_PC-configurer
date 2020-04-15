@@ -8,6 +8,7 @@ import Dataamatorene.Tasks.*;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.VBox;
@@ -15,7 +16,6 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class MenyAdminController {
-
 
     ThreadOpenNewPage threadOpenNewPage;
 
@@ -36,6 +36,9 @@ public class MenyAdminController {
     @FXML
     public ProgressBar progressBar;
 
+    @FXML
+    private Button loggUtButton;
+
     public void initialize() {
         lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getBrukernavn()));
         menyAdmin.setDisable(false);
@@ -44,6 +47,7 @@ public class MenyAdminController {
         if (!KomponentRegister.isLasta()) {
             threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
             menyAdmin.setVisible(false);
+            loggUtButton.setVisible(false);
             progressBar.setVisible(true);
             progressBar.progressProperty().bind(threadOpenKomponentRegister.progressProperty());
             lblUpdate.textProperty().bind(threadOpenKomponentRegister.messageProperty());
@@ -59,6 +63,7 @@ public class MenyAdminController {
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
         Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyAdmin.setVisible(true);
+        loggUtButton.setVisible(true);
         progressBar.setVisible(false);
         progressBar.progressProperty().unbind();
         lblTilbakemelding.setText("");
@@ -118,12 +123,14 @@ public class MenyAdminController {
     private void threadOpenPageRunning(WorkerStateEvent e) {
         lblTilbakemelding.setText("Venligst vent...");
 
-        menyAdmin.setDisable(true);
+        menyAdmin.setVisible(false);
+        loggUtButton.setVisible(false);
     }
 
     private void threadOpenPageFailes(WorkerStateEvent e){
         lblTilbakemelding.setText("Det har skjedd en feil");
-        menyAdmin.setDisable(false);
+        menyAdmin.setVisible(true);
+        loggUtButton.setVisible(true);
     }
 
 

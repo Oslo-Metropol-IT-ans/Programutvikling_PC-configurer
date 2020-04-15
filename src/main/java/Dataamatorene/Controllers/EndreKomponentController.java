@@ -14,7 +14,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
@@ -67,7 +66,7 @@ public class EndreKomponentController {
         tbVareKabinett.setCellValueFactory(new PropertyValueFactory<>("varekode"));
         tbNavnKabinett.setCellValueFactory(new PropertyValueFactory<>("navn"));
         tbPrisKabinett.setCellValueFactory(new PropertyValueFactory<>("prisT"));
-        tbStørrelseKabinett.setCellValueFactory(new PropertyValueFactory<>("størrelse"));
+        tbStorrelseKabinett.setCellValueFactory(new PropertyValueFactory<>("størrelse"));
         tbVifterKabinett.setCellValueFactory(new PropertyValueFactory<>("antallVifter"));
 
         tbVareLydkort.setCellValueFactory(new PropertyValueFactory<>("varekode"));
@@ -93,18 +92,18 @@ public class EndreKomponentController {
         tbPrisProsessor.setCellValueFactory(new PropertyValueFactory<>("prisT"));
         tbFrekvenserProsessor.setCellValueFactory(new PropertyValueFactory<>("frekvens"));
         tbKjernerProsessor.setCellValueFactory(new PropertyValueFactory<>("antallKjerner"));
-        tbTråderProsessor.setCellValueFactory(new PropertyValueFactory<>("antallTråder"));
+        tbTraderProsessor.setCellValueFactory(new PropertyValueFactory<>("antallTråder"));
 
         tbVareSkjerm.setCellValueFactory(new PropertyValueFactory<>("varekode"));
         tbNavnSkjerm.setCellValueFactory(new PropertyValueFactory<>("navn"));
         tbPrisSkjerm.setCellValueFactory(new PropertyValueFactory<>("prisT"));
-        tbOppløsningSkjerm.setCellValueFactory(new PropertyValueFactory<>("oppløsning"));
+        tbOpplosningSkjerm.setCellValueFactory(new PropertyValueFactory<>("oppløsning"));
         tbStørrelseSkjerm.setCellValueFactory(new PropertyValueFactory<>("størrelse"));
 
         tbVareSkjermkort.setCellValueFactory(new PropertyValueFactory<>("varekode"));
         tbNavnSkjermkort.setCellValueFactory(new PropertyValueFactory<>("navn"));
         tbPrisSkjermkort.setCellValueFactory(new PropertyValueFactory<>("prisT"));
-        tbOppløsningSkjermkort.setCellValueFactory(new PropertyValueFactory<>("oppløsning"));
+        tbOpplosningSkjermkort.setCellValueFactory(new PropertyValueFactory<>("oppløsning"));
 
         tbVareTastatur.setCellValueFactory(new PropertyValueFactory<>("varekode"));
         tbNavnTastatur.setCellValueFactory(new PropertyValueFactory<>("navn"));
@@ -438,6 +437,8 @@ public class EndreKomponentController {
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
             LagreKomponent.lagreSkjermkort();
+            oSkjermkort.setAll(KomponentRegister.getSkjermkortArrayList());
+            tvSkjermkort.refresh();
         } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
             tvSkjermkort.refresh();
@@ -473,7 +474,7 @@ public class EndreKomponentController {
     }
 
     @FXML
-    private TableColumn<Skjermkort, String> tbOppløsningSkjermkort;
+    private TableColumn<Skjermkort, String> tbOpplosningSkjermkort;
 
     @FXML
     private void txtSkjermkortOppløsningEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
@@ -570,7 +571,7 @@ public class EndreKomponentController {
     }
 
     @FXML
-    private TableColumn<Prosessor, String> tbTråderProsessor;
+    private TableColumn<Prosessor, String> tbTraderProsessor;
 
     @FXML
     private void txtProsessorTråderEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
@@ -722,7 +723,7 @@ public class EndreKomponentController {
     }
 
     @FXML
-    private TableColumn<Kabinett, String> tbStørrelseKabinett;
+    private TableColumn<Kabinett, String> tbStorrelseKabinett;
 
     @FXML
     private void txtKabinettStørrelseEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
@@ -805,7 +806,7 @@ public class EndreKomponentController {
     }
 
     @FXML
-    private TableColumn<Skjerm, String> tbOppløsningSkjerm;
+    private TableColumn<Skjerm, String> tbOpplosningSkjerm;
 
     @FXML
     private void txtSkjermOppløsningEdit(TableColumn.CellEditEvent<Skjerm, String> event) {

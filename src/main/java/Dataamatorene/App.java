@@ -20,7 +20,6 @@ public class App extends Application {
         scene = new Scene(loadFXML("login"));
         stage.setScene(scene);
         stage.setTitle("Dataamatørene");
-        //stage.setMaximized(true);
         stage.show();
     }
 

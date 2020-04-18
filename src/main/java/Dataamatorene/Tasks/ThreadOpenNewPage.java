@@ -22,7 +22,13 @@ public class ThreadOpenNewPage extends Task<Parent> {
 
         updateMessage("Laster inn siden");
 
-        Parent parent = App.loadFXML(page);
+        Parent parent = null;
+        try {
+            parent = App.loadFXML(page);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         try{
             Thread.sleep(1000);

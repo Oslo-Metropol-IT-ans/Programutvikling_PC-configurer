@@ -17,6 +17,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class NyBestillingController {
 
@@ -31,26 +34,58 @@ public class NyBestillingController {
     ObservableList<Skjermkort> oSkjermkort = FXCollections.observableArrayList(KomponentRegister.getSkjermkortArrayList());
     ObservableList<Tastatur> oTastatur = FXCollections.observableArrayList(KomponentRegister.getTastaturArrayList());
 
-    double totPris; double harddiskPris = 0; double hovedkortPris = 0; double lydkortPris; double skjermkortPris = 0;
+    double totPris; Double harddiskPris = 0.0; double hovedkortPris = 0; double lydkortPris; double skjermkortPris = 0;
     double prosessorPris = 0; double minnePris = 0; double kabinettPris = 0; double skjermPris = 0;
     double tastarurPris = 0; double musPris = 0;
 
     public void initialize() {
 
+        // Alle bestillingsbokser i en
+
+         boxArrayList = new ArrayList<>(Arrays.asList(cbHarddisk, cbHovedkort, cbLydkort,
+                cbSkjermkort, cbProsessor, cbMinne, cbKabinett, cbSkjerm, cbTastatur, cbMus));
+
+         observableLists = new ArrayList<>(Arrays.asList(oHarddisk,
+                oHovedkort, oLydkort, oSkjermkort, oProsessor, oMinne, oKabinett, oSkjerm, oTastatur, oMus));
+
+         labels = new ArrayList<>(Arrays.asList(lblUtHarddisk, lblUtHovedkort, lblUtLydkort, lblUtSkjermkort, lblUtProsessor, lblUtMinne,
+                 lblUtKabinett, lblUtSkjerm, lblUtTastatur, lblUtMus));
+
+         priser = new ArrayList<>(Arrays.asList(harddiskPris, hovedkortPris, lydkortPris, skjermkortPris, prosessorPris, minnePris
+                 , kabinettPris, skjermPris, tastarurPris, musPris));
+
+        for (int i = 0; i < boxArrayList.size(); i++) {
+            ObservableList<String> oList = FXCollections.observableArrayList();
+            for (int j = 0; j < observableLists.get(i).size(); j++) {
+                oList.add(observableLists.get(i).get(j).getNavn());
+            }
+            boxArrayList.get(i).setItems(oList);
+            int finalI = i;
+            boxArrayList.get(i).setOnHidden(event  -> {
+                try {
+                    labels.get(finalI).setText(String.valueOf(observableLists.get(finalI)
+                            .get(boxArrayList.get(finalI).getSelectionModel().getSelectedIndex())));
+
+                    priser.set(finalI, (observableLists.get(finalI)
+                            .get(boxArrayList.get(finalI).getSelectionModel().getSelectedIndex())).getPris());
+                    boxArrayList.get(finalI).setStyle("-fx-border-color: none");
+                    
+                    for (double v : priser) {
+                        totPris += v;
+                    }
+
+                    lblTotPris.setText("Totalpris: " + totPris + "kr");
+                } catch (Exception e) {
+                    boxArrayList.get(finalI).setStyle("-fx-border-color: red; -fx-border-radius: 2px");
+
+                }
+            });
+        }
+
+        // Alle bestillingsbokser separat
+
         /*
-        oHarddisk.setAll(KomponentRegister.getHarddiskArrayList());
-        oHovedkort.setAll(KomponentRegister.getHovedkortArrayList());
-        oKabinett.setAll(KomponentRegister.getKabinettArrayList());
-        oLydkort.setAll(KomponentRegister.getLydkortArrayList());
-        oMinne.setAll(KomponentRegister.getMinneArrayList());
-        oMus.setAll(KomponentRegister.getMusArrayList());
-        oProsessor.setAll(KomponentRegister.getProsessorArrayList());
-        oSkjerm.setAll(KomponentRegister.getSkjermArrayList());
-        oSkjermkort.setAll(KomponentRegister.getSkjermkortArrayList());
-        oTastatur.setAll(KomponentRegister.getTastaturArrayList());
 
-
-         */
         ObservableList<String> oHarddiskNavn = FXCollections.observableArrayList();
         for(Harddisk h:oHarddisk) {
             oHarddiskNavn.add(h.getNavn());
@@ -274,6 +309,7 @@ public class NyBestillingController {
             }
 
         });
+         */
 
     }
 
@@ -371,6 +407,14 @@ public class NyBestillingController {
 
         else {
             Dialogs.showErrorDialog("Du må velge alle komponenter først!");
+
+
+            for (int i = 0; i < boxArrayList.size(); i++) {
+                if (labels.get(i).getText().equals("")) {
+                    boxArrayList.get(i).setStyle("-fx-border-color: red; -fx-border-radius: 2px");
+                }
+            }
+
         }
     }
 
@@ -382,5 +426,13 @@ public class NyBestillingController {
             e.printStackTrace();
         }
     }
+
+    private ArrayList<ChoiceBox<String>> boxArrayList;
+
+    private ArrayList<ObservableList<? extends Datakomponent>> observableLists;
+
+    private ArrayList<Label> labels;
+
+    private ArrayList<Double> priser;
 
 }

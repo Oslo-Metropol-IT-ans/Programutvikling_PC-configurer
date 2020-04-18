@@ -119,6 +119,7 @@ public class MenyBrukerController {
         loggUtButton.setVisible(true);
 
         lblTilbakemelding.setText("Det har skjedd en feil");
+        System.err.println(e.getEventType());
     }
 
     @FXML

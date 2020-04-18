@@ -296,7 +296,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Antall tråder:" />
-                                                      <TextField fx:id="txtTråderProsessor" prefWidth="350.0" />
+                                                      <TextField fx:id="txtTraderProsessor" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -421,7 +421,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Størelse (bxdxh):" />
-                                                      <TextField fx:id="txtStørelseKabinett" prefWidth="350.0" />
+                                                      <TextField fx:id="txtStorrelseKabinett" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -482,7 +482,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Størrelse:" />
-                                                      <TextField fx:id="txtStørrelseSkjerm" prefWidth="350.0" />
+                                                      <TextField fx:id="txtStorrelseSkjerm" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -491,7 +491,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Oppløsning:" />
-                                                      <TextField fx:id="txtOppløsningSkjerm" prefWidth="350.0" />
+                                                      <TextField fx:id="txtOpplosningSkjerm" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -543,7 +543,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Språk:" />
-                                                      <TextField fx:id="txtSpråkTastatur" prefWidth="350.0" />
+                                                      <TextField fx:id="txtSprakTastatur" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="301.0" spacing="20.0">
@@ -619,7 +619,7 @@
                                                       <Insets left="20.0" />
                                                    </padding>
                                                    <children>
-                                                      <ToggleButton fx:id="tbTrådløsMus" mnemonicParsing="false" prefHeight="27.0" prefWidth="350.0" text="Tråløs" />
+                                                      <ToggleButton fx:id="tbTradløsMus" mnemonicParsing="false" prefHeight="27.0" prefWidth="350.0" text="Tråløs" />
                                                    </children>
                                                 </HBox>
                                              </children>

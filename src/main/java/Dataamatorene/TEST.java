@@ -2,8 +2,10 @@ package Dataamatorene;
 
 import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Comparators.DatakomponentVarekodeComparator;
+import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Datakomponenter.Skjerm;
 import Dataamatorene.Datakomponenter.Skjermkort;
+import Dataamatorene.Datakomponenter.Tastatur;
 import Dataamatorene.Filbehandling.FileOpener;
 import Dataamatorene.Filbehandling.FileOpenerJobj;
 import Dataamatorene.Filbehandling.FileSaver;
@@ -16,32 +18,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
-class TestKlasse {
-    private String string;
-
-    public TestKlasse(String string) {
-        this.string = string;
-    }
-
-    public String getString() {
-        return string;
-    }
-
-    public void setString(String string) {
-        this.string = string;
-    }
-}
-
 public class TEST {
-
-    static TestKlasse testKlasse = new TestKlasse("Hei");
-
-    static Double tall = 0.0;
-
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+        FileOpener opener = new FileOpenerJobj();
 
-        ArrayList<TestKlasse> liste = new ArrayList<>(Arrays.asList(testKlasse));
-        liste.get(0).setString("på deg");
-        System.out.println(testKlasse.getString());
+        var liste = opener.read("src/main/java/Dataamatorene/Files/Tastatur.jobj");
+        KomponentRegister.setTastaturArrayList((ArrayList<Tastatur>) liste);
+        for (Tastatur t:KomponentRegister.getTastaturArrayList()) {
+            System.out.println(t.getVarekode());
+        }
     }
+
 }

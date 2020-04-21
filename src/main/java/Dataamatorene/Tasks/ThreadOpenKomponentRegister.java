@@ -116,6 +116,8 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         }
 
+        updateMessage("Ferdig lasta");
+
         updateMessage("Setter varekoder harddisk");
         for (Harddisk h: KomponentRegister.getHarddiskArrayList()) {
             VarekodeRegister.addVarekode(h.getVarekode());

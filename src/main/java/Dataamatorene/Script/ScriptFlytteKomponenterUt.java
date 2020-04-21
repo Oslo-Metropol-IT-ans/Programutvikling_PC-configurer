@@ -50,11 +50,11 @@ public class ScriptFlytteKomponenterUt {
             }
 
             for (Skjermkort s:skjermkorts) {
-                skjermkort2s.add(new Skjermkort2(s.getNavn(), s.getPris(), Integer.parseInt(s.getVarekode()), s.getOppløsning()));
+                skjermkort2s.add(new Skjermkort2(s.getNavn(), s.getPris(), Integer.parseInt(s.getVarekode()), s.getOpplosning()));
             }
 
             for (Prosessor p:prosessors) {
-                prosessor2s.add(new Prosessor2(p.getNavn(), p.getPris(), Integer.parseInt(p.getVarekode()), Integer.parseInt(p.getAntallKjerner()), Double.parseDouble(p.getFrekvens()), Integer.parseInt(p.getAntallTråder())));
+                prosessor2s.add(new Prosessor2(p.getNavn(), p.getPris(), Integer.parseInt(p.getVarekode()), Integer.parseInt(p.getAntallKjerner()), Double.parseDouble(p.getFrekvens()), Integer.parseInt(p.getAntallTrader())));
             }
 
             for (Minne m:minnes) {
@@ -62,19 +62,19 @@ public class ScriptFlytteKomponenterUt {
             }
 
             for (Kabinett k:kabinetts) {
-                kabinett2s.add(new Kabinett2(k.getNavn(), k.getPris(), Integer.parseInt(k.getVarekode()), k.getStørrelse(), Integer.parseInt(k.getAntallVifter())));
+                kabinett2s.add(new Kabinett2(k.getNavn(), k.getPris(), Integer.parseInt(k.getVarekode()), k.getStorrelse(), Integer.parseInt(k.getAntallVifter())));
             }
 
             for (Skjerm s:skjerms) {
-                skjerm2s.add(new Skjerm2(s.getNavn(),s.getPris(), Integer.parseInt(s.getVarekode()), s.getOppløsning(), Double.parseDouble(s.getStørrelse())));
+                skjerm2s.add(new Skjerm2(s.getNavn(),s.getPris(), Integer.parseInt(s.getVarekode()), s.getOpplosning(), Double.parseDouble(s.getStorrelse())));
             }
 
             for (Tastatur t:tastaturs) {
-                tastatur2s.add(new Tastatur2(t.getNavn(), t.getPris(), Integer.parseInt(t.getVarekode()), t.getSpråk(), Boolean.getBoolean(t.isMekanisk()), Boolean.getBoolean(t.isRgb())));
+                tastatur2s.add(new Tastatur2(t.getNavn(), t.getPris(), Integer.parseInt(t.getVarekode()), t.getSprak(), Boolean.getBoolean(t.isMekanisk()), Boolean.getBoolean(t.isRgb())));
             }
 
             for (Mus m:muses) {
-                mus2s.add(new Mus2(m.getNavn(), m.getPris(), Integer.parseInt(m.getVarekode()), Boolean.getBoolean(m.isTråd()), Integer.parseInt(m.getAntallKnapper())));
+                mus2s.add(new Mus2(m.getNavn(), m.getPris(), Integer.parseInt(m.getVarekode()), Boolean.getBoolean(m.isTrad()), Integer.parseInt(m.getAntallKnapper())));
             }
 
             FileSaver saver = new FileSaverJobj();

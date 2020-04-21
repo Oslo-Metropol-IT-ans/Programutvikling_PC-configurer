@@ -19,6 +19,7 @@ public class Hovedkort extends Datakomponent implements Serializable, Comparable
 
     public void setAntallPorter(int antallPorter) {
         this.antallPorter = antallPorter;
+        setBrukerTid();
     }
 
     @Override

@@ -218,6 +218,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         }
 
+        /*
         updateMessage("Laster bestillinger");
         BestillingsRegister.setBestillinger((ArrayList<Bestilling>) opener.read("src/main/java/Dataamatorene/Files/Bestillinger.jobj"));
         updateProgress(21, 22);
@@ -237,6 +238,8 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
         } catch (InterruptedException e){
 
         }
+
+         */
         updateMessage("Ferdig!");
 
 

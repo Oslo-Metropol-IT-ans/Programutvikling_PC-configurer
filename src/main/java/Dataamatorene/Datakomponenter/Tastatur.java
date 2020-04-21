@@ -6,23 +6,25 @@ import java.io.Serializable;
 
 public class Tastatur extends Datakomponent implements Serializable, Comparable<Tastatur> {
 
-    protected String språk;
+    protected String sprak;
     protected boolean mekanisk;
     protected boolean rgb;
 
-    public Tastatur(String navn, double pris, int varekode, String språk, boolean mekanisk, boolean rgb) {
+    public Tastatur(String navn, double pris, int varekode, String sprak, boolean mekanisk, boolean rgb) {
         super(navn, pris, varekode);
-        this.språk = språk;
+        this.sprak = sprak;
         this.mekanisk = mekanisk;
         this.rgb = rgb;
+        setBrukerTid();
     }
 
-    public String getSpråk() {
-        return språk;
+    public String getSprak() {
+        return sprak;
     }
 
-    public void setSpråk(String språk) {
-        this.språk = språk;
+    public void setSprak(String sprak) {
+        this.sprak = sprak;
+        setBrukerTid();
     }
 
     public String isMekanisk() {
@@ -31,6 +33,7 @@ public class Tastatur extends Datakomponent implements Serializable, Comparable<
 
     public void setMekanisk(boolean mekanisk) {
         this.mekanisk = mekanisk;
+        setBrukerTid();
     }
 
     public String isRgb() {
@@ -39,21 +42,22 @@ public class Tastatur extends Datakomponent implements Serializable, Comparable<
 
     public void setRgb(boolean rgb) {
         this.rgb = rgb;
+        setBrukerTid();
     }
 
     @Override
     public String toString() {
         if(mekanisk && rgb)
-            return String.format("%s er mekanisk og med lys, %s, %skr, VNr: %s", navn, språk
+            return String.format("%s er mekanisk og med lys, %s, %skr, VNr: %s", navn, sprak
                                                 , pris, getVarekode());
         else if(mekanisk && !rgb)
-            return String.format("%s er mekanisk og uten lys, %s, %skr, VNr: %s", navn, språk
+            return String.format("%s er mekanisk og uten lys, %s, %skr, VNr: %s", navn, sprak
                     , pris, getVarekode());
         else if(!mekanisk && rgb)
-            return String.format("%s er ikke mekanisk og med lys, %s, %skr, VNr: %s", navn, språk
+            return String.format("%s er ikke mekanisk og med lys, %s, %skr, VNr: %s", navn, sprak
                     , pris, getVarekode());
         else
-            return String.format("%s er ikke mekanisk og uten lys, %s, %skr, VNr: %s", navn, språk
+            return String.format("%s er ikke mekanisk og uten lys, %s, %skr, VNr: %s", navn, sprak
                     , pris, getVarekode());
     }
 

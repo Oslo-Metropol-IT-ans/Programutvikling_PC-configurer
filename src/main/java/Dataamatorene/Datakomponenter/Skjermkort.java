@@ -6,24 +6,26 @@ import java.io.Serializable;
 
 public class Skjermkort extends Datakomponent implements Serializable, Comparable<Skjermkort> {
 
-    protected String oppløsning;
+    protected String opplosning;
 
-    public Skjermkort(String navn, double pris, int varekode, String oppløsning) {
+    public Skjermkort(String navn, double pris, int varekode, String opplosning) {
         super(navn, pris, varekode);
-        this.oppløsning = oppløsning;
+        this.opplosning = opplosning;
+        setBrukerTid();
     }
 
-    public String getOppløsning() {
-        return oppløsning;
+    public String getOpplosning() {
+        return opplosning;
     }
 
-    public void setOppløsning(String oppløsning) {
-        this.oppløsning = oppløsning;
+    public void setOpplosning(String opplosning) {
+        this.opplosning = opplosning;
+        setBrukerTid();
     }
 
     @Override
     public String toString() {
-        return String.format("%s %s, %skr, VNr: %s", navn, oppløsning, pris, getVarekode());
+        return String.format("%s %s, %skr, VNr: %s", navn, opplosning, pris, getVarekode());
     }
 
     @Override

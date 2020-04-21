@@ -6,23 +6,25 @@ import java.io.Serializable;
 
 public class Mus extends Datakomponent implements Serializable, Comparable<Mus> {
 
-    protected boolean tråd;
+    protected boolean trad;
     protected int antallKnapper;
 
-    public Mus(String navn, double pris, int varekode, boolean tråd, int antallKnapper) {
+    public Mus(String navn, double pris, int varekode, boolean trad, int antallKnapper) {
         super(navn, pris, varekode);
-        this.tråd = tråd;
+        this.trad = trad;
         this.antallKnapper = antallKnapper;
+        setBrukerTid();
     }
 
 
-    public String isTråd() {
-        if(tråd) return "true";
+    public String isTrad() {
+        if(trad) return "true";
         else return "false";
     }
 
-    public void setTråd(boolean tråd) {
-        this.tråd = tråd;
+    public void setTrad(boolean trad) {
+        this.trad = trad;
+        setBrukerTid();
     }
 
     public String getAntallKnapper() {
@@ -31,11 +33,12 @@ public class Mus extends Datakomponent implements Serializable, Comparable<Mus> 
 
     public void setAntallKnapper(int antallKnapper) {
         this.antallKnapper = antallKnapper;
+        setBrukerTid();
     }
 
     @Override
     public String toString() {
-        if(tråd)
+        if(trad)
             return String.format("%s trådløs %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, getVarekode());
         else
             return String.format("%s med tråd %s knapper, %skr, VNr: %s", navn, antallKnapper, pris, getVarekode());

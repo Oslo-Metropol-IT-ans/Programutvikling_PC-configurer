@@ -10,6 +10,7 @@ import Dataamatorene.Filbehandling.FileOpener;
 import Dataamatorene.Filbehandling.FileOpenerJobj;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -20,13 +21,6 @@ import java.util.Comparator;
 
 public class TEST {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        FileOpener opener = new FileOpenerJobj();
-
-        var liste = opener.read("src/main/java/Dataamatorene/Files/Tastatur.jobj");
-        KomponentRegister.setTastaturArrayList((ArrayList<Tastatur>) liste);
-        for (Tastatur t:KomponentRegister.getTastaturArrayList()) {
-            System.out.println(t.getVarekode());
-        }
     }
 
 }

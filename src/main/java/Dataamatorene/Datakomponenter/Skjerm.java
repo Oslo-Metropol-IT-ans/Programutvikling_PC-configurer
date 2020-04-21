@@ -7,34 +7,37 @@ import java.io.Serializable;
 
 public class Skjerm extends Datakomponent implements Serializable, Comparable<Skjerm> {
 
-    protected String oppløsning;
-    protected double størrelse;
+    protected String opplosning;
+    protected double storrelse;
 
-    public Skjerm(String navn, double pris, int varekode, String oppløsning, double størrelse) {
+    public Skjerm(String navn, double pris, int varekode, String opplosning, double storrelse) {
         super(navn, pris, varekode);
-        this.oppløsning = oppløsning;
-        this.størrelse = størrelse;
+        this.opplosning = opplosning;
+        this.storrelse = storrelse;
+        setBrukerTid();
     }
 
-    public String getOppløsning() {
-        return oppløsning;
+    public String getOpplosning() {
+        return opplosning;
     }
 
-    public void setOppløsning(String oppløsning) {
-        this.oppløsning = oppløsning;
+    public void setOpplosning(String opplosning) {
+        this.opplosning = opplosning;
+        setBrukerTid();
     }
 
-    public String getStørrelse() {
-        return String.valueOf(størrelse);
+    public String getStorrelse() {
+        return String.valueOf(storrelse);
     }
 
-    public void setStørrelse(double størrelse) {
-        this.størrelse = størrelse;
+    public void setStorrelse(double storrelse) {
+        this.storrelse = storrelse;
+        setBrukerTid();
     }
 
     @Override
     public String toString() {
-        return String.format("%s %s %s'', %skr, VNr: %s", navn, oppløsning, størrelse, pris, getVarekode());
+        return String.format("%s %s %s'', %skr, VNr: %s", navn, opplosning, storrelse, pris, getVarekode());
     }
 
     @Override

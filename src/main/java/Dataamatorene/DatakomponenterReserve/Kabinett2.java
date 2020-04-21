@@ -4,7 +4,7 @@ import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Kabinett2 extends Datakomponent implements Serializable {
+public class Kabinett2 extends Datakomponent2 implements Serializable {
 
     protected String størrelse;
     protected int antallVifter;

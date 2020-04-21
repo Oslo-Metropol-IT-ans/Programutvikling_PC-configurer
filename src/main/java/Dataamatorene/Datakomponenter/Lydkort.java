@@ -13,6 +13,7 @@ public class Lydkort extends Datakomponent implements Serializable, Comparable<L
         super(navn, pris, varekode);
         this.integrert = integrert;
         this.frekvens = frekvens;
+        setBrukerTid();
     }
 
     public String getIntegrert() {
@@ -22,6 +23,7 @@ public class Lydkort extends Datakomponent implements Serializable, Comparable<L
 
     public void setIntegrert(boolean integrert) {
         this.integrert = integrert;
+        setBrukerTid();
     }
 
     public String getFrekvens() {
@@ -30,6 +32,7 @@ public class Lydkort extends Datakomponent implements Serializable, Comparable<L
 
     public void setFrekvens(double frekvens) {
         this.frekvens = frekvens;
+        setBrukerTid();
     }
 
     @Override

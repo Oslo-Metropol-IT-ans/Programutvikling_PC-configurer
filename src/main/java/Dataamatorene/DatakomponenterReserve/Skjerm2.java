@@ -5,7 +5,7 @@ import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Skjerm2 extends Datakomponent implements Serializable {
+public class Skjerm2 extends Datakomponent2 implements Serializable {
 
     protected String oppløsning;
     protected double størrelse;

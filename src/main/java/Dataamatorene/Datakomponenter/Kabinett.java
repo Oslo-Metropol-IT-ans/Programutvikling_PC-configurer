@@ -6,21 +6,23 @@ import java.io.Serializable;
 
 public class Kabinett extends Datakomponent implements Serializable, Comparable<Datakomponent> {
 
-    protected String størrelse;
+    protected String storrelse;
     protected int antallVifter;
 
-    public Kabinett(String navn, double pris, int varekode, String størrelse, int antallVifter) {
+    public Kabinett(String navn, double pris, int varekode, String storrelse, int antallVifter) {
         super(navn, pris, varekode);
-        this.størrelse = størrelse;
+        this.storrelse = storrelse;
         this.antallVifter = antallVifter;
+        setBrukerTid();
     }
 
-    public String getStørrelse() {
-        return størrelse;
+    public String getStorrelse() {
+        return storrelse;
     }
 
-    public void setStørrelse(String størrelse) {
-        this.størrelse = størrelse;
+    public void setStorrelse(String storrelse) {
+        this.storrelse = storrelse;
+        setBrukerTid();
     }
 
     public String getAntallVifter() {
@@ -29,11 +31,12 @@ public class Kabinett extends Datakomponent implements Serializable, Comparable<
 
     public void setAntallVifter(int antallVifter) {
         this.antallVifter = antallVifter;
+        setBrukerTid();
     }
 
     @Override
     public String toString() {
-        return String.format("%s %s %s vifter, %skr, VNr: %s", navn, størrelse, antallVifter, pris, getVarekode());
+        return String.format("%s %s %s vifter, %skr, VNr: %s", navn, storrelse, antallVifter, pris, getVarekode());
     }
 
     @Override

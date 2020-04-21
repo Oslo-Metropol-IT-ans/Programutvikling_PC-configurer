@@ -4,7 +4,7 @@ import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Skjermkort2 extends Datakomponent implements Serializable {
+public class Skjermkort2 extends Datakomponent2 implements Serializable {
 
     protected String oppløsning;
 

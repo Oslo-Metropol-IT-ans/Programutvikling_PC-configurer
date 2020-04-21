@@ -8,13 +8,14 @@ public class Prosessor extends Datakomponent implements Serializable, Comparable
 
     protected int antallKjerner;
     protected double frekvens;
-    protected int antallTråder;
+    protected int antallTrader;
 
-    public Prosessor(String navn, double pris, int varekode, int antallKjerner, double frekvens, int antallTråder) {
+    public Prosessor(String navn, double pris, int varekode, int antallKjerner, double frekvens, int antallTrader) {
         super(navn, pris, varekode);
         this.antallKjerner = antallKjerner;
         this.frekvens = frekvens;
-        this.antallTråder = antallTråder;
+        this.antallTrader = antallTrader;
+        setBrukerTid();
     }
 
     public String getAntallKjerner() {
@@ -23,6 +24,7 @@ public class Prosessor extends Datakomponent implements Serializable, Comparable
 
     public void setAntallKjerner(int antallKjerner) {
         this.antallKjerner = antallKjerner;
+        setBrukerTid();
     }
 
     public String getFrekvens() {
@@ -31,19 +33,21 @@ public class Prosessor extends Datakomponent implements Serializable, Comparable
 
     public void setFrekvens(double frekvens) {
         this.frekvens = frekvens;
+        setBrukerTid();
     }
 
-    public String getAntallTråder() {
-        return String.valueOf(antallTråder);
+    public String getAntallTrader() {
+        return String.valueOf(antallTrader);
     }
 
-    public void setAntallTråder(int antallTråder) {
-        this.antallTråder = antallTråder;
+    public void setAntallTrader(int antallTrader) {
+        this.antallTrader = antallTrader;
+        setBrukerTid();
     }
 
     @Override
     public String toString() {
-        return String.format("%s %sGHz %s kjerner %s tråder, %skr, VNr: %s", navn, frekvens, antallKjerner, antallTråder
+        return String.format("%s %sGHz %s kjerner %s tråder, %skr, VNr: %s", navn, frekvens, antallKjerner, antallTrader
                             , pris, getVarekode());
     }
 

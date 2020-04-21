@@ -4,7 +4,7 @@ import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Mus2 extends Datakomponent implements Serializable {
+public class Mus2 extends Datakomponent2 implements Serializable {
 
     protected boolean tråd;
     protected int antallKnapper;

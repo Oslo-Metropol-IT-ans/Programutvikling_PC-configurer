@@ -19,6 +19,7 @@ public class Harddisk extends Datakomponent implements Serializable, Comparable<
 
     public void setLagring(int lagring) {
         this.lagring = lagring;
+        setBrukerTid();
     }
 
     @Override

@@ -13,6 +13,7 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
         super(navn, pris, varekode);
         this.ram = ram;
         this.frekvens = frekvens;
+        setBrukerTid();
     }
 
     public String getRam() {
@@ -21,6 +22,7 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
 
     public void setRam(int ram) {
         this.ram = ram;
+        setBrukerTid();
     }
 
     public String getFrekvens() {
@@ -29,6 +31,7 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
 
     public void setFrekvens(double frekvens) {
         this.frekvens = frekvens;
+        setBrukerTid();
     }
 
     @Override

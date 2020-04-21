@@ -4,7 +4,7 @@ import Dataamatorene.Datakomponenter.Datakomponent;
 
 import java.io.Serializable;
 
-public class Prosessor2 extends Datakomponent implements Serializable {
+public class Prosessor2 extends Datakomponent2 implements Serializable {
 
     protected int antallKjerner;
     protected double frekvens;

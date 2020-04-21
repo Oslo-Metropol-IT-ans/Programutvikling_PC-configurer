@@ -11,6 +11,7 @@ import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Filbehandling.FileOpener;
 import Dataamatorene.Filbehandling.FileOpenerJobj;
+import Dataamatorene.LagreBilde;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;

@@ -98,7 +98,7 @@ public class EndreKomponentController {
         tbNavnSkjerm.setCellValueFactory(new PropertyValueFactory<>("navn"));
         tbPrisSkjerm.setCellValueFactory(new PropertyValueFactory<>("prisT"));
         tbOpplosningSkjerm.setCellValueFactory(new PropertyValueFactory<>("oppløsning"));
-        tbStørrelseSkjerm.setCellValueFactory(new PropertyValueFactory<>("størrelse"));
+        tbStorrelseSkjerm.setCellValueFactory(new PropertyValueFactory<>("størrelse"));
 
         tbVareSkjermkort.setCellValueFactory(new PropertyValueFactory<>("varekode"));
         tbNavnSkjermkort.setCellValueFactory(new PropertyValueFactory<>("navn"));
@@ -820,7 +820,7 @@ public class EndreKomponentController {
     }
 
     @FXML
-    private TableColumn<Skjerm, String> tbStørrelseSkjerm;
+    private TableColumn<Skjerm, String> tbStorrelseSkjerm;
 
     @FXML
     private void txtSkjermStørrelseEdit(TableColumn.CellEditEvent<Skjerm, String> event) {

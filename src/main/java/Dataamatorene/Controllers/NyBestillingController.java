@@ -9,17 +9,23 @@ import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
+import Dataamatorene.LagreBilde;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
 
 public class NyBestillingController {
 
@@ -38,337 +44,176 @@ public class NyBestillingController {
     double prosessorPris = 0; double minnePris = 0; double kabinettPris = 0; double skjermPris = 0;
     double tastarurPris = 0; double musPris = 0;
 
-    public void initialize() {
+    public void initialize() throws FileNotFoundException {
 
         // Alle bestillingsbokser i en
 
-         boxArrayList = new ArrayList<>(Arrays.asList(cbHarddisk, cbHovedkort, cbLydkort,
-                cbSkjermkort, cbProsessor, cbMinne, cbKabinett, cbSkjerm, cbTastatur, cbMus));
+        titledPanes = new ArrayList<>(Arrays.asList(tpHarddisk, tpHovedkort, tpLydkort, tpSkjermkort, tpProsessor,
+                tpMinne, tpKabinett, tpSkjerm, tpTastatur, tpMus));
 
-         observableLists = new ArrayList<>(Arrays.asList(oHarddisk,
+        scrollPanes = new ArrayList<>(Arrays.asList(spHarddisk, spHovedkort, spLydkort, spSkjermkort, spProsessor,
+                spMinne, spKabinett, spSkjerm, spTastatur, spMus));
+
+        observableLists = new ArrayList<>(Arrays.asList(oHarddisk,
                 oHovedkort, oLydkort, oSkjermkort, oProsessor, oMinne, oKabinett, oSkjerm, oTastatur, oMus));
 
-         labels = new ArrayList<>(Arrays.asList(lblUtHarddisk, lblUtHovedkort, lblUtLydkort, lblUtSkjermkort, lblUtProsessor, lblUtMinne,
+        labels = new ArrayList<>(Arrays.asList(lblUtHarddisk, lblUtHovedkort, lblUtLydkort, lblUtSkjermkort, lblUtProsessor, lblUtMinne,
                  lblUtKabinett, lblUtSkjerm, lblUtTastatur, lblUtMus));
 
-         priser = new ArrayList<>(Arrays.asList(harddiskPris, hovedkortPris, lydkortPris, skjermkortPris, prosessorPris, minnePris
+        priser = new ArrayList<>(Arrays.asList(harddiskPris, hovedkortPris, lydkortPris, skjermkortPris, prosessorPris, minnePris
                  , kabinettPris, skjermPris, tastarurPris, musPris));
 
-        for (int i = 0; i < boxArrayList.size(); i++) {
-            ObservableList<String> oList = FXCollections.observableArrayList();
+
+        for (int i = 0; i < titledPanes.size(); i++) {
+            double x = titledPanes.get(i).getLayoutX();
+            double y = titledPanes.get(i).getLayoutY();
+
+            VBox vBox = new VBox(10);
+
             for (int j = 0; j < observableLists.get(i).size(); j++) {
-                oList.add(observableLists.get(i).get(j).getNavn());
-            }
-            boxArrayList.get(i).setItems(oList);
-            int finalI = i;
-            boxArrayList.get(i).setOnHidden(event  -> {
-                try {
-                    labels.get(finalI).setText(String.valueOf(observableLists.get(finalI)
-                            .get(boxArrayList.get(finalI).getSelectionModel().getSelectedIndex())));
+                HBox hBox = new HBox(10);
+                Label label = new Label(observableLists.get(i).get(j).toString());
+                label.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: white; -fx-border-style: solid; -fx-text-alignment: left!important;");
+                ImageView image = new ImageView(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/i9.jpg")));
+                image.setFitHeight(80);
+                image.setPreserveRatio(true);
+                label.setPrefWidth(1115);
+                label.setPrefHeight(80);
+                hBox.getChildren().addAll(image, label);
 
-                    priser.set(finalI, (observableLists.get(finalI)
-                            .get(boxArrayList.get(finalI).getSelectionModel().getSelectedIndex())).getPris());
-                    boxArrayList.get(finalI).setStyle("-fx-border-color: none");
-                    
-                    for (double v : priser) {
-                        totPris += v;
+                int finalI = i;
+                int finalJ = j;
+                image.setOnMouseClicked(mouseEvent -> {
+                    titledPanes.get(finalI).setLayoutX(x);
+                    titledPanes.get(finalI).setLayoutY(y);
+                    labels.get(finalI).setText(observableLists.get(finalI)
+                            .get(observableLists.get(finalI).indexOf(observableLists.get(finalI).get(finalJ))).toString());
+                    titledPanes.get(finalI).setExpanded(false);
+                    titledPanes.get(finalI).setPrefWidth(150);
+                    titledPanes.get(finalI).toBack();
+                });
+
+                label.setOnMouseClicked(mouseEvent -> {
+                    titledPanes.get(finalI).setLayoutX(x);
+                    titledPanes.get(finalI).setLayoutY(y);
+                    labels.get(finalI).setText(observableLists.get(finalI)
+                            .get(observableLists.get(finalI).indexOf(observableLists.get(finalI).get(finalJ))).toString());
+                    titledPanes.get(finalI).setExpanded(false);
+                    titledPanes.get(finalI).setPrefWidth(150);
+                    titledPanes.get(finalI).toBack();
+                });
+                vBox.getChildren().add(hBox);
+                vBox.setPrefWidth(1123.5);
+
+                titledPanes.get(i).setExpanded(false);
+                scrollPanes.get(i).setContent(vBox);
+
+                titledPanes.get(i).setOnMouseClicked(mouseEvent -> {
+                    if (titledPanes.get(finalI).isExpanded()) {
+                        titledPanes.get(finalI).toFront();
+                        titledPanes.get(finalI).setLayoutX(20);
+                        titledPanes.get(finalI).setLayoutY(20);
+                        titledPanes.get(finalI).setPrefWidth(1125);
+                        titledPanes.get(finalI).setPrefHeight(600);
+                    } else {
+                        titledPanes.get(finalI).setPrefWidth(150);
+                        titledPanes.get(finalI).setLayoutX(x);
+                        titledPanes.get(finalI).setLayoutY(y);
                     }
-
-                    lblTotPris.setText("Totalpris: " + totPris + "kr");
-                } catch (Exception e) {
-                    boxArrayList.get(finalI).setStyle("-fx-border-color: red; -fx-border-radius: 2px");
-
-                }
-            });
-        }
-
-        // Alle bestillingsbokser separat
-
-        /*
-
-        ObservableList<String> oHarddiskNavn = FXCollections.observableArrayList();
-        for(Harddisk h:oHarddisk) {
-            oHarddiskNavn.add(h.getNavn());
-        }
-
-        cbHarddisk.setItems(oHarddiskNavn);
-
-        cbHarddisk.setOnHiding(event -> {
-
-            try {
-                lblUtHarddisk.setText(String.valueOf(oHarddisk.get(cbHarddisk.getSelectionModel().getSelectedIndex())));
-
-                harddiskPris = (oHarddisk.get(cbHarddisk.getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
+                });
             }
-
-        });
-
-        ObservableList<String> oHovedkortNavn = FXCollections.observableArrayList();
-        for(Hovedkort h:oHovedkort) {
-            oHovedkortNavn.add(h.getNavn());
         }
 
-        cbHovedkort.setItems(oHovedkortNavn);
 
-        cbHovedkort.setOnHiding(event -> {
-
-            try {
-                lblUtHovedkort.setText(String.valueOf(oHovedkort.get(cbHovedkort.getSelectionModel().getSelectedIndex())));
-
-                hovedkortPris = (oHovedkort.get(cbHovedkort.getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
-            }
-
-        });
-
-        ObservableList<String> oLydkortNavn = FXCollections.observableArrayList();
-        for(Lydkort l:oLydkort) {
-            oLydkortNavn.add(l.getNavn());
-        }
-
-        cbLydkort.setItems(oLydkortNavn);
-
-        cbLydkort.setOnHiding(event -> {
-
-            try {
-                lblUtLydkort.setText(String.valueOf(oLydkort.get(cbLydkort.getSelectionModel().getSelectedIndex())));
-
-                lydkortPris = (oLydkort.get(cbLydkort.getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
-            }
-
-
-        });
-
-        ObservableList<String> oSkjermkortNavn = FXCollections.observableArrayList();
-        for(Skjermkort s:oSkjermkort) {
-            oSkjermkortNavn.add(s.getNavn());
-        }
-
-        cbSkjermkort.setItems(oSkjermkortNavn);
-
-        cbSkjermkort.setOnHiding(event -> {
-
-            try {
-                lblUtSkjermkort.setText(String.valueOf(oSkjermkort.get(cbSkjermkort.getSelectionModel().getSelectedIndex())));
-
-                skjermkortPris = (oSkjermkort.get(cbSkjermkort.getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
-            }
-
-
-        });
-
-        ObservableList<String> oProsessorNavn = FXCollections.observableArrayList();
-        for(Prosessor p:oProsessor) {
-            oProsessorNavn.add(p.getNavn());
-        }
-
-        cbProsessor.setItems(oProsessorNavn);
-
-        cbProsessor.setOnHiding(event -> {
-
-            try {
-                lblUtProsessor.setText(String.valueOf(oProsessor.get(cbProsessor.getSelectionModel().getSelectedIndex())));
-
-                prosessorPris = (oProsessor.get(cbProsessor.getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
-            }
-
-
-        });
-
-        ObservableList<String> oMinneNavn = FXCollections.observableArrayList();
-        for(Minne m:oMinne) {
-            oMinneNavn.add(m.getNavn());
-        }
-
-        cbMinne.setItems(oMinneNavn);
-
-        cbMinne.setOnHiding(event -> {
-
-            try {
-                lblUtMinne.setText(String.valueOf(oMinne.get(cbMinne.getSelectionModel().getSelectedIndex())));
-
-                minnePris = (oMinne.get(cbMinne.getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
-            }
-
-
-        });
-
-        ObservableList<String> oKabienttNavn = FXCollections.observableArrayList();
-        for(Kabinett k:oKabinett) {
-            oKabienttNavn.add(k.getNavn());
-        }
-
-        cbKabinett.setItems(oKabienttNavn);
-
-        cbKabinett.setOnHiding(event -> {
-
-            try {
-                lblUtKabinett.setText(String.valueOf(oKabinett.get(cbKabinett.getSelectionModel().getSelectedIndex())));
-
-                kabinettPris = (oKabinett.get(cbKabinett.getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
-            }
-
-        });
-
-        ObservableList<String> oSkjermNavn = FXCollections.observableArrayList();
-        for(Skjerm s:oSkjerm) {
-            oSkjermNavn.add(s.getNavn());
-        }
-
-        cbSkjerm.setItems(oSkjermNavn);
-
-        cbSkjerm.setOnHiding(event -> {
-
-            try {
-                lblUtSkjerm.setText(String.valueOf(oSkjerm.get(cbSkjerm.getSelectionModel().getSelectedIndex())));
-
-                skjermPris = (oSkjerm.get(cbSkjerm.getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
-            }
-
-        });
-
-        ObservableList<String> oTastaturNavn = FXCollections.observableArrayList();
-        for(Tastatur t:oTastatur) {
-            oTastaturNavn.add(t.getNavn());
-        }
-
-        cbTastatur.setItems(oTastaturNavn);
-
-        cbTastatur.setOnHiding(event -> {
-
-            try {
-                lblUtTastatur.setText(String.valueOf(oTastatur.get(cbTastatur.getSelectionModel().getSelectedIndex())));
-
-                tastarurPris = (oTastatur.get(cbTastatur.getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
-            }
-
-        });
-
-        ObservableList<String> oMusNavn = FXCollections.observableArrayList();
-        for(Mus m:oMus) {
-            oMusNavn.add(m.getNavn());
-        }
-
-        cbMus.setItems(oMusNavn);
-
-        cbMus.setOnHiding(event -> {
-
-            try {
-                lblUtMus.setText(String.valueOf(oMus.get(cbMus.getSelectionModel().getSelectedIndex())));
-
-                musPris = (oMus.get(cbMus .getSelectionModel().getSelectedIndex())).getPris();
-                totPris = harddiskPris + hovedkortPris + skjermkortPris + lydkortPris + prosessorPris + minnePris + skjermPris
-                        + tastarurPris + kabinettPris + musPris;
-                lblTotPris.setText("Totalpris: " + totPris + "kr");
-            } catch (Exception e) {
-
-            }
-
-        });
-         */
 
     }
 
     @FXML
-    private ChoiceBox<String> cbHarddisk;
+    private TitledPane tpHarddisk;
+
+    @FXML
+    private ScrollPane spHarddisk;
 
     @FXML
     private Label lblUtHarddisk;
 
     @FXML
-    private ChoiceBox<String> cbHovedkort;
+    private TitledPane tpHovedkort;
+
+    @FXML
+    private ScrollPane spHovedkort;
 
     @FXML
     private Label lblUtHovedkort;
 
     @FXML
-    private ChoiceBox<String> cbLydkort;
+    private TitledPane tpLydkort;
+
+    @FXML
+    private ScrollPane spLydkort;
 
     @FXML
     private Label lblUtLydkort;
 
     @FXML
-    private ChoiceBox<String> cbSkjermkort;
+    private TitledPane tpSkjermkort;
+
+    @FXML
+    private ScrollPane spSkjermkort;
 
     @FXML
     private Label lblUtSkjermkort;
 
     @FXML
-    private ChoiceBox<String> cbProsessor;
+    private TitledPane tpProsessor;
+
+    @FXML
+    private ScrollPane spProsessor;
 
     @FXML
     private Label lblUtProsessor;
 
     @FXML
-    private ChoiceBox<String> cbMinne;
+    private TitledPane tpMinne;
+
+    @FXML
+    private ScrollPane spMinne;
 
     @FXML
     private Label lblUtMinne;
 
     @FXML
-    private ChoiceBox<String> cbKabinett;
+    private TitledPane tpKabinett;
+
+    @FXML
+    private ScrollPane spKabinett;
 
     @FXML
     private Label lblUtKabinett;
 
     @FXML
-    private ChoiceBox<String> cbSkjerm;
+    private TitledPane tpSkjerm;
+
+    @FXML
+    private ScrollPane spSkjerm;
 
     @FXML
     private Label lblUtSkjerm;
 
     @FXML
-    private ChoiceBox<String> cbTastatur;
+    private TitledPane tpTastatur;
+
+    @FXML
+    private ScrollPane spTastatur;
 
     @FXML
     private Label lblUtTastatur;
 
     @FXML
-    private ChoiceBox<String> cbMus;
+    private TitledPane tpMus;
+
+    @FXML
+    private ScrollPane spMus;
 
     @FXML
     private Label lblUtMus;
@@ -378,44 +223,7 @@ public class NyBestillingController {
 
     @FXML
     void bestill(ActionEvent event) {
-        if (harddiskPris > 0 && hovedkortPris > 0 && lydkortPris > 0 && skjermkortPris > 0 && prosessorPris > 0
-        && minnePris > 0 && kabinettPris > 0 && skjermPris > 0 && tastarurPris > 0 && musPris > 0){
-            Bruker b1 = BrukerRegister.getAktivBruker();
-            Harddisk h1 = oHarddisk.get(cbHarddisk.getSelectionModel().getSelectedIndex());
-            Hovedkort h2 = oHovedkort.get(cbHovedkort.getSelectionModel().getSelectedIndex());
-            Lydkort l = oLydkort.get(cbLydkort.getSelectionModel().getSelectedIndex());
-            Skjermkort s1 = oSkjermkort.get(cbSkjermkort.getSelectionModel().getSelectedIndex());
-            Prosessor p = oProsessor.get(cbProsessor.getSelectionModel().getSelectedIndex());
-            Minne m1 = oMinne.get(cbMinne.getSelectionModel().getSelectedIndex());
-            Kabinett k = oKabinett.get(cbKabinett.getSelectionModel().getSelectedIndex());
-            Skjerm s2 = oSkjerm.get(cbSkjerm.getSelectionModel().getSelectedIndex());
-            Tastatur t = oTastatur.get(cbTastatur.getSelectionModel().getSelectedIndex());
-            Mus m2 = oMus.get(cbMus.getSelectionModel().getSelectedIndex());
 
-            Bestilling b = new Bestilling(b1, h1, h2, l, s1, p, m1, k, s2, t, m2);
-
-            BestillingsRegister.addBestilling(b);
-
-            FileSaver saver = new FileSaverJobj();
-            try {
-                saver.save(BestillingsRegister.getBestillinger(), "src/main/java/Dataamatorene/Files/Bestillinger.jobj");
-                App.setRoot("menybruker");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        else {
-            Dialogs.showErrorDialog("Du må velge alle komponenter først!");
-
-
-            for (int i = 0; i < boxArrayList.size(); i++) {
-                if (labels.get(i).getText().equals("")) {
-                    boxArrayList.get(i).setStyle("-fx-border-color: red; -fx-border-radius: 2px");
-                }
-            }
-
-        }
     }
 
     @FXML
@@ -427,7 +235,9 @@ public class NyBestillingController {
         }
     }
 
-    private ArrayList<ChoiceBox<String>> boxArrayList;
+    private ArrayList<TitledPane> titledPanes;
+
+    private ArrayList<ScrollPane> scrollPanes;
 
     private ArrayList<ObservableList<? extends Datakomponent>> observableLists;
 

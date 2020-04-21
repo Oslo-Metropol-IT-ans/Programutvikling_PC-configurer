@@ -433,7 +433,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbStørrelseSkjerm" onEditCommit="#txtSkjermStørrelseEdit" prefWidth="161.5" text="Størrelse">
+                                                <TableColumn fx:id="tbStorrelseSkjerm" onEditCommit="#txtSkjermStørrelseEdit" prefWidth="161.5" text="Størrelse">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="txtData" />
                                                    </cellValueFactory>

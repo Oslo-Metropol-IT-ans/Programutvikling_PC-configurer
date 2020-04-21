@@ -55,8 +55,6 @@
     -fx-text-alignment: center!important;
 }
 
-
-
 .table-view{
     -fx-background-color: transparent;
 }
@@ -369,7 +367,7 @@
     -fx-alignment: CENTER-RIGHT;
 }
 
-#tbStørrelseSkjerm {
+#tbStorrelseSkjerm {
     -fx-alignment: CENTER-RIGHT;
 }
 
@@ -384,4 +382,19 @@
 #tbKnapperMus {
     -fx-alignment: CENTER-RIGHT;
 }
+
+#tbPris {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: #212121;
+}
+
+
 

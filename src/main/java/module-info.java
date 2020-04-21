@@ -2,6 +2,7 @@ module ProsjektoppgaveEMNMEM {
     requires javafx.controls;
     requires javafx.fxml;
     requires annotations;
+    requires java.desktop;
 
     opens Dataamatorene to javafx.fxml;
     opens Dataamatorene.Controllers to javafx.fxml;

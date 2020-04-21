@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.NyBestillingController">
    <children>
       <VBox layoutX="-1.0" layoutY="80.0" prefHeight="517.0" prefWidth="1165.0" spacing="20.0">
@@ -17,38 +19,43 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Harddisk" />
-                        <ChoiceBox fx:id="cbHarddisk" prefWidth="150.0" />
-                        <Label fx:id="lblUtHarddisk" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtHarddisk" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Hovedkort" />
-                        <ChoiceBox fx:id="cbHovedkort" prefWidth="150.0" />
-                        <Label fx:id="lblUtHovedkort" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtHovedkort" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Lydkort" />
-                        <ChoiceBox fx:id="cbLydkort" prefWidth="150.0" />
-                        <Label fx:id="lblUtLydkort" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtLydkort" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Skjermkort" />
-                        <ChoiceBox fx:id="cbSkjermkort" prefWidth="150.0" />
-                        <Label fx:id="lblUtSkjermkort" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtSkjermkort" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Prosessor" />
-                        <ChoiceBox fx:id="cbProsessor" prefWidth="150.0" />
-                        <Label fx:id="lblUtProsessor" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtProsessor" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                </children>
             </HBox>
@@ -56,38 +63,43 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Minne" />
-                        <ChoiceBox fx:id="cbMinne" prefWidth="150.0" />
-                        <Label fx:id="lblUtMinne" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtMinne" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Kabinett" />
-                        <ChoiceBox fx:id="cbKabinett" prefWidth="150.0" />
-                        <Label fx:id="lblUtKabinett" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtKabinett" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Skjerm" />
-                        <ChoiceBox fx:id="cbSkjerm" prefWidth="150.0" />
-                        <Label fx:id="lblUtSkjerm" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtSkjerm" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Tastatur" />
-                        <ChoiceBox fx:id="cbTastatur" prefWidth="150.0" />
-                        <Label fx:id="lblUtTastatur" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtTastatur" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="250.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <Label text="Mus" />
-                        <ChoiceBox fx:id="cbMus" prefWidth="150.0" />
-                        <Label fx:id="lblUtMus" alignment="TOP_LEFT" prefHeight="140.0" prefWidth="100.0" wrapText="true" />
+                        <Label fx:id="lblUtMus" alignment="TOP_LEFT" prefHeight="200.0" prefWidth="160.0" wrapText="true" />
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </VBox>
                </children>
             </HBox>
@@ -109,6 +121,56 @@
          </font>
       </Button>
       <Label fx:id="lblTotPris" layoutX="923.0" layoutY="600.0" prefHeight="17.0" prefWidth="183.0" textAlignment="RIGHT" />
+      <TitledPane fx:id="tpProsessor" animated="false" layoutX="947.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Prosessor">
+         <content>
+            <ScrollPane fx:id="spProsessor" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="tpSkjermkort" animated="false" layoutX="727.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Skjermkort">
+         <content>
+            <ScrollPane fx:id="spSkjermkort" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="tpLydkort" animated="false" layoutX="508.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Lydkort">
+         <content>
+            <ScrollPane fx:id="spLydkort" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="tpHovedkort" animated="false" layoutX="288.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Hovedkort">
+         <content>
+            <ScrollPane fx:id="spHovedkort" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="tpHarddisk" animated="false" layoutX="67.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Harddisk">
+         <content>
+            <ScrollPane fx:id="spHarddisk" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="tpMinne" animated="false" layoutX="67.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Minne">
+         <content>
+            <ScrollPane fx:id="spMinne" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="tpKabinett" animated="false" layoutX="288.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Kabinett">
+         <content>
+            <ScrollPane fx:id="spKabinett" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="tpSkjerm" animated="false" layoutX="508.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Skjerm">
+         <content>
+            <ScrollPane fx:id="spSkjerm" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="tpTastatur" animated="false" layoutX="727.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Tastatur">
+         <content>
+            <ScrollPane fx:id="spTastatur" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="tpMus" animated="false" layoutX="947.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Mus">
+         <content>
+            <ScrollPane fx:id="spMus" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </TitledPane>
    </children>
    <stylesheets>
       <URL value="@style.css" />

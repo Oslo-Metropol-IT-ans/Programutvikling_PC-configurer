@@ -1,6 +1,7 @@
 package Dataamatorene.DatakomponenterReserve;
 
 import Dataamatorene.Datakomponenter.Datakomponent;
+import javafx.scene.image.Image;
 
 import java.io.Serializable;
 
@@ -10,8 +11,8 @@ public class Tastatur2 extends Datakomponent2 implements Serializable {
     protected boolean mekanisk;
     protected boolean rgb;
 
-    public Tastatur2(String navn, double pris, int varekode, String språk, boolean mekanisk, boolean rgb) {
-        super(navn, pris, varekode);
+    public Tastatur2(String navn, double pris, int varekode, Image bilde, String språk, boolean mekanisk, boolean rgb) {
+        super(navn, pris, varekode, bilde);
         this.språk = språk;
         this.mekanisk = mekanisk;
         this.rgb = rgb;

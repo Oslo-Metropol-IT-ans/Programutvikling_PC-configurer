@@ -1,6 +1,7 @@
 package Dataamatorene.DatakomponenterReserve;
 
 import Dataamatorene.Datakomponenter.Datakomponent;
+import javafx.scene.image.Image;
 
 import java.io.Serializable;
 
@@ -9,8 +10,8 @@ public class Lydkort2 extends Datakomponent2 implements Serializable {
     protected boolean integrert;
     protected double frekvens;
 
-    public Lydkort2(String navn, double pris, int varekode, boolean integrert, double frekvens) {
-        super(navn, pris, varekode);
+    public Lydkort2(String navn, double pris, int varekode, Image bilde, boolean integrert, double frekvens) {
+        super(navn, pris, varekode, bilde);
         this.integrert = integrert;
         this.frekvens = frekvens;
     }

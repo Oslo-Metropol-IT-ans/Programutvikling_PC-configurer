@@ -1,6 +1,7 @@
 package Dataamatorene.DatakomponenterReserve;
 
 import Dataamatorene.Datakomponenter.Datakomponent;
+import javafx.scene.image.Image;
 
 import java.io.Serializable;
 
@@ -8,8 +9,8 @@ public class Hovedkort2 extends Datakomponent2 implements Serializable {
 
     protected int antallPorter;
 
-    public Hovedkort2(String navn, double pris, int varekode, int antallPorter) {
-        super(navn, pris, varekode);
+    public Hovedkort2(String navn, double pris, int varekode, Image bilde, int antallPorter) {
+        super(navn, pris, varekode, bilde);
         this.antallPorter = antallPorter;
     }
 

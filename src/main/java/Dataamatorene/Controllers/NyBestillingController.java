@@ -74,7 +74,10 @@ public class NyBestillingController {
                 HBox hBox = new HBox(10);
                 Label label = new Label(observableLists.get(i).get(j).toString());
                 label.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: white; -fx-border-style: solid; -fx-text-alignment: left!important;");
-                ImageView image = new ImageView(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/i9.jpg")));
+                ImageView image;
+                if (observableLists.get(i).get(j).getBilde() != null) {
+                     image = new ImageView(observableLists.get(i).get(j).getBilde());
+                } else image = new ImageView(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
                 image.setFitHeight(80);
                 image.setPreserveRatio(true);
                 label.setPrefWidth(1115);

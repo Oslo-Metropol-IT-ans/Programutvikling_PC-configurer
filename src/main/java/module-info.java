@@ -1,6 +1,7 @@
 module ProsjektoppgaveEMNMEM {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.swing;
     requires annotations;
     requires java.desktop;
 

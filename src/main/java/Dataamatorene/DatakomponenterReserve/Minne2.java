@@ -1,6 +1,7 @@
 package Dataamatorene.DatakomponenterReserve;
 
 import Dataamatorene.Datakomponenter.Datakomponent;
+import javafx.scene.image.Image;
 
 import java.io.Serializable;
 
@@ -9,8 +10,8 @@ public class Minne2 extends Datakomponent2 implements Serializable {
     protected int ram;
     protected double frekvens;
 
-    public Minne2(String navn, double pris, int varekode, int ram, double frekvens) {
-        super(navn, pris, varekode);
+    public Minne2(String navn, double pris, int varekode, Image bilde, int ram, double frekvens) {
+        super(navn, pris, varekode, bilde);
         this.ram = ram;
         this.frekvens = frekvens;
     }

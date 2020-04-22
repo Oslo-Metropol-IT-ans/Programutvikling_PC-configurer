@@ -1,6 +1,7 @@
 package Dataamatorene.DatakomponenterReserve;
 
 import Dataamatorene.Datakomponenter.Datakomponent;
+import javafx.scene.image.Image;
 
 import java.io.Serializable;
 
@@ -8,8 +9,8 @@ public class Skjermkort2 extends Datakomponent2 implements Serializable {
 
     protected String oppløsning;
 
-    public Skjermkort2(String navn, double pris, int varekode, String oppløsning) {
-        super(navn, pris, varekode);
+    public Skjermkort2(String navn, double pris, int varekode, Image bilde, String oppløsning) {
+        super(navn, pris, varekode, bilde);
         this.oppløsning = oppløsning;
     }
 

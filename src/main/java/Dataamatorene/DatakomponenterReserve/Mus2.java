@@ -1,6 +1,7 @@
 package Dataamatorene.DatakomponenterReserve;
 
 import Dataamatorene.Datakomponenter.Datakomponent;
+import javafx.scene.image.Image;
 
 import java.io.Serializable;
 
@@ -9,8 +10,8 @@ public class Mus2 extends Datakomponent2 implements Serializable {
     protected boolean tråd;
     protected int antallKnapper;
 
-    public Mus2(String navn, double pris, int varekode, boolean tråd, int antallKnapper) {
-        super(navn, pris, varekode);
+    public Mus2(String navn, double pris, int varekode, Image bilde, boolean tråd, int antallKnapper) {
+        super(navn, pris, varekode, bilde);
         this.tråd = tråd;
         this.antallKnapper = antallKnapper;
     }

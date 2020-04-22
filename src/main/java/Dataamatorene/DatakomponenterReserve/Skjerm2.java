@@ -2,6 +2,7 @@ package Dataamatorene.DatakomponenterReserve;
 
 
 import Dataamatorene.Datakomponenter.Datakomponent;
+import javafx.scene.image.Image;
 
 import java.io.Serializable;
 
@@ -10,8 +11,8 @@ public class Skjerm2 extends Datakomponent2 implements Serializable {
     protected String oppløsning;
     protected double størrelse;
 
-    public Skjerm2(String navn, double pris, int varekode, String oppløsning, double størrelse) {
-        super(navn, pris, varekode);
+    public Skjerm2(String navn, double pris, int varekode, Image bilde, String oppløsning, double størrelse) {
+        super(navn, pris, varekode, bilde);
         this.oppløsning = oppløsning;
         this.størrelse = størrelse;
     }

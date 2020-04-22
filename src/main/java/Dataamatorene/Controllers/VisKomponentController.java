@@ -1,6 +1,7 @@
 package Dataamatorene.Controllers;
 
 import Dataamatorene.Datakomponenter.Datakomponent;
+import Dataamatorene.Komponent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,20 +12,22 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class VisKomponentController {
 
-    private static Datakomponent datakomponent;
+    private static Komponent<? extends Datakomponent> datakomponent;
 
     public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn) {
-        datakomponent = datakomponentInn;
+        datakomponent = new Komponent<>(datakomponentInn);
     }
 
-    public void initialize() {
-        lblToString.setText(datakomponent.toString());
-        if (datakomponent.getBilde() != null) {
-            ivBilde.setImage(datakomponent.getBilde());
-        }
+    public void initialize() throws FileNotFoundException {
+        lblToString.setText(datakomponent.getKomponent().toString());
+        if (datakomponent.getKomponent().getBilde() != null) {
+            ivBilde.setImage(datakomponent.getKomponent().getBilde());
+        } else ivBilde.setImage(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
     }
 
     @FXML
@@ -38,12 +41,14 @@ public class VisKomponentController {
 
     @FXML
     void lastOpp(ActionEvent event) {
-        datakomponent.setBilde(lasteBildeFil());
+        Image bilde = lasteBildeFil();
+        datakomponent.getKomponent().setBilde(bilde);
+        ivBilde.setImage(bilde);
     }
 
     @FXML
     void lagre(ActionEvent event) {
-        EndreKomponentController.setDatakomponent(datakomponent);
+        EndreKomponentController.setDatakomponent(datakomponent.getKomponent());
         // get a handle to the stage
         Stage stage = (Stage) lagreButton.getScene().getWindow();
         // do what you have to do
@@ -58,8 +63,7 @@ public class VisKomponentController {
 
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
-            String path = selectedFile.getPath();
-            return new Image(selectedFile.getPath());
+            return new Image(selectedFile.toURI().toString()    );
         }
 
         return null;

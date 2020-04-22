@@ -1,15 +1,17 @@
 package Dataamatorene.DatakomponenterReserve;
 
 import Dataamatorene.Datakomponenter.Datakomponent;
+import javafx.scene.image.Image;
 
+import java.awt.*;
 import java.io.Serializable;
 
 public class Harddisk2 extends Datakomponent2 implements Serializable {
 
     protected int lagring;
 
-    public Harddisk2(String navn, double pris, int varekode, int lagring) {
-        super(navn, pris, varekode);
+    public Harddisk2(String navn, double pris, int varekode, Image bilde, int lagring) {
+        super(navn, pris, varekode, bilde);
         this.lagring = lagring;
     }
 

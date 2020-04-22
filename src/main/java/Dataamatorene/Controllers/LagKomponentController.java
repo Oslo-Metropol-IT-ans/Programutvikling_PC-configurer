@@ -578,7 +578,7 @@ public class LagKomponentController {
             boolean mekanisk = tbMekaniskTastatur.isSelected();
             boolean rgb = txtRGBTastatur.isSelected();
 
-            Tastatur t = new Tastatur(navn, pris, varekode, språk, mekanisk, rgb);
+            Tastatur t = new Tastatur(navn, pris, varekode,  språk, mekanisk, rgb);
             KomponentRegister.addTastatur(t);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreTastatur();

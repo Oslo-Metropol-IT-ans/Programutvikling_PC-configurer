@@ -10,6 +10,7 @@ import Dataamatorene.Exceptions.AlreadyTakenVarekodeException;
 import Dataamatorene.Exceptions.InvalidComponentAttributeException;
 import Dataamatorene.Exceptions.InvalidPrisException;
 import Dataamatorene.Exceptions.InvalidVarekodeException;
+import Dataamatorene.Komponent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -222,17 +223,6 @@ public class EndreKomponentController {
 
     @FXML
     private TableView<Mus> tvMus;
-
-    private static Datakomponent datakomponent;
-
-    public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn) {
-        datakomponent.setBilde(datakomponentInn.getBilde());
-        try {
-            LagreKomponent.lagreAlle();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     //Harddisk
@@ -1391,14 +1381,29 @@ public class EndreKomponentController {
         }
 
     }
+    private static Komponent<? extends Datakomponent> datakomponent;
+
+    public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn) {
+        datakomponent.getKomponent().setBilde(datakomponentInn.getBilde());
+
+        System.out.println(datakomponent.getKomponent().getClass());
+
+        try {
+            LagreKomponent.lagreAlle();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @FXML
     void vis(ActionEvent event) {
+
         if (aktiv.equalsIgnoreCase("Harddisk")) {
             if (tvHarddisk.getSelectionModel().getSelectedItem() != null) {
                 Harddisk h = tvHarddisk.getSelectionModel().getSelectedItem();
 
-                datakomponent = h;
+                datakomponent = new Komponent<>(h);
                 VisKomponentController.setDatakomponent(h);
                 visKomponent();
 
@@ -1409,63 +1414,81 @@ public class EndreKomponentController {
         if (aktiv.equalsIgnoreCase("Hovedkort")) {
             if (tvHovedkort.getSelectionModel().getSelectedItem() != null) {
                 Hovedkort h = tvHovedkort.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("Hovedkort", h.toString());
+
+                datakomponent = new Komponent<>(h);
+                visKomponent();
             }
         }
 
         if (aktiv.equalsIgnoreCase("Lydkort")) {
             if (tvLydkort.getSelectionModel().getSelectedItem() != null) {
                 Lydkort l = tvLydkort.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("Lydkort", l.toString());
+
+                datakomponent = new Komponent<>(l);
+                visKomponent();
             }
         }
 
         if (aktiv.equalsIgnoreCase("Skjermkort")) {
             if (tvSkjermkort.getSelectionModel().getSelectedItem() != null) {
                 Skjermkort s = tvSkjermkort.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("Skjermkort", s.toString());
+
+                datakomponent = new Komponent<>(s);
+                visKomponent();
             }
         }
 
         if (aktiv.equalsIgnoreCase("Prosessor")) {
             if (tvProsessor.getSelectionModel().getSelectedItem() != null) {
                 Prosessor p = tvProsessor.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("Prosessor", p.toString());
+
+                datakomponent = new Komponent<>(p);
+                visKomponent();
             }
         }
 
         if (aktiv.equalsIgnoreCase("Minne")) {
             if (tvMinne.getSelectionModel().getSelectedItem() != null) {
                 Minne m = tvMinne.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("Minne", m.toString());
+
+                datakomponent = new Komponent<>(m);
+                visKomponent();
             }
         }
 
         if (aktiv.equalsIgnoreCase("Kabinett")) {
             if (tvHarddisk.getSelectionModel().getSelectedItem() != null) {
                 Kabinett k = tvKabinett.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("Kabinett", k.toString());
+
+                datakomponent = new Komponent<>(k);
+                visKomponent();
             }
         }
 
         if(aktiv.equalsIgnoreCase("Skjerm")) {
             if (tvSkjerm.getSelectionModel().getSelectedItem() != null) {
                 Skjerm s = tvSkjerm.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("Skjerm", s.toString());
+
+                datakomponent = new Komponent<>(s);
+                visKomponent();
             }
         }
 
         if (aktiv.equalsIgnoreCase("Tastatur")) {
             if (tvTastatur.getSelectionModel().getSelectedItem() != null) {
                 Tastatur t = tvTastatur.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("Tastatur", t.toString());
+
+                datakomponent = new Komponent<>(t);
+                visKomponent();
             }
         }
 
         if(aktiv.equalsIgnoreCase("Mus")) {
             if (tvMus.getSelectionModel().getSelectedItem() != null) {
                 Mus m = tvMus.getSelectionModel().getSelectedItem();
-                Dialogs.showInformationDialog("Mus", m.toString());
+
+                datakomponent = new Komponent<>(m);
+                visKomponent();
             }
         }
     }
@@ -1476,7 +1499,7 @@ public class EndreKomponentController {
             root = App.loadFXML("visKomponent");
             Stage stage = new Stage();
             stage.setTitle("My New Stage Title");
-            stage.setScene(new Scene(root, 450, 450));
+            stage.setScene(new Scene(root, 600, 400));
             stage.show();
             // Hide this current window (if this is what you want)
             //((Node)(event.getSource())).getScene().getWindow().hide();

@@ -15,7 +15,8 @@ public class FileSaverJobj implements FileSaver { // Lagrer filer til jobjFil
         {
             out.writeObject(liste);
         }catch (IOException IOE){
-            System.err.println("Noe gikk galt");
+            System.err.println("Lagring feilet");
+            IOE.getStackTrace();
         }
 
     }

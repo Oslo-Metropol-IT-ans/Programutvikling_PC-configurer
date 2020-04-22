@@ -1,5 +1,6 @@
 package Dataamatorene.Datakomponenter;
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -9,8 +10,8 @@ public class Kabinett extends Datakomponent implements Serializable, Comparable<
     protected String storrelse;
     protected int antallVifter;
 
-    public Kabinett(String navn, double pris, int varekode, String storrelse, int antallVifter) {
-        super(navn, pris, varekode);
+    public Kabinett(String navn, double pris, int varekode, Image bilde, String storrelse, int antallVifter) {
+        super(navn, pris, varekode, bilde);
         this.storrelse = storrelse;
         this.antallVifter = antallVifter;
         setBrukerTid();

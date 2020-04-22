@@ -41,43 +41,43 @@ public class ScriptFlytteKomponenterInn {
             ArrayList<Mus> mus2s = new ArrayList<>();
 
             for (Harddisk2 h:harddisks) {
-                harddisk2s.add(new Harddisk(h.getNavn(), h.getPris(), Integer.parseInt(h.getVarekode()), Integer.parseInt(h.getLagring())));
+                harddisk2s.add(new Harddisk(h.getNavn(), h.getPris(), Integer.parseInt(h.getVarekode()), h.getBilde(), Integer.parseInt(h.getLagring())));
             }
 
             for (Hovedkort2 h:hovedkorts) {
-                hovedkort2s.add(new Hovedkort(h.getNavn(), h.getPris(), Integer.parseInt(h.getVarekode()), Integer.parseInt(h.getAntallPorter())));
+                hovedkort2s.add(new Hovedkort(h.getNavn(), h.getPris(), Integer.parseInt(h.getVarekode()), h.getBilde(), Integer.parseInt(h.getAntallPorter())));
             }
 
             for (Lydkort2 l:lydkorts) {
-                lydkort2s.add(new Lydkort(l.getNavn(), l.getPris(), Integer.parseInt(l.getVarekode()), Boolean.getBoolean(l.getIntegrert()), Double.parseDouble(l.getFrekvens())));
+                lydkort2s.add(new Lydkort(l.getNavn(), l.getPris(), Integer.parseInt(l.getVarekode()), l.getBilde(), Boolean.getBoolean(l.getIntegrert()), Double.parseDouble(l.getFrekvens())));
             }
 
             for (Skjermkort2 s:skjermkorts) {
-                skjermkort2s.add(new Skjermkort(s.getNavn(), s.getPris(), Integer.parseInt(s.getVarekode()), s.getOppløsning()));
+                skjermkort2s.add(new Skjermkort(s.getNavn(), s.getPris(), Integer.parseInt(s.getVarekode()), s.getBilde(), s.getOppløsning()));
             }
 
             for (Prosessor2 p:prosessors) {
-                prosessor2s.add(new Prosessor(p.getNavn(), p.getPris(), Integer.parseInt(p.getVarekode()), Integer.parseInt(p.getAntallKjerner()), Double.parseDouble(p.getFrekvens()), Integer.parseInt(p.getAntallTråder())));
+                prosessor2s.add(new Prosessor(p.getNavn(), p.getPris(), Integer.parseInt(p.getVarekode()), p.getBilde(), Integer.parseInt(p.getAntallKjerner()), Double.parseDouble(p.getFrekvens()), Integer.parseInt(p.getAntallTråder())));
             }
 
             for (Minne2 m:minnes) {
-                minne2s.add(new Minne(m.getNavn(), m.getPris(), Integer.parseInt(m.getVarekode()), Integer.parseInt(m.getRam()), Double.parseDouble(m.getFrekvens())));
+                minne2s.add(new Minne(m.getNavn(), m.getPris(), Integer.parseInt(m.getVarekode()), m.getBilde(), Integer.parseInt(m.getRam()), Double.parseDouble(m.getFrekvens())));
             }
 
             for (Kabinett2 k:kabinetts) {
-                kabinett2s.add(new Kabinett(k.getNavn(), k.getPris(), Integer.parseInt(k.getVarekode()), k.getStørrelse(), Integer.parseInt(k.getAntallVifter())));
+                kabinett2s.add(new Kabinett(k.getNavn(), k.getPris(), Integer.parseInt(k.getVarekode()), k.getBilde(), k.getStørrelse(), Integer.parseInt(k.getAntallVifter())));
             }
 
             for (Skjerm2 s:skjerms) {
-                skjerm2s.add(new Skjerm(s.getNavn(),s.getPris(), Integer.parseInt(s.getVarekode()), s.getOppløsning(), Double.parseDouble(s.getStørrelse())));
+                skjerm2s.add(new Skjerm(s.getNavn(),s.getPris(), Integer.parseInt(s.getVarekode()), s.getBilde(), s.getOppløsning(), Double.parseDouble(s.getStørrelse())));
             }
 
             for (Tastatur2 t:tastaturs) {
-                tastatur2s.add(new Tastatur(t.getNavn(), t.getPris(), Integer.parseInt(t.getVarekode()), t.getSpråk(), Boolean.getBoolean(t.isMekanisk()), Boolean.getBoolean(t.isRgb())));
+                tastatur2s.add(new Tastatur(t.getNavn(), t.getPris(), Integer.parseInt(t.getVarekode()), t.getBilde(), t.getSpråk(), Boolean.getBoolean(t.isMekanisk()), Boolean.getBoolean(t.isRgb())));
             }
 
             for (Mus2 m:muses) {
-                mus2s.add(new Mus(m.getNavn(), m.getPris(), Integer.parseInt(m.getVarekode()), Boolean.getBoolean(m.isTråd()), Integer.parseInt(m.getAntallKnapper())));
+                mus2s.add(new Mus(m.getNavn(), m.getPris(), Integer.parseInt(m.getVarekode()), m.getBilde(), Boolean.getBoolean(m.isTråd()), Integer.parseInt(m.getAntallKnapper())));
             }
 
             FileSaver saver = new FileSaverJobj();

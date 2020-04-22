@@ -1,5 +1,6 @@
 package Dataamatorene.Datakomponenter;
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -8,8 +9,8 @@ public class Hovedkort extends Datakomponent implements Serializable, Comparable
 
     protected int antallPorter;
 
-    public Hovedkort(String navn, double pris, int varekode, int antallPorter) {
-        super(navn, pris, varekode);
+    public Hovedkort(String navn, double pris, int varekode, Image bilde, int antallPorter) {
+        super(navn, pris, varekode, bilde);
         this.antallPorter = antallPorter;
     }
 

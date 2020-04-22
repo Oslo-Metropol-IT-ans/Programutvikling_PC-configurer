@@ -1386,8 +1386,6 @@ public class EndreKomponentController {
     public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn) {
         datakomponent.getKomponent().setBilde(datakomponentInn.getBilde());
 
-        System.out.println(datakomponent.getKomponent().getClass());
-
         try {
             LagreKomponent.lagreAlle();
         } catch (IOException e) {
@@ -1498,7 +1496,7 @@ public class EndreKomponentController {
         try {
             root = App.loadFXML("visKomponent");
             Stage stage = new Stage();
-            stage.setTitle("My New Stage Title");
+            stage.setTitle("Datakomponent");
             stage.setScene(new Scene(root, 600, 400));
             stage.show();
             // Hide this current window (if this is what you want)

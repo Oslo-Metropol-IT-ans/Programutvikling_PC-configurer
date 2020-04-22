@@ -1,5 +1,6 @@
 package Dataamatorene.Datakomponenter;
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -8,8 +9,8 @@ public class Skjermkort extends Datakomponent implements Serializable, Comparabl
 
     protected String opplosning;
 
-    public Skjermkort(String navn, double pris, int varekode, String opplosning) {
-        super(navn, pris, varekode);
+    public Skjermkort(String navn, double pris, int varekode, Image bilde, String opplosning) {
+        super(navn, pris, varekode, bilde);
         this.opplosning = opplosning;
         setBrukerTid();
     }

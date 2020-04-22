@@ -1,5 +1,6 @@
 package Dataamatorene.Datakomponenter;
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -10,8 +11,8 @@ public class Prosessor extends Datakomponent implements Serializable, Comparable
     protected double frekvens;
     protected int antallTrader;
 
-    public Prosessor(String navn, double pris, int varekode, int antallKjerner, double frekvens, int antallTrader) {
-        super(navn, pris, varekode);
+    public Prosessor(String navn, double pris, int varekode, Image bilde, int antallKjerner, double frekvens, int antallTrader) {
+        super(navn, pris, varekode, bilde);
         this.antallKjerner = antallKjerner;
         this.frekvens = frekvens;
         this.antallTrader = antallTrader;

@@ -1,5 +1,6 @@
 package Dataamatorene.Datakomponenter;
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -9,8 +10,8 @@ public class Mus extends Datakomponent implements Serializable, Comparable<Mus> 
     protected boolean trad;
     protected int antallKnapper;
 
-    public Mus(String navn, double pris, int varekode, boolean trad, int antallKnapper) {
-        super(navn, pris, varekode);
+    public Mus(String navn, double pris, int varekode, Image bilde, boolean trad, int antallKnapper) {
+        super(navn, pris, varekode, bilde);
         this.trad = trad;
         this.antallKnapper = antallKnapper;
         setBrukerTid();

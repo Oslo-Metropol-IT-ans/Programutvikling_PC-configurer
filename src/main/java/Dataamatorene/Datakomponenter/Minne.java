@@ -1,5 +1,6 @@
 package Dataamatorene.Datakomponenter;
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -9,8 +10,8 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
     protected int ram;
     protected double frekvens;
 
-    public Minne(String navn, double pris, int varekode, int ram, double frekvens) {
-        super(navn, pris, varekode);
+    public Minne(String navn, double pris, int varekode, Image bilde, int ram, double frekvens) {
+        super(navn, pris, varekode, bilde);
         this.ram = ram;
         this.frekvens = frekvens;
         setBrukerTid();

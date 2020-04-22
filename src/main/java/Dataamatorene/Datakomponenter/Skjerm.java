@@ -1,6 +1,7 @@
 package Dataamatorene.Datakomponenter;
 
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -10,8 +11,8 @@ public class Skjerm extends Datakomponent implements Serializable, Comparable<Sk
     protected String opplosning;
     protected double storrelse;
 
-    public Skjerm(String navn, double pris, int varekode, String opplosning, double storrelse) {
-        super(navn, pris, varekode);
+    public Skjerm(String navn, double pris, int varekode, Image bilde, String opplosning, double storrelse) {
+        super(navn, pris, varekode, bilde);
         this.opplosning = opplosning;
         this.storrelse = storrelse;
         setBrukerTid();

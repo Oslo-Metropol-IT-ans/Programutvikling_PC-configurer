@@ -25,7 +25,7 @@ import java.util.Comparator;
 public class TEST {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        Harddisk h = new Harddisk("Hei", 10, 10001,1024);
+        Harddisk h = new Harddisk("Hei", 10, 10001, null,1024);
         h.setBilde(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
 
         ArrayList<Harddisk> liste = new ArrayList<>();

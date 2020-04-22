@@ -279,8 +279,8 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisHarddisk.getText());
             int lagre = KomponentValidering.lagringValidering(txtLagreHarddisk.getText());
-            Harddisk h = new Harddisk(navn, pris, varekode, lagre);
-            KomponentRegister.addHarddisk(h);
+            //Harddisk h = new Harddisk(navn, pris, varekode, null, lagre);
+            //KomponentRegister.addHarddisk(h);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreHarddisk();
             txtNavnHarddisk.setText("");
@@ -309,8 +309,8 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisHovedkort.getText());
             int porter = KomponentValidering.porterValidering(txtPorterHovedkort.getText());
-            Hovedkort h = new Hovedkort(navn, pris, varekode, porter);
-            KomponentRegister.addHovedkort(h);
+            //Hovedkort h = new Hovedkort(navn, pris, varekode, null, porter);
+            //KomponentRegister.addHovedkort(h);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreHovedkort();
             txtNavnHovedkort.setText("");
@@ -341,8 +341,9 @@ public class LagKomponentController {
             double pris = KomponentValidering.prisValidering(txtPrisKabinett.getText());
             String størrelse = KomponentValidering.størrelseValidering(txtStorrelseKabinett.getText());
             int vifter = KomponentValidering.vifterValidering(txtVifterKabientt.getText());
-            Kabinett k = new Kabinett(navn, pris, varekode, størrelse, vifter);
-            KomponentRegister.addKabinett(k);
+
+            //Kabinett k = new Kabinett(navn, pris, varekode, null, størrelse, vifter);
+            //KomponentRegister.addKabinett(k);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreKabinett();
             txtNavnKabinett.setText("");
@@ -375,8 +376,8 @@ public class LagKomponentController {
             boolean integrert = tbIntegrertLydkort.isSelected();
             double frekvens = KomponentValidering.frekvensValideringKHz(txtFrekvensLydkort.getText());
 
-            Lydkort l = new Lydkort(navn, pris, varekode, integrert, frekvens);
-            KomponentRegister.addLydkort(l);
+            //Lydkort l = new Lydkort(navn, pris, varekode, null, integrert, frekvens);
+            //KomponentRegister.addLydkort(l);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreLydkort();
             txtNavnLydkort.setText("");
@@ -409,8 +410,8 @@ public class LagKomponentController {
             int ram = KomponentValidering.ramValidering(txtRamMinne.getText());
             double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensMinne.getText());
 
-            Minne m = new Minne(navn, pris, varekode, ram, frekvens);
-            KomponentRegister.addMinne(m);
+            //Minne m = new Minne(navn, pris, varekode, null, ram, frekvens);
+            //KomponentRegister.addMinne(m);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreMinne();
             txtNavnMinne.setText("");
@@ -442,8 +443,8 @@ public class LagKomponentController {
             boolean tråd = tbTradløsMus.isSelected();
             int knapper = KomponentValidering.knapperValidering(txtKnapperMus.getText());
 
-            Mus m = new Mus(navn, pris, varekode, tråd, knapper);
-            KomponentRegister.addMus(m);
+            //Mus m = new Mus(navn, pris, varekode, null, tråd, knapper);
+            //KomponentRegister.addMus(m);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreMus();
             txtNavnMus.setText("");
@@ -476,8 +477,8 @@ public class LagKomponentController {
             double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensProsessor.getText());
             int tråder = KomponentValidering.tråderValidering(txtTraderProsessor.getText());
 
-            Prosessor p = new Prosessor(navn, pris, varekode, kjerner, frekvens, tråder);
-            KomponentRegister.addProsessor(p);
+            //Prosessor p = new Prosessor(navn, pris, varekode, null, kjerner, frekvens, tråder);
+            //KomponentRegister.addProsessor(p);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreProsessor();
             txtNavnProsessor.setText("");
@@ -510,8 +511,8 @@ public class LagKomponentController {
             String oppløsning = KomponentValidering.oppløsningValidering(txtOpplosningSkjerm.getText());
             double størrelse = KomponentValidering.skjermstørrelseValidering(txtStorrelseSkjerm.getText());
 
-            Skjerm s = new Skjerm(navn, pris, varekode, oppløsning, størrelse);
-            KomponentRegister.addSkjerm(s);
+            //Skjerm s = new Skjerm(navn, pris, varekode, null, oppløsning, størrelse);
+            //KomponentRegister.addSkjerm(s);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreSkjerm();
             txtNavnSkjerm.setText("");
@@ -543,8 +544,8 @@ public class LagKomponentController {
             double pris = KomponentValidering.prisValidering(txtPrisSkjermkort.getText());
             String oppløsning = KomponentValidering.oppløsningValidering(txtOppløsningSkjermkort.getText());
 
-            Skjermkort s = new Skjermkort(navn, pris, varekode, oppløsning);
-            KomponentRegister.addSkjermkort(s);
+            //Skjermkort s = new Skjermkort(navn, pris, varekode, null, oppløsning);
+            //KomponentRegister.addSkjermkort(s);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreSkjermkort();
 
@@ -578,8 +579,8 @@ public class LagKomponentController {
             boolean mekanisk = tbMekaniskTastatur.isSelected();
             boolean rgb = txtRGBTastatur.isSelected();
 
-            Tastatur t = new Tastatur(navn, pris, varekode,  språk, mekanisk, rgb);
-            KomponentRegister.addTastatur(t);
+            //Tastatur t = new Tastatur(navn, pris, varekode, null,  språk, mekanisk, rgb);
+            //KomponentRegister.addTastatur(t);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreTastatur();
             txtNavnTastatur.setText("");

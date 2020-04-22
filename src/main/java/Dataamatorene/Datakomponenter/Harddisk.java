@@ -1,5 +1,6 @@
 package Dataamatorene.Datakomponenter;
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -8,8 +9,8 @@ public class Harddisk extends Datakomponent implements Serializable, Comparable<
 
     protected int lagring;
 
-    public Harddisk(String navn, double pris, int varekode, int lagring) {
-        super(navn, pris, varekode);
+    public Harddisk(String navn, double pris, int varekode, Image bilde, int lagring) {
+        super(navn, pris, varekode, bilde);
         this.lagring = lagring;
     }
 

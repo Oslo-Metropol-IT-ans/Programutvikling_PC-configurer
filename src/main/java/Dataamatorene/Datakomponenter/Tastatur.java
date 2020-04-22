@@ -1,5 +1,6 @@
 package Dataamatorene.Datakomponenter;
 
+import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
@@ -10,8 +11,8 @@ public class Tastatur extends Datakomponent implements Serializable, Comparable<
     protected boolean mekanisk;
     protected boolean rgb;
 
-    public Tastatur(String navn, double pris, int varekode, String sprak, boolean mekanisk, boolean rgb) {
-        super(navn, pris, varekode);
+    public Tastatur(String navn, double pris, int varekode, Image bilde, String sprak, boolean mekanisk, boolean rgb) {
+        super(navn, pris, varekode, bilde);
         this.sprak = sprak;
         this.mekanisk = mekanisk;
         this.rgb = rgb;

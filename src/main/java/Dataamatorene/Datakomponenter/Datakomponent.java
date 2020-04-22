@@ -2,9 +2,14 @@ package Dataamatorene.Datakomponenter;
 
 import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Brukere.BrukerRegister;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
@@ -15,14 +20,15 @@ public class Datakomponent implements Serializable {
     protected int varekode;
     protected String navn;
     protected double pris;
-    protected Image bilde;
+    protected transient Image bilde;
     protected Bruker bruker;
     protected LocalDateTime tid;
 
-    public Datakomponent(String navn, double pris, int varekode){
+    public Datakomponent(String navn, double pris, int varekode, Image bilde){
         this.navn = navn;
         this.pris = pris;
         this.varekode = varekode;
+        this.bilde = bilde;
         setBrukerTid();
     }
 
@@ -84,5 +90,23 @@ public class Datakomponent implements Serializable {
     @Override
     public String toString() {
         return String.format("%s, %s, %skr", varekode, navn, pris);
+    }
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        s.defaultReadObject();
+        try {
+            bilde = SwingFXUtils.toFXImage(ImageIO.read(s), null);
+        } catch (Exception e) {
+            bilde = null;
+        }
+
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.defaultWriteObject();
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(bilde, null), "jpg", s);
+        } catch (Exception e) {}
+
     }
 }

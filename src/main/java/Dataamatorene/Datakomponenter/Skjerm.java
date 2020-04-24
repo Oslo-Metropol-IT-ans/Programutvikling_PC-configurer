@@ -37,6 +37,12 @@ public class Skjerm extends Datakomponent implements Serializable, Comparable<Sk
     }
 
     @Override
+    public String getBeskrivelse() {
+        return String.format("%s\n%s'' skjerm med oppløsning %s\nPris: %skr, varekode: %s", navn, storrelse,
+                opplosning, pris, getVarekode());
+    }
+
+    @Override
     public String toString() {
         return String.format("%s %s %s'', %skr, VNr: %s", navn, opplosning, storrelse, pris, getVarekode());
     }

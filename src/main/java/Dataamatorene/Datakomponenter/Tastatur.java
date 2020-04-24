@@ -47,6 +47,22 @@ public class Tastatur extends Datakomponent implements Serializable, Comparable<
     }
 
     @Override
+    public String getBeskrivelse() {
+        if(mekanisk && rgb)
+            return String.format("%s\nEt mekanisk tastatur med lys, %s\nPris: %skr, varekode: %s", navn, sprak
+                    , pris, getVarekode());
+        else if(mekanisk && !rgb)
+            return String.format("%s\nEt mekanisk tastatur uten lys, %s\nPris: %skr, varekode: %s", navn, sprak
+                    , pris, getVarekode());
+        else if(!mekanisk && rgb)
+            return String.format("%s\nEt ikke-mekanisk tastatur med lys, %s\nPris; %skr, varekode: %s", navn, sprak
+                    , pris, getVarekode());
+        else
+            return String.format("%s\nEt ikke-mekanisk tastatur uten lys, %s\nPris: %skr, varekode: %s", navn, sprak
+                    , pris, getVarekode());
+    }
+
+    @Override
     public String toString() {
         if(mekanisk && rgb)
             return String.format("%s er mekanisk og med lys, %s, %skr, VNr: %s", navn, sprak

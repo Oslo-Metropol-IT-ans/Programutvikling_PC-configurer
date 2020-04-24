@@ -16,12 +16,14 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
     protected Void call() throws Exception {
         FileOpener opener = new FileOpenerJobj();
 
+        updateProgress(0, 22);
+
         updateMessage("Laster harddisker");
         KomponentRegister.setHarddiskArrayList(
                 (ArrayList<Harddisk>) opener.read("src/main/java/Dataamatorene/Files/Harddisk.jobj"));
         updateProgress(1, 22);
         try{
-            Thread.sleep(50);
+            Thread.sleep(100);
         } catch (InterruptedException e){
 
         }

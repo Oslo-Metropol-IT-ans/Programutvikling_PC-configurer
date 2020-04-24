@@ -47,6 +47,12 @@ public class Prosessor extends Datakomponent implements Serializable, Comparable
     }
 
     @Override
+    public String getBeskrivelse() {
+        return String.format("%s\n%s GHz, %s-core, %s-thread prosessor\nPris: %skr, varekode: %s", navn, frekvens,
+                antallKjerner, antallTrader, pris, getVarekode());
+    }
+
+    @Override
     public String toString() {
         return String.format("%s %sGHz %s kjerner %s tråder, %skr, VNr: %s", navn, frekvens, antallKjerner, antallTrader
                             , pris, getVarekode());

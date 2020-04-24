@@ -24,6 +24,14 @@ public class Harddisk extends Datakomponent implements Serializable, Comparable<
     }
 
     @Override
+    public String getBeskrivelse() {
+        if (lagring < 1000) return String.format("%s\n %sGB lagring\nPris: %skr, varekode: %s", navn, lagring,
+                pris, getVarekode());
+        else return String.format("%s\n %sTB lagring\nPris: %skr, varekode: %s", navn,  (lagring/1000),
+                pris, getVarekode());
+    }
+
+    @Override
     public String toString() {
         if(lagring < 1000) return String.format("%s %sGB, %skr, %s", navn, lagring, pris, getVarekode());
         else return String.format("%s %sTB, %skr, VNr: %s", navn, (lagring/1000), pris, getVarekode());

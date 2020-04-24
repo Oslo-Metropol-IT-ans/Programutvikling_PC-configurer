@@ -36,6 +36,12 @@ public class Kabinett extends Datakomponent implements Serializable, Comparable<
     }
 
     @Override
+    public String getBeskrivelse() {
+        return String.format("%s\n%scm med %s vifter\nPris: %skr, varekode: %s", navn, storrelse, antallVifter,
+                pris, getVarekode());
+    }
+
+    @Override
     public String toString() {
         return String.format("%s %s %s vifter, %skr, VNr: %s", navn, storrelse, antallVifter, pris, getVarekode());
     }

@@ -87,6 +87,10 @@ public class Datakomponent implements Serializable {
         this.tid = LocalDateTime.now();
     }
 
+    public String getBeskrivelse() {
+        return String.format("%s\n%skr, varekode: %s", navn, pris, getVarekode());
+    }
+
     @Override
     public String toString() {
         return String.format("%s, %s, %skr", varekode, navn, pris);
@@ -97,6 +101,7 @@ public class Datakomponent implements Serializable {
         try {
             bilde = SwingFXUtils.toFXImage(ImageIO.read(s), null);
         } catch (Exception e) {
+            e.printStackTrace();
             bilde = null;
         }
 
@@ -105,8 +110,12 @@ public class Datakomponent implements Serializable {
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
         try {
-            ImageIO.write(SwingFXUtils.fromFXImage(bilde, null), "jpg", s);
-        } catch (Exception e) {}
+            if (bilde != null) {
+                ImageIO.write(SwingFXUtils.fromFXImage(bilde, null), "jpg", s);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

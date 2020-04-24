@@ -24,6 +24,11 @@ public class Hovedkort extends Datakomponent implements Serializable, Comparable
     }
 
     @Override
+    public String getBeskrivelse() {
+        return String.format("%s\n %s porter\nPris: %skr, varekode: %s", navn, antallPorter, pris, getVarekode());
+    }
+
+    @Override
     public String toString() {
         return String.format("%s %s porter, %skr, VNr: %s", navn, antallPorter, pris, getVarekode());
     }

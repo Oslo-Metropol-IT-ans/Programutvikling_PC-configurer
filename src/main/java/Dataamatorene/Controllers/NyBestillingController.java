@@ -72,7 +72,7 @@ public class NyBestillingController {
 
             for (int j = 0; j < observableLists.get(i).size(); j++) {
                 HBox hBox = new HBox(10);
-                Label label = new Label(observableLists.get(i).get(j).toString());
+                Label label = new Label(observableLists.get(i).get(j).getBeskrivelse());
                 label.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: white; -fx-border-style: solid; -fx-text-alignment: left!important;");
                 ImageView image;
                 if (observableLists.get(i).get(j).getBilde() != null) {

@@ -3,6 +3,7 @@ package Dataamatorene.Datakomponenter;
 import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 public class Harddisk extends Datakomponent implements Serializable, Comparable<Harddisk> {
@@ -21,6 +22,11 @@ public class Harddisk extends Datakomponent implements Serializable, Comparable<
     public void setLagring(int lagring) {
         this.lagring = lagring;
         setBrukerTid();
+    }
+
+    @Override
+    public void lagre() throws IOException {
+        LagreKomponent.lagreHarddisk();
     }
 
     @Override

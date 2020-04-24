@@ -46,6 +46,7 @@ public class EndreKomponentController {
 
     public void initialize() {
 
+        /*
         oHarddisk.setAll(KomponentRegister.getHarddiskArrayList());
         oHovedkort.setAll(KomponentRegister.getHovedkortArrayList());
         oKabinett.setAll(KomponentRegister.getKabinettArrayList());
@@ -56,6 +57,8 @@ public class EndreKomponentController {
         oSkjerm.setAll(KomponentRegister.getSkjermArrayList());
         oSkjermkort.setAll(KomponentRegister.getSkjermkortArrayList());
         oTastatur.setAll(KomponentRegister.getTastaturArrayList());
+
+         */
 
 
         tbVarHarddisk.setCellValueFactory(new PropertyValueFactory<>("varekode"));
@@ -1096,30 +1099,6 @@ public class EndreKomponentController {
     // Knappefunksjoner
 
     @FXML
-    void tilbake(ActionEvent event) {
-
-        KomponentRegister.setHarddiskArrayList(new ArrayList<>(oHarddisk));
-        KomponentRegister.setHovedkortArrayList(new ArrayList<>(oHovedkort));
-        KomponentRegister.setKabinettArrayList(new ArrayList<>(oKabinett));
-        KomponentRegister.setLydkortArrayList(new ArrayList<>(oLydkort));
-        KomponentRegister.setMinneArrayList(new ArrayList<>(oMinne));
-        KomponentRegister.setMusArrayList(new ArrayList<>(oMus));
-        KomponentRegister.setProsessorArrayList(new ArrayList<>(oProsessor));
-        KomponentRegister.setSkjermArrayList(new ArrayList<>(oSkjerm));
-        KomponentRegister.setSkjermkortArrayList(new ArrayList<>(oSkjermkort));
-        KomponentRegister.setTastaturArrayList(new ArrayList<>(oTastatur));
-
-        try{
-            LagreKomponent.lagreAlle();
-            App.setRoot("menyadmin");
-
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-
-    }
-
-    @FXML
     void slett(ActionEvent event) {
         if (aktiv.equalsIgnoreCase("Harddisk")){
             if (tvHarddisk.isFocusTraversable()){
@@ -1505,5 +1484,31 @@ public class EndreKomponentController {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void tilbake(ActionEvent event) {
+
+        /*
+        KomponentRegister.setHarddiskArrayList(new ArrayList<>(oHarddisk));
+        KomponentRegister.setHovedkortArrayList(new ArrayList<>(oHovedkort));
+        KomponentRegister.setKabinettArrayList(new ArrayList<>(oKabinett));
+        KomponentRegister.setLydkortArrayList(new ArrayList<>(oLydkort));
+        KomponentRegister.setMinneArrayList(new ArrayList<>(oMinne));
+        KomponentRegister.setMusArrayList(new ArrayList<>(oMus));
+        KomponentRegister.setProsessorArrayList(new ArrayList<>(oProsessor));
+        KomponentRegister.setSkjermArrayList(new ArrayList<>(oSkjerm));
+        KomponentRegister.setSkjermkortArrayList(new ArrayList<>(oSkjermkort));
+        KomponentRegister.setTastaturArrayList(new ArrayList<>(oTastatur));
+         */
+
+        try{
+            //LagreKomponent.lagreAlle();
+            App.setRoot("menyadmin");
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 }

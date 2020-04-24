@@ -24,7 +24,7 @@ public class VisKomponentController {
     }
 
     public void initialize() throws FileNotFoundException {
-        lblToString.setText(datakomponent.getKomponent().toString());
+        lblToString.setText(datakomponent.getKomponent().getBeskrivelse());
         if (datakomponent.getKomponent().getBilde() != null) {
             ivBilde.setImage(datakomponent.getKomponent().getBilde());
         } else ivBilde.setImage(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));

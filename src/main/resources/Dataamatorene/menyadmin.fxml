@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.MenyAdminController">
+<AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.MenyAdminController">
    <children>
       <VBox fx:id="menyAdmin" prefHeight="578.0" prefWidth="1164.0" spacing="40.0">
          <children>
@@ -18,23 +15,23 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#seBestillinger" text="Se bestillinger">
+            <Button mnemonicParsing="false" onAction="#seBestillinger" text="Bestillinger">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#endreBrukere" text="Endre brukere">
+            <Button mnemonicParsing="false" onAction="#endreBrukere" text="Brukere">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#leggTil" text="Legg til komponenter">
+            <Button mnemonicParsing="false" onAction="#leggTil" text="Ny komponent">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#endreKompnenter" text="Endre komponenter">
+            <Button mnemonicParsing="false" onAction="#endreKompnenter" text="Komponentregister">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#brukerside" text="Brukerside">
+            <Button mnemonicParsing="false" onAction="#brukerside" text="Vis som bruker">
                <font>
                   <Font size="18.0" />
                </font>

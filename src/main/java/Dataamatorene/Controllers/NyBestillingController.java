@@ -1,15 +1,7 @@
 package Dataamatorene.Controllers;
 
 import Dataamatorene.App;
-import Dataamatorene.Bestilling.Bestilling;
-import Dataamatorene.Bestilling.BestillingsRegister;
-import Dataamatorene.Brukere.Bruker;
-import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Datakomponenter.*;
-import Dataamatorene.Dialogs;
-import Dataamatorene.Filbehandling.FileSaver;
-import Dataamatorene.Filbehandling.FileSaverJobj;
-import Dataamatorene.LagreBilde;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

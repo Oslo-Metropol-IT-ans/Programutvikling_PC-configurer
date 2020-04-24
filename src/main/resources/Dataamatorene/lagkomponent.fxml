@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -71,6 +72,8 @@
                                              <font>
                                                 <Font size="18.0" />
                                              </font></Button>
+                                          <ImageView fx:id="ivHarddisk" fitHeight="150.0" fitWidth="200.0" layoutX="791.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Button layoutX="1062.0" layoutY="258.0" mnemonicParsing="false" onAction="#lastOppHarddisk" text="Last opp" />
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -619,7 +622,7 @@
                                                       <Insets left="20.0" />
                                                    </padding>
                                                    <children>
-                                                      <ToggleButton fx:id="tbTradløsMus" mnemonicParsing="false" prefHeight="27.0" prefWidth="350.0" text="Tråløs" />
+                                                      <ToggleButton fx:id="tbTradlosMus" mnemonicParsing="false" prefHeight="27.0" prefWidth="350.0" text="Tråløs" />
                                                    </children>
                                                 </HBox>
                                              </children>

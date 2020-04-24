@@ -4,13 +4,13 @@ import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Brukere.BrukerRegister;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -91,6 +91,10 @@ public class Datakomponent implements Serializable {
         return String.format("%s\n%skr, varekode: %s", navn, pris, getVarekode());
     }
 
+    public void lagre() throws IOException {
+        LagreKomponent.lagreAlle();
+    }
+
     @Override
     public String toString() {
         return String.format("%s, %s, %skr", varekode, navn, pris);
@@ -105,13 +109,15 @@ public class Datakomponent implements Serializable {
             bilde = null;
         }
 
+
+
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
         try {
             if (bilde != null) {
-                ImageIO.write(SwingFXUtils.fromFXImage(bilde, null), "jpg", s);
+                ImageIO.write(SwingFXUtils.fromFXImage(bilde, null), "png", s);
             }
         } catch (Exception e) {
             e.printStackTrace();

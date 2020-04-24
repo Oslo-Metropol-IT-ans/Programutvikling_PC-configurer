@@ -1,8 +1,11 @@
 package Dataamatorene.Datakomponenter;
 
 import Dataamatorene.Comparators.DatakomponentVarekodeComparator;
+import Dataamatorene.Filbehandling.FileOpener;
+import Dataamatorene.Filbehandling.FileOpenerJobj;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
+import Dataamatorene.Comparators.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ public class LagreKomponent {
 
     public static void lagreHarddisk() throws IOException {
         FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getHarddiskArrayList(), "src/main/java/Dataamatorene/Files/Harddisk.jobj" );
+        saver.save(KomponentRegister.getHarddiskArrayList(), "src/main/java/Dataamatorene/Files/Harddisk.jobj");
     }
 
     public static void lagreHovedkort() throws IOException {

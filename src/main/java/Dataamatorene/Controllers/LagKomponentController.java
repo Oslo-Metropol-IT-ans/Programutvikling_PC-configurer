@@ -5,14 +5,19 @@ import Dataamatorene.Bestilling.VarekodeRegister;
 import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Exceptions.AlreadyTakenVarekodeException;
+import Dataamatorene.LastBilde;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 public class LagKomponentController {
 
@@ -268,7 +273,24 @@ public class LagKomponentController {
     private TextField txtKnapperMus;
 
     @FXML
-    private ToggleButton tbTradløsMus;
+    private ToggleButton tbTradlosMus;
+
+
+    @FXML
+    private ImageView ivHarddisk;
+
+    @FXML
+    void lastOppHarddisk(Event event) {
+        try {
+            Image bilde = LastBilde.lasteBilde();
+            ivHarddisk.setImage(bilde);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    ArrayList<Method> metoder = new ArrayList<>();
 
     @FXML
     void registrerHarddisk(Event event) {
@@ -279,13 +301,15 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisHarddisk.getText());
             int lagre = KomponentValidering.lagringValidering(txtLagreHarddisk.getText());
-            //Harddisk h = new Harddisk(navn, pris, varekode, null, lagre);
-            //KomponentRegister.addHarddisk(h);
+            Image bilde = ivHarddisk.getImage();
+            Harddisk h = new Harddisk(navn, pris, varekode, bilde, lagre);
+            KomponentRegister.addHarddisk(h);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreHarddisk();
             txtNavnHarddisk.setText("");
             txtLagreHarddisk.setText("");
             txtPrisHarddisk.setText("");
+            ivHarddisk.setImage(null);
             Dialogs.showSuccessDialog("Harddisken ble lagret");
             finnVarekodeHarddisk();
 
@@ -440,7 +464,7 @@ public class LagKomponentController {
             int varekode = KomponentValidering.varekodeValidering(txtVareMus.getText());
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisMus.getText());
-            boolean tråd = tbTradløsMus.isSelected();
+            boolean tråd = tbTradlosMus.isSelected();
             int knapper = KomponentValidering.knapperValidering(txtKnapperMus.getText());
 
             //Mus m = new Mus(navn, pris, varekode, null, tråd, knapper);
@@ -449,7 +473,7 @@ public class LagKomponentController {
             LagreKomponent.lagreMus();
             txtNavnMus.setText("");
             txtPrisMus.setText("");
-            tbTradløsMus.setSelected(false);
+            tbTradlosMus.setSelected(false);
             txtKnapperMus.setText("");
             Dialogs.showSuccessDialog("Musen er lagret");
             if (KomponentRegister.getMusArrayList().size() < 9) {

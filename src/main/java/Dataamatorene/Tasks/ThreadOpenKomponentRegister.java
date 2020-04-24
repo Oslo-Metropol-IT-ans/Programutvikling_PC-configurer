@@ -23,7 +23,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
                 (ArrayList<Harddisk>) opener.read("src/main/java/Dataamatorene/Files/Harddisk.jobj"));
         updateProgress(1, 22);
         try{
-            Thread.sleep(100);
+            Thread.sleep(50);
         } catch (InterruptedException e){
 
         }

@@ -7,9 +7,11 @@ import javax.imageio.ImageIO;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class LagreBilde {
+public class LastBilde {
 
     public static File lasteBildeFil() {
         FileChooser fileChooser = new FileChooser();
@@ -26,16 +28,16 @@ public class LagreBilde {
         return null;
     }
 
-    public static Image lasteBilde() {
+    public static Image lasteBilde() throws FileNotFoundException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
 
-        Image selectedFile = new Image(fileChooser.showOpenDialog(null).getAbsolutePath());
+        File selectedFile = fileChooser.showOpenDialog(null);
 
         if (selectedFile != null) {
-            return selectedFile;
+            return new Image(new FileInputStream(selectedFile.getAbsolutePath()));
         }
 
         return null;

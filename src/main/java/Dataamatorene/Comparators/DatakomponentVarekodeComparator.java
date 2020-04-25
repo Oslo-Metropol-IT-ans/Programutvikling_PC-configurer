@@ -11,10 +11,4 @@ public class DatakomponentVarekodeComparator implements Comparator<Datakomponent
         return (Integer.parseInt(o1.getVarekode()) - Integer.parseInt(o2.getVarekode()));
     }
 
-    /*
-    @Override
-    public int compare(Skjermkort o1, Skjermkort o2) {
-        return (Integer.parseInt(o1.getVarekode()) - Integer.parseInt(o2.getVarekode()));
-    }
-     */
 }

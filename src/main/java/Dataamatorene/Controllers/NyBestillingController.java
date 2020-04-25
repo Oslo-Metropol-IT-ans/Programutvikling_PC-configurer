@@ -1,7 +1,11 @@
 package Dataamatorene.Controllers;
 
 import Dataamatorene.App;
+import Dataamatorene.Bestilling.Bestilling;
+import Dataamatorene.Bestilling.BestillingsRegister;
+import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Datakomponenter.*;
+import Dataamatorene.Dialogs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +19,7 @@ import javafx.scene.layout.VBox;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -36,6 +41,11 @@ public class NyBestillingController {
     double prosessorPris = 0; double minnePris = 0; double kabinettPris = 0; double skjermPris = 0;
     double tastarurPris = 0; double musPris = 0;
 
+    static Harddisk aktivHarddisk = null;
+    static Hovedkort aktivHovedkort = null;
+    static Lydkort aktivLydkort = null;
+    static Skjermkort aktivSkjermkort = null;
+
     public void initialize() throws FileNotFoundException {
 
         // Alle bestillingsbokser i en
@@ -49,10 +59,12 @@ public class NyBestillingController {
         observableLists = new ArrayList<>(Arrays.asList(oHarddisk,
                 oHovedkort, oLydkort, oSkjermkort, oProsessor, oMinne, oKabinett, oSkjerm, oTastatur, oMus));
 
-        labels = new ArrayList<>(Arrays.asList(lblUtHarddisk, lblUtHovedkort, lblUtLydkort, lblUtSkjermkort, lblUtProsessor, lblUtMinne,
+        labels = new ArrayList<>(Arrays.asList(lblUtHarddisk, lblUtHovedkort, lblUtLydkort,
+                lblUtSkjermkort, lblUtProsessor, lblUtMinne,
                  lblUtKabinett, lblUtSkjerm, lblUtTastatur, lblUtMus));
 
-        priser = new ArrayList<>(Arrays.asList(harddiskPris, hovedkortPris, lydkortPris, skjermkortPris, prosessorPris, minnePris
+        priser = new ArrayList<>(Arrays.asList(harddiskPris, hovedkortPris, lydkortPris, skjermkortPris,
+                prosessorPris, minnePris
                  , kabinettPris, skjermPris, tastarurPris, musPris));
 
 
@@ -65,37 +77,28 @@ public class NyBestillingController {
             for (int j = 0; j < observableLists.get(i).size(); j++) {
                 HBox hBox = new HBox(10);
                 Label label = new Label(observableLists.get(i).get(j).getBeskrivelse());
-                label.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: white; -fx-border-style: solid; -fx-text-alignment: left!important;");
+                label.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: white; -fx-border-style: solid;" +
+                        " -fx-text-alignment: left!important; -fx-font-size: 20px");
                 ImageView image;
                 if (observableLists.get(i).get(j).getBilde() != null) {
                      image = new ImageView(observableLists.get(i).get(j).getBilde());
-                } else image = new ImageView(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
-                image.setFitHeight(80);
+                } else image = new ImageView(new Image(
+                        new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
+                image.setFitHeight(150);
                 image.setPreserveRatio(true);
                 label.setPrefWidth(1115);
-                label.setPrefHeight(80);
+                label.setPrefHeight(150);
                 hBox.getChildren().addAll(image, label);
 
                 int finalI = i;
                 int finalJ = j;
                 image.setOnMouseClicked(mouseEvent -> {
-                    titledPanes.get(finalI).setLayoutX(x);
-                    titledPanes.get(finalI).setLayoutY(y);
-                    labels.get(finalI).setText(observableLists.get(finalI)
-                            .get(observableLists.get(finalI).indexOf(observableLists.get(finalI).get(finalJ))).toString());
-                    titledPanes.get(finalI).setExpanded(false);
-                    titledPanes.get(finalI).setPrefWidth(150);
-                    titledPanes.get(finalI).toBack();
+                    mouseClick(x, y, finalI, finalJ);
                 });
 
                 label.setOnMouseClicked(mouseEvent -> {
-                    titledPanes.get(finalI).setLayoutX(x);
-                    titledPanes.get(finalI).setLayoutY(y);
-                    labels.get(finalI).setText(observableLists.get(finalI)
-                            .get(observableLists.get(finalI).indexOf(observableLists.get(finalI).get(finalJ))).toString());
-                    titledPanes.get(finalI).setExpanded(false);
-                    titledPanes.get(finalI).setPrefWidth(150);
-                    titledPanes.get(finalI).toBack();
+                    mouseClick(x, y, finalI, finalJ);
+                    datakomponents[finalI] = observableLists.get(finalI).get(finalJ);
                 });
                 vBox.getChildren().add(hBox);
                 vBox.setPrefWidth(1123.5);
@@ -112,8 +115,13 @@ public class NyBestillingController {
                         titledPanes.get(finalI).setPrefHeight(600);
                     } else {
                         titledPanes.get(finalI).setPrefWidth(150);
+                        titledPanes.get(finalI).setPrefHeight(28);
                         titledPanes.get(finalI).setLayoutX(x);
                         titledPanes.get(finalI).setLayoutY(y);
+                        if (labels.get(finalI).getText().equals("")) {
+                            titledPanes.get(finalI).setStyle("-fx-border-color: red;" +
+                                    " -fx-border-width: 1px; -fx-border-style: solid");
+                        }
                     }
                 });
             }
@@ -121,6 +129,26 @@ public class NyBestillingController {
 
 
 
+    }
+
+    private void mouseClick(double x, double y, int finalI, int finalJ) {
+        titledPanes.get(finalI).setLayoutX(x);
+        titledPanes.get(finalI).setLayoutY(y);
+        priser.set(finalI, observableLists.get(finalI).get(finalJ).getPris());
+        totPris = 0;
+        for (double d:priser) {
+            totPris += d;
+        }
+        DecimalFormat df = new DecimalFormat("###,###.00");
+        lblTotPris.setText(df.format(totPris) + "kr");
+        labels.get(finalI).setText(observableLists.get(finalI)
+                .get(observableLists.get(finalI).indexOf(observableLists.get(finalI).get(finalJ))).toString());
+        datakomponents[finalI] = observableLists.get(finalI).get(finalJ);
+        titledPanes.get(finalI).setStyle("-fx-border-color: none");
+        titledPanes.get(finalI).setExpanded(false);
+        titledPanes.get(finalI).setPrefWidth(150);
+        titledPanes.get(finalI).setPrefHeight(28);
+        titledPanes.get(finalI).toBack();
     }
 
     @FXML
@@ -218,7 +246,26 @@ public class NyBestillingController {
 
     @FXML
     void bestill(ActionEvent event) {
+        boolean valgt = true;
+        for (int i = 0; i < observableLists.size(); i++) {
+            if (datakomponents[i] == null) {
+                titledPanes.get(i).setStyle("-fx-border-color: red; -fx-border-width: 1px; -fx-border-style: solid");
+                valgt = false;
+            }
+        }
 
+        if (valgt) {
+            BestillingsRegister.addBestilling(new Bestilling(BrukerRegister.getAktivBruker(), (Harddisk) datakomponents[0],
+                    (Hovedkort) datakomponents[1], (Lydkort) datakomponents[2], (Skjermkort) datakomponents[3],
+                    (Prosessor) datakomponents[4], (Minne) datakomponents[5], (Kabinett) datakomponents[6],
+                    (Skjerm) datakomponents[7], (Tastatur) datakomponents[8], (Mus) datakomponents[9]));
+            Dialogs.showSuccessDialog("Bestillingen din er registrert");
+            try {
+                App.setRoot("menybruker");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else Dialogs.showErrorDialog("Du må velge de markerte feltene");
     }
 
     @FXML
@@ -240,4 +287,5 @@ public class NyBestillingController {
 
     private ArrayList<Double> priser;
 
+    private Datakomponent[] datakomponents = new Datakomponent[10];
 }

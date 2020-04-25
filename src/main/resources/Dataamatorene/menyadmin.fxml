@@ -31,7 +31,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#brukerside" text="Vis som bruker">
+            <Button mnemonicParsing="false" onAction="#brukerside" text="Logg inn som bruker">
                <font>
                   <Font size="18.0" />
                </font>

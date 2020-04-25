@@ -26,7 +26,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnAdmin" mnemonicParsing="false" onAction="#admin" text="Vis som admin">
+            <Button fx:id="btnAdmin" mnemonicParsing="false" onAction="#admin" text="Logg inn som admin">
                <font>
                   <Font size="18.0" />
                </font>

@@ -120,7 +120,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="lblTotPris" layoutX="923.0" layoutY="600.0" prefHeight="17.0" prefWidth="183.0" textAlignment="RIGHT" />
+      <Label fx:id="lblTotPris" alignment="CENTER_RIGHT" layoutX="934.0" layoutY="600.0" prefHeight="17.0" prefWidth="183.0" />
       <TitledPane fx:id="tpProsessor" animated="false" layoutX="947.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Prosessor">
          <content>
             <ScrollPane fx:id="spProsessor" />

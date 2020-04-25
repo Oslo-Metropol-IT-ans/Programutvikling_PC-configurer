@@ -105,7 +105,7 @@ public class Datakomponent implements Serializable {
         try {
             bilde = SwingFXUtils.toFXImage(ImageIO.read(s), null);
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             bilde = null;
         }
 
@@ -120,7 +120,7 @@ public class Datakomponent implements Serializable {
                 ImageIO.write(SwingFXUtils.fromFXImage(bilde, null), "png", s);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
     }

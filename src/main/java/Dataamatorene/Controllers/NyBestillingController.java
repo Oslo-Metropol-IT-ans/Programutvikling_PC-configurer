@@ -14,11 +14,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.w3c.dom.Text;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,6 +29,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.stream.Collectors;
 
 
 public class NyBestillingController {
@@ -80,11 +83,16 @@ public class NyBestillingController {
 
             VBox vBox = new VBox(10);
             ChoiceBox<String> valg = new ChoiceBox<>(oSort);
+            TextField text = new TextField();
+            text.setPromptText("Søk");
             valg.setValue("Varenummer");
             HBox hBoxUt = new HBox(10);
-            hBoxUt.getChildren().addAll(new Label("Sorter"), valg);
+            hBoxUt.getChildren().addAll(new Label("Sorter"), valg, text);
+            hBoxUt.setAlignment(Pos.CENTER_RIGHT);
+            hBoxUt.setStyle("-fx-padding: 4 4 0 0;");
             vBox.getChildren().add(hBoxUt);
 
+            /*
             for (int j = 0; j < observableLists.get(i).size(); j++) {
                 HBox hBox = new HBox(10);
                 Label label = new Label(observableLists.get(i).get(j).getBeskrivelse());
@@ -105,13 +113,14 @@ public class NyBestillingController {
                 int finalJ = j;
                 image.setOnMouseClicked(mouseEvent -> {
                     mouseClick(x, y, finalI, finalJ);
+                    datakomponents[finalI] = observableLists.get(finalI).get(finalJ);
                 });
                 label.setOnMouseClicked(mouseEvent -> {
                     mouseClick(x, y, finalI, finalJ);
                     datakomponents[finalI] = observableLists.get(finalI).get(finalJ);
                 });
                 vBox.getChildren().add(hBox);
-                vBox.setPrefWidth(1123.5);
+                vBox.setPrefWidth(1100);
 
                 titledPanes.get(i).setExpanded(false);
                 scrollPanes.get(i).setContent(vBox);
@@ -135,49 +144,58 @@ public class NyBestillingController {
                     }
                 });
             }
+             */
 
             int finalI1 = i;
             int finalI2 = i;
+
+            scrollPanes.get(finalI1).setContent(null);
+            vBox.getChildren().clear();
+            setFiltered(x, y, vBox, hBoxUt, finalI1, finalI2, observableLists.get(i));
+            titledPanes.get(i).setExpanded(false);
+
+            text.setOnKeyReleased(keyEvent -> {
+                scrollPanes.get(finalI1).setContent(null);
+                vBox.getChildren().clear();
+                ObservableList<? extends Datakomponent> aktiv = observableLists.get(finalI1)
+                        .filtered(l -> l.getBeskrivelse().toLowerCase().contains(text.getText().toLowerCase()));
+                setFiltered(x, y, vBox, hBoxUt, finalI1, finalI2, aktiv);
+            });
+
             valg.setOnHiding(event -> {
+                scrollPanes.get(finalI1).setContent(null);
+                vBox.getChildren().clear();
                 if (valg.getSelectionModel().getSelectedItem().equalsIgnoreCase("Navn")) {
-                    scrollPanes.get(finalI1).setContent(null);
-                    vBox.getChildren().clear();
                     observableLists.get(finalI1).sort(new DatakomponentNavnComparator());
-                    setSorted(x, y, vBox, hBoxUt, finalI1, finalI2);
                 }
                 if (valg.getSelectionModel().getSelectedItem().equalsIgnoreCase("Pris lav-høy")) {
-                    scrollPanes.get(finalI1).setContent(null);
-                    vBox.getChildren().clear();
                     observableLists.get(finalI1).sort(new DatakomponentPrisLavComparator());
-                    setSorted(x, y, vBox, hBoxUt, finalI1, finalI2);
                 }
                 if (valg.getSelectionModel().getSelectedItem().equalsIgnoreCase("Pris høy-lav")) {
-                    scrollPanes.get(finalI1).setContent(null);
-                    vBox.getChildren().clear();
                     observableLists.get(finalI1).sort(new DatakomponentPrisHoyComparator());
-                    setSorted(x, y, vBox, hBoxUt, finalI1, finalI2);
                 }
                 if (valg.getSelectionModel().getSelectedItem().equalsIgnoreCase("Varenummer")) {
-                    scrollPanes.get(finalI1).setContent(null);
-                    vBox.getChildren().clear();
                     observableLists.get(finalI1).sort(new DatakomponentVarekodeComparator());
-                    setSorted(x, y, vBox, hBoxUt, finalI1, finalI2);
                 }
+                ObservableList<? extends Datakomponent> aktiv = observableLists.get(finalI1)
+                        .filtered(l -> l.getBeskrivelse().toLowerCase().contains(text.getText().toLowerCase()));
+                setFiltered(x, y, vBox, hBoxUt, finalI1, finalI2, aktiv);
             });
         }
 
     }
 
-    private void setSorted(double x, double y, VBox vBox, HBox hBoxUt, int finalI1, int finalI2) {
+    private void setFiltered(double x, double y, VBox vBox, HBox hBoxUt, int finalI1, int finalI2,
+                             ObservableList<? extends Datakomponent> aktiv) {
         vBox.getChildren().add(hBoxUt);
-        for (int j = 0; j < observableLists.get(finalI2).size(); j++) {
+        for (int j = 0; j < aktiv.size(); j++) {
             HBox hBox = new HBox(10);
-            Label label = new Label(observableLists.get(finalI2).get(j).getBeskrivelse());
+            Label label = new Label(aktiv.get(j).getBeskrivelse());
             label.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: white; -fx-border-style: solid;" +
                     " -fx-text-alignment: left!important; -fx-font-size: 20px");
             ImageView image = null;
-            if (observableLists.get(finalI1).get(j).getBilde() != null) {
-                image = new ImageView(observableLists.get(finalI2).get(j).getBilde());
+            if (aktiv.get(j).getBilde() != null) {
+                image = new ImageView(aktiv.get(j).getBilde());
             } else {
                 try {
                     image = new ImageView(new Image(
@@ -196,16 +214,15 @@ public class NyBestillingController {
             int finalJ = j;
             image.setOnMouseClicked(mouseEvent -> {
                 mouseClick(x, y, finalI, finalJ);
+                datakomponents[finalI] = aktiv.get(finalJ);
             });
             label.setOnMouseClicked(mouseEvent -> {
                 mouseClick(x, y, finalI, finalJ);
-                datakomponents[finalI] = observableLists.get(finalI).get(finalJ);
+                datakomponents[finalI] = aktiv.get(finalJ);
             });
             vBox.getChildren().add(hBox);
-            vBox.setPrefWidth(1123.5);
+            vBox.setPrefWidth(1100);
 
-            titledPanes.get(finalI2).setExpanded(false);
-            scrollPanes.get(finalI2).setContent(vBox);
 
             titledPanes.get(finalI2).setOnMouseClicked(mouseEvent -> {
                 if (titledPanes.get(finalI).isExpanded()) {
@@ -226,6 +243,9 @@ public class NyBestillingController {
                 }
             });
         }
+        titledPanes.get(finalI2).setExpanded(false);
+        scrollPanes.get(finalI2).setContent(vBox);
+
         titledPanes.get(finalI2).setExpanded(true);
     }
 
@@ -247,7 +267,7 @@ public class NyBestillingController {
         titledPanes.get(finalI).setExpanded(false);
         titledPanes.get(finalI).setPrefWidth(150);
         titledPanes.get(finalI).setPrefHeight(28);
-        //titledPanes.get(finalI).toBack();
+
     }
 
     @FXML

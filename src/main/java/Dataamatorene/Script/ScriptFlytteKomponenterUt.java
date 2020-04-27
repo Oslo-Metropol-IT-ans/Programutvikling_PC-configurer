@@ -15,6 +15,7 @@ public class ScriptFlytteKomponenterUt {
         FileOpener opener = new FileOpenerJobj();
 
         try {
+
             ArrayList<Harddisk> harddisks = (ArrayList<Harddisk>) opener.read("src/main/java/Dataamatorene/Files/Harddisk.jobj");
             ArrayList<Hovedkort> hovedkorts = (ArrayList<Hovedkort>) opener.read("src/main/java/Dataamatorene/Files/Hovedkort.jobj");
             ArrayList<Lydkort> lydkorts = (ArrayList<Lydkort>) opener.read("src/main/java/Dataamatorene/Files/Lydkort.jobj");

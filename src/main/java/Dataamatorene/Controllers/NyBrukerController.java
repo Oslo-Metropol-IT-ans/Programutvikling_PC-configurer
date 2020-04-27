@@ -103,7 +103,7 @@ public class NyBrukerController {
                 BrukerValidering.sjekkValidNavn(navn);
                 BrukerValidering.sjekkValidTelefon(tlfNummer);
                 BrukerValidering.sjekkValidEpost(email);
-                BrukerRegister.addBruker(new Bruker(brukernavn, passord, navn, tlfNummer, email, false));
+                //BrukerRegister.addBruker(new Bruker(brukernavn, passord, navn, tlfNummer, email, false));
 
                 FileSaver saver = new FileSaverJobj();
                 try {

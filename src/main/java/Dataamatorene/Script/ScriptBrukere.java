@@ -11,6 +11,7 @@ import java.util.Arrays;
 
 public class ScriptBrukere {
     public static void main(String[] args) {
+
         Bruker b1 = new Bruker("Admin", "Admin", null, null, null, true);
         Bruker b2 = new Bruker("Nicolai", "a", "Nicolai", "48106487",
                 "s341833@oslomet.no",true);
@@ -33,5 +34,6 @@ public class ScriptBrukere {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

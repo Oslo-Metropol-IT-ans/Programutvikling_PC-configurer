@@ -1,6 +1,7 @@
 package Dataamatorene.DatakomponenterReserve;
 
 import Dataamatorene.Brukere.Bruker;
+import Dataamatorene.Brukere.Bruker2;
 import Dataamatorene.Brukere.BrukerRegister;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
@@ -19,7 +20,7 @@ public class Datakomponent2 implements Serializable {
     protected String navn;
     protected double pris;
     protected transient Image bilde;
-    protected Bruker bruker;
+    protected Bruker2 bruker;
     protected LocalDateTime tid;
 
     public Datakomponent2(String navn, double pris, int varekode, Image bilde){
@@ -81,7 +82,7 @@ public class Datakomponent2 implements Serializable {
     }
 
     protected void setBrukerTid() {
-        this.bruker = BrukerRegister.getAktivBruker();
+        //this.bruker = BrukerRegister.getAktivBruker();
         this.tid = LocalDateTime.now();
     }
 

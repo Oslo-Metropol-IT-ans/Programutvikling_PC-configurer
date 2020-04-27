@@ -15,7 +15,7 @@
    <children>
       <TableView fx:id="tableView" editable="true" layoutX="66.0" layoutY="73.0" prefHeight="526.0" prefWidth="1009.0">
         <columns>
-          <TableColumn fx:id="tbBrukernavn" onEditCommit="#txtBrukernavnEdited" prefWidth="240.39047241210938" text="Brukernavn">
+          <TableColumn fx:id="tbBrukernavn" onEditCommit="#txtBrukernavnEdited" prefWidth="152.0" text="Brukernavn">
             <cellValueFactory>
                 <PropertyValueFactory property="txtData" />
             </cellValueFactory>
@@ -23,7 +23,7 @@
                 <TextFieldTableCell fx:factory="forTableColumn" />
             </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbPassord" minWidth="5.0" onEditCommit="#txtPasswordEdited" prefWidth="595.1095275878906" text="Passord">
+          <TableColumn fx:id="tbPassord" minWidth="0.0" onEditCommit="#txtPasswordEdited" prefWidth="173.0" text="Passord">
             <cellValueFactory>
                 <PropertyValueFactory property="txtData" />
             </cellValueFactory>
@@ -31,7 +31,10 @@
                 <TextFieldTableCell fx:factory="forTableColumn" />
             </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbRettigheter" onEditCommit="#txtRettigheterEdited" prefWidth="170.70025634765625" text="Rettigheter">
+            <TableColumn fx:id="tbNavn" onEditCommit="#txtNavnEdited" prefWidth="198.0" text="Navn" />
+            <TableColumn fx:id="tbTlfNummer" onEditCommit="#txtTlfNummerEdited" prefWidth="169.0" text="Telefonnummer" />
+            <TableColumn fx:id="tbEmail" minWidth="0.0" onEditCommit="#txtEmailEdited" prefWidth="188.0" text="Email" />
+          <TableColumn fx:id="tbRettigheter" maxWidth="1.7976931348623157E308" minWidth="0.0" onEditCommit="#txtRettigheterEdited" prefWidth="128.0" text="Rettigheter">
             <cellValueFactory>
                 <PropertyValueFactory property="txtData" />
             </cellValueFactory>

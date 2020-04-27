@@ -8,8 +8,7 @@ import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Brukere.BrukerValidering;
 import Dataamatorene.Datakomponenter.KomponentRegister;
-import Dataamatorene.Exceptions.InvalidBrukerException;
-import Dataamatorene.Exceptions.InvalidPasswordException;
+import Dataamatorene.Exceptions.*;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
 
@@ -30,6 +29,9 @@ public class EndreBrukerController {
 
         tbBrukernavn.setCellValueFactory(new PropertyValueFactory<Bruker, String>("brukernavn"));
         tbPassord.setCellValueFactory(new PropertyValueFactory<Bruker, String>("passord"));
+        tbNavn.setCellValueFactory(new PropertyValueFactory<Bruker, String>("navn"));
+        tbTlfNummer.setCellValueFactory(new PropertyValueFactory<Bruker, String>("tlfNummer"));
+        tbEmail.setCellValueFactory(new PropertyValueFactory<Bruker, String>("email"));
         tbRettigheter.setCellValueFactory(new PropertyValueFactory<Bruker, String>("rettigheter"));
 
         BrukerRegister.setTableView(tableView);
@@ -44,6 +46,16 @@ public class EndreBrukerController {
 
     @FXML
     private TableColumn<Bruker, String> tbPassord;
+
+    @FXML
+    private TableColumn<Bruker, String> tbNavn;
+
+    @FXML
+    private TableColumn<Bruker, String> tbTlfNummer;
+
+    @FXML
+    private TableColumn<Bruker, String> tbEmail;
+
 
     @FXML
     private TableColumn<Bruker, String> tbRettigheter;
@@ -75,10 +87,6 @@ public class EndreBrukerController {
         try{
             event.getRowValue().setPassord(BrukerValidering.sjekkPassord(event.getNewValue()));
             oppdaterBestilling(event);
-<<<<<<< Updated upstream
-        }catch (InvalidPasswordException INE){
-            Dialogs.showErrorDialog("Ugyldig passord!",INE.getMessage());
-=======
         }catch (InvalidPasswordException IPE){
             Dialogs.showErrorDialog("Ugyldig passord!",IPE.getMessage());
             tableView.refresh();
@@ -119,7 +127,6 @@ public class EndreBrukerController {
         }
         catch (InvalidEpostException IEE){
             Dialogs.showErrorDialog("Ugyldig epost!", IEE.getMessage());
->>>>>>> Stashed changes
             tableView.refresh();
         }
 

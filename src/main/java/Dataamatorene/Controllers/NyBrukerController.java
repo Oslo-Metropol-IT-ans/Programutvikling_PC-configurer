@@ -68,6 +68,15 @@ public class NyBrukerController {
     @FXML
     private Button btnRegistrer;
 
+    @FXML
+    private TextField txtNavn;
+
+    @FXML
+    private TextField txtTlfNummer;
+
+    @FXML
+    private TextField txtEmail;
+
 
     @FXML
     void registrer(Event event) {
@@ -77,6 +86,9 @@ public class NyBrukerController {
 
         String brukernavn = txtBrukernavn.getText();
         String passord = txtPassword.getText();
+        String navn = txtNavn.getText();
+        String tlfNummer = txtTlfNummer.getText();
+        String email = txtEmail.getText();
 
         for(Bruker b:liste){
             if(brukernavn.equalsIgnoreCase(b.getBrukernavn())){
@@ -88,14 +100,10 @@ public class NyBrukerController {
             try{
                 BrukerValidering.sjekkPassord(passord);
                 BrukerValidering.sjekkBrukernavn(brukernavn);
-<<<<<<< Updated upstream
-                BrukerRegister.addBruker(new Bruker(brukernavn, passord, false));
-=======
                 BrukerValidering.sjekkValidNavn(navn);
                 BrukerValidering.sjekkValidTelefon(tlfNummer);
                 BrukerValidering.sjekkValidEpost(email);
                 //BrukerRegister.addBruker(new Bruker(brukernavn, passord, navn, tlfNummer, email, false));
->>>>>>> Stashed changes
 
                 FileSaver saver = new FileSaverJobj();
                 try {

@@ -47,9 +47,9 @@
                               <TextField fx:id="txtPassword" prefHeight="27.0" prefWidth="301.0" />
                            </children>
                         </AnchorPane>
-                        <TextField fx:id="txtBrukernavn1" />
-                        <TextField fx:id="txtBrukernavn2" />
-                        <TextField fx:id="txtBrukernavn3" prefHeight="79.0" prefWidth="301.0" />
+                        <TextField fx:id="txtNavn" />
+                        <TextField fx:id="txtTlfNummer" />
+                        <TextField fx:id="txtEmail" prefHeight="79.0" prefWidth="301.0" />
                      </children>
                   </VBox>
                </children>

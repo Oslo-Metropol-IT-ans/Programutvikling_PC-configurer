@@ -25,7 +25,7 @@ public class ScriptFlytteBrukereUt {
         if (liste != null) {
             for (Bruker b:liste) {
                 if(b.getRettigheter().equalsIgnoreCase("Admin")) {
-                    listeUt.add(new Bruker2(b.getBrukernavn(), b.getPassord(),null, null, null, true));
+                    listeUt.add(new Bruker2(b.getBrukernavn(), b.getPassord(), null, null, null,  true));
                 } else {
                     listeUt.add(new Bruker2(b.getBrukernavn(), b.getPassord(), null, null, null, false));
                 }

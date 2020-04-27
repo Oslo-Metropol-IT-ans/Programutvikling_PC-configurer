@@ -82,8 +82,7 @@ public class Datakomponent2 implements Serializable {
     }
 
     protected void setBrukerTid() {
-        Bruker b = BrukerRegister.getAktivBruker();
-        this.bruker = new Bruker2(b.getBrukernavn(), b.getPassord(), "Hei", "hei", "null", true);
+        //this.bruker = BrukerRegister.getAktivBruker();
         this.tid = LocalDateTime.now();
     }
 

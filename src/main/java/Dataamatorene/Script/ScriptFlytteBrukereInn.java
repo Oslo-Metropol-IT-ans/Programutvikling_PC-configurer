@@ -21,7 +21,7 @@ public class ScriptFlytteBrukereInn {
 
         }
 
-        if (liste != null) {
+       /* if (liste != null) {
             for (Bruker2 b:liste) {
                 if(b.getRettigheter().equalsIgnoreCase("Admin")) {
                     listeUt.add(new Bruker(b.getBrukernavn(), b.getPassord(), true));
@@ -31,6 +31,8 @@ public class ScriptFlytteBrukereInn {
 
             }
 
+        */
+
             FileSaver saver = new FileSaverJobj();
             try {
                 saver.save(listeUt, "src/main/java/Dataamatorene/Files/Login.jobj");
@@ -39,4 +41,3 @@ public class ScriptFlytteBrukereInn {
             }
         }
     }
-}

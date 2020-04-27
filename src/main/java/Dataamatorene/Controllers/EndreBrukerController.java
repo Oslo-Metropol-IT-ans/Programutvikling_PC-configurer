@@ -75,8 +75,51 @@ public class EndreBrukerController {
         try{
             event.getRowValue().setPassord(BrukerValidering.sjekkPassord(event.getNewValue()));
             oppdaterBestilling(event);
+<<<<<<< Updated upstream
         }catch (InvalidPasswordException INE){
             Dialogs.showErrorDialog("Ugyldig passord!",INE.getMessage());
+=======
+        }catch (InvalidPasswordException IPE){
+            Dialogs.showErrorDialog("Ugyldig passord!",IPE.getMessage());
+            tableView.refresh();
+        }
+
+    }
+
+    @FXML
+    void txtNavnEdited(TableColumn.CellEditEvent<Bruker, String> event) {
+        try{
+            //event.getRowValue().setNavn(BrukerValidering.sjekkValidNavn(event.getNewValue()));
+            oppdaterBestilling(event);
+        }
+        catch (InvalidNameException INE){
+            Dialogs.showErrorDialog("Ugyldig navn!", INE.getMessage());
+            tableView.refresh();
+        }
+
+    }
+
+    @FXML
+    void txtTlfNummerEdited(TableColumn.CellEditEvent<Bruker, String> event) {
+        try{
+            //event.getRowValue().setTlfNummer(BrukerValidering.sjekkValidTelefon(event.getNewValue()));
+            oppdaterBestilling(event);
+        }
+        catch (InvalidTelefonException ITE){
+            Dialogs.showErrorDialog("Ugyldig telefonnummer!", ITE.getMessage());
+            tableView.refresh();
+        }
+    }
+
+    @FXML
+    void txtEmailEdited(TableColumn.CellEditEvent<Bruker, String> event) {
+        try {
+            //event.getRowValue().setEmail(BrukerValidering.sjekkValidEpost(event.getNewValue()));
+            oppdaterBestilling(event);
+        }
+        catch (InvalidEpostException IEE){
+            Dialogs.showErrorDialog("Ugyldig epost!", IEE.getMessage());
+>>>>>>> Stashed changes
             tableView.refresh();
         }
 

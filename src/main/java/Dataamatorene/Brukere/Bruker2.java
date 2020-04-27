@@ -8,11 +8,17 @@ public class Bruker2 implements Serializable, Comparable<Bruker2> {
 
     private String brukernavn;
     private String passord;
+    private String navn;
+    private String tlfNummer;
+    private String email;
     private boolean superbruker;
 
-    public Bruker2(String brukernavn, String passord, boolean superbruker){
+    public Bruker2(String brukernavn, String passord, String navn, String tlfNummer, String email, boolean superbruker){
         this.brukernavn = brukernavn;
         this.passord = passord;
+        this.navn = navn;
+        this.tlfNummer = tlfNummer;
+        this.email = email;
         this.superbruker = superbruker;
     }
 
@@ -22,6 +28,18 @@ public class Bruker2 implements Serializable, Comparable<Bruker2> {
 
     public String getPassord() {
         return passord;
+    }
+
+    public String getNavn() {
+        return navn;
+    }
+
+    public String getTlfNummer() {
+        return tlfNummer;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getRettigheter() {
@@ -35,6 +53,18 @@ public class Bruker2 implements Serializable, Comparable<Bruker2> {
 
     public void setPassord(String passord) {
         this.passord = passord;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public void setTlfNummer(String tlfNummer) {
+        this.tlfNummer = tlfNummer;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setSuperbruker(String rettigheter){
@@ -56,4 +86,5 @@ public class Bruker2 implements Serializable, Comparable<Bruker2> {
     public int compareTo(@NotNull Bruker2 o) {
         return this.brukernavn.compareTo(o.brukernavn);
     }
+
 }

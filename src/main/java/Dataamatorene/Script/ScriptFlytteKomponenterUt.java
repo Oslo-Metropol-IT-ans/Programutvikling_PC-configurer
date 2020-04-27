@@ -1,5 +1,7 @@
 package Dataamatorene.Script;
 
+import Dataamatorene.Brukere.Bruker;
+import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.DatakomponenterReserve.*;
 import Dataamatorene.Filbehandling.FileOpener;
@@ -15,6 +17,8 @@ public class ScriptFlytteKomponenterUt {
         FileOpener opener = new FileOpenerJobj();
 
         try {
+
+            //BrukerRegister.setAktivBruker(new Bruker("Admin", "Admin", true));
             ArrayList<Harddisk> harddisks = (ArrayList<Harddisk>) opener.read("src/main/java/Dataamatorene/Files/Harddisk.jobj");
             ArrayList<Hovedkort> hovedkorts = (ArrayList<Hovedkort>) opener.read("src/main/java/Dataamatorene/Files/Hovedkort.jobj");
             ArrayList<Lydkort> lydkorts = (ArrayList<Lydkort>) opener.read("src/main/java/Dataamatorene/Files/Lydkort.jobj");

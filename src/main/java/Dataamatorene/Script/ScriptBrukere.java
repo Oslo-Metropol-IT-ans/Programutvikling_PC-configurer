@@ -11,12 +11,27 @@ import java.util.Arrays;
 
 public class ScriptBrukere {
     public static void main(String[] args) {
+<<<<<<< Updated upstream
         Bruker b1 = new Bruker("Admin", "Admin", true);
         Bruker b2 = new Bruker("Nicolai", "a", true);
         Bruker b3 = new Bruker("Erik", "Erik123", true);
         Bruker b4 = new Bruker("Emilie", "Emilie123", true);
         Bruker b5 = new Bruker("Bruker", "Bruker123", false);
         Bruker b6 = new Bruker("Nicolai20", "Nicolai20", false);
+=======
+
+        Bruker b1 = new Bruker("Admin", "Admin", null, null, null, true);
+        Bruker b2 = new Bruker("Nicolai", "a", "Nicolai", "48106487",
+                "s341833@oslomet.no",true);
+        Bruker b3 = new Bruker("Erik", "Erik123", "Erik", "93664190",
+                "s341867@oslomet.no", true);
+        Bruker b4 = new Bruker("Emilie", "Emilie123", "Emilie", "97833268",
+                "s331394", true);
+        Bruker b5 = new Bruker("Bruker", "Bruker123", null, null, null,
+                false);
+        Bruker b6 = new Bruker("Nicolai20", "Nicolai20", null, null, null,
+                false);
+>>>>>>> Stashed changes
 
         Bruker[] brukers = {b1,b2,b3,b4,b5, b6};
 
@@ -28,5 +43,6 @@ public class ScriptBrukere {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

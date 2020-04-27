@@ -88,7 +88,14 @@ public class NyBrukerController {
             try{
                 BrukerValidering.sjekkPassord(passord);
                 BrukerValidering.sjekkBrukernavn(brukernavn);
+<<<<<<< Updated upstream
                 BrukerRegister.addBruker(new Bruker(brukernavn, passord, false));
+=======
+                BrukerValidering.sjekkValidNavn(navn);
+                BrukerValidering.sjekkValidTelefon(tlfNummer);
+                BrukerValidering.sjekkValidEpost(email);
+                //BrukerRegister.addBruker(new Bruker(brukernavn, passord, navn, tlfNummer, email, false));
+>>>>>>> Stashed changes
 
                 FileSaver saver = new FileSaverJobj();
                 try {

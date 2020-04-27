@@ -86,4 +86,5 @@ public class Bruker2 implements Serializable, Comparable<Bruker2> {
     public int compareTo(@NotNull Bruker2 o) {
         return this.brukernavn.compareTo(o.brukernavn);
     }
+
 }

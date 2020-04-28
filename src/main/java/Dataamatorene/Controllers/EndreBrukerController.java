@@ -7,7 +7,6 @@ import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Brukere.BrukerValidering;
-import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Exceptions.*;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
@@ -25,7 +24,11 @@ import java.util.ArrayList;
 
 public class EndreBrukerController {
 
+    // Ting som kjøres når controlleren starter opp
+
     public void initialize() {
+
+        // Tableview oppsett
 
         tbBrukernavn.setCellValueFactory(new PropertyValueFactory<Bruker, String>("brukernavn"));
         tbPassord.setCellValueFactory(new PropertyValueFactory<Bruker, String>("passord"));
@@ -37,6 +40,8 @@ public class EndreBrukerController {
         BrukerRegister.setTableView(tableView);
 
     }
+
+    // FXML element deklarasjoner
 
     @FXML
     private TableView<Bruker> tableView;
@@ -59,6 +64,8 @@ public class EndreBrukerController {
 
     @FXML
     private TableColumn<Bruker, String> tbRettigheter;
+
+    // Håndtering av endringer i Tableview
 
     @FXML
     private void txtBrukernavnEdited(TableColumn.CellEditEvent<Bruker, String> event) {
@@ -148,6 +155,8 @@ public class EndreBrukerController {
 
     }
 
+    // Hvis brukernavn endres må også brukernavn på bestilling endres
+
     private void oppdaterBestilling(TableColumn.CellEditEvent<Bruker, String> event) {
         ArrayList<Bestilling> aktiv = BestillingsRegister.getBestillinger();
         for (Bestilling b:aktiv) {
@@ -160,8 +169,12 @@ public class EndreBrukerController {
         lagre();
     }
 
+    // Søkefelt deklarasjon
+
     @FXML
-    private TextField txtSøk;
+    private TextField txtSok;
+
+    // Tilbakeknapp sin actionevent
 
     @FXML
     void tilbake(ActionEvent event) {
@@ -172,6 +185,8 @@ public class EndreBrukerController {
         }
     }
 
+    // Lagre metode som lagrer det nye brukerregisteret til jobj fil
+
     private void lagre() {
         FileSaver saver = new FileSaverJobj();
         try {
@@ -181,10 +196,11 @@ public class EndreBrukerController {
         }
     }
 
+    // Søkeknapp sin actionevent
 
     @FXML
     private void Søk(KeyEvent event){
-        String søk = txtSøk.getText();
+        String søk = txtSok.getText();
 
         if(!søk.isEmpty()){
             Streams.streamBrukernavn(søk);
@@ -193,6 +209,8 @@ public class EndreBrukerController {
             BrukerRegister.setTableView(tableView);
         }
     }
+
+    // Sletteknappen sin actionevent
 
     @FXML
     void slett(ActionEvent event) {

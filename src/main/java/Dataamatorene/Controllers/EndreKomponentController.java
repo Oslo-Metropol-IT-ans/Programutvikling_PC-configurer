@@ -29,8 +29,11 @@ import java.util.ArrayList;
 
 public class EndreKomponentController {
 
+    // Starter controlleren på harddisk siden
+
     String aktiv = "Harddisk";
 
+    // Deklarerer alle listene for hver datakomponent
 
     ObservableList<Harddisk> oHarddisk = FXCollections.observableArrayList(KomponentRegister.getHarddiskArrayList());
     ObservableList<Hovedkort> oHovedkort = FXCollections.observableArrayList(KomponentRegister.getHovedkortArrayList());
@@ -43,22 +46,11 @@ public class EndreKomponentController {
     ObservableList<Skjermkort> oSkjermkort = FXCollections.observableArrayList(KomponentRegister.getSkjermkortArrayList());
     ObservableList<Tastatur> oTastatur = FXCollections.observableArrayList(KomponentRegister.getTastaturArrayList());
 
+    // alt som må kjøres når controlleren starter
+
     public void initialize() {
 
-        /*
-        oHarddisk.setAll(KomponentRegister.getHarddiskArrayList());
-        oHovedkort.setAll(KomponentRegister.getHovedkortArrayList());
-        oKabinett.setAll(KomponentRegister.getKabinettArrayList());
-        oLydkort.setAll(KomponentRegister.getLydkortArrayList());
-        oMinne.setAll(KomponentRegister.getMinneArrayList());
-        oMus.setAll(KomponentRegister.getMusArrayList());
-        oProsessor.setAll(KomponentRegister.getProsessorArrayList());
-        oSkjerm.setAll(KomponentRegister.getSkjermArrayList());
-        oSkjermkort.setAll(KomponentRegister.getSkjermkortArrayList());
-        oTastatur.setAll(KomponentRegister.getTastaturArrayList());
-
-         */
-
+        // Tableview oppsett
 
         tbVarHarddisk.setCellValueFactory(new PropertyValueFactory<>("varekode"));
         tbNavnHarddisk.setCellValueFactory(new PropertyValueFactory<>("navn"));
@@ -151,6 +143,8 @@ public class EndreKomponentController {
         tvSkjermkort.setItems(oSkjermkort);
         tvTastatur.setItems(oTastatur);
 
+        // Når du velger en ny komponent du ser på
+
         Harddisk.setOnSelectionChanged(event -> {
             aktiv = "Harddisk";
         });
@@ -193,6 +187,8 @@ public class EndreKomponentController {
 
     }
 
+    // FXML deklarasjoner
+
     @FXML
     private TabPane Tilbehør;
 
@@ -227,13 +223,15 @@ public class EndreKomponentController {
     private TableView<Mus> tvMus;
 
 
-    //Harddisk
+    // All kode for harddisk
 
     @FXML
     private Tab Harddisk;
 
     @FXML
     private TableColumn<Harddisk, String> tbVarHarddisk;
+
+    // Endring av harddisk i tableview
 
     @FXML
     private void txtHarddiskVareEdit(TableColumn.CellEditEvent<Harddisk, String> event) {
@@ -251,6 +249,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Harddisk, String> tbNavnHarddisk;
 
+    // Endring av harddisk i tableview
+
     @FXML
     private void txtHarddiskNavnEdit(TableColumn.CellEditEvent<Harddisk, String> event) {
         try{
@@ -265,6 +265,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Harddisk, String> tbPrisHarddisk;
+
+    // Endring av harddisk i tableview
 
     @FXML
     private void txtHarddiskPrisEdit(TableColumn.CellEditEvent<Harddisk, String> event) {
@@ -281,6 +283,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Harddisk, String> tbLagringHarddisk;
+
+    // Endring av harddisk i tableview
 
     @FXML
     private void txtHarddiskLagringEdit(TableColumn.CellEditEvent<Harddisk, String> event) {
@@ -301,13 +305,15 @@ public class EndreKomponentController {
     private TableColumn<Harddisk, String> tbDatoHarddisk;
 
 
-    //Hovedkort
+    // All kode for hovedkort
 
     @FXML
     private Tab Hovedkort;
 
     @FXML
     private TableColumn<Hovedkort, String> tbVareHovedkort;
+
+    // Endring av hovedkort i tableview
 
     @FXML
     private void txtHovedkortVareEdit(TableColumn.CellEditEvent<Hovedkort, String> event) {
@@ -325,6 +331,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Hovedkort, String> tbNavnHovedkort;
 
+    // Endring av hovedkort i tableview
+
     @FXML
     private void txtHovedkortNavnEdit(TableColumn.CellEditEvent<Hovedkort, String> event) {
         try{
@@ -340,6 +348,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Hovedkort, String> tbPrisHovedkort;
 
+    // Endring av hovedkort i tableview
+
     @FXML
     private void txtHovedkortPrisEdit(TableColumn.CellEditEvent<Hovedkort, String> event) {
         try{
@@ -354,6 +364,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Hovedkort, String> tbPorterHovedkort;
+
+    // Endring av hovedkort i tableview
 
     @FXML
     private void txtHovedkortPorterEdit(TableColumn.CellEditEvent<Hovedkort, String> event) {
@@ -374,13 +386,15 @@ public class EndreKomponentController {
     private TableColumn<Hovedkort, String> tbDatoHovedkort;
 
 
-    //Lydkort
+    // All kode for lydkort
 
     @FXML
     private Tab Lydkort;
 
     @FXML
     private TableColumn<Lydkort, String> tbVareLydkort;
+
+    // Endring av lydkort i tableview
 
     @FXML
     private void txtLydkortVareEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
@@ -399,6 +413,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Lydkort, String> tbNavnLydkort;
 
+    // Endring av lydkort i tableview
+
     @FXML
     private void txtLydkortNavnEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
         try{
@@ -413,6 +429,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Lydkort, String> tbPrisLydkort;
+
+    // Endring av lydkort i tableview
 
     @FXML
     private void txtLydkortPrisEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
@@ -429,6 +447,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Lydkort, String> tbFrekvensLydkort;
 
+    // Endring av lydkort i tableview
+
     @FXML
     private void txtLydkortFrekvensEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
         try{
@@ -443,6 +463,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Lydkort, String> tbIntegrertLydkort;
+
+    // Endring av lydkort i tableview
 
     @FXML
     private void txtLydkortIntegrertEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
@@ -463,13 +485,15 @@ public class EndreKomponentController {
     private TableColumn<Lydkort, String> tbDatoLydkort;
 
 
-    // Skjermkort
+    // All kode for skjermkort
 
     @FXML
     private Tab Skjermkort;
 
     @FXML
     private TableColumn<Skjermkort, String> tbVareSkjermkort;
+
+    // Endring av skjermkort i tableview
 
     @FXML
     private void txtSkjermkortVareEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
@@ -488,6 +512,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Skjermkort, String> tbNavnSkjermkort;
 
+    // Endring av skjermkort i tableview
+
     @FXML
     private void txtSkjermkortNavnEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
         try {
@@ -503,6 +529,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Skjermkort, String> tbPrisSkjermkort;
 
+    // Endring av skjermkort i tableview
+
     @FXML
     private void txtSkjermkortPrisEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
         try {
@@ -517,6 +545,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Skjermkort, String> tbOpplosningSkjermkort;
+
+    // Endring av skjermkort i tableview
 
     @FXML
     private void txtSkjermkortOpplosningEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
@@ -537,13 +567,15 @@ public class EndreKomponentController {
     private TableColumn<Skjermkort, String> tbDatoSkjermkort;
 
 
-    // Prosessor
+    // All kode for prosessor
 
     @FXML
     private Tab Prosessor;
 
     @FXML
     private TableColumn<Prosessor, String> tbVareProsessor;
+
+    // Endring av prosessor i tableview
 
     @FXML
     private void txtProsessorVareEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
@@ -561,6 +593,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Prosessor, String> tbNavnProsessor;
 
+    // Endring av prosessor i tableview
+
     @FXML
     private void txtProsessorNavnEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
@@ -575,6 +609,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Prosessor, String> tbPrisProsessor;
+
+    // Endring av prosessor i tableview
 
     @FXML
     private void txtProsessorPrisEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
@@ -591,6 +627,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Prosessor, String> tbKjernerProsessor;
 
+    // Endring av prosessor i tableview
+
     @FXML
     private void txtProsessorKjernerEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
@@ -606,6 +644,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Prosessor, String> tbFrekvenserProsessor;
 
+    // Endring av prosessor i tableview
+
     @FXML
     private void txtProsessorFrekvensEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
@@ -620,6 +660,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Prosessor, String> tbTraderProsessor;
+
+    // Endring av prosessor i tableview
 
     @FXML
     private void txtProsessorTraderEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
@@ -640,13 +682,15 @@ public class EndreKomponentController {
     private TableColumn<Prosessor, String> tbDatoProsessor;
 
 
-    // Minne
+    // All kode for minne
 
     @FXML
     private Tab Minne;
 
     @FXML
     private TableColumn<Minne, String> tbVareMinne;
+
+    // Endring av minne i tableview
 
     @FXML
     private void txtMinneVareEdit(TableColumn.CellEditEvent<Minne, String> event) {
@@ -664,6 +708,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Minne, String> tbNavnMinne;
 
+    // Endring av minne i tableview
+
     @FXML
     private void txtMinneNavnEdit(TableColumn.CellEditEvent<Minne, String> event) {
         try {
@@ -678,6 +724,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Minne, String> tbPrisMinne;
+
+    // Endring av minne i tableview
 
     @FXML
     private void txtMinnePrisEdit(TableColumn.CellEditEvent<Minne, String> event) {
@@ -694,6 +742,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Minne, String> tbRamMinne;
 
+    // Endring av minne i tableview
+
     @FXML
     private void txtMinneRamEdit(TableColumn.CellEditEvent<Minne, String> event) {
         try {
@@ -708,6 +758,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Minne, String> tbFrekvensMinne;
+
+    // Endring av minne i tableview
 
     @FXML
     private void txtMinneFrekvensEdit(TableColumn.CellEditEvent<Minne, String> event) {
@@ -728,13 +780,15 @@ public class EndreKomponentController {
     private TableColumn<Minne, String> tbDatoMinne;
 
 
-    // Kabinett
+    // All kode for kabinett
 
     @FXML
     private Tab Kabinett;
 
     @FXML
     private TableColumn<Kabinett, String> tbVareKabinett;
+
+    // Endring av kabinett i tableview
 
     @FXML
     private void txtKabinettVareEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
@@ -752,6 +806,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Kabinett, String> tbNavnKabinett;
 
+    // Endring av kabinett i tableview
+
     @FXML
     private void txtKabinettNavnEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
         try {
@@ -766,6 +822,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Kabinett, String> tbPrisKabinett;
+
+    // Endring av kabinett i tableview
 
     @FXML
     private void txtKabinettPrisEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
@@ -782,6 +840,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Kabinett, String> tbStorrelseKabinett;
 
+    // Endring av kabinett i tableview
+
     @FXML
     private void txtKabinettStorrelseEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
         try {
@@ -796,6 +856,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Kabinett, String> tbVifterKabinett;
+
+    // Endring av kabinett i tableview
 
     @FXML
     private void txtKabinettVifterEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
@@ -816,13 +878,15 @@ public class EndreKomponentController {
     private TableColumn<Kabinett, String> tbDatoKabinett;
 
 
-    // Skjerm
+    // All kode for skjerm
 
     @FXML
     private Tab Skjerm;
 
     @FXML
     private TableColumn<Skjerm, String> tbVareSkjerm;
+
+    // Endring av skjerm i tableview
 
     @FXML
     private void txtSkjermVareEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
@@ -840,6 +904,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Skjerm, String> tbNavnSkjerm;
 
+    // Endring av skjerm i tableview
+
     @FXML
     private void txtSkjermNavnEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
         try {
@@ -854,6 +920,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Skjerm, String> tbPrisSkjerm;
+
+    // Endring av skjerm i tableview
 
     @FXML
     private void txtSkjermPrisEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
@@ -870,6 +938,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Skjerm, String> tbOpplosningSkjerm;
 
+    // Endring av skjerm i tableview
+
     @FXML
     private void txtSkjermOpplosningEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
         try {
@@ -884,6 +954,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Skjerm, String> tbStorrelseSkjerm;
+
+    // Endring av skjerm i tableview
 
     @FXML
     private void txtSkjermStorrelseEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
@@ -904,13 +976,15 @@ public class EndreKomponentController {
     private TableColumn<Skjerm, String> tbDatoSkjerm;
 
 
-    // Tastatur
+    // All kode for tastatur
 
     @FXML
     private Tab Tastatur;
 
     @FXML
     private TableColumn<Tastatur, String> tbVareTastatur;
+
+    // Endring av tastatur i tableview
 
     @FXML
     private void txtTastaturVareEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
@@ -928,6 +1002,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Tastatur, String> tbNavnTastatur;
 
+    // Endring av tastatur i tableview
+
     @FXML
     private void txtTastaturNavnEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
         try {
@@ -942,6 +1018,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Tastatur, String> tbPrisTastatur;
+
+    // Endring av tastatur i tableview
 
     @FXML
     private void txtTastaturPrisEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
@@ -958,6 +1036,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Tastatur, String> tbSpråkTastatur;
 
+    // Endring av tastatur i tableview
+
     @FXML
     private void txtTastaturSprakEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
         try {
@@ -973,6 +1053,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Tastatur, String> tbMekaniskTastatur;
 
+    // Endring av tastatur i tableview
+
     @FXML
     private void txtTastaturMekaniskEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
         try {
@@ -987,6 +1069,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Tastatur, String> tbRgbTastatur;
+
+    // Endring av tastatur i tableview
 
     @FXML
     private void txtTastaturRgbEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
@@ -1007,13 +1091,15 @@ public class EndreKomponentController {
     private TableColumn<Tastatur, String> tbDatoTastatur;
 
 
-    // Mus
+    // All kode for mus
 
     @FXML
     private Tab Mus;
 
     @FXML
     private TableColumn<Mus, String> tbVareMus;
+
+    // Endring av mus i tableview
 
     @FXML
     private void txtMusVareEdit(TableColumn.CellEditEvent<Mus, String> event) {
@@ -1031,6 +1117,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Mus, String> tbNavnMus;
 
+    // Endring av mus i tableview
+
     @FXML
     private void txtMusNavnEdit(TableColumn.CellEditEvent<Mus, String> event) {
         try {
@@ -1045,6 +1133,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Mus, String> tbPrisMus;
+
+    // Endring av mus i tableview
 
     @FXML
     private void txtMusPrisEdit(TableColumn.CellEditEvent<Mus, String> event) {
@@ -1061,6 +1151,8 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Mus, String> tbTradMus;
 
+    // Endring av mus i tableview
+
     @FXML
     private void txtMusTradEdit(TableColumn.CellEditEvent<Mus, String> event) {
         try {
@@ -1075,6 +1167,8 @@ public class EndreKomponentController {
 
     @FXML
     private TableColumn<Mus, String> tbKnapperMus;
+
+    // Endring av mus i tableview
 
     @FXML
     private void txtMusKnapperEdit(TableColumn.CellEditEvent<Mus, String> event) {
@@ -1096,6 +1190,8 @@ public class EndreKomponentController {
 
 
     // Knappefunksjoner
+
+    // Slette komponent
 
     @FXML
     void slett(ActionEvent event) {
@@ -1372,6 +1468,8 @@ public class EndreKomponentController {
 
     }
 
+    // Vise komponent
+
     @FXML
     void vis(ActionEvent event) {
 
@@ -1485,21 +1583,10 @@ public class EndreKomponentController {
         }
     }
 
+    // Tilbakeknapp
+
     @FXML
     void tilbake(ActionEvent event) {
-
-        /*
-        KomponentRegister.setHarddiskArrayList(new ArrayList<>(oHarddisk));
-        KomponentRegister.setHovedkortArrayList(new ArrayList<>(oHovedkort));
-        KomponentRegister.setKabinettArrayList(new ArrayList<>(oKabinett));
-        KomponentRegister.setLydkortArrayList(new ArrayList<>(oLydkort));
-        KomponentRegister.setMinneArrayList(new ArrayList<>(oMinne));
-        KomponentRegister.setMusArrayList(new ArrayList<>(oMus));
-        KomponentRegister.setProsessorArrayList(new ArrayList<>(oProsessor));
-        KomponentRegister.setSkjermArrayList(new ArrayList<>(oSkjerm));
-        KomponentRegister.setSkjermkortArrayList(new ArrayList<>(oSkjermkort));
-        KomponentRegister.setTastaturArrayList(new ArrayList<>(oTastatur));
-         */
 
         try{
             //LagreKomponent.lagreAlle();

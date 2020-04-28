@@ -74,7 +74,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TextField fx:id="txtSøk" layoutX="886.0" layoutY="23.0" onKeyTyped="#Søk" promptText="Søk" />
+      <TextField fx:id="txtSok" layoutX="886.0" layoutY="23.0" onKeyTyped="#Søk" promptText="Søk" />
       <Button layoutX="1001.0" layoutY="626.0" mnemonicParsing="false" onAction="#slett" text="Slett">
          <font>
             <Font size="18.0" />

@@ -23,6 +23,7 @@ public class LagKomponentController {
 
     public void initialize() {
 
+        // Knytter textField til tilhøresnde registreringsknapp
         TextField[] harddiskfelt = {txtVareHarddisk, txtNavnHarddisk, txtPrisHarddisk, txtLagreHarddisk};
         for(TextField t:harddiskfelt){
             t.setOnKeyPressed(keyEvent -> {
@@ -78,7 +79,8 @@ public class LagKomponentController {
             });
         }
 
-        TextField[] kabinettfelt = {txtVareKabinett, txtNavnKabinett, txtPrisKabinett, txtStorrelseKabinett, txtVifterKabientt};
+        TextField[] kabinettfelt = {txtVareKabinett, txtNavnKabinett, txtPrisKabinett, txtStorrelseKabinett
+                , txtVifterKabientt};
         for (TextField t:kabinettfelt) {
             t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
@@ -114,6 +116,7 @@ public class LagKomponentController {
             });
         }
 
+        // Initialiserer varekode til textfield
         finnVarekodeHarddisk();
         finnVarekodeHovedkort();
         finnVarekodeLydkort();
@@ -128,6 +131,7 @@ public class LagKomponentController {
     }
 
 
+    // FXML deklarering
     @FXML
     private TextField txtVareHarddisk;
 
@@ -279,6 +283,7 @@ public class LagKomponentController {
     @FXML
     private ImageView ivHarddisk;
 
+    // Laste opp bilde til harddisk
     @FXML
     void lastOppHarddisk(Event event) {
         try {
@@ -290,8 +295,7 @@ public class LagKomponentController {
 
     }
 
-    ArrayList<Method> metoder = new ArrayList<>();
-
+    // Registrering av harddisk
     @FXML
     void registrerHarddisk(Event event) {
 
@@ -324,6 +328,7 @@ public class LagKomponentController {
 
     }
 
+    // Registrering av hovedkort
     @FXML
     void registrerHovedkort(Event event) {
 
@@ -355,6 +360,7 @@ public class LagKomponentController {
 
     }
 
+    // Refistrering av kabientt
     @FXML
     void registrerKabinett(Event event) {
 
@@ -389,6 +395,7 @@ public class LagKomponentController {
         }
     }
 
+    // Registrering av lydkort
     @FXML
     void registrerLydkort(Event event) {
 
@@ -423,6 +430,7 @@ public class LagKomponentController {
 
     }
 
+    // Registering av minne
     @FXML
     void registrerMinne(Event event) {
 
@@ -456,6 +464,7 @@ public class LagKomponentController {
         }
     }
 
+    // Registrering av mus
     @FXML
     void registrerMus(Event event) {
 
@@ -489,6 +498,7 @@ public class LagKomponentController {
         }
     }
 
+    // Registrering av prosessor
     @FXML
     void registrerProsessor(Event event) {
 
@@ -524,6 +534,7 @@ public class LagKomponentController {
         }
     }
 
+    // Registrering av skjerm
     @FXML
     void registrerSkjerm(Event event) {
 
@@ -558,6 +569,7 @@ public class LagKomponentController {
 
     }
 
+    // Registrering av skjermkort
     @FXML
     void registrerSkjermkort(Event event) {
 
@@ -590,7 +602,7 @@ public class LagKomponentController {
 
     }
 
-
+    // Registrering av tastatur
     @FXML
     void registrerTastatur(Event event) {
 
@@ -626,6 +638,7 @@ public class LagKomponentController {
         }
     }
 
+    // Til meny knapp
     @FXML
     void tilbake(ActionEvent event) {
 
@@ -637,6 +650,7 @@ public class LagKomponentController {
 
     }
 
+    // Metoder til å finne neste varekode
     private void finnVarekodeHarddisk() {
         int varekodeHarddisk = 1001;
         for (int i = 0; i < KomponentRegister.getHarddiskArrayList().size(); i++) {

@@ -17,6 +17,8 @@ import java.io.IOException;
 
 public class MenyAdminController {
 
+    // Deklarering av task
+
     ThreadOpenNewPage threadOpenNewPage;
 
     ThreadOpenKomponentRegister threadOpenKomponentRegister;
@@ -40,10 +42,15 @@ public class MenyAdminController {
     private Button loggUtButton;
 
     public void initialize() {
-        lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getBrukernavn()));
+        if(BrukerRegister.getAktivBruker().getNavn() != null) {
+            lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getNavn()));
+        } else lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getBrukernavn()));
+
+
         menyAdmin.setDisable(false);
         progressBar.setVisible(false);
 
+        // Laster registerene i ny tråd hvis dette ikke er lastet
         if (!KomponentRegister.isLasta()) {
             threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
             menyAdmin.setVisible(false);
@@ -60,6 +67,7 @@ public class MenyAdminController {
         }
     }
 
+    // Metode ved vellykket kjøring av tråd
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
         Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyAdmin.setVisible(true);
@@ -72,12 +80,14 @@ public class MenyAdminController {
         KomponentRegister.setLasta(true);
     }
 
+    // Metode ved misslykket lasting av tråd, programmet lukkes
     private void threadOpenKomponentRegisterFails (WorkerStateEvent e){
         if (Dialogs.showErrorLukkDialog("Kunne ikke laste filer\nKontakt systemansvarlig")) {
             System.exit(0);
         }
     }
 
+    // Metoder for lasting av side i ny trå
     @FXML
     void seBestillinger(ActionEvent event) {
         threadOpenPageSet("bestillingshistorikkadmin");
@@ -98,6 +108,7 @@ public class MenyAdminController {
         threadOpenPageSet("endrekomponent");
     }
 
+    // Metode for å laste ny side i egen tråd
     private void threadOpenPageSet(String s) {
         threadOpenNewPage = new ThreadOpenNewPage(s);
         threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
@@ -112,6 +123,7 @@ public class MenyAdminController {
         th.start();
     }
 
+    // Metode kjørt ved vellykket innlasting av side
     private void threadOpenPageDone(WorkerStateEvent e){
         lblTilbakemelding.setText("");
         lblUpdate.textProperty().unbind();
@@ -120,6 +132,7 @@ public class MenyAdminController {
         App.setRoot(threadOpenNewPage.getValue());
     }
 
+    // Metode kjørt underves av lasting
     private void threadOpenPageRunning(WorkerStateEvent e) {
         lblTilbakemelding.setText("Venligst vent...");
 
@@ -127,6 +140,7 @@ public class MenyAdminController {
         loggUtButton.setVisible(false);
     }
 
+    // Metode kjørt ved misslykket lasting
     private void threadOpenPageFailes(WorkerStateEvent e){
         lblTilbakemelding.setText("Det har skjedd en feil");
         menyAdmin.setVisible(true);
@@ -134,6 +148,7 @@ public class MenyAdminController {
     }
 
 
+    // Metode for å logge ut
     @FXML
     void loggUt(ActionEvent event) {
         try{
@@ -143,6 +158,7 @@ public class MenyAdminController {
         }
     }
 
+    // Metode for å gå til sluttbrukers grensesnitt
     @FXML
     void brukerside(ActionEvent event) {
         try {

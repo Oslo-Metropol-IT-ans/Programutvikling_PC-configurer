@@ -9,8 +9,10 @@ import java.time.LocalDate;
 
 public class Bestilling implements Serializable {
 
+    // Varekode startverdi
     private static int teller = 10001;
 
+    // Setter ny verdi etter siste innlastet bestilling
     public static void setTeller(int teller1) {
         teller = teller1;
     }
@@ -19,6 +21,7 @@ public class Bestilling implements Serializable {
         return teller;
     }
 
+    // Datafelt
     private Bruker bruker;
     private Harddisk harddisk;
     private Hovedkort hovedkort;
@@ -32,8 +35,9 @@ public class Bestilling implements Serializable {
     private Mus mus;
     private double pris;
     private int bestillingsnummer;
-    private LocalDate date;
+    private final LocalDate date;
 
+    // Konstruktør
     public Bestilling(Bruker bruker, Harddisk harddisk, Hovedkort hovedkort, Lydkort lydkort, Skjermkort skjermkort,
                       Prosessor prosessor, Minne minne, Kabinett kabinett, Skjerm skjerm, Tastatur tastatur, Mus mus) {
         this.bruker = bruker;
@@ -52,6 +56,7 @@ public class Bestilling implements Serializable {
         setPris();
     }
 
+    // Gettere og settere, gettere med T er varekode for tableview
     public Bruker getBruker() {
         return bruker;
     }
@@ -225,6 +230,7 @@ public class Bestilling implements Serializable {
         return df.format(pris);
     }
 
+    // toString
     @Override
     public String toString() {
         return String.format("Din bestilling %s med\nHarddisk: %s, Hovedkort: %s\nLydkort: %s, Skjermkort %s" +

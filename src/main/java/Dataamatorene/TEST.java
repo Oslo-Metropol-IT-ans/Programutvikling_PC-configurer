@@ -1,5 +1,6 @@
 package Dataamatorene;
 
+import Dataamatorene.Bestilling.Bestilling;
 import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Comparators.DatakomponentVarekodeComparator;
 import Dataamatorene.Datakomponenter.*;
@@ -26,18 +27,13 @@ import java.util.Comparator;
 
 public class TEST {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Harddisk h = new Harddisk("Hei", 10, 10001, null,1024);
-        h.setBilde(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/i9.jpg")));
-        Harddisk h2 = new Harddisk("På", 100, 10002, null, 1024);
-        h2.setBilde(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
-        Harddisk h3 = new Harddisk("Deg", 1000, 10003, null, 1024);
+        FileOpener opener = new FileOpenerJobj();
+       ArrayList<Bestilling> liste = (ArrayList<Bestilling>) opener
+               .read("src/main/java/Dataamatorene/Files/Bestillinger.jobj");
 
-        ArrayList<Harddisk> liste = new ArrayList<>();
-        liste.add(h);
-        liste.add(h2);
-        liste.add(h3);
-
-        ObservableList<Harddisk> oListe = FXCollections.observableArrayList(liste);
+       for (Bestilling b:liste) {
+           System.out.println(b.getBestillingsnummerT());
+       }
 
     }
 

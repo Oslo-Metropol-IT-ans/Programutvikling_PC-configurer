@@ -8,8 +8,10 @@ import java.util.ArrayList;
 
 public class BestillingsRegister {
 
+    // Statisk arraylist med bestillingsobjekter
     private static ArrayList<Bestilling> bestillinger = new ArrayList<>();
 
+    // Statiske medtoder for endring og henting av datafeltet
     public static void addBestilling(Bestilling b) {
         bestillinger.add(b);
     }
@@ -22,6 +24,7 @@ public class BestillingsRegister {
         BestillingsRegister.bestillinger = bestillinger;
     }
 
+    // Statisk metode for fillagring(jobj) av bestillinger
     public static void lagreBestillinger() {
         try {
             FileSaver saver = new FileSaverJobj();

@@ -7,9 +7,11 @@ import java.io.Serializable;
 
 public class Lydkort extends Datakomponent implements Serializable, Comparable<Lydkort> {
 
+    // Nye datafelt til subklassen
     protected boolean integrert;
     protected double frekvens;
 
+    // Konstruktør
     public Lydkort(String navn, double pris, int varekode, Image bilde, boolean integrert, double frekvens) {
         super(navn, pris, varekode, bilde);
         this.integrert = integrert;
@@ -17,6 +19,7 @@ public class Lydkort extends Datakomponent implements Serializable, Comparable<L
         setBrukerTid();
     }
 
+    // Gettere og settere
     public String getIntegrert() {
         if (integrert) return "true";
         else return "false";
@@ -36,6 +39,7 @@ public class Lydkort extends Datakomponent implements Serializable, Comparable<L
         setBrukerTid();
     }
 
+    // Overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
         if(integrert){

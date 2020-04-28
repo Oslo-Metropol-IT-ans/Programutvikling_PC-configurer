@@ -7,9 +7,11 @@ import java.io.Serializable;
 
 public class Minne extends Datakomponent implements Serializable, Comparable<Minne> {
 
+    // Nye datafelt til subklassen
     protected int ram;
     protected double frekvens;
 
+    // Konstruktør
     public Minne(String navn, double pris, int varekode, Image bilde, int ram, double frekvens) {
         super(navn, pris, varekode, bilde);
         this.ram = ram;
@@ -17,6 +19,7 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
         setBrukerTid();
     }
 
+    // Gettere og settere
     public String getRam() {
         return String.valueOf(ram);
     }
@@ -35,6 +38,7 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
         setBrukerTid();
     }
 
+    // Overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
         return String.format("%s\n%s GB RAM, %s\nPris: %skr, varekode: %s", navn, ram, frekvens, pris, getVarekode());

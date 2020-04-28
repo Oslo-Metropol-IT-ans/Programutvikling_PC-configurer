@@ -4,6 +4,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 
+
+    // Brukes til å endre Bruker-klassen uten å miste data
+
 public class Bruker2 implements Serializable, Comparable<Bruker2> {
 
     private String brukernavn;

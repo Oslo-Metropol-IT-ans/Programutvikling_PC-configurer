@@ -6,6 +6,8 @@ import Dataamatorene.Exceptions.InvalidVarekodeException;
 
 public class KomponentValidering {
 
+    // Valideringsmetoder for input til datakomponent
+
     public static String navnValidering (String s) {
         if (s.matches("[A-Z][a-zøæåA-ZÆØÅ \\-0-9./,]+")) {
             return s;
@@ -102,7 +104,7 @@ public class KomponentValidering {
         } else throw new InvalidComponentAttributeException("Ugyldig antall kjerner");
     }
 
-    public static int tråderValidering (String s) {
+    public static int traderValidering(String s) {
         if (s.matches("[0-9]+")) {
             int tråder = Integer.parseInt(s);
             if (tråder > 3 && tråder < 129 && tråder%4 == 0) {
@@ -112,7 +114,7 @@ public class KomponentValidering {
         } else throw new InvalidComponentAttributeException("Ugyldig antall tråder");
     }
 
-    public static String oppløsningValidering (String s) {
+    public static String opplosningValidering(String s) {
         String[] tall = s.split("[x]");
         if(tall.length == 2){
             if(tall[0].matches("[0-9]+") && tall[1].matches("[0-9]+")) {
@@ -121,11 +123,11 @@ public class KomponentValidering {
         } else throw new InvalidComponentAttributeException("Ugyldig oppløsning");
     }
 
-    public static double skjermstørrelseValidering (String s) {
+    public static double skjermstorrelseValidering(String s) {
         if (s.matches("[0-9.]+")) {
-            double størrelse = Double.parseDouble(s);
-            if (størrelse > 12 && størrelse < 60) {
-                return størrelse;
+            double storrelse = Double.parseDouble(s);
+            if (storrelse > 12 && storrelse < 60) {
+                return storrelse;
             } else throw new InvalidComponentAttributeException("Ugyldig skjermstørrelse");
         } else throw new InvalidComponentAttributeException("Ugyldig skjermstørrelse");
     }

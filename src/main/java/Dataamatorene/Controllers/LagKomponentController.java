@@ -499,7 +499,7 @@ public class LagKomponentController {
             double pris = KomponentValidering.prisValidering(txtPrisProsessor.getText());
             int kjerner = KomponentValidering.kjernerValidering(txtKjernerProsessor.getText());
             double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensProsessor.getText());
-            int tråder = KomponentValidering.tråderValidering(txtTraderProsessor.getText());
+            int tråder = KomponentValidering.traderValidering(txtTraderProsessor.getText());
 
             //Prosessor p = new Prosessor(navn, pris, varekode, null, kjerner, frekvens, tråder);
             //KomponentRegister.addProsessor(p);
@@ -532,8 +532,8 @@ public class LagKomponentController {
             int varekode = KomponentValidering.varekodeValidering(txtVareSkjerm.getText());
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisSkjerm.getText());
-            String oppløsning = KomponentValidering.oppløsningValidering(txtOpplosningSkjerm.getText());
-            double størrelse = KomponentValidering.skjermstørrelseValidering(txtStorrelseSkjerm.getText());
+            String oppløsning = KomponentValidering.opplosningValidering(txtOpplosningSkjerm.getText());
+            double størrelse = KomponentValidering.skjermstorrelseValidering(txtStorrelseSkjerm.getText());
 
             //Skjerm s = new Skjerm(navn, pris, varekode, null, oppløsning, størrelse);
             //KomponentRegister.addSkjerm(s);
@@ -566,7 +566,7 @@ public class LagKomponentController {
             int varekode = KomponentValidering.varekodeValidering(txtVareSkjermkort.getText());
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisSkjermkort.getText());
-            String oppløsning = KomponentValidering.oppløsningValidering(txtOppløsningSkjermkort.getText());
+            String oppløsning = KomponentValidering.opplosningValidering(txtOppløsningSkjermkort.getText());
 
             //Skjermkort s = new Skjermkort(navn, pris, varekode, null, oppløsning);
             //KomponentRegister.addSkjermkort(s);

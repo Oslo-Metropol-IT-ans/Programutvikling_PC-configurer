@@ -15,7 +15,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Tab;
@@ -522,7 +521,7 @@ public class EndreKomponentController {
     @FXML
     private void txtSkjermkortOpplosningEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
         try {
-            event.getRowValue().setOpplosning(KomponentValidering.oppløsningValidering(event.getNewValue()));
+            event.getRowValue().setOpplosning(KomponentValidering.opplosningValidering(event.getNewValue()));
             LagreKomponent.lagreSkjermkort();
             tvSkjermkort.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
@@ -625,7 +624,7 @@ public class EndreKomponentController {
     @FXML
     private void txtProsessorTraderEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
-            event.getRowValue().setAntallTrader(KomponentValidering.tråderValidering(event.getNewValue()));
+            event.getRowValue().setAntallTrader(KomponentValidering.traderValidering(event.getNewValue()));
             LagreKomponent.lagreProsessor();
             tvProsessor.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
@@ -874,7 +873,7 @@ public class EndreKomponentController {
     @FXML
     private void txtSkjermOpplosningEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
         try {
-            event.getRowValue().setOpplosning(KomponentValidering.oppløsningValidering(event.getNewValue()));
+            event.getRowValue().setOpplosning(KomponentValidering.opplosningValidering(event.getNewValue()));
             LagreKomponent.lagreSkjerm();
             tvSkjerm.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
@@ -889,7 +888,7 @@ public class EndreKomponentController {
     @FXML
     private void txtSkjermStorrelseEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
         try {
-            event.getRowValue().setStorrelse(KomponentValidering.skjermstørrelseValidering(event.getNewValue()));
+            event.getRowValue().setStorrelse(KomponentValidering.skjermstorrelseValidering(event.getNewValue()));
             LagreKomponent.lagreSkjerm();
             tvSkjerm.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {

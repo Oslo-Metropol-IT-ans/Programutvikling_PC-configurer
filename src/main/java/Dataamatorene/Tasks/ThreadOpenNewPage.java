@@ -36,7 +36,7 @@ public class ThreadOpenNewPage extends Task<Parent> {
 
         }
 
-        updateMessage("Åpningen av siden var velykket\nVenligst vent...");
+        updateMessage("Åpningen av siden var vellykket\nVennligst vent...");
 
         try{
             Thread.sleep(1000);
@@ -44,7 +44,7 @@ public class ThreadOpenNewPage extends Task<Parent> {
 
         }
 
-        updateMessage("Velykket");
+        updateMessage("Vellykket");
 
 
         return parent;

@@ -121,52 +121,52 @@
          </font>
       </Button>
       <Label fx:id="lblTotPris" alignment="CENTER_RIGHT" layoutX="934.0" layoutY="600.0" prefHeight="17.0" prefWidth="183.0" />
-      <TitledPane fx:id="tpProsessor" animated="false" layoutX="947.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Prosessor">
+      <TitledPane fx:id="tpProsessor" animated="false" layoutX="947.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Prosessor" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spProsessor" />
          </content>
       </TitledPane>
-      <TitledPane fx:id="tpSkjermkort" animated="false" layoutX="727.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Skjermkort">
+      <TitledPane fx:id="tpSkjermkort" animated="false" layoutX="727.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Skjermkort" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spSkjermkort" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </TitledPane>
-      <TitledPane fx:id="tpLydkort" animated="false" layoutX="508.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Lydkort">
+      <TitledPane fx:id="tpLydkort" animated="false" layoutX="508.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Lydkort" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spLydkort" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </TitledPane>
-      <TitledPane fx:id="tpHovedkort" animated="false" layoutX="288.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Hovedkort">
+      <TitledPane fx:id="tpHovedkort" animated="false" layoutX="288.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Hovedkort" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spHovedkort" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </TitledPane>
-      <TitledPane fx:id="tpHarddisk" animated="false" layoutX="67.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Harddisk">
+      <TitledPane fx:id="tpHarddisk" animated="false" layoutX="67.0" layoutY="65.0" prefHeight="10.0" prefWidth="150.0" text="Harddisk" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spHarddisk" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </TitledPane>
-      <TitledPane fx:id="tpMinne" animated="false" layoutX="67.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Minne">
+      <TitledPane fx:id="tpMinne" animated="false" layoutX="67.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Minne" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spMinne" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </TitledPane>
-      <TitledPane fx:id="tpKabinett" animated="false" layoutX="288.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Kabinett">
+      <TitledPane fx:id="tpKabinett" animated="false" layoutX="288.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Kabinett" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spKabinett" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </TitledPane>
-      <TitledPane fx:id="tpSkjerm" animated="false" layoutX="508.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Skjerm">
+      <TitledPane fx:id="tpSkjerm" animated="false" layoutX="508.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Skjerm" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spSkjerm" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </TitledPane>
-      <TitledPane fx:id="tpTastatur" animated="false" layoutX="727.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Tastatur">
+      <TitledPane fx:id="tpTastatur" animated="false" layoutX="727.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Tastatur" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spTastatur" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </TitledPane>
-      <TitledPane fx:id="tpMus" animated="false" layoutX="947.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Mus">
+      <TitledPane fx:id="tpMus" animated="false" layoutX="947.0" layoutY="309.0" prefHeight="10.0" prefWidth="150.0" text="Mus" textFill="WHITE">
          <content>
             <ScrollPane fx:id="spMus" prefHeight="200.0" prefWidth="200.0" />
          </content>

@@ -7,9 +7,11 @@ import java.io.Serializable;
 
 public class Kabinett extends Datakomponent implements Serializable, Comparable<Datakomponent> {
 
+    // nye datafelt til subklassen
     protected String storrelse;
     protected int antallVifter;
 
+    // konstruktør
     public Kabinett(String navn, double pris, int varekode, Image bilde, String storrelse, int antallVifter) {
         super(navn, pris, varekode, bilde);
         this.storrelse = storrelse;
@@ -17,6 +19,7 @@ public class Kabinett extends Datakomponent implements Serializable, Comparable<
         setBrukerTid();
     }
 
+    // Gettere og settere
     public String getStorrelse() {
         return storrelse;
     }
@@ -35,6 +38,7 @@ public class Kabinett extends Datakomponent implements Serializable, Comparable<
         setBrukerTid();
     }
 
+    // overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
         return String.format("%s\n%scm med %s vifter\nPris: %skr, varekode: %s", navn, storrelse, antallVifter,

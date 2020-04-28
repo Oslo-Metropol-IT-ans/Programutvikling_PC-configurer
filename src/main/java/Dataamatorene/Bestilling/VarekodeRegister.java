@@ -8,8 +8,10 @@ import java.util.ArrayList;
 
 public class VarekodeRegister {
 
+    // Statisk arraylist med varekoder
     private static ArrayList<String> varekoder = new ArrayList<>();
 
+    // Statiske metoder for endring og henting av varekoder
     public static void addVarekode(String v){
         varekoder.add(v);
     }
@@ -22,6 +24,7 @@ public class VarekodeRegister {
         varekoder = varekoder1;
     }
 
+    // Statisk metode for å sjekke gyldigheten av varekode
     public static void checkVarekode (int varekode) throws AlreadyTakenVarekodeException {
         boolean finnes = false;
         for(String v:varekoder) {

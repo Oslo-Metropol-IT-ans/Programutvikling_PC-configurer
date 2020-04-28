@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1165.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.Youtube">
+   <children>
+      <AnchorPane layoutX="762.0" layoutY="90.0" prefHeight="397.0" prefWidth="303.0" style="-fx-background-color: #9C2B27;">
+         <children>
+            <JFXTextField fx:id="txtUsername" focusColor="WHITE" labelFloat="true" layoutX="41.0" layoutY="180.0" prefHeight="27.0" prefWidth="224.0" promptText="username" unFocusColor="#c2b6b6" />
+            <JFXPasswordField fx:id="txtPassword" focusColor="WHITE" labelFloat="true" layoutX="39.0" layoutY="251.0" prefHeight="27.0" prefWidth="233.0" promptText="password" unFocusColor="#c2b6b6" />
+            <JFXButton buttonType="RAISED" layoutX="38.0" layoutY="332.0" onAction="#loggInn" prefHeight="27.0" prefWidth="233.0" style="-fx-background-color: #e45652;" text="Sign in" textFill="#c2b6b6" />
+            <Label layoutX="129.0" layoutY="59.0" text="Sign in" textFill="#c2b6b6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="206.0" layoutY="149.0" text="Velkommen til dataamatørene" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

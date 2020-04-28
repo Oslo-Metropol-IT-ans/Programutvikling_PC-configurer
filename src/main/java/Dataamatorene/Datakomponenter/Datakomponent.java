@@ -8,8 +8,7 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
+
 import java.io.*;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
@@ -17,6 +16,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Datakomponent implements Serializable {
 
+    // Datafelt
     protected int varekode;
     protected String navn;
     protected double pris;
@@ -24,6 +24,7 @@ public class Datakomponent implements Serializable {
     protected Bruker bruker;
     protected LocalDateTime tid;
 
+    // Konstruktør
     public Datakomponent(String navn, double pris, int varekode, Image bilde){
         this.navn = navn;
         this.pris = pris;
@@ -32,6 +33,7 @@ public class Datakomponent implements Serializable {
         setBrukerTid();
     }
 
+    // Gettere og settere
     public String getVarekode() {
         DecimalFormat df = new DecimalFormat("00000");
         return df.format(varekode);
@@ -95,11 +97,14 @@ public class Datakomponent implements Serializable {
         LagreKomponent.lagreAlle();
     }
 
+    // toString
     @Override
     public String toString() {
         return String.format("%s, %s, %skr", varekode, navn, pris);
     }
 
+
+    // Metoder for å serialisere javafx.Image
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
         s.defaultReadObject();
         try {
@@ -108,9 +113,6 @@ public class Datakomponent implements Serializable {
             //e.printStackTrace();
             bilde = null;
         }
-
-
-
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
@@ -122,6 +124,5 @@ public class Datakomponent implements Serializable {
         } catch (Exception e) {
             //e.printStackTrace();
         }
-
     }
 }

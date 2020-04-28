@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class LagreKomponent {
 
+    // Metoder for å lagre(jobj) arraylistene til datakomponent
     public static void lagreHarddisk() throws IOException {
         FileSaver saver = new FileSaverJobj();
         saver.save(KomponentRegister.getHarddiskArrayList(), "src/main/java/Dataamatorene/Files/Harddisk.jobj");

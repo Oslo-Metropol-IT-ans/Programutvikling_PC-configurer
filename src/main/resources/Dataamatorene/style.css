@@ -181,6 +181,7 @@
 }
 
 
+/*
 
 .root  .scroll-bar:horizontal ,
 .root   .scroll-bar:vertical{
@@ -229,6 +230,8 @@
     -fx-border-color:derive(gray,80%);
     -fx-padding:10px;
 }
+
+ */
 
 
 
@@ -396,5 +399,21 @@
     -fx-background-color: #212121;
 }
 
+
+
+
+.titled-pane > .title {
+    -fx-background-color: #212121;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+
+.titled-pane > .title .text {
+    -fx-text-fill: white!important;
+}
 
 

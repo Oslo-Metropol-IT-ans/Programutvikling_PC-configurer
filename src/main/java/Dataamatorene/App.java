@@ -4,9 +4,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * JavaFX App
@@ -17,7 +21,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("login"));
+        scene = new Scene(loadFXML("youtube"));
+        stage.getIcons().add(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/java.png")));
+
         stage.setScene(scene);
         stage.setTitle("Dataamatørene");
         stage.show();

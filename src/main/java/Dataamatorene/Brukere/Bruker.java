@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 public class Bruker implements Serializable, Comparable<Bruker> {
 
+    // Datafelt
     private String brukernavn;
     private String passord;
     private String navn;
@@ -13,6 +14,7 @@ public class Bruker implements Serializable, Comparable<Bruker> {
     private String email;
     private boolean superbruker;
 
+    // Konstruktør
     public Bruker(String brukernavn, String passord, String navn, String tlfNummer, String email, boolean superbruker){
         this.brukernavn = brukernavn;
         this.passord = passord;
@@ -22,6 +24,7 @@ public class Bruker implements Serializable, Comparable<Bruker> {
         this.superbruker = superbruker;
     }
 
+    // Gettere og settere
     public String getBrukernavn() {
         return brukernavn;
     }
@@ -76,14 +79,15 @@ public class Bruker implements Serializable, Comparable<Bruker> {
         return superbruker;
     }
 
+    // toString
     @Override
     public String toString() {
         return String.format("%s, %s", brukernavn, getRettigheter());
     }
 
-
+    // compareTo
     @Override
     public int compareTo(@NotNull Bruker o) {
-        return this.brukernavn.compareTo(o.brukernavn);
+        return this.navn.compareTo(o.navn);
     }
 }

@@ -8,13 +8,16 @@ import java.io.Serializable;
 
 public class Harddisk extends Datakomponent implements Serializable, Comparable<Harddisk> {
 
+    // Spesielle datafelt for arvet klasse
     protected int lagring;
 
+    // Konstruktør
     public Harddisk(String navn, double pris, int varekode, Image bilde, int lagring) {
         super(navn, pris, varekode, bilde);
         this.lagring = lagring;
     }
 
+    // gettere og settere
     public String getLagring() {
         return String.valueOf(lagring);
     }
@@ -24,6 +27,7 @@ public class Harddisk extends Datakomponent implements Serializable, Comparable<
         setBrukerTid();
     }
 
+    // overkjører arvede metoder fra superklassen
     @Override
     public void lagre() throws IOException {
         LagreKomponent.lagreHarddisk();

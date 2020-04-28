@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class KomponentRegister {
 
+    // Statiske datafelt for arraylist av hver type komponent
     private static ArrayList<Harddisk> harddiskArrayList = new ArrayList<>();
     private static ArrayList<Hovedkort> hovedkortArrayList = new ArrayList<>();
     private static ArrayList<Kabinett> kabinettArrayList = new ArrayList<>();
@@ -16,6 +17,9 @@ public class KomponentRegister {
     private static ArrayList<Skjermkort> skjermkortArrayList = new ArrayList<>();
     private static ArrayList<Tastatur> tastaturArrayList = new ArrayList<>();
 
+    // add get og set for hver arraylist
+
+    // Harddisk
     public static void addHarddisk(Harddisk h){
         harddiskArrayList.add(h);
     }
@@ -28,6 +32,7 @@ public class KomponentRegister {
         harddiskArrayList = harddiskArrayList1;
     }
 
+    // Hovedkort
     public static void addHovedkort(Hovedkort h){
         hovedkortArrayList.add(h);
     }
@@ -40,6 +45,7 @@ public class KomponentRegister {
         hovedkortArrayList = hovedkortArrayList1;
     }
 
+    // Kabinett
     public static void addKabinett(Kabinett h){
         kabinettArrayList.add(h);
     }
@@ -52,6 +58,7 @@ public class KomponentRegister {
         kabinettArrayList = kabinettArrayList1;
     }
 
+    // Lydkort
     public static void addLydkort(Lydkort h){
         lydkortArrayList.add(h);
     }
@@ -64,6 +71,7 @@ public class KomponentRegister {
         lydkortArrayList = lydkortArrayList1;
     }
 
+    // Minne
     public static void addMinne(Minne h){
         minneArrayList.add(h);
     }
@@ -76,6 +84,7 @@ public class KomponentRegister {
         minneArrayList = minneArrayList1;
     }
 
+    // Mus
     public static void addMus(Mus h){
         musArrayList.add(h);
     }
@@ -88,6 +97,7 @@ public class KomponentRegister {
         musArrayList = musArrayList1;
     }
 
+    // Prosessor
     public static void addProsessor(Prosessor h){
         prosessorArrayList.add(h);
     }
@@ -100,6 +110,7 @@ public class KomponentRegister {
         prosessorArrayList = prosessorArrayList1;
     }
 
+    // Skjerm
     public static void addSkjerm(Skjerm h){
         skjermArrayList.add(h);
     }
@@ -112,6 +123,7 @@ public class KomponentRegister {
         skjermArrayList = skjermArrayList1;
     }
 
+    // Skjermkort
     public static void addSkjermkort(Skjermkort h){
         skjermkortArrayList.add(h);
     }
@@ -124,6 +136,7 @@ public class KomponentRegister {
         skjermkortArrayList = skjermkortArrayList1;
     }
 
+    // Tastatur
     public static void addTastatur(Tastatur h){
         tastaturArrayList.add(h);
     }
@@ -136,6 +149,7 @@ public class KomponentRegister {
         tastaturArrayList = tastaturArrayList1;
     }
 
+    // datafelt og metoder for hvorvidt registerene er lastet fra fil
     private static boolean lasta = false;
 
     public static void setLasta(boolean b) {

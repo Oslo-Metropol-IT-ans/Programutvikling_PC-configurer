@@ -7,14 +7,17 @@ import java.io.Serializable;
 
 public class Skjermkort extends Datakomponent implements Serializable, Comparable<Skjermkort> {
 
+    // Nye datafelt til subklassen
     protected String opplosning;
 
+    // Konstruktør
     public Skjermkort(String navn, double pris, int varekode, Image bilde, String opplosning) {
         super(navn, pris, varekode, bilde);
         this.opplosning = opplosning;
         setBrukerTid();
     }
 
+    // Gettere og settere
     public String getOpplosning() {
         return opplosning;
     }
@@ -24,6 +27,7 @@ public class Skjermkort extends Datakomponent implements Serializable, Comparabl
         setBrukerTid();
     }
 
+    // Overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
         return String.format("%s\n%s oppløsning\nPris: %skr, varekode: %s", navn, opplosning, pris, getVarekode());

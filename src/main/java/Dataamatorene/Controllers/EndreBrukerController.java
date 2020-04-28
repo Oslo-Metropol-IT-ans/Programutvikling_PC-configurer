@@ -76,7 +76,6 @@ public class EndreBrukerController {
             lagre();
         }catch (InvalidBrukerException INE){
             Dialogs.showErrorDialog("Ugyldig navn!",INE.getMessage());
-            //lblTilbakemelding.setText(INE.getMessage());
             tableView.refresh();
         }
 
@@ -97,7 +96,7 @@ public class EndreBrukerController {
     @FXML
     void txtNavnEdited(TableColumn.CellEditEvent<Bruker, String> event) {
         try{
-            //event.getRowValue().setNavn(BrukerValidering.sjekkValidNavn(event.getNewValue()));
+            event.getRowValue().setNavn(BrukerValidering.sjekkValidNavn(event.getNewValue()));
             oppdaterBestilling(event);
         }
         catch (InvalidNameException INE){
@@ -110,7 +109,7 @@ public class EndreBrukerController {
     @FXML
     void txtTlfNummerEdited(TableColumn.CellEditEvent<Bruker, String> event) {
         try{
-            //event.getRowValue().setTlfNummer(BrukerValidering.sjekkValidTelefon(event.getNewValue()));
+            event.getRowValue().setTlfNummer(BrukerValidering.sjekkValidTelefon(event.getNewValue()));
             oppdaterBestilling(event);
         }
         catch (InvalidTelefonException ITE){
@@ -122,7 +121,7 @@ public class EndreBrukerController {
     @FXML
     void txtEmailEdited(TableColumn.CellEditEvent<Bruker, String> event) {
         try {
-            //event.getRowValue().setEmail(BrukerValidering.sjekkValidEpost(event.getNewValue()));
+            event.getRowValue().setEmail(BrukerValidering.sjekkValidEpost(event.getNewValue()));
             oppdaterBestilling(event);
         }
         catch (InvalidEpostException IEE){

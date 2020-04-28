@@ -20,10 +20,13 @@ import java.util.ArrayList;
 
 public class BestillingshistorikkBrukerController {
 
+    // Deklarering for observablelist til tableview
+
     ObservableList<Bestilling> liste = FXCollections.observableArrayList();
     ObservableList<String> navn = FXCollections.observableArrayList();
 
     public void initialize() {
+        // Finner bestillinger me aktivbrukers brukernavn
         for (Bestilling b: BestillingsRegister.getBestillinger()) {
             if (b.getBrukerT().equals(BrukerRegister.getAktivBruker().getBrukernavn())) {
                 liste.add(b);
@@ -37,6 +40,7 @@ public class BestillingshistorikkBrukerController {
     @FXML
     private ListView<String> lvBestillinger;
 
+    // Metode for å laste ned fil(txt) med bestillingsinformasjon
     @FXML
     void lastNed(ActionEvent event) {
         FileSaverTxt saver = new FileSaverTxt();
@@ -44,25 +48,16 @@ public class BestillingshistorikkBrukerController {
         String path;
 
         File selectedFile;
-
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("TXT Files", "*.txt"));
         try {
-            FileChooser fc = new FileChooser();
             var test = System.getProperty("user.home") + "/Desktop";
             fc.setInitialDirectory(new File(test));
-            fc.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("TXT Files", "*.txt")
-            );
-
             selectedFile = fc.showSaveDialog(null);
         } catch (Exception e) {
-            FileChooser fc = new FileChooser();
-            fc.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("TXT Files", "*.txt")
-            );
-
             selectedFile = fc.showSaveDialog(null);
         }
-
 
         if(selectedFile != null) {
             path = selectedFile.getAbsolutePath();
@@ -76,6 +71,7 @@ public class BestillingshistorikkBrukerController {
         }
     }
 
+    // Metode for å gå til meny
     @FXML
     void tilbake(ActionEvent event) {
         try {
@@ -85,6 +81,7 @@ public class BestillingshistorikkBrukerController {
         }
     }
 
+    // Metode for å åpne informasjon om bestillingen i eget vindu
     @FXML
     void visBestilling(ActionEvent event) {
         if (lvBestillinger.getSelectionModel().getSelectedItem() != null) {

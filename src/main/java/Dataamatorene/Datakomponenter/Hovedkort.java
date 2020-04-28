@@ -7,13 +7,16 @@ import java.io.Serializable;
 
 public class Hovedkort extends Datakomponent implements Serializable, Comparable<Hovedkort> {
 
+    // Nye datafelt til subklassen
     protected int antallPorter;
 
+    // kontruktør
     public Hovedkort(String navn, double pris, int varekode, Image bilde, int antallPorter) {
         super(navn, pris, varekode, bilde);
         this.antallPorter = antallPorter;
     }
 
+    // getter og setter
     public String getAntallPorter() {
         return String.valueOf(antallPorter);
     }
@@ -23,6 +26,7 @@ public class Hovedkort extends Datakomponent implements Serializable, Comparable
         setBrukerTid();
     }
 
+    // overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
         return String.format("%s\n %s porter\nPris: %skr, varekode: %s", navn, antallPorter, pris, getVarekode());

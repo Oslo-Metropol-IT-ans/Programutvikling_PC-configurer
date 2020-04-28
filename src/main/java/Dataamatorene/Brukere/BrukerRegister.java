@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class BrukerRegister {
 
+    // datafelt og manipulering av aktiv bruker
     private static Bruker aktivBruker;
 
     public static void setAktivBruker(Bruker b){
@@ -18,6 +19,7 @@ public class BrukerRegister {
         return aktivBruker;
     }
 
+    // datafelt og manipulering av brukerregisteret
     private static ArrayList<Bruker> brukere = new ArrayList<>();
 
     private static ObservableList<Bruker> Oliste = FXCollections.observableArrayList(brukere);
@@ -28,6 +30,7 @@ public class BrukerRegister {
         Oliste.setAll(brukere);
     }
 
+    // Setter tabelview på endreBrukerController
     public static void setTableView (TableView<Bruker> tv){
         //update();
         tv.setItems(Oliste);
@@ -41,6 +44,7 @@ public class BrukerRegister {
         tv.setItems(aktivList);
     }
 
+    // gettere og settere
     public static ArrayList<Bruker> getBrukere() {
         return brukere;
     }

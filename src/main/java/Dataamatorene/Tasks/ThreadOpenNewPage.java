@@ -16,12 +16,13 @@ public class ThreadOpenNewPage extends Task<Parent> {
     public ThreadOpenNewPage(String page) {
         this.page = page;
     }
-
+    // Task for å laste fxmlFil til Parent
     @Override
     protected Parent call() throws Exception {
 
         updateMessage("Laster inn siden");
 
+        // Bruker App sin loadFXML metode
         Parent parent = null;
         try {
             parent = App.loadFXML(page);
@@ -29,6 +30,7 @@ public class ThreadOpenNewPage extends Task<Parent> {
             e.printStackTrace();
         }
 
+        // Tråd sover 2 sek for å vise sensor
 
         try{
             Thread.sleep(1000);

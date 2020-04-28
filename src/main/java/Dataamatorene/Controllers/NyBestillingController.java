@@ -34,6 +34,7 @@ import java.util.stream.Collectors;
 
 public class NyBestillingController {
 
+    // Setter opp observableList for hver datakomponent
     ObservableList<Harddisk> oHarddisk = FXCollections.observableArrayList(KomponentRegister.getHarddiskArrayList());
     ObservableList<Hovedkort> oHovedkort = FXCollections.observableArrayList(KomponentRegister.getHovedkortArrayList());
     ObservableList<Kabinett> oKabinett = FXCollections.observableArrayList(KomponentRegister.getKabinettArrayList());
@@ -45,6 +46,7 @@ public class NyBestillingController {
     ObservableList<Skjermkort> oSkjermkort = FXCollections.observableArrayList(KomponentRegister.getSkjermkortArrayList());
     ObservableList<Tastatur> oTastatur = FXCollections.observableArrayList(KomponentRegister.getTastaturArrayList());
 
+    // Olist for sorteringsvalg
     ObservableList<String> oSort = FXCollections.observableArrayList("Navn", "Varenummer", "Pris lav-høy",
             "Pris høy-lav");
 
@@ -54,7 +56,7 @@ public class NyBestillingController {
 
     public void initialize() throws FileNotFoundException {
 
-        // Alle bestillingsbokser i en
+        // Alle bestillingsbokser i en, laster inn alle komponeneter og plasserer i titledpanes
 
         titledPanes = new ArrayList<>(Arrays.asList(tpHarddisk, tpHovedkort, tpLydkort, tpSkjermkort, tpProsessor,
                 tpMinne, tpKabinett, tpSkjerm, tpTastatur, tpMus));
@@ -77,9 +79,14 @@ public class NyBestillingController {
             l.toBack();
         }
 
+        // For hvert titled pane
         for (int i = 0; i < titledPanes.size(); i++) {
             double x = titledPanes.get(i).getLayoutX();
             double y = titledPanes.get(i).getLayoutY();
+
+            /*** Oppretter en VBox som inneholder en HBox med ChoiceBox, label og textField
+             * for hver komponent i oLista lages et bilde og en label med tilhørende beskrivelse
+             */
 
             VBox vBox = new VBox(10);
             ChoiceBox<String> valg = new ChoiceBox<>(oSort);
@@ -92,60 +99,6 @@ public class NyBestillingController {
             hBoxUt.setStyle("-fx-padding: 4 4 0 0;");
             vBox.getChildren().add(hBoxUt);
 
-            /*
-            for (int j = 0; j < observableLists.get(i).size(); j++) {
-                HBox hBox = new HBox(10);
-                Label label = new Label(observableLists.get(i).get(j).getBeskrivelse());
-                label.setStyle("-fx-border-width: 0 0 1 0; -fx-border-color: white; -fx-border-style: solid;" +
-                        " -fx-text-alignment: left!important; -fx-font-size: 20px");
-                ImageView image;
-                if (observableLists.get(i).get(j).getBilde() != null) {
-                    image = new ImageView(observableLists.get(i).get(j).getBilde());
-                } else image = new ImageView(new Image(
-                        new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
-                image.setFitHeight(150);
-                image.setPreserveRatio(true);
-                label.setPrefWidth(1115);
-                label.setPrefHeight(150);
-                hBox.getChildren().addAll(image, label);
-
-                int finalI = i;
-                int finalJ = j;
-                image.setOnMouseClicked(mouseEvent -> {
-                    mouseClick(x, y, finalI, finalJ);
-                    datakomponents[finalI] = observableLists.get(finalI).get(finalJ);
-                });
-                label.setOnMouseClicked(mouseEvent -> {
-                    mouseClick(x, y, finalI, finalJ);
-                    datakomponents[finalI] = observableLists.get(finalI).get(finalJ);
-                });
-                vBox.getChildren().add(hBox);
-                vBox.setPrefWidth(1100);
-
-                titledPanes.get(i).setExpanded(false);
-                scrollPanes.get(i).setContent(vBox);
-
-                titledPanes.get(i).setOnMouseClicked(mouseEvent -> {
-                    if (titledPanes.get(finalI).isExpanded()) {
-                        titledPanes.get(finalI).toFront();
-                        titledPanes.get(finalI).setLayoutX(20);
-                        titledPanes.get(finalI).setLayoutY(20);
-                        titledPanes.get(finalI).setPrefWidth(1125);
-                        titledPanes.get(finalI).setPrefHeight(600);
-                    } else {
-                        titledPanes.get(finalI).setPrefWidth(150);
-                        titledPanes.get(finalI).setPrefHeight(28);
-                        titledPanes.get(finalI).setLayoutX(x);
-                        titledPanes.get(finalI).setLayoutY(y);
-                        if (labels.get(finalI).getText().equals("")) {
-                            titledPanes.get(finalI).setStyle("-fx-border-color: red;" +
-                                    " -fx-border-width: 1px; -fx-border-style: solid");
-                        }
-                    }
-                });
-            }
-             */
-
             int finalI1 = i;
             int finalI2 = i;
 
@@ -154,6 +107,7 @@ public class NyBestillingController {
             setFiltered(x, y, vBox, hBoxUt, finalI1, finalI2, observableLists.get(i));
             titledPanes.get(i).setExpanded(false);
 
+            // Ved søk lastes bare objektene hvor labelen inneholder input
             text.setOnKeyReleased(keyEvent -> {
                 scrollPanes.get(finalI1).setContent(null);
                 vBox.getChildren().clear();
@@ -162,6 +116,7 @@ public class NyBestillingController {
                 setFiltered(x, y, vBox, hBoxUt, finalI1, finalI2, aktiv);
             });
 
+            // Ved valg av sorteing lastet elementene inn i riktig rekkefølge
             valg.setOnHiding(event -> {
                 scrollPanes.get(finalI1).setContent(null);
                 vBox.getChildren().clear();
@@ -185,6 +140,7 @@ public class NyBestillingController {
 
     }
 
+    // Metode for å sette datakomponeneter, gitt oListe
     private void setFiltered(double x, double y, VBox vBox, HBox hBoxUt, int finalI1, int finalI2,
                              ObservableList<? extends Datakomponent> aktiv) {
         vBox.getChildren().add(hBoxUt);
@@ -249,7 +205,7 @@ public class NyBestillingController {
         titledPanes.get(finalI2).setExpanded(true);
     }
 
-
+    // setter verdier til Utlabel gitt valg i liste
     private void mouseClick(double x, double y, int finalI, int finalJ) {
         titledPanes.get(finalI).setLayoutX(x);
         titledPanes.get(finalI).setLayoutY(y);
@@ -270,6 +226,7 @@ public class NyBestillingController {
 
     }
 
+    // FXML deklarering
     @FXML
     private TitledPane tpHarddisk;
 
@@ -363,6 +320,7 @@ public class NyBestillingController {
     @FXML
     private Label lblTotPris;
 
+    // Metode for å lage og legg til ny bsetilling
     @FXML
     void bestill(ActionEvent event) {
         boolean valgt = true;
@@ -387,6 +345,7 @@ public class NyBestillingController {
         } else Dialogs.showErrorDialog("Du må velge de markerte feltene");
     }
 
+    // Metode for å returnere til meny
     @FXML
     void tilbake(ActionEvent event) {
         try {

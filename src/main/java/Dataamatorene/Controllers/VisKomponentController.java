@@ -17,12 +17,15 @@ import java.io.FileNotFoundException;
 
 public class VisKomponentController {
 
+    // Deklarerin av generisk komponent
     private static Komponent<? extends Datakomponent> datakomponent;
 
+    // Konstruktør
     public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn) {
         datakomponent = new Komponent<>(datakomponentInn);
     }
 
+    // Setter bilde og tekst initielt
     public void initialize() throws FileNotFoundException {
         lblToString.setText(datakomponent.getKomponent().getBeskrivelse());
         if (datakomponent.getKomponent().getBilde() != null) {
@@ -30,6 +33,7 @@ public class VisKomponentController {
         } else ivBilde.setImage(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
     }
 
+    // FXML deklarering
     @FXML
     private Label lblToString;
 
@@ -39,6 +43,7 @@ public class VisKomponentController {
     @FXML
     private Button lagreButton;
 
+    // Metode for å laste opp bilde
     @FXML
     void lastOpp(ActionEvent event) {
         Image bilde = lasteBildeFil();
@@ -46,6 +51,7 @@ public class VisKomponentController {
         ivBilde.setImage(bilde);
     }
 
+    // Metode for å sende den endrede aktiv dataomponent i endreKomponentKontroller
     @FXML
     void lagre(ActionEvent event) {
         EndreKomponentController.setDatakomponent(datakomponent.getKomponent());
@@ -55,6 +61,7 @@ public class VisKomponentController {
         stage.close();
     }
 
+    // Metode for å laste opp bilde med filechooser
     private static Image lasteBildeFil() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");

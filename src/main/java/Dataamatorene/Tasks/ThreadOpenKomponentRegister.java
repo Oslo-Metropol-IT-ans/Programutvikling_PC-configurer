@@ -12,16 +12,21 @@ import java.util.ArrayList;
 
 public class ThreadOpenKomponentRegister extends Task<Void> {
 
+    // Task for lasting av komponenter fra fil(jobj)
     @Override
     protected Void call() throws Exception {
+        // Laster inn fil for fil
         FileOpener opener = new FileOpenerJobj();
 
+        // Oppadterer hvor langt i prosessen vi er kommet
         updateProgress(0, 22);
 
+        // Oppaderer meding til GUI
         updateMessage("Laster harddisker");
         KomponentRegister.setHarddiskArrayList(
                 (ArrayList<Harddisk>) opener.read("src/main/java/Dataamatorene/Files/Harddisk.jobj"));
         updateProgress(1, 22);
+        // Forsinker tråden med 0.05 sek for hver lasting
         try{
             Thread.sleep(50);
         } catch (InterruptedException e){
@@ -120,6 +125,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Ferdig lasta");
 
+        // Finner og registrerer varekodene
         updateMessage("Setter varekoder harddisk");
         for (Harddisk h: KomponentRegister.getHarddiskArrayList()) {
             VarekodeRegister.addVarekode(h.getVarekode());
@@ -220,6 +226,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         }
 
+        // Laster og setter bestillingene
         updateMessage("Laster bestillinger");
         BestillingsRegister.setBestillinger((ArrayList<Bestilling>) opener.read("src/main/java/Dataamatorene/Files/Bestillinger.jobj"));
         updateProgress(21, 22);

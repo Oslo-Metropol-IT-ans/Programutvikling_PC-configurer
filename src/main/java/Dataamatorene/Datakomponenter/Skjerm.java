@@ -8,9 +8,11 @@ import java.io.Serializable;
 
 public class Skjerm extends Datakomponent implements Serializable, Comparable<Skjerm> {
 
+    // Nye datafelt til subklassen
     protected String opplosning;
     protected double storrelse;
 
+    // Konstruktør
     public Skjerm(String navn, double pris, int varekode, Image bilde, String opplosning, double storrelse) {
         super(navn, pris, varekode, bilde);
         this.opplosning = opplosning;
@@ -18,6 +20,7 @@ public class Skjerm extends Datakomponent implements Serializable, Comparable<Sk
         setBrukerTid();
     }
 
+    // Gettere og settere
     public String getOpplosning() {
         return opplosning;
     }
@@ -36,6 +39,7 @@ public class Skjerm extends Datakomponent implements Serializable, Comparable<Sk
         setBrukerTid();
     }
 
+    // Overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
         return String.format("%s\n%s'' skjerm med oppløsning %s\nPris: %skr, varekode: %s", navn, storrelse,

@@ -7,10 +7,12 @@ import java.io.Serializable;
 
 public class Tastatur extends Datakomponent implements Serializable, Comparable<Tastatur> {
 
+    // Nye datefelt til subklassen
     protected String sprak;
     protected boolean mekanisk;
     protected boolean rgb;
 
+    // Konstruktør
     public Tastatur(String navn, double pris, int varekode, Image bilde, String sprak, boolean mekanisk, boolean rgb) {
         super(navn, pris, varekode, bilde);
         this.sprak = sprak;
@@ -19,6 +21,7 @@ public class Tastatur extends Datakomponent implements Serializable, Comparable<
         setBrukerTid();
     }
 
+    // Gettere og settere
     public String getSprak() {
         return sprak;
     }
@@ -46,6 +49,7 @@ public class Tastatur extends Datakomponent implements Serializable, Comparable<
         setBrukerTid();
     }
 
+    // Overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
         if(mekanisk && rgb)

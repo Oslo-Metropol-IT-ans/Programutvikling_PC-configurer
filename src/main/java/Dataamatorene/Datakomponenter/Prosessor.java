@@ -7,10 +7,12 @@ import java.io.Serializable;
 
 public class Prosessor extends Datakomponent implements Serializable, Comparable<Prosessor> {
 
+    // Nye datafelt til subklassen
     protected int antallKjerner;
     protected double frekvens;
     protected int antallTrader;
 
+    // Konstruktør
     public Prosessor(String navn, double pris, int varekode, Image bilde, int antallKjerner, double frekvens, int antallTrader) {
         super(navn, pris, varekode, bilde);
         this.antallKjerner = antallKjerner;
@@ -19,6 +21,7 @@ public class Prosessor extends Datakomponent implements Serializable, Comparable
         setBrukerTid();
     }
 
+    // Getter og settere
     public String getAntallKjerner() {
         return String.valueOf(antallKjerner);
     }
@@ -46,6 +49,7 @@ public class Prosessor extends Datakomponent implements Serializable, Comparable
         setBrukerTid();
     }
 
+    // Overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
         return String.format("%s\n%s GHz, %s-core, %s-thread prosessor\nPris: %skr, varekode: %s", navn, frekvens,

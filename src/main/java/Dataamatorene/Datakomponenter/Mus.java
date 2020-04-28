@@ -7,9 +7,11 @@ import java.io.Serializable;
 
 public class Mus extends Datakomponent implements Serializable, Comparable<Mus> {
 
+    // Nye datafelt til subklassen
     protected boolean trad;
     protected int antallKnapper;
 
+    // Konstruktør
     public Mus(String navn, double pris, int varekode, Image bilde, boolean trad, int antallKnapper) {
         super(navn, pris, varekode, bilde);
         this.trad = trad;
@@ -17,7 +19,7 @@ public class Mus extends Datakomponent implements Serializable, Comparable<Mus> 
         setBrukerTid();
     }
 
-
+    // Gettere og settere
     public String isTrad() {
         if(trad) return "true";
         else return "false";
@@ -37,6 +39,7 @@ public class Mus extends Datakomponent implements Serializable, Comparable<Mus> 
         setBrukerTid();
     }
 
+    // Overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
         if(trad)

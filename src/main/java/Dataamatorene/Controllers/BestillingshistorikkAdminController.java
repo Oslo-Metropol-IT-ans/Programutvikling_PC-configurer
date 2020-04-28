@@ -24,10 +24,12 @@ import java.util.stream.Collectors;
 
 public class BestillingshistorikkAdminController {
 
+    // Oppretter observableList for bestillinger
     ObservableList<Bestilling> oBestilling = FXCollections.observableArrayList(BestillingsRegister.getBestillinger());
     ObservableList<Bestilling> aktivList;
 
     public void initialize() {
+        // Setter opp tableview
         tbBruker.setCellValueFactory(new PropertyValueFactory<>("brukerT"));
         tbHarddisk.setCellValueFactory(new PropertyValueFactory<>("harddiskT"));
         tbHovedkort.setCellValueFactory(new PropertyValueFactory<>("hovedkortT"));
@@ -47,6 +49,8 @@ public class BestillingshistorikkAdminController {
 
         tvBestillinger.setItems(oBestilling);
 
+        // Setter opp choicbox med søkevalg
+
         String[] valg = {"Bruker", "Rettigheter", "Harddisk", "Hovedkort", "Lydkort", "Skjermkort", "Prosessor","Minne",
                 "Kabinett", "Skjerm", "Tastatur", "Mus", "Dato"};
 
@@ -56,6 +60,7 @@ public class BestillingshistorikkAdminController {
         cbValg.setValue("Bruker");
     }
 
+    // FXML deklarering
     @FXML
     private TableView<Bestilling> tvBestillinger;
 
@@ -65,6 +70,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbHarddisk;
 
+    // Endre hardisk
     @FXML
     private void txtHarddiskEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -80,6 +86,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbHovedkort;
 
+    // Endre hovedkort
     @FXML
     private void txtHovedkortEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -95,6 +102,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> bLydkort;
 
+    // Endre lydkort
     @FXML
     private void txtLydkortEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -111,6 +119,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbSkjermkort;
 
+    // Endre skjermkort
     @FXML
     private void txtSkjermkortEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -126,6 +135,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbProsessor;
 
+    // Endre prosessor
     @FXML
     private void txtProsessorEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -142,6 +152,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbMinne;
 
+    // Endre minne
     @FXML
     private void txtMinneEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -158,6 +169,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbKabinett;
 
+    // Endre kabinett
     @FXML
     private void txtKabinettEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -174,6 +186,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbSkjerm;
 
+    // Endre skjerm
     @FXML
     private void txtSkjermEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -190,6 +203,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbTastatur;
 
+    // Endre tastatur
     @FXML
     private void txtTastaturEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -206,6 +220,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbMus;
 
+    // Endre mus
     @FXML
     private void txtMusEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
@@ -234,6 +249,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TextField txtSøk;
 
+    // Tastevent for textfelt søk
     @FXML
     void søk(KeyEvent event) {
         String søk = txtSøk.getText();
@@ -320,6 +336,7 @@ public class BestillingshistorikkAdminController {
         } else tvBestillinger.setItems(oBestilling);
     }
 
+    // Vis bestilling i nytt bilde
     @FXML
     void vis(ActionEvent event) {
         if (tvBestillinger.getSelectionModel().getSelectedItem() != null) {
@@ -327,6 +344,7 @@ public class BestillingshistorikkAdminController {
         }
     }
 
+    // Slette bstilling med bekreftelse
     @FXML
     void slett(ActionEvent event) {
         if(tvBestillinger.getSelectionModel().getSelectedItem() != null) {
@@ -343,6 +361,7 @@ public class BestillingshistorikkAdminController {
         }
     }
 
+    // Til meny
     @FXML
     void tilbake(ActionEvent event) {
         try {

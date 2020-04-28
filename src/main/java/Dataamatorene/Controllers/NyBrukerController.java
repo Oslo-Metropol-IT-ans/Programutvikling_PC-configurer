@@ -23,6 +23,8 @@ import javafx.scene.input.MouseEvent;
 
 public class NyBrukerController {
 
+    // Kode som kjøres når controlleren startes
+
     public void initialize() {
 
         txtPassword.setVisible(false);
@@ -49,6 +51,8 @@ public class NyBrukerController {
             }
         });
     }
+
+    // FXML deklarasjoner
 
     @FXML
     private TextField txtBrukernavn;
@@ -77,6 +81,7 @@ public class NyBrukerController {
     @FXML
     private TextField txtEmail;
 
+    // Eventlistenere på knappene
 
     @FXML
     void registrer(Event event) {
@@ -143,7 +148,7 @@ public class NyBrukerController {
     }
 
     @FXML
-    void TEST(MouseEvent event) {
+    void Synlighet(MouseEvent event) {
         if (pwPassword.isVisible()) {
             txtPassword.setVisible(true);
             pwPassword.setVisible(false);

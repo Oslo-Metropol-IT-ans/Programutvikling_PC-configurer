@@ -5,7 +5,9 @@ import javafx.scene.control.ButtonType;
 
 import java.util.Optional;
 
-public class Dialogs { // GUI feilmeldinger
+public class Dialogs {
+
+    // GUI feilmeldinger, successmeldinger og informasjonsmeldinger
 
     public static void showErrorDialog(String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -15,9 +15,12 @@ import java.net.URL;
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class App extends Application { // Klassen for å starte hele programmet (main)
 
+    // Deklarerer scenen
     private static Scene scene;
+
+    // Metoden for å åpne brukergrensesnittet
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -36,6 +39,8 @@ public class App extends Application {
     public static void setRoot(Parent p) {
         scene.setRoot(p);
     }
+
+    // laster FXML
 
     public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));

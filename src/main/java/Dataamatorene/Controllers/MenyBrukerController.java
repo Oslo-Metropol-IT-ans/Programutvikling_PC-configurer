@@ -18,18 +18,31 @@ import java.io.IOException;
 
 public class MenyBrukerController {
 
+    // Deklarering av tasks
+
     ThreadOpenKomponentRegister threadOpenKomponentRegister;
 
     ThreadOpenNewPage threadOpenNewPage;
 
+    // Alt som kjøres når controlleren kjøres
+
     public void initialize() {
+
+        // velkommen tekst
+
         lblVelkommen.setText(String.format("Velkommen %s!", BrukerRegister.getAktivBruker().getBrukernavn()));
+
+        // Hvis administrasjonsbruker så vises adminknapp
 
         if (BrukerRegister.getAktivBruker().getRettigheter().equalsIgnoreCase("Admin")) {
             btnAdmin.setVisible(true);
         } else btnAdmin.setVisible(false);
 
+        // usynligjør progressbaren
+
         progressBar.setVisible(false);
+
+        // Trådprogrammering for å laste alt som må lastes
 
         if (!KomponentRegister.isLasta()){
             threadOpenKomponentRegister = new ThreadOpenKomponentRegister();
@@ -55,12 +68,16 @@ public class MenyBrukerController {
         KomponentRegister.setLasta(true);
     }
 
+    // hvis tråden feiler
+
     private void threadOpenKomponentRegisterFails (WorkerStateEvent e){
         if (Dialogs.showErrorLukkDialog("Det har skjedd en feil med bestillingssytemet\nKontakt butikken på " +
                 "tlf: 12345678")) {
             System.exit(0);
         }
     }
+
+    // FXML deklarasjoner
 
     @FXML
     private VBox menyBruker;
@@ -77,6 +94,8 @@ public class MenyBrukerController {
     @FXML
     private ProgressBar progressBar;
 
+    // knappene sine actionevent
+
     @FXML
     void mineBestillinger(ActionEvent event) {
         threadOpenPageSet("bestillingshistorikkbruker");
@@ -86,6 +105,8 @@ public class MenyBrukerController {
     void nyBestiliing(ActionEvent event) {
         threadOpenPageSet("nybestilling");
     }
+
+    // Opprettelse av tråd og lasting av ny side i egen tråd
 
     private void threadOpenPageSet(String s) {
         threadOpenNewPage = new ThreadOpenNewPage(s);
@@ -103,16 +124,22 @@ public class MenyBrukerController {
         th.start();
     }
 
+    // Når tråden er ferdig
+
     private void threadOpenPageDone(WorkerStateEvent e){
         App.setRoot(threadOpenNewPage.getValue());
         menyBruker.setVisible(true);
     }
+
+    // Når tråden kjører
 
     private void threadOpenPageRunning(WorkerStateEvent e) {
         lblTilbakemelding.setText("Venligst vent...");
         menyBruker.setVisible(false);
         loggUtButton.setVisible(false);
     }
+
+    // Når tråden feiler
 
     private void threadOpenPageFailes(WorkerStateEvent e){
         menyBruker.setVisible(true);
@@ -122,11 +149,15 @@ public class MenyBrukerController {
         System.err.println(e.getEventType());
     }
 
+    // FXML deklarasjoner
+
     @FXML
     private Button btnAdmin;
 
     @FXML
     private Button loggUtButton;
+
+    // Knapper sine actionevent
 
     @FXML
     void admin(ActionEvent event) {

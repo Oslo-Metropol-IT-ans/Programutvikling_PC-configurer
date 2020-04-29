@@ -17,7 +17,7 @@
         <columns>
           <TableColumn fx:id="tbBrukernavn" onEditCommit="#txtBrukernavnEdited" prefWidth="152.0" text="Brukernavn">
             <cellValueFactory>
-                <PropertyValueFactory property="txtData" />
+                <PropertyValueFactory property="brukernavn" />
             </cellValueFactory>
             <cellFactory>
                 <TextFieldTableCell fx:factory="forTableColumn" />
@@ -25,7 +25,7 @@
           </TableColumn>
           <TableColumn fx:id="tbPassord" minWidth="0.0" onEditCommit="#txtPasswordEdited" prefWidth="173.0" text="Passord">
             <cellValueFactory>
-                <PropertyValueFactory property="txtData" />
+                <PropertyValueFactory property="passord" />
             </cellValueFactory>
             <cellFactory>
                 <TextFieldTableCell fx:factory="forTableColumn" />
@@ -33,7 +33,7 @@
           </TableColumn>
           <TableColumn fx:id="tbNavn" onEditCommit="#txtNavnEdited" prefWidth="198.0" text="Navn" >
               <cellValueFactory>
-                  <PropertyValueFactory property="txtData" />
+                  <PropertyValueFactory property="navn" />
               </cellValueFactory>
               <cellFactory>
                   <TextFieldTableCell fx:factory="forTableColumn" />
@@ -41,7 +41,7 @@
           </TableColumn>
           <TableColumn fx:id="tbTlfNummer" onEditCommit="#txtTlfNummerEdited" prefWidth="169.0" text="Telefonnummer" >
               <cellValueFactory>
-                  <PropertyValueFactory property="txtData" />
+                  <PropertyValueFactory property="tlfNummer" />
               </cellValueFactory>
               <cellFactory>
                   <TextFieldTableCell fx:factory="forTableColumn" />
@@ -49,7 +49,7 @@
           </TableColumn>
           <TableColumn fx:id="tbEmail" minWidth="0.0" onEditCommit="#txtEmailEdited" prefWidth="188.0" text="Email" >
               <cellValueFactory>
-                  <PropertyValueFactory property="txtData" />
+                  <PropertyValueFactory property="email" />
               </cellValueFactory>
               <cellFactory>
                   <TextFieldTableCell fx:factory="forTableColumn" />
@@ -57,7 +57,7 @@
           </TableColumn>
           <TableColumn fx:id="tbRettigheter" maxWidth="1.7976931348623157E308" minWidth="0.0" onEditCommit="#txtRettigheterEdited" prefWidth="128.0" text="Rettigheter">
             <cellValueFactory>
-                <PropertyValueFactory property="txtData" />
+                <PropertyValueFactory property="rettigheter" />
             </cellValueFactory>
             <cellFactory>
                 <TextFieldTableCell fx:factory="forTableColumn" />

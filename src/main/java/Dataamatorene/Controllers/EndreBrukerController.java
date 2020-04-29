@@ -29,14 +29,6 @@ public class EndreBrukerController {
     public void initialize() {
 
         // Tableview oppsett
-
-        tbBrukernavn.setCellValueFactory(new PropertyValueFactory<Bruker, String>("brukernavn"));
-        tbPassord.setCellValueFactory(new PropertyValueFactory<Bruker, String>("passord"));
-        tbNavn.setCellValueFactory(new PropertyValueFactory<Bruker, String>("navn"));
-        tbTlfNummer.setCellValueFactory(new PropertyValueFactory<Bruker, String>("tlfNummer"));
-        tbEmail.setCellValueFactory(new PropertyValueFactory<Bruker, String>("email"));
-        tbRettigheter.setCellValueFactory(new PropertyValueFactory<Bruker, String>("rettigheter"));
-
         BrukerRegister.setTableView(tableView);
 
     }

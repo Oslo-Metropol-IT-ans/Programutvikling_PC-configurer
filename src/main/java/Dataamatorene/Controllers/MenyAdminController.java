@@ -109,7 +109,7 @@ public class MenyAdminController {
     }
 
     // Metode for å laste ny side i egen tråd
-    private void threadOpenPageSet(String s) {
+    public void threadOpenPageSet(String s) {
         threadOpenNewPage = new ThreadOpenNewPage(s);
         threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
         threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);

@@ -29,16 +29,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class BestillingshistorikkAdminController {
+public class LastOppBestillingerController {
 
     // Oppretter observableList for bestillinger
-    ObservableList<Bestilling> oBestilling = FXCollections.observableArrayList(BestillingsRegister.getBestillinger());
+    ObservableList<Bestilling> oBestilling = FXCollections.observableArrayList();
     ObservableList<Bestilling> aktivList;
 
     public void initialize() {
         // Setter opp tableview
-        oBestilling.setAll(BestillingsRegister.getBestillinger());
-
         tvBestillinger.setItems(oBestilling);
 
         // Setter opp choicbox med søkevalg
@@ -341,10 +339,11 @@ public class BestillingshistorikkAdminController {
         }
     }
 
-    // Laste ned bestillinger til txt
+
+    // Laste opp bestillinger fra txt
     @FXML
-    void lastNed(ActionEvent event) {
-        FileSaverTxt saver = new FileSaverTxt();
+    void lastOpp(ActionEvent event) {
+        FileOpener opener = new FileOpenerTxt();
 
         String path;
 
@@ -355,37 +354,66 @@ public class BestillingshistorikkAdminController {
         try {
             var test = System.getProperty("user.home") + "/Desktop";
             fc.setInitialDirectory(new File(test));
-            selectedFile = fc.showSaveDialog(null);
+            selectedFile = fc.showOpenDialog(null);
         } catch (Exception e) {
-            selectedFile = fc.showSaveDialog(null);
+            selectedFile = fc.showOpenDialog(null);
         }
 
         if(selectedFile != null) {
             path = selectedFile.getAbsolutePath();
 
             try {
-                saver.saveBestillingerBruker(BestillingsRegister.getBestillinger(), path);
+                ArrayList<Bestilling> nye = (ArrayList<Bestilling>) opener.read(path);
+                for (Bestilling b:nye) {
+                    boolean finnes = false;
+                    for (Bestilling b1 : oBestilling) {
+                        if (b.getBestillingsnummerT().equals(b1.getBestillingsnummerT())) {
+                            finnes = true;
+                        }
+                    }
+                    if (!finnes) {
+                        oBestilling.add(b);
+                    }
+                }
+                tvBestillinger.refresh();
                 Dialogs.showSuccessDialog("Filen ble lagre");
-            } catch (IOException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 Dialogs.showErrorDialog("Lagring til fil feilet. Grunn: " + e.getMessage());
             }
         }
+    }
 
+    // Flytte bestillinger til aktiv
+    @FXML
+    void flyttAktiv(ActionEvent event) {
+        if(tvBestillinger.getSelectionModel().getSelectedItem() != null) {
+            Bestilling b = tvBestillinger.getSelectionModel().getSelectedItem();
+            boolean finnes = false;
+            for (Bestilling b1 : BestillingsRegister.getBestillinger()) {
+                if(b1.getBestillingsnummerT().equals(b.getBestillingsnummerT())) {
+                    finnes = true;
+                }
+            }
+            if (!finnes) {
+                BestillingsRegister.addBestilling(b);
+                BestillingsRegister.lagreBestillinger();
+            }
+            oBestilling.remove(b);
+        }
     }
 
     ThreadOpenNewPage threadOpenNewPage;
 
-    // Laste opp bestillinger fra txt
+    // Til aktive bestillinger
     @FXML
-    void lastOpp(ActionEvent event) {
-        threadOpenNewPage = new ThreadOpenNewPage("lastoppbestilling");
+    void tilbake(ActionEvent event) {
+        threadOpenNewPage = new ThreadOpenNewPage("bestillingshistorikkadmin");
         threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
         threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
         threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
         Thread th = new Thread(threadOpenNewPage);
         th.setDaemon(true);
         th.start();
-
     }
 
     // Metode kjørt ved vellykket innlasting av side
@@ -401,33 +429,6 @@ public class BestillingshistorikkAdminController {
     // Metode kjørt ved misslykket lasting
     private void threadOpenPageFailes(WorkerStateEvent e){
 
-    }
-
-    // Slette bstilling med bekreftelse
-    @FXML
-    void slett(ActionEvent event) {
-        if(tvBestillinger.getSelectionModel().getSelectedItem() != null) {
-            Bestilling b = tvBestillinger.getSelectionModel().getSelectedItem();
-            for (int i = 0; i < oBestilling.size(); i++) {
-                if (b.getBestillingsnummer() == oBestilling.get(i).getBestillingsnummer()) {
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette denne bestillingen?")) {
-                        oBestilling.remove(i);
-                        BestillingsRegister.setBestillinger(new ArrayList<Bestilling>(oBestilling));
-                        BestillingsRegister.lagreBestillinger();
-                    }
-                }
-            }
-        }
-    }
-
-    // Til meny
-    @FXML
-    void tilbake(ActionEvent event) {
-        try {
-            App.setRoot("menyadmin");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 }

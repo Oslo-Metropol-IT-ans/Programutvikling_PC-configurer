@@ -194,7 +194,7 @@ public class NyBestillingController {
                     titledPanes.get(finalI).setLayoutY(y);
                     if (labels.get(finalI).getText().equals("")) {
                         titledPanes.get(finalI).setStyle("-fx-border-color: red;" +
-                                " -fx-border-width: 1px; -fx-border-style: solid");
+                                " -fx-border-width: 1px; -fx-border-radius: 5px; -fx-border-style: solid");
                     }
                 }
             });
@@ -337,6 +337,7 @@ public class NyBestillingController {
                     (Prosessor) datakomponents[4], (Minne) datakomponents[5], (Kabinett) datakomponents[6],
                     (Skjerm) datakomponents[7], (Tastatur) datakomponents[8], (Mus) datakomponents[9]));
             Dialogs.showSuccessDialog("Bestillingen din er registrert");
+            BestillingsRegister.lagreBestillinger();
             try {
                 App.setRoot("menybruker");
             } catch (IOException e) {

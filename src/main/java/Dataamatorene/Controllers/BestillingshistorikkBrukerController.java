@@ -5,7 +5,6 @@ import Dataamatorene.Bestilling.Bestilling;
 import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Dialogs;
-import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverTxt;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -63,7 +62,7 @@ public class BestillingshistorikkBrukerController {
             path = selectedFile.getAbsolutePath();
 
             try {
-                saver.saveBestillinger(new ArrayList<Bestilling>(liste), path);
+                saver.saveBestillingerBruker(new ArrayList<Bestilling>(liste), path);
                 Dialogs.showSuccessDialog("Filen ble lagre");
             } catch (IOException e) {
                 Dialogs.showErrorDialog("Lagring til fil feilet. Grunn: " + e.getMessage());

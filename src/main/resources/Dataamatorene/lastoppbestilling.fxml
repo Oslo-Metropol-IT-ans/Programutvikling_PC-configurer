@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="apMain" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.BestillingshistorikkAdminController">
+<AnchorPane fx:id="apMain" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.LastOppBestillingerController">
    <children>
-      <TableView fx:id="tvBestillinger" editable="true" layoutY="65.0" prefHeight="587.0" prefWidth="1165.0">
+      <TableView fx:id="tvBestillinger" editable="false" layoutY="65.0" prefHeight="587.0" prefWidth="1165.0">
         <columns>
             <TableColumn fx:id="tbBruker" prefWidth="72.2" text="Bruker">
                 <cellValueFactory>
@@ -123,29 +123,24 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="496.0" layoutY="19.0" text="Aktive bestillinger">
+      <Label layoutX="496.0" layoutY="19.0" text="Last opp bestillinger">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <TextField fx:id="txtSøk" layoutX="981.0" layoutY="20.0" onKeyTyped="#søk" promptText="Søk" />
       <ChoiceBox fx:id="cbValg" layoutX="811.0" layoutY="20.0" prefWidth="150.0" />
-      <Button layoutX="1086.0" layoutY="666.0" mnemonicParsing="false" onAction="#slett" text="Slett">
+      <Button layoutX="910.0" layoutY="665.0" mnemonicParsing="false" onAction="#flyttAktiv" text="Flytt til aktive bestillinger">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="930.0" layoutY="666.0" mnemonicParsing="false" onAction="#vis" text="Vis bestilling">
+      <Button layoutX="761.0" layoutY="666.0" mnemonicParsing="false" onAction="#vis" text="Vis bestilling">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="811.0" layoutY="665.0" mnemonicParsing="false" onAction="#lastNed" text="Last ned">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="690.0" layoutY="665.0" mnemonicParsing="false" onAction="#lastOpp" text="Last opp">
+      <Button layoutX="642.0" layoutY="666.0" mnemonicParsing="false" onAction="#lastOpp" text="Last opp">
          <font>
             <Font size="18.0" />
          </font>

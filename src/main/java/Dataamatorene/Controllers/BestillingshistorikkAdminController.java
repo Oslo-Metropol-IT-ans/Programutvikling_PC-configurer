@@ -65,7 +65,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     private TableColumn<Bestilling, String> tbHarddisk;
 
-    // Endre hardisk
+    // Endre harddisk
     @FXML
     private void txtHarddiskEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {

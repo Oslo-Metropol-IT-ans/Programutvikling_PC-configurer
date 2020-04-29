@@ -29,8 +29,8 @@ public class FileSaverTxt implements FileSaver { // lagrer filer av type txt
 
     }
 
-    public void saveBestilingerAdmin(ArrayList<Bestilling> liste, String path) throws IOException {
-        String ut = "Bruker" + "\t" + "Harddisk" + "\t" + "Hovedkort" + "\t" + "Lydkort" + "\t" + "Skjermkort" + "\t" +
+    public void saveBestillingerAdmin(ArrayList<Bestilling> liste, String path) throws IOException {
+        String ut = "Navn" + "\t" + "Harddisk" + "\t" + "Hovedkort" + "\t" + "Lydkort" + "\t" + "Skjermkort" + "\t" +
                 "Prosessor" + "\t" + "Minne" + "\t" + "Kabinett" + "\t" + "Skjerm" + "\t" + "Tastatur" + "\t" +
                 "Mus" + "\t" + "Bestillingsnummer" + "\t" + "Totalpris" + "\n";
         for (Bestilling b : liste) {

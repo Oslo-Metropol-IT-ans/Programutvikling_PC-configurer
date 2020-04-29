@@ -50,7 +50,7 @@ public class Converter {
 
     private static Harddisk finnHarddisk(String inn) {
         for (Harddisk h: KomponentRegister.getHarddiskArrayList()) {
-            if (h.getVarekode().equals("0" + inn)) {
+            if (h.getVarekode().equals(inn)) {
                 return h;
             }
         }
@@ -59,7 +59,7 @@ public class Converter {
 
     private static Hovedkort finnHovedkort(String inn) {
         for (Hovedkort h: KomponentRegister.getHovedkortArrayList()) {
-            if (h.getVarekode().equals("0" +inn)) {
+            if (h.getVarekode().equals(inn)) {
                 return h;
             }
         }
@@ -68,7 +68,7 @@ public class Converter {
 
     private static Skjermkort finnSkjermkort(String inn) {
         for (Skjermkort h: KomponentRegister.getSkjermkortArrayList()) {
-            if (h.getVarekode().equals("0" +inn)) {
+            if (h.getVarekode().equals(inn)) {
                 return h;
             }
         }
@@ -77,7 +77,7 @@ public class Converter {
 
     private static Lydkort finnLydkort(String inn) {
         for (Lydkort h: KomponentRegister.getLydkortArrayList()) {
-            if (h.getVarekode().equals("0" +inn)) {
+            if (h.getVarekode().equals(inn)) {
                 return h;
             }
         }
@@ -86,7 +86,7 @@ public class Converter {
 
     private static Prosessor finnProsessor(String inn) {
         for (Prosessor h: KomponentRegister.getProsessorArrayList()) {
-            if (h.getVarekode().equals("0" +inn)) {
+            if (h.getVarekode().equals(inn)) {
                 return h;
             }
         }
@@ -95,7 +95,7 @@ public class Converter {
 
     private static Minne finnMinne(String inn) {
         for (Minne h: KomponentRegister.getMinneArrayList()) {
-            if (h.getVarekode().equals("0" +inn)) {
+            if (h.getVarekode().equals(inn)) {
                 return h;
             }
         }
@@ -104,7 +104,7 @@ public class Converter {
 
     private static Kabinett finnKabientt(String inn) {
         for (Kabinett h: KomponentRegister.getKabinettArrayList()) {
-            if (h.getVarekode().equals("0" +inn)) {
+            if (h.getVarekode().equals(inn)) {
                 return h;
             }
         }
@@ -113,7 +113,7 @@ public class Converter {
 
     private static Skjerm finnSkjerm(String inn) {
         for (Skjerm h: KomponentRegister.getSkjermArrayList()) {
-            if (h.getVarekode().equals("0" +inn)) {
+            if (h.getVarekode().equals(inn)) {
                 return h;
             }
         }
@@ -122,7 +122,7 @@ public class Converter {
 
     private static Tastatur finnTastatur(String inn) {
         for (Tastatur h: KomponentRegister.getTastaturArrayList()) {
-            if (h.getVarekode().equals("0" +inn)) {
+            if (h.getVarekode().equals(inn)) {
                 return h;
             }
         }

@@ -364,7 +364,7 @@ public class BestillingshistorikkAdminController {
             path = selectedFile.getAbsolutePath();
 
             try {
-                saver.saveBestillingerBruker(BestillingsRegister.getBestillinger(), path);
+                saver.saveBestillingerAdmin(BestillingsRegister.getBestillinger(), path);
                 Dialogs.showSuccessDialog("Filen ble lagre");
             } catch (IOException e) {
                 Dialogs.showErrorDialog("Lagring til fil feilet. Grunn: " + e.getMessage());

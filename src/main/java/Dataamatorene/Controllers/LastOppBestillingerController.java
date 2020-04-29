@@ -21,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
@@ -48,7 +49,11 @@ public class LastOppBestillingerController {
 
         cbValg.setItems(oValg);
         cbValg.setValue("Bruker");
+
     }
+
+
+    boolean opened = false;
 
     // FXML deklarering
     @FXML
@@ -343,6 +348,10 @@ public class LastOppBestillingerController {
     // Laste opp bestillinger fra txt
     @FXML
     void lastOpp(ActionEvent event) {
+        opplasting();
+    }
+
+    private void opplasting(){
         FileOpener opener = new FileOpenerTxt();
 
         String path;
@@ -376,7 +385,7 @@ public class LastOppBestillingerController {
                     }
                 }
                 tvBestillinger.refresh();
-                Dialogs.showSuccessDialog("Filen ble lagre");
+                Dialogs.showSuccessDialog("Filen ble lagret");
             } catch (IOException | ClassNotFoundException e) {
                 Dialogs.showErrorDialog("Lagring til fil feilet. Grunn: " + e.getMessage());
             }
@@ -429,6 +438,14 @@ public class LastOppBestillingerController {
     // Metode kjørt ved misslykket lasting
     private void threadOpenPageFailes(WorkerStateEvent e){
 
+    }
+
+    @FXML
+    void fcOnOpen(MouseEvent event){
+        if (!opened){
+            opened = true;
+            opplasting();
+        }
     }
 
 }

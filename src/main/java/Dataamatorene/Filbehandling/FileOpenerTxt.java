@@ -19,13 +19,28 @@ public class FileOpenerTxt implements FileOpener{ // Åpner txtFiler
             String line;
 
             reader.skip(0);
+
+            boolean feil = false;
+            String melding = "";
+
             while ((line = reader.readLine()) != null) {
                 if (!line.startsWith("Navn")) {
-                    System.out.println(line);
+                    try{
+                        System.out.println(line);
 
-                    Bestilling b = Converter.parseBestilling(line);
-                    list.add(b);
+                        Bestilling b = Converter.parseBestilling(line);
+                        list.add(b);
+                    }
+                    catch(Exception e){
+                        System.out.println(e.getMessage());
+                        feil=true;
+                        melding += e.getMessage() + ", ";
+                    }
                 }
+            }
+            melding = melding.replaceAll(", $", ".");
+            if(feil){
+                Dialogs.showErrorDialog("Kunne ikke laste in alle bestillinger. \n"+ melding);
             }
         }
         return list;

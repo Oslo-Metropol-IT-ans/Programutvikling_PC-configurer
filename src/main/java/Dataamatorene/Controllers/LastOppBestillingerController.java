@@ -365,6 +365,7 @@ public class LastOppBestillingerController {
             fc.setInitialDirectory(new File(test));
             selectedFile = fc.showOpenDialog(null);
         } catch (Exception e) {
+            fc.setInitialDirectory(null);
             selectedFile = fc.showOpenDialog(null);
         }
 

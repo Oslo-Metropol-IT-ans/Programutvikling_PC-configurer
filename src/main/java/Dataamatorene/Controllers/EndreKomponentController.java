@@ -19,10 +19,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -92,7 +90,6 @@ public class EndreKomponentController {
         tvTastatur.setItems(oTastatur);
 
         // Når du velger en ny komponent du ser på
-
         Harddisk.setOnSelectionChanged(event -> {
             aktiv = "Harddisk";
         });
@@ -138,9 +135,6 @@ public class EndreKomponentController {
     // FXML deklarasjoner
 
     @FXML
-    private TabPane Tilbehør;
-
-    @FXML
     private TableView<Harddisk> tvHarddisk;
 
     @FXML
@@ -172,15 +166,12 @@ public class EndreKomponentController {
 
 
     // All kode for harddisk
-
     @FXML
     private Tab Harddisk;
 
-    /*
+
     @FXML
     private TableColumn<Harddisk, String> tbVarHarddisk;
-
-     */
 
     // Endring av harddisk i tableview
 
@@ -796,7 +787,7 @@ public class EndreKomponentController {
     @FXML
     private void txtKabinettStorrelseEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
         try {
-            event.getRowValue().setStorrelse(KomponentValidering.størrelseValidering(event.getNewValue()));
+            event.getRowValue().setStorrelse(KomponentValidering.storrelseValidering(event.getNewValue()));
             LagreKomponent.lagreKabinett();
             tvKabinett.refresh();
         } catch (IOException | InvalidComponentAttributeException e){

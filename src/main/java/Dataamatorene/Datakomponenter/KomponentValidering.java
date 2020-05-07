@@ -44,7 +44,7 @@ public class KomponentValidering {
         } else throw new InvalidComponentAttributeException("Ugyldig antall porter");
     }
 
-    public static String størrelseValidering (String s) {
+    public static String storrelseValidering(String s) {
         String[] tall = s.split("[x]");
         if (tall.length == 3) {
             if (tall[0].matches("[0-9]+") && tall[1].matches("[0-9]+") && tall[2].matches("[0-9]+")) {

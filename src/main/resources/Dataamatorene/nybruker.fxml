@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.NyBrukerController">
    <children>
       <VBox layoutX="66.0" layoutY="80.0" prefHeight="309.0" prefWidth="303.0">
@@ -26,6 +27,12 @@
                               <JFXPasswordField fx:id="pwPassword" focusColor="WHITE" labelFloat="true" prefWidth="301.0" promptText="Passord" unFocusColor="#e45652" />
                            </children>
                         </AnchorPane>
+                        <AnchorPane prefHeight="31.0" prefWidth="301.0">
+                           <children>
+                              <JFXTextField fx:id="txtPasswordGjenta" focusColor="WHITE" labelFloat="true" prefHeight="27.0" prefWidth="301.0" promptText="Gjenta passord" unFocusColor="#e45652" />
+                              <JFXPasswordField fx:id="pwPasswordGjenta" focusColor="WHITE" labelFloat="true" prefWidth="301.0" promptText="Gjenta passord" unFocusColor="#e45652" />
+                           </children>
+                        </AnchorPane>
                         <JFXTextField fx:id="txtNavn" focusColor="WHITE" labelFloat="true" promptText="Navn" unFocusColor="#e45652" />
                         <JFXTextField fx:id="txtTlfNummer" focusColor="WHITE" labelFloat="true" promptText="Telefonnummer" unFocusColor="#e45652" />
                         <JFXTextField fx:id="txtEmail" focusColor="WHITE" labelFloat="true" promptText="Email" unFocusColor="#e45652" />
@@ -35,14 +42,14 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="85.0" prefWidth="402.0" spacing="20.0">
                <children>
-                  <Button fx:id="btnTilbake" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
+                  <JFXButton fx:id="btnTilbake" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
                      <font>
                         <Font size="18.0" />
-                     </font></Button>
-                  <Button fx:id="btnRegistrer" mnemonicParsing="false" onAction="#registrer" text="Registrer">
+                     </font></JFXButton>
+                  <JFXButton fx:id="btnRegistrer" mnemonicParsing="false" onAction="#registrer" text="Registrer">
                      <font>
                         <Font size="18.0" />
-                     </font></Button>
+                     </font></JFXButton>
                </children>
             </HBox>
          </children>
@@ -52,7 +59,8 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <Text fill="WHITE" layoutX="383.0" layoutY="147.0" onMouseClicked="#Synlighet" strokeType="OUTSIDE" strokeWidth="0.0" text="Vis" />
+      <Text fx:id="vis" fill="WHITE" layoutX="383.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vis" />
+      <Text fx:id="visGjenta" fill="WHITE" layoutX="383.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vis" />
    </children>
    <stylesheets>
       <URL value="@style4.css" />

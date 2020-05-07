@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.LagKomponentController">
    <children>
       <TabPane layoutY="-1.0" prefHeight="608.0" prefWidth="1163.0" tabClosingPolicy="UNAVAILABLE">
@@ -73,7 +74,7 @@
                                                 <Font size="18.0" />
                                              </font></Button>
                                           <ImageView fx:id="ivHarddisk" fitHeight="150.0" fitWidth="200.0" layoutX="791.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Button layoutX="1062.0" layoutY="258.0" mnemonicParsing="false" onAction="#lastOppHarddisk" text="Last opp" />
+                                          <JFXButton layoutX="1062.0" layoutY="258.0" mnemonicParsing="false" onAction="#lastOppHarddisk" text="Last opp" />
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -122,10 +123,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerHovedkort" text="Registrer">
+                                          <JFXButton layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerHovedkort" text="Registrer">
                                              <font>
                                                 <Font size="18.0" />
-                                             </font></Button>
+                                             </font></JFXButton>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -182,10 +183,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerLydkort" text="Registrer">
+                                          <JFXButton layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerLydkort" text="Registrer">
                                              <font>
                                                 <Font size="18.0" />
-                                             </font></Button>
+                                             </font></JFXButton>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -234,10 +235,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerSkjermkort" text="Registrer">
+                                          <JFXButton layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerSkjermkort" text="Registrer">
                                              <font>
                                                 <Font size="18.0" />
-                                             </font></Button>
+                                             </font></JFXButton>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -304,10 +305,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerProsessor" text="Registrer">
+                                          <JFXButton layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerProsessor" text="Registrer">
                                              <font>
                                                 <Font size="18.0" />
-                                             </font></Button>
+                                             </font></JFXButton>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -365,10 +366,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerMinne" text="Registrer">
+                                          <JFXButton layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerMinne" text="Registrer">
                                              <font>
                                                 <Font size="18.0" />
-                                             </font></Button>
+                                             </font></JFXButton>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -438,10 +439,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerKabinett" text="Registrer">
+                                          <JFXButton layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerKabinett" text="Registrer">
                                              <font>
                                                 <Font size="18.0" />
-                                             </font></Button>
+                                             </font></JFXButton>
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -499,10 +500,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerSkjerm" text="Registrer">
+                                          <JFXButton layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerSkjerm" text="Registrer">
                                              <font>
                                                 <Font size="18.0" />
-                                             </font></Button>
+                                             </font></JFXButton>
                                        </children>
                                     </AnchorPane>
                               </content>
@@ -567,10 +568,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerTastatur" text="Registrer">
+                                          <JFXButton layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerTastatur" text="Registrer">
                                              <font>
                                                 <Font size="18.0" />
-                                             </font></Button>
+                                             </font></JFXButton>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -627,10 +628,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerMus" text="Registrer">
+                                          <JFXButton layoutX="1040.0" layoutY="480.0" mnemonicParsing="false" onAction="#registrerMus" text="Registrer">
                                              <font>
                                                 <Font size="18.0" />
-                                             </font></Button>
+                                             </font></JFXButton>
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -643,10 +644,10 @@
           </Tab>
         </tabs>
       </TabPane>
-      <Button layoutX="55.0" layoutY="641.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
+      <JFXButton layoutX="55.0" layoutY="641.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
          <font>
             <Font size="18.0" />
-         </font></Button>
+         </font></JFXButton>
    </children>
    <stylesheets>
       <URL value="@style4.css" />

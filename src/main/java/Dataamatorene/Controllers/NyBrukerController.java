@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class NyBrukerController {
 
@@ -29,31 +30,66 @@ public class NyBrukerController {
     public void initialize() {
 
         txtPassword.setVisible(false);
+        txtPasswordGjenta.setVisible(false);
 
-        txtBrukernavn.setOnKeyTyped(keyEvent -> {
-            if(keyEvent.getCode() == KeyCode.ENTER)
-            txtPassword.requestFocus();
-        });
+        TextField[] felt = {txtBrukernavn, pwPassword, pwPasswordGjenta, txtNavn, txtTlfNummer, txtEmail};
+        for (int i = 0; i < felt.length; i++) {
+            if (i != felt.length-1) {
+                int finalI = i;
+                felt[i].setOnKeyPressed(keyEvent -> {
+                    if (keyEvent.getCode() == KeyCode.ENTER) {
+                        felt[finalI +1].requestFocus();
+                    }
+                });
+            }
+            else {
+                felt[i].setOnKeyPressed(keyEvent -> {
+                    if (keyEvent.getCode() == KeyCode.ENTER) {
+                        registrer(keyEvent);
+                    }
+                });
+            }
+        }
 
         txtPassword.setOnKeyTyped(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.ENTER){
-                registrer(keyEvent);
-            } else {
                 pwPassword.setText(txtPassword.getText());
             }
+        });
 
+        txtPasswordGjenta.setOnKeyTyped(keyEvent -> {
+            if(keyEvent.getCode() != KeyCode.ENTER){
+                pwPasswordGjenta.setText(txtPasswordGjenta.getText());
+            }
         });
 
         pwPassword.setOnKeyTyped(keyEvent -> {
-            if(keyEvent.getCode() == KeyCode.ENTER){
-                registrer(keyEvent);
-            } else {
+            if(keyEvent.getCode() != KeyCode.ENTER){
                 txtPassword.setText(pwPassword.getText());
             }
+        });
+
+        pwPasswordGjenta.setOnKeyTyped(keyEvent -> {
+            if(keyEvent.getCode() != KeyCode.ENTER){
+                txtPasswordGjenta.setText(pwPasswordGjenta.getText());
+            }
+        });
+
+        vis.setOnMouseClicked(mouseEvent -> {
+            Synlighet(mouseEvent, false);
+        });
+        visGjenta.setOnMouseClicked(mouseEvent -> {
+            Synlighet(mouseEvent, true);
         });
     }
 
     // FXML deklarasjoner
+
+    @FXML
+    private Text vis;
+
+    @FXML
+    private Text visGjenta;
 
     @FXML
     private TextField txtBrukernavn;
@@ -63,6 +99,12 @@ public class NyBrukerController {
 
     @FXML
     private TextField txtPassword;
+
+    @FXML
+    private TextField txtPasswordGjenta;
+
+    @FXML
+    private PasswordField pwPasswordGjenta;
 
     @FXML
     private Button btnTilbake;
@@ -89,6 +131,7 @@ public class NyBrukerController {
 
         String brukernavn = txtBrukernavn.getText();
         String passord = txtPassword.getText();
+        String passordGjenta = txtPasswordGjenta.getText();
         String navn = txtNavn.getText();
         String tlfNummer = txtTlfNummer.getText();
         String email = txtEmail.getText();
@@ -102,6 +145,7 @@ public class NyBrukerController {
         if(!finnes){
             try{
                 BrukerValidering.sjekkPassord(passord);
+                BrukerValidering.sjekkPassord(passord, passordGjenta);
                 BrukerValidering.sjekkBrukernavn(brukernavn);
                 BrukerValidering.sjekkValidNavn(navn);
                 BrukerValidering.sjekkValidTelefon(tlfNummer);
@@ -145,16 +189,29 @@ public class NyBrukerController {
 
     }
 
-    @FXML
-    void Synlighet(MouseEvent event) {
-        if (pwPassword.isVisible()) {
-            txtPassword.setVisible(true);
-            pwPassword.setVisible(false);
-            txtPassword.requestFocus();
-        } else {
-            txtPassword.setVisible(false);
-            pwPassword.setVisible(true);
-            pwPassword.requestFocus();
+
+    void Synlighet(MouseEvent event, boolean gjenta) {
+        if(!gjenta) {
+            if (pwPassword.isVisible()) {
+                txtPassword.setVisible(true);
+                pwPassword.setVisible(false);
+                txtPassword.requestFocus();
+            } else {
+                txtPassword.setVisible(false);
+                pwPassword.setVisible(true);
+                pwPassword.requestFocus();
+            }
+        }
+        else {
+            if (pwPasswordGjenta.isVisible()) {
+                txtPasswordGjenta.setVisible(true);
+                pwPasswordGjenta.setVisible(false);
+                txtPasswordGjenta.requestFocus();
+            } else {
+                txtPasswordGjenta.setVisible(false);
+                pwPasswordGjenta.setVisible(true);
+                pwPasswordGjenta.requestFocus();
+            }
         }
 
     }

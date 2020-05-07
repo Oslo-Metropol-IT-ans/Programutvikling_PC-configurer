@@ -42,6 +42,12 @@ public class BrukerValidering {
 
     }
 
+    public static void sjekkPassord(String passord, String gjenta) {
+        if (!passord.equals(gjenta)) {
+            throw new InvalidPasswordException("Ikke like passord");
+        }
+    }
+
     public static String sjekkRettigheter(String rettigheter){
         if(rettigheter.equalsIgnoreCase("admin") || rettigheter.equalsIgnoreCase("bruker")){
             return rettigheter;

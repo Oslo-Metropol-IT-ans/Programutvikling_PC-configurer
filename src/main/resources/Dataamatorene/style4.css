@@ -40,7 +40,7 @@
     -fx-background-color: #212121;
 }
 
-#txtBrukernavn, #txtPassword, #txtNavn, #txtEmail, #txtTlfNummer, #txtSok {
+#txtBrukernavn, #txtPassword, #txtNavn, #txtEmail, #txtTlfNummer, #txtSok, #txtPasswordGjenta, #pwPasswordGjenta {
     -fx-text-fill: white!important;
     -fx-prompt-text-fill: #9C2B27!important;
     -fx-background-color: transparent!important;

@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreKomponentController">
    <children>
       <TabPane prefHeight="598.0" prefWidth="1168.0" tabClosingPolicy="UNAVAILABLE">
@@ -654,19 +655,20 @@
             </Tab>
          </tabs>
       </TabPane>
-      <Button layoutX="50.0" layoutY="636.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
+      <JFXButton layoutX="50.0" layoutY="636.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
          <font>
             <Font size="18.0" />
-         </font></Button>
-      <Button layoutX="992.0" layoutY="638.0" mnemonicParsing="false" onAction="#slett" text="Slett">
+         </font></JFXButton>
+      <JFXButton layoutX="890.0" layoutY="639.0" mnemonicParsing="false" onAction="#vis" text="Vis">
          <font>
             <Font size="18.0" />
-         </font></Button>
-      <Button layoutX="890.0" layoutY="639.0" mnemonicParsing="false" onAction="#vis" text="Vis">
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="992.0" layoutY="638.0" mnemonicParsing="false" onAction="#slett" text="Slett">
          <font>
             <Font size="18.0" />
-         </font></Button>
-      <JFXTextField fx:id="txtSok" focusColor="WHITE" labelFloat="true" layoutX="718.0" layoutY="644.0" onKeyTyped="#sok" promptText="Søk" unFocusColor="#9c2b27" />
+         </font></JFXButton>
+      <JFXTextField fx:id="txtSok" focusColor="WHITE" labelFloat="true" layoutX="1008.0" layoutY="20.0" onKeyTyped="#sok" promptText="Søk" unFocusColor="#9c2b27" />
    </children>
    <stylesheets>
       <URL value="@style4.css" />

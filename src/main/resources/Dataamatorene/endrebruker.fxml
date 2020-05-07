@@ -5,13 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.cell.TextFieldTableCell?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreBrukerController">
    <children>
       <TableView fx:id="tableView" editable="true" layoutX="66.0" layoutY="73.0" prefHeight="526.0" prefWidth="1009.0">
@@ -71,15 +71,15 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="66.0" layoutY="626.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
+      <JFXButton layoutX="66.0" layoutY="626.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
          <font>
             <Font size="18.0" />
-         </font></Button>
-      <JFXTextField fx:id="txtSok" focusColor="WHITE" labelFloat="true" layoutX="886.0" layoutY="23.0" onKeyTyped="#Søk" promptText="Søk" unFocusColor="#9c2b27" />
-      <Button layoutX="1001.0" layoutY="626.0" mnemonicParsing="false" onAction="#slett" text="Slett">
+         </font></JFXButton>
+      <JFXTextField fx:id="txtSok" focusColor="WHITE" labelFloat="true" layoutX="886.0" layoutY="23.0" onKeyTyped="#Sok" promptText="Søk" unFocusColor="#9c2b27" />
+      <JFXButton layoutX="1001.0" layoutY="626.0" mnemonicParsing="false" onAction="#slett" text="Slett">
          <font>
             <Font size="18.0" />
-         </font></Button>
+         </font></JFXButton>
    </children>
     <stylesheets>
         <URL value="@style4.css" />

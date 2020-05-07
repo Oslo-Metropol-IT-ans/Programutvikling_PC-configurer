@@ -191,7 +191,7 @@ public class EndreBrukerController {
     // Søkeknapp sin actionevent
 
     @FXML
-    private void Søk(KeyEvent event){
+    private void Sok(KeyEvent event){
         String søk = txtSok.getText();
 
         if(!søk.isEmpty()){

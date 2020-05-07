@@ -14,7 +14,6 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -357,7 +356,7 @@ public class LagKomponentController {
             int varekode = KomponentValidering.varekodeValidering(txtVareKabinett.getText());
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisKabinett.getText());
-            String størrelse = KomponentValidering.størrelseValidering(txtStorrelseKabinett.getText());
+            String størrelse = KomponentValidering.storrelseValidering(txtStorrelseKabinett.getText());
             int vifter = KomponentValidering.vifterValidering(txtVifterKabientt.getText());
 
             Kabinett k = new Kabinett(navn, pris, varekode, null, størrelse, vifter);

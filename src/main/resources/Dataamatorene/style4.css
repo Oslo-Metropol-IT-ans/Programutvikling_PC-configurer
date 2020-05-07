@@ -40,7 +40,7 @@
     -fx-background-color: #212121;
 }
 
-#txtBrukernavn {
+#txtBrukernavn, #txtPassword, #txtNavn, #txtEmail, #txtTlfNummer, #txtSok {
     -fx-text-fill: white!important;
     -fx-prompt-text-fill: #9C2B27!important;
     -fx-background-color: transparent!important;
@@ -277,20 +277,20 @@
     -fx-text-fill: #212121;
     -fx-background-insets: 0,0 1 3 1, 0 2 4 2, 0 3 5 3;
     -fx-background-color:
-            linear-gradient(from 0% 93% to 0% 100%, #2e856e 0%, #006a4e 100%),
-            #5ca08e,
-            #8abaae,
-            radial-gradient(center 50% 50%, radius 100%, #b8d5cd, #7aa599);
+            linear-gradient(from 0% 93% to 0% 100%, #c14e49 0%,  #e45652 100%),
+            #993d39,
+            #bb423d,
+            radial-gradient(center 50% 50%, radius 100%,  #9C2B27, #b13934);
 }
 
 .toggle-button:selected {
     -fx-text-fill: white;
     -fx-background-insets: 0,3 1 0 1, 4 2 0 2, 5 3 0 3;
     -fx-background-color:
-            linear-gradient(from 0% 93% to 0% 100%, #2e856e 0%, #006a4e 100%),
-            #5ca08e,
-            #7c938b,
-            radial-gradient(center 50% 50%, radius 100%, #7c938b, #5f8175);
+            linear-gradient(from 0% 93% to 0% 100%, #c14e49 0%,  #e45652 100%),
+            #993d39,
+            #bb423d,
+            radial-gradient(center 50% 50%, radius 100%, #9e413e, #af5651);
 }
 
 
@@ -306,105 +306,14 @@
     -fx-alignment: CENTER;
 }
 
-#tbPrisHarddisk {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbLagringHarddisk {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPrisHovedkort {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPorterHovedkort {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPrisLydkort {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbFrekvensLydkort {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPrisSkjermkort {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbOpplosningSkjermkort {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPrisProsessor {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbKjernerProsessor {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbFrekvenserProsessor {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbTraderProsessor {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPrisMinne {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbRamMinne {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbFrekvensMinne {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPrisKabinett {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbStorrelseKabinett {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbVifterKabinett {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPrisSkjerm {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbOpplosningSkjerm {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbStorrelseSkjerm {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPrisTastatur {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbPrisMus {
-    -fx-alignment: CENTER-RIGHT;
-}
-
-#tbKnapperMus {
-    -fx-alignment: CENTER-RIGHT;
-}
-
+#tbPrisHarddisk, #tbLagringHarddisk, #tbPrisHovedkort, #tbPorterHovedkort, #tbPrisLydkort, #tbFrekvensLydkort,
+#tbPrisSkjermkort, #tbOpplosningSkjermkort, #tbPrisProsessor, #tbKjernerProsessor, #tbFrekvenserProsessor,
+#tbTraderProsessor, #tbPrisMinne, #tbRamMinne, #tbFrekvensMinne, #tbPrisKabinett, #tbStorrelseKabinett,
+#tbVifterKabinett, #tbPrisSkjerm, #tbOpplosningSkjerm, #tbStorrelseSkjerm, #tbPrisTastatur, #tbPrisMus, #tbKnapperMus,
 #tbPris {
     -fx-alignment: CENTER-RIGHT;
 }
+
 
 
 .scroll-pane > .viewport {

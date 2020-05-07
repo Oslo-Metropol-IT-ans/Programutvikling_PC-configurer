@@ -1156,7 +1156,7 @@ public class EndreKomponentController {
         for (int i = 0; i < fane.length; i++) {
             if(fane[i].equalsIgnoreCase(aktiv)) {
                 ObservableList aktivListe = lister.get(i)
-                        .filtered(x -> x.getNavn().toLowerCase().contains(txtSok.getText().toLowerCase()));
+                        .filtered(x -> x.getBeskrivelse().toLowerCase().contains(txtSok.getText().toLowerCase()));
 
                 try {
                     views.get(i).setItems(aktivListe);

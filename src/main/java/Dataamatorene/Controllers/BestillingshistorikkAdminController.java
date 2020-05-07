@@ -357,6 +357,7 @@ public class BestillingshistorikkAdminController {
             fc.setInitialDirectory(new File(test));
             selectedFile = fc.showSaveDialog(null);
         } catch (Exception e) {
+            fc.setInitialDirectory(null);
             selectedFile = fc.showSaveDialog(null);
         }
 

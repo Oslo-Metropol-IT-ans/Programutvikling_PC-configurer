@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Harddisk extends Datakomponent implements Serializable, Comparable<Harddisk> {
 
@@ -29,7 +30,8 @@ public class Harddisk extends Datakomponent implements Serializable, Comparable<
 
     // overkjører arvede metoder fra superklassen
     @Override
-    public void lagre() throws IOException {
+    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
+        KomponentRegister.setHarddiskArrayList((ArrayList<Harddisk>)liste);
         LagreKomponent.lagreHarddisk();
     }
 

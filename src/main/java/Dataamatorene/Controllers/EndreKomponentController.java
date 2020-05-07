@@ -38,20 +38,46 @@ public class EndreKomponentController {
 
     // Deklarerer alle listene for hver datakomponent
 
-    ObservableList<Harddisk> oHarddisk = FXCollections.observableArrayList(KomponentRegister.getHarddiskArrayList());
-    ObservableList<Hovedkort> oHovedkort = FXCollections.observableArrayList(KomponentRegister.getHovedkortArrayList());
-    ObservableList<Kabinett> oKabinett = FXCollections.observableArrayList(KomponentRegister.getKabinettArrayList());
-    ObservableList<Lydkort> oLydkort = FXCollections.observableArrayList(KomponentRegister.getLydkortArrayList());
-    ObservableList<Minne> oMinne = FXCollections.observableArrayList(KomponentRegister.getMinneArrayList());
-    ObservableList<Mus> oMus = FXCollections.observableArrayList(KomponentRegister.getMusArrayList());
-    ObservableList<Prosessor> oProsessor = FXCollections.observableArrayList(KomponentRegister.getProsessorArrayList());
-    ObservableList<Skjerm> oSkjerm = FXCollections.observableArrayList(KomponentRegister.getSkjermArrayList());
-    ObservableList<Skjermkort> oSkjermkort = FXCollections.observableArrayList(KomponentRegister.getSkjermkortArrayList());
-    ObservableList<Tastatur> oTastatur = FXCollections.observableArrayList(KomponentRegister.getTastaturArrayList());
+    ObservableList<Harddisk> oHarddisk;
+    ObservableList<Hovedkort> oHovedkort;
+    ObservableList<Kabinett> oKabinett;
+    ObservableList<Lydkort> oLydkort;
+    ObservableList<Minne> oMinne;
+    ObservableList<Mus> oMus;
+    ObservableList<Prosessor> oProsessor;
+    ObservableList<Skjerm> oSkjerm;
+    ObservableList<Skjermkort> oSkjermkort;
+    ObservableList<Tastatur> oTastatur;
 
     // alt som må kjøres når controlleren starter
 
     public void initialize() {
+        oHarddisk = FXCollections.observableArrayList(KomponentRegister.getHarddiskArrayList());
+        oHovedkort = FXCollections.observableArrayList(KomponentRegister.getHovedkortArrayList());
+        oKabinett = FXCollections.observableArrayList(KomponentRegister.getKabinettArrayList());
+        oLydkort = FXCollections.observableArrayList(KomponentRegister.getLydkortArrayList());
+        oMinne = FXCollections.observableArrayList(KomponentRegister.getMinneArrayList());
+        oMus = FXCollections.observableArrayList(KomponentRegister.getMusArrayList());
+        oProsessor = FXCollections.observableArrayList(KomponentRegister.getProsessorArrayList());
+        oSkjerm = FXCollections.observableArrayList(KomponentRegister.getSkjermArrayList());
+        oSkjermkort = FXCollections.observableArrayList(KomponentRegister.getSkjermkortArrayList());
+        oTastatur = FXCollections.observableArrayList(KomponentRegister.getTastaturArrayList());
+
+        views = new ArrayList<>(Arrays.asList(tvHarddisk, tvHovedkort,
+                tvLydkort, tvSkjermkort, tvProsessor, tvMinne, tvKabinett,
+                tvSkjerm, tvTastatur, tvMus));
+
+        lister = new ArrayList<>(Arrays.asList(oHarddisk, oHovedkort,
+                oLydkort, oSkjermkort, oProsessor,
+                oMinne, oKabinett, oSkjerm, oTastatur, oMus));
+
+        registre = new ArrayList<>(Arrays.asList(KomponentRegister.getHarddiskArrayList()
+                , KomponentRegister.getHovedkortArrayList(), KomponentRegister.getLydkortArrayList()
+                , KomponentRegister.getSkjermkortArrayList(), KomponentRegister.getProsessorArrayList()
+                , KomponentRegister.getMinneArrayList(), KomponentRegister.getKabinettArrayList()
+                , KomponentRegister.getSkjermArrayList(), KomponentRegister.getTastaturArrayList()
+                , KomponentRegister.getMusArrayList()));
+
 
         // Tableview oppsett
         tvHarddisk.setItems(oHarddisk);
@@ -1117,13 +1143,11 @@ public class EndreKomponentController {
     // Søk
     String[] fane = {"Harddisk", "Hovedkort", "Lydkort", "Skjermkort", "Prosessor", "Minne", "Kabinett", "Skjerm",
             "Tastatur", "Mus"};
-    ArrayList<TableView<? extends Datakomponent>> views = new ArrayList<>(Arrays.asList(tvHarddisk, tvHovedkort,
-            tvLydkort, tvSkjermkort, tvProsessor, tvMinne, tvKabinett,
-            tvSkjerm, tvTastatur, tvMus));
-    ArrayList<ObservableList<? extends Datakomponent>> lister = new ArrayList<>(Arrays.asList(oHarddisk, oHovedkort,
-            oLydkort, oSkjermkort, oProsessor,
-            oMinne, oKabinett, oSkjerm, oTastatur, oMus));
+    ArrayList<TableView<? extends Datakomponent>> views;
 
+    ArrayList<ObservableList<? extends Datakomponent>> lister;
+
+    ArrayList<ArrayList<? extends Datakomponent>> registre;
     @FXML
     private JFXTextField txtSok;
 
@@ -1131,18 +1155,16 @@ public class EndreKomponentController {
     void sok(KeyEvent event) {
         for (int i = 0; i < fane.length; i++) {
             if(fane[i].equalsIgnoreCase(aktiv)) {
-                ObservableList<? extends Datakomponent> aktivListe = lister.get(i)
+                ObservableList aktivListe = lister.get(i)
                         .filtered(x -> x.getNavn().toLowerCase().contains(txtSok.getText().toLowerCase()));
 
-                var test = views.get(i).getItems().get(0);
-
-
-
-                views.get(i).getItems().clear();
-                for (int j = 0; j < aktivListe.size(); j++) {
-
+                try {
+                    views.get(i).setItems(aktivListe);
+                } catch (Exception e) {
 
                 }
+
+
             }
         }
 
@@ -1154,257 +1176,23 @@ public class EndreKomponentController {
     // Slette komponent
     @FXML
     void slett(ActionEvent event) {
-        if (aktiv.equalsIgnoreCase("Harddisk")){
-            if (tvHarddisk.isFocusTraversable()){
-                if(tvHarddisk.getSelectionModel().getSelectedItem() != null){
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                            tvHarddisk.getSelectionModel().getSelectedItem().toString())){
-                        Harddisk h = tvHarddisk.getSelectionModel().getSelectedItem();
-                        ArrayList<Harddisk> aktiv = KomponentRegister.getHarddiskArrayList();
-                        for(int i = 0; i < aktiv.size(); i++){
-                            if (h.getVarekode().equals(aktiv.get(i).getVarekode())){
-                                aktiv.remove(i);
-                                KomponentRegister.setHarddiskArrayList(aktiv);
-                                oHarddisk.setAll(KomponentRegister.getHarddiskArrayList());
-                                tvHarddisk.refresh();
-                                Dialogs.showSuccessDialog("Slettet");
+        for (int i = 0; i < fane.length; i++) {
+            if (fane[i].equalsIgnoreCase(aktiv)) {
+                if (views.get(i).getSelectionModel().getSelectedItem() != null) {
+                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette?\n" +
+                            views.get(i).getSelectionModel().getSelectedItem().toString())){
+                        var d = views.get(i).getSelectionModel().getSelectedItem();
+                        var aktiv = registre.get(i);
+                        for (int j = 0; j < registre.get(i).size(); j++) {
+                            if (d.getVarekode().equals(aktiv.get(j).getVarekode())) {
+                                aktiv.remove(d);
                                 try {
-                                    LagreKomponent.lagreHarddisk();
+                                    aktiv.get(0).lagre(aktiv);
+                                    initialize();
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
-                            }
-                        }
-                    }
-                }
-            }
-        }
 
-        if (aktiv.equalsIgnoreCase("Hovedkort")){
-            if (tvHovedkort.isFocusTraversable()){
-                if(tvHovedkort.getSelectionModel().getSelectedItem() != null){
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                            tvHovedkort.getSelectionModel().getSelectedItem().toString())){
-                        Hovedkort h = tvHovedkort.getSelectionModel().getSelectedItem();
-                        ArrayList<Hovedkort> aktiv = KomponentRegister.getHovedkortArrayList();
-                        for(int i = 0; i < aktiv.size(); i++){
-                            if (h.getVarekode().equals(aktiv.get(i).getVarekode())){
-                                aktiv.remove(i);
-                                KomponentRegister.setHovedkortArrayList(aktiv);
-                                oHovedkort.setAll(KomponentRegister.getHovedkortArrayList());
-                                tvHovedkort.refresh();
-                                Dialogs.showSuccessDialog("Slettet");
-                                try {
-                                    LagreKomponent.lagreHovedkort();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Lydkort")){
-            if (tvLydkort.isFocusTraversable()){
-                if(tvLydkort.getSelectionModel().getSelectedItem() != null){
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                            tvLydkort.getSelectionModel().getSelectedItem().toString())){
-                        Lydkort l = tvLydkort.getSelectionModel().getSelectedItem();
-                        ArrayList<Lydkort> aktiv = KomponentRegister.getLydkortArrayList();
-                        for(int i = 0; i < aktiv.size(); i++){
-                            if (l.getVarekode().equals(aktiv.get(i).getVarekode())){
-                                aktiv.remove(i);
-                                KomponentRegister.setLydkortArrayList(aktiv);
-                                oLydkort.setAll(KomponentRegister.getLydkortArrayList());
-                                tvLydkort.refresh();
-                                Dialogs.showSuccessDialog("Slettet");
-                                try {
-                                    LagreKomponent.lagreLydkort();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Skjermkort")){
-            if (tvSkjermkort.isFocusTraversable()){
-                if(tvSkjermkort.getSelectionModel().getSelectedItem() != null){
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                            tvSkjermkort.getSelectionModel().getSelectedItem().toString())){
-                        Skjermkort s = tvSkjermkort.getSelectionModel().getSelectedItem();
-                        ArrayList<Skjermkort> aktiv = KomponentRegister.getSkjermkortArrayList();
-                        for(int i = 0; i < aktiv.size(); i++){
-                            if (s.getVarekode().equals(aktiv.get(i).getVarekode())){
-                                aktiv.remove(i);
-                                KomponentRegister.setSkjermkortArrayList(aktiv);
-                                oSkjermkort.setAll(KomponentRegister.getSkjermkortArrayList());
-                                tvSkjermkort.refresh();
-                                Dialogs.showSuccessDialog("Slettet");
-                                try {
-                                    LagreKomponent.lagreSkjermkort();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Prosessor")){
-            if (tvProsessor.isFocusTraversable()){
-                if(tvProsessor.getSelectionModel().getSelectedItem() != null){
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                            tvProsessor.getSelectionModel().getSelectedItem().toString())){
-                        Prosessor p = tvProsessor.getSelectionModel().getSelectedItem();
-                        ArrayList<Prosessor> aktiv = KomponentRegister.getProsessorArrayList();
-                        for(int i = 0; i < aktiv.size(); i++){
-                            if (p.getVarekode().equals(aktiv.get(i).getVarekode())){
-                                aktiv.remove(i);
-                                KomponentRegister.setProsessorArrayList(aktiv);
-                                oProsessor.setAll(KomponentRegister.getProsessorArrayList());
-                                tvProsessor.refresh();
-                                Dialogs.showSuccessDialog("Slettet");
-                                try {
-                                    LagreKomponent.lagreProsessor();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Minne")){
-            if (tvMinne.isFocusTraversable()){
-                if(tvMinne.getSelectionModel().getSelectedItem() != null){
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                            tvMinne.getSelectionModel().getSelectedItem().toString())){
-                        Minne m = tvMinne.getSelectionModel().getSelectedItem();
-                        ArrayList<Minne> aktiv = KomponentRegister.getMinneArrayList();
-                        for(int i = 0; i < aktiv.size(); i++){
-                            if (m.getVarekode().equals(aktiv.get(i).getVarekode())){
-                                aktiv.remove(i);
-                                KomponentRegister.setMinneArrayList(aktiv);
-                                oMinne.setAll(KomponentRegister.getMinneArrayList());
-                                tvMinne.refresh();
-                                Dialogs.showSuccessDialog("Slettet");
-                                try {
-                                    LagreKomponent.lagreMinne();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Kabinett")){
-            if (tvKabinett.isFocusTraversable()){
-                if(tvKabinett.getSelectionModel().getSelectedItem() != null){
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                            tvKabinett.getSelectionModel().getSelectedItem().toString())){
-                        Kabinett k = tvKabinett.getSelectionModel().getSelectedItem();
-                        ArrayList<Kabinett> aktiv = KomponentRegister.getKabinettArrayList();
-                        for(int i = 0; i < aktiv.size(); i++){
-                            if (k.getVarekode().equals(aktiv.get(i).getVarekode())){
-                                aktiv.remove(i);
-                                KomponentRegister.setKabinettArrayList(aktiv);
-                                oHarddisk.setAll(KomponentRegister.getHarddiskArrayList());
-                                tvKabinett.refresh();
-                                Dialogs.showSuccessDialog("Slettet");
-                                try {
-                                    LagreKomponent.lagreKabinett();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Skjerm")){
-            if(tvSkjerm.getSelectionModel().getSelectedItem() != null){
-                if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                        tvSkjerm.getSelectionModel().getSelectedItem().toString())){
-                    Skjerm s = tvSkjerm.getSelectionModel().getSelectedItem();
-                    ArrayList<Skjerm> aktiv = KomponentRegister.getSkjermArrayList();
-                    for(int i = 0; i < aktiv.size(); i++){
-                        if (s.getVarekode().equals(aktiv.get(i).getVarekode())){
-                            aktiv.remove(i);
-                            KomponentRegister.setSkjermArrayList(aktiv);
-                            oSkjerm.setAll(KomponentRegister.getSkjermArrayList());
-                            tvSkjerm.refresh();
-                            Dialogs.showSuccessDialog("Slettet");
-                            try {
-                                LagreKomponent.lagreHarddisk();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Tastatur")){
-            if (tvTastatur.isFocusTraversable()){
-                if(tvTastatur.getSelectionModel().getSelectedItem() != null){
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                            tvTastatur.getSelectionModel().getSelectedItem().toString())){
-                        Tastatur t = tvTastatur.getSelectionModel().getSelectedItem();
-                        ArrayList<Tastatur> aktiv = KomponentRegister.getTastaturArrayList();
-                        for(int i = 0; i < aktiv.size(); i++){
-                            if (t.getVarekode().equals(aktiv.get(i).getVarekode())){
-                                aktiv.remove(i);
-                                KomponentRegister.setTastaturArrayList(aktiv);
-                                oTastatur.setAll(KomponentRegister.getTastaturArrayList());
-                                tvTastatur.refresh();
-                                Dialogs.showSuccessDialog("Slettet");
-                                try {
-                                    LagreKomponent.lagreTastatur();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Mus")){
-            if (tvMus.isFocusTraversable()){
-                if(tvMus.getSelectionModel().getSelectedItem() != null){
-                    if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
-                            tvMus.getSelectionModel().getSelectedItem().toString())){
-                        Mus m = tvMus.getSelectionModel().getSelectedItem();
-                        ArrayList<Mus> aktiv = KomponentRegister.getMusArrayList();
-                        for(int i = 0; i < aktiv.size(); i++){
-                            if (m.getVarekode().equals(aktiv.get(i).getVarekode())){
-                                aktiv.remove(i);
-                                KomponentRegister.setMusArrayList(aktiv);
-                                oMus.setAll(KomponentRegister.getMusArrayList());
-                                tvMus.refresh();
-                                Dialogs.showSuccessDialog("Slettet");
-                                try {
-                                    LagreKomponent.lagreMus();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
                             }
                         }
                     }
@@ -1434,112 +1222,20 @@ public class EndreKomponentController {
 
         for (int i = 0; i < fane.length; i++) {
             if (fane[i].equalsIgnoreCase(aktiv)) {
-                System.out.println(fane[i] + " " + i);
-                /*
-                if (views.get(i).getSelectionModel().getSelectedItem() != null) {
-                    var d = views.get(i).getSelectionModel().getSelectedItem();
-                    datakomponent = new Komponent<>(d);
-                    VisKomponentController.setDatakomponent(d);
-                    visKomponent();
-                }
-                 */
+                velgKomponent(views.get(i));
+
             }
         }
 
-        /*
-        if (aktiv.equalsIgnoreCase("Harddisk")) {
-            if (tvHarddisk.getSelectionModel().getSelectedItem() != null) {
-                Harddisk h = tvHarddisk.getSelectionModel().getSelectedItem();
+    }
 
-                datakomponent = new Komponent<>(h);
-                VisKomponentController.setDatakomponent(h);
-                visKomponent();
-
-                //Dialogs.showInformationDialog("Harddisk", h.toString());
-            }
+    private void velgKomponent(TableView<? extends Datakomponent> view) {
+        if(view.getSelectionModel().getSelectedItem() != null) {
+            var d = view.getSelectionModel().getSelectedItem();
+            datakomponent = new Komponent<>(d);
+            VisKomponentController.setDatakomponent(d);
+            visKomponent();
         }
-
-        if (aktiv.equalsIgnoreCase("Hovedkort")) {
-            if (tvHovedkort.getSelectionModel().getSelectedItem() != null) {
-                Hovedkort h = tvHovedkort.getSelectionModel().getSelectedItem();
-
-                datakomponent = new Komponent<>(h);
-                visKomponent();
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Lydkort")) {
-            if (tvLydkort.getSelectionModel().getSelectedItem() != null) {
-                Lydkort l = tvLydkort.getSelectionModel().getSelectedItem();
-
-                datakomponent = new Komponent<>(l);
-                visKomponent();
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Skjermkort")) {
-            if (tvSkjermkort.getSelectionModel().getSelectedItem() != null) {
-                Skjermkort s = tvSkjermkort.getSelectionModel().getSelectedItem();
-
-                datakomponent = new Komponent<>(s);
-                visKomponent();
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Prosessor")) {
-            if (tvProsessor.getSelectionModel().getSelectedItem() != null) {
-                Prosessor p = tvProsessor.getSelectionModel().getSelectedItem();
-
-                datakomponent = new Komponent<>(p);
-                visKomponent();
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Minne")) {
-            if (tvMinne.getSelectionModel().getSelectedItem() != null) {
-                Minne m = tvMinne.getSelectionModel().getSelectedItem();
-
-                datakomponent = new Komponent<>(m);
-                visKomponent();
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Kabinett")) {
-            if (tvHarddisk.getSelectionModel().getSelectedItem() != null) {
-                Kabinett k = tvKabinett.getSelectionModel().getSelectedItem();
-
-                datakomponent = new Komponent<>(k);
-                visKomponent();
-            }
-        }
-
-        if(aktiv.equalsIgnoreCase("Skjerm")) {
-            if (tvSkjerm.getSelectionModel().getSelectedItem() != null) {
-                Skjerm s = tvSkjerm.getSelectionModel().getSelectedItem();
-
-                datakomponent = new Komponent<>(s);
-                visKomponent();
-            }
-        }
-
-        if (aktiv.equalsIgnoreCase("Tastatur")) {
-            if (tvTastatur.getSelectionModel().getSelectedItem() != null) {
-                Tastatur t = tvTastatur.getSelectionModel().getSelectedItem();
-
-                datakomponent = new Komponent<>(t);
-                visKomponent();
-            }
-        }
-
-        if(aktiv.equalsIgnoreCase("Mus")) {
-            if (tvMus.getSelectionModel().getSelectedItem() != null) {
-                Mus m = tvMus.getSelectionModel().getSelectedItem();
-
-                datakomponent = new Komponent<>(m);
-                visKomponent();
-            }
-        }
-        */
     }
 
     private void visKomponent() {
@@ -1550,8 +1246,6 @@ public class EndreKomponentController {
             stage.setTitle("Datakomponent");
             stage.setScene(new Scene(root, 600, 400));
             stage.show();
-            // Hide this current window (if this is what you want)
-            //((Node)(event.getSource())).getScene().getWindow().hide();
         }
         catch (IOException e) {
             e.printStackTrace();

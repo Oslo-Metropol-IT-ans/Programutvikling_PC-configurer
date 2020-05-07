@@ -40,14 +40,21 @@
     -fx-background-color: #212121;
 }
 
+#txtBrukernavn {
+    -fx-text-fill: white!important;
+    -fx-prompt-text-fill: #9C2B27!important;
+    -fx-background-color: transparent!important;
+}
+
 .text-field {
+    -fx-background-color: gray;
     -fx-text-fill: white;
-    -fx-prompt-text-fill: #9C2B27;
 }
 
 .password-field {
     -fx-text-fill: white;
     -fx-prompt-text-fill: #9C2B27;
+    -fx-background-color: transparent!important;
 }
 
 .label {

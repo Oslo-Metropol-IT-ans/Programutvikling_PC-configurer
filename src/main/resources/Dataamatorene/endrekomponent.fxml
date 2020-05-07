@@ -62,7 +62,7 @@
                                               </TableColumn>
                                                 <TableColumn fx:id="tbBrukerHarddisk" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
-                                                      <PropertyValueFactory property="navn" />
+                                                      <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
                                                 <TableColumn fx:id="tbDatoHarddisk" prefWidth="114.5" text="Dato">

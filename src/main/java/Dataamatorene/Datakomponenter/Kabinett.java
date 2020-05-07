@@ -3,7 +3,9 @@ package Dataamatorene.Datakomponenter;
 import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Kabinett extends Datakomponent implements Serializable, Comparable<Datakomponent> {
 
@@ -43,6 +45,12 @@ public class Kabinett extends Datakomponent implements Serializable, Comparable<
     public String getBeskrivelse() {
         return String.format("%s\n%scm med %s vifter\nPris: %skr, varekode: %s", navn, storrelse, antallVifter,
                 pris, getVarekode());
+    }
+
+    @Override
+    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
+        KomponentRegister.setKabinettArrayList((ArrayList<Kabinett>) liste);
+        LagreKomponent.lagreKabinett();
     }
 
     @Override

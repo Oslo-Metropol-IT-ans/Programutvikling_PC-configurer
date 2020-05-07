@@ -13,6 +13,7 @@ import java.io.*;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Datakomponent implements Serializable {
 
@@ -93,7 +94,7 @@ public class Datakomponent implements Serializable {
         return String.format("%s\n%skr, varekode: %s", navn, pris, getVarekode());
     }
 
-    public void lagre() throws IOException {
+    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
         LagreKomponent.lagreAlle();
     }
 

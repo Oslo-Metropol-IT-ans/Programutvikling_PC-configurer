@@ -20,6 +20,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 public class NyBrukerController {
 
@@ -56,9 +57,6 @@ public class NyBrukerController {
 
     @FXML
     private TextField txtBrukernavn;
-
-    @FXML
-    private Label lblTilbakemelding;
 
     @FXML
     private PasswordField pwPassword;
@@ -152,9 +150,11 @@ public class NyBrukerController {
         if (pwPassword.isVisible()) {
             txtPassword.setVisible(true);
             pwPassword.setVisible(false);
+            txtPassword.requestFocus();
         } else {
             txtPassword.setVisible(false);
             pwPassword.setVisible(true);
+            pwPassword.requestFocus();
         }
 
     }

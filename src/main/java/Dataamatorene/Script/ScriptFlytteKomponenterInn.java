@@ -17,7 +17,7 @@ public class ScriptFlytteKomponenterInn {
         FileOpener opener = new FileOpenerJobj();
 
         try {
-            BrukerRegister.setAktivBruker((Bruker)opener.read("src/main/java/Dataamatorene/Files/Login.jobj").get(0));
+            BrukerRegister.setAktivBruker((Bruker)opener.read("src/main/java/Dataamatorene/Files/Login.jobj").get(1));
             ArrayList<Harddisk2> harddisks = (ArrayList<Harddisk2>) opener.read("src/main/java/Dataamatorene/Files/Harddisk.jobj");
             ArrayList<Hovedkort2> hovedkorts = (ArrayList<Hovedkort2>) opener.read("src/main/java/Dataamatorene/Files/Hovedkort.jobj");
             ArrayList<Lydkort2> lydkorts = (ArrayList<Lydkort2>) opener.read("src/main/java/Dataamatorene/Files/Lydkort.jobj");

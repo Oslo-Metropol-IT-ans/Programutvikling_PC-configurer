@@ -3,7 +3,9 @@ package Dataamatorene.Datakomponenter;
 import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Mus extends Datakomponent implements Serializable, Comparable<Mus> {
 
@@ -48,6 +50,12 @@ public class Mus extends Datakomponent implements Serializable, Comparable<Mus> 
         else
             return String.format("%s\nEn mus med tråd, med %s knapper\nPris: %skr, varekdoe: %s", navn, antallKnapper,
                     pris, getVarekode());
+    }
+
+    @Override
+    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
+        KomponentRegister.setMusArrayList((ArrayList<Mus>) liste);
+        LagreKomponent.lagreMus();
     }
 
     @Override

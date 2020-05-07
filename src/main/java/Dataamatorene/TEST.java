@@ -24,14 +24,8 @@ import java.util.*;
 
 public class TEST {
     public static void main(String[] args) {
-        Datakomponent hei = new Datakomponent("hei", 12, 1, null);
-        Harddisk harddisk = new Harddisk("på", 12, 2, null, 1024);
-
-        Datakomponent to = harddisk;
-
-        Harddisk h2 = (harddisk.getClass().cast(to));
-
-        //System.out.println(h2.);
+        BestillingsRegister.setBestillinger(new ArrayList<>());
+        BestillingsRegister.lagreBestillinger();
 
     }
 

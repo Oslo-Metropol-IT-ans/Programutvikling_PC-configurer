@@ -3,7 +3,9 @@ package Dataamatorene.Datakomponenter;
 import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Minne extends Datakomponent implements Serializable, Comparable<Minne> {
 
@@ -42,6 +44,12 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
     @Override
     public String getBeskrivelse() {
         return String.format("%s\n%s GB RAM, %s\nPris: %skr, varekode: %s", navn, ram, frekvens, pris, getVarekode());
+    }
+
+    @Override
+    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
+        KomponentRegister.setMinneArrayList((ArrayList<Minne>) liste);
+        LagreKomponent.lagreMinne();
     }
 
     @Override

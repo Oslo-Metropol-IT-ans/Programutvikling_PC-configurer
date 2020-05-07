@@ -3,7 +3,9 @@ package Dataamatorene.Datakomponenter;
 import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Prosessor extends Datakomponent implements Serializable, Comparable<Prosessor> {
 
@@ -54,6 +56,12 @@ public class Prosessor extends Datakomponent implements Serializable, Comparable
     public String getBeskrivelse() {
         return String.format("%s\n%s GHz, %s-core, %s-thread prosessor\nPris: %skr, varekode: %s", navn, frekvens,
                 antallKjerner, antallTrader, pris, getVarekode());
+    }
+
+    @Override
+    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
+        KomponentRegister.setProsessorArrayList((ArrayList<Prosessor>) liste);
+        LagreKomponent.lagreProsessor();
     }
 
     @Override

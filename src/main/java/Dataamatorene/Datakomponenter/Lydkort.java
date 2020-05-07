@@ -3,7 +3,9 @@ package Dataamatorene.Datakomponenter;
 import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Lydkort extends Datakomponent implements Serializable, Comparable<Lydkort> {
 
@@ -45,6 +47,12 @@ public class Lydkort extends Datakomponent implements Serializable, Comparable<L
         if(integrert){
             return String.format("%s\n %s integrert\nPris; %skr, varekode: %s", navn, frekvens, pris, getVarekode());
         } else return String.format("%s\n %s ikke integrert\nPris: %skr, varekode: %s", navn, frekvens, pris, getVarekode());
+    }
+
+    @Override
+    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
+        KomponentRegister.setLydkortArrayList((ArrayList<Lydkort>) liste);
+        LagreKomponent.lagreLydkort();
     }
 
     @Override

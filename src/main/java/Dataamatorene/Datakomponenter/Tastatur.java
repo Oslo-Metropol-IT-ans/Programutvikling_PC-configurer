@@ -3,7 +3,9 @@ package Dataamatorene.Datakomponenter;
 import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Tastatur extends Datakomponent implements Serializable, Comparable<Tastatur> {
 
@@ -64,6 +66,12 @@ public class Tastatur extends Datakomponent implements Serializable, Comparable<
         else
             return String.format("%s\nEt ikke-mekanisk tastatur uten lys, %s\nPris: %skr, varekode: %s", navn, sprak
                     , pris, getVarekode());
+    }
+
+    @Override
+    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
+        KomponentRegister.setTastaturArrayList((ArrayList<Tastatur>) liste);
+        LagreKomponent.lagreTastatur();
     }
 
     @Override

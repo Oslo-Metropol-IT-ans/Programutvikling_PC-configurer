@@ -5,6 +5,7 @@ import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Tasks.*;
+import com.jfoenix.controls.JFXProgressBar;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

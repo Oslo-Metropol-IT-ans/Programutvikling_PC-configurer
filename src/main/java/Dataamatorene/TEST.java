@@ -20,20 +20,18 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class TEST {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        FileOpener opener = new FileOpenerJobj();
-       ArrayList<Bestilling> liste = (ArrayList<Bestilling>) opener
-               .read("src/main/java/Dataamatorene/Files/Bestillinger.jobj");
+    public static void main(String[] args) {
+        Datakomponent hei = new Datakomponent("hei", 12, 1, null);
+        Harddisk harddisk = new Harddisk("på", 12, 2, null, 1024);
 
-       for (Bestilling b:liste) {
-           System.out.println(b.getBestillingsnummerT());
-       }
+        Datakomponent to = harddisk;
+
+        Harddisk h2 = (harddisk.getClass().cast(to));
+
+        //System.out.println(h2.);
 
     }
 

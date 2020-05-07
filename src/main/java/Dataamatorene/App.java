@@ -24,7 +24,7 @@ public class App extends Application { // Klassen for å starte hele programmet 
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("youtube"));
+        scene = new Scene(loadFXML("login"));
         stage.getIcons().add(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/java.png")));
 
         stage.setScene(scene);

@@ -229,7 +229,7 @@
                                                    </padding>
                                                    <children>
                                                       <Label text="Oppløsning:" />
-                                                      <TextField fx:id="txtOppløsningSkjermkort" prefWidth="350.0" />
+                                                      <TextField fx:id="txtOpplosningSkjermkort" prefWidth="350.0" />
                                                    </children>
                                                 </HBox>
                                              </children>
@@ -649,6 +649,6 @@
          </font></Button>
    </children>
    <stylesheets>
-      <URL value="@style.css" />
+      <URL value="@style4.css" />
    </stylesheets>
 </AnchorPane>

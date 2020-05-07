@@ -14,10 +14,11 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class LagKomponentController {
 
@@ -51,7 +52,7 @@ public class LagKomponentController {
             });
         }
 
-        TextField[] skjermkortfelt = {txtVareSkjermkort, txtNavnSkjermkort, txtPrisSkjermkort, txtOppløsningSkjermkort};
+        TextField[] skjermkortfelt = {txtVareSkjermkort, txtNavnSkjermkort, txtPrisSkjermkort, txtOpplosningSkjermkort};
         for (TextField t:skjermkortfelt) {
             t.setOnKeyPressed(keyEvent -> {
                 if (keyEvent.getCode() == KeyCode.ENTER) {
@@ -117,17 +118,7 @@ public class LagKomponentController {
         }
 
         // Initialiserer varekode til textfield
-        finnVarekodeHarddisk();
-        finnVarekodeHovedkort();
-        finnVarekodeLydkort();
-        finnVarekodeSkjermkort();
-        finnVarekodeProsessor();
-        finnVarekodeMinne();
-        finnVarekodeKabientt();
-        finnVarekodeSkjerm();
-        finnVarekodeKabientt();
-        finnVarekodeTastatur();
-        finnVarekodeMus();
+        finnVarekoder();
     }
 
 
@@ -181,7 +172,7 @@ public class LagKomponentController {
     private TextField txtPrisSkjermkort;
 
     @FXML
-    private TextField txtOppløsningSkjermkort;
+    private TextField txtOpplosningSkjermkort;
 
     @FXML
     private TextField txtVareProsessor;
@@ -315,8 +306,7 @@ public class LagKomponentController {
             txtPrisHarddisk.setText("");
             ivHarddisk.setImage(null);
             Dialogs.showSuccessDialog("Harddisken ble lagret");
-            finnVarekodeHarddisk();
-
+            finnVarekoder();
         } catch (IOException e) {
             Dialogs.showErrorDialog("Dette skjedde en feil under lagring");
         } catch (IllegalArgumentException e) {
@@ -338,17 +328,15 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisHovedkort.getText());
             int porter = KomponentValidering.porterValidering(txtPorterHovedkort.getText());
-            //Hovedkort h = new Hovedkort(navn, pris, varekode, null, porter);
-            //KomponentRegister.addHovedkort(h);
+            Hovedkort h = new Hovedkort(navn, pris, varekode, null, porter);
+            KomponentRegister.addHovedkort(h);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreHovedkort();
             txtNavnHovedkort.setText("");
             txtPorterHovedkort.setText("");
             txtPrisHovedkort.setText("");
             Dialogs.showSuccessDialog("Hovedkortet er lagret");
-            if (KomponentRegister.getHovedkortArrayList().size() < 9) {
-                txtVareHovedkort.setText("0200" + (KomponentRegister.getHovedkortArrayList().size() + 1));
-            } else txtVareHovedkort.setText("020" + (KomponentRegister.getHovedkortArrayList().size() + 1));
+            finnVarekoder();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e){
@@ -372,8 +360,8 @@ public class LagKomponentController {
             String størrelse = KomponentValidering.størrelseValidering(txtStorrelseKabinett.getText());
             int vifter = KomponentValidering.vifterValidering(txtVifterKabientt.getText());
 
-            //Kabinett k = new Kabinett(navn, pris, varekode, null, størrelse, vifter);
-            //KomponentRegister.addKabinett(k);
+            Kabinett k = new Kabinett(navn, pris, varekode, null, størrelse, vifter);
+            KomponentRegister.addKabinett(k);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreKabinett();
             txtNavnKabinett.setText("");
@@ -381,9 +369,7 @@ public class LagKomponentController {
             txtStorrelseKabinett.setText("");
             txtVifterKabientt.setText("");
             Dialogs.showSuccessDialog("Kabinettet ble lagret");
-            if (KomponentRegister.getKabinettArrayList().size() < 9) {
-                txtVareKabinett.setText("0700" + (KomponentRegister.getKabinettArrayList().size() + 1));
-            } else txtVareKabinett.setText("070" + (KomponentRegister.getKabinettArrayList().size() + 1));
+            finnVarekoder();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -407,8 +393,8 @@ public class LagKomponentController {
             boolean integrert = tbIntegrertLydkort.isSelected();
             double frekvens = KomponentValidering.frekvensValideringKHz(txtFrekvensLydkort.getText());
 
-            //Lydkort l = new Lydkort(navn, pris, varekode, null, integrert, frekvens);
-            //KomponentRegister.addLydkort(l);
+            Lydkort l = new Lydkort(navn, pris, varekode, null, integrert, frekvens);
+            KomponentRegister.addLydkort(l);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreLydkort();
             txtNavnLydkort.setText("");
@@ -416,9 +402,7 @@ public class LagKomponentController {
             txtFrekvensLydkort.setText("");
             tbIntegrertLydkort.setSelected(false);
             Dialogs.showSuccessDialog("Lydkortet er lagret");
-            if (KomponentRegister.getLydkortArrayList().size() < 9) {
-                txtVareLydkort.setText("0300" + (KomponentRegister.getLydkortArrayList().size() + 1));
-            } else txtVareLydkort.setText("030" + (KomponentRegister.getLydkortArrayList().size() + 1));
+            finnVarekoder();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -442,8 +426,8 @@ public class LagKomponentController {
             int ram = KomponentValidering.ramValidering(txtRamMinne.getText());
             double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensMinne.getText());
 
-            //Minne m = new Minne(navn, pris, varekode, null, ram, frekvens);
-            //KomponentRegister.addMinne(m);
+            Minne m = new Minne(navn, pris, varekode, null, ram, frekvens);
+            KomponentRegister.addMinne(m);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreMinne();
             txtNavnMinne.setText("");
@@ -451,9 +435,7 @@ public class LagKomponentController {
             txtRamMinne.setText("");
             txtFrekvensMinne.setText("");
             Dialogs.showSuccessDialog("Minnet er lagret");
-            if (KomponentRegister.getMinneArrayList().size() < 9) {
-                txtVareMinne.setText("0600" + (KomponentRegister.getMinneArrayList().size() + 1));
-            } else txtVareMinne.setText("060" + (KomponentRegister.getMinneArrayList().size() + 1));
+            finnVarekoder();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -476,8 +458,8 @@ public class LagKomponentController {
             boolean tråd = tbTradlosMus.isSelected();
             int knapper = KomponentValidering.knapperValidering(txtKnapperMus.getText());
 
-            //Mus m = new Mus(navn, pris, varekode, null, tråd, knapper);
-            //KomponentRegister.addMus(m);
+            Mus m = new Mus(navn, pris, varekode, null, tråd, knapper);
+            KomponentRegister.addMus(m);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreMus();
             txtNavnMus.setText("");
@@ -485,9 +467,7 @@ public class LagKomponentController {
             tbTradlosMus.setSelected(false);
             txtKnapperMus.setText("");
             Dialogs.showSuccessDialog("Musen er lagret");
-            if (KomponentRegister.getMusArrayList().size() < 9) {
-                txtVareMus.setText("1000" + (KomponentRegister.getMusArrayList().size() + 1));
-            } else txtVareMus.setText("100" + (KomponentRegister.getMusArrayList().size() + 1));
+            finnVarekoder();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -509,10 +489,10 @@ public class LagKomponentController {
             double pris = KomponentValidering.prisValidering(txtPrisProsessor.getText());
             int kjerner = KomponentValidering.kjernerValidering(txtKjernerProsessor.getText());
             double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensProsessor.getText());
-            int tråder = KomponentValidering.traderValidering(txtTraderProsessor.getText());
+            int trader = KomponentValidering.traderValidering(txtTraderProsessor.getText());
 
-            //Prosessor p = new Prosessor(navn, pris, varekode, null, kjerner, frekvens, tråder);
-            //KomponentRegister.addProsessor(p);
+            Prosessor p = new Prosessor(navn, pris, varekode, null, kjerner, frekvens, trader);
+            KomponentRegister.addProsessor(p);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreProsessor();
             txtNavnProsessor.setText("");
@@ -521,9 +501,7 @@ public class LagKomponentController {
             txtFrekvensProsessor.setText("");
             txtTraderProsessor.setText("");
             Dialogs.showSuccessDialog("Prosessoren er lagret");
-            if (KomponentRegister.getProsessorArrayList().size() < 9) {
-                txtVareProsessor.setText("0500" + (KomponentRegister.getProsessorArrayList().size() + 1));
-            } else txtVareProsessor.setText("050" + (KomponentRegister.getProsessorArrayList().size() + 1));
+            finnVarekoder();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -546,8 +524,8 @@ public class LagKomponentController {
             String oppløsning = KomponentValidering.opplosningValidering(txtOpplosningSkjerm.getText());
             double størrelse = KomponentValidering.skjermstorrelseValidering(txtStorrelseSkjerm.getText());
 
-            //Skjerm s = new Skjerm(navn, pris, varekode, null, oppløsning, størrelse);
-            //KomponentRegister.addSkjerm(s);
+            Skjerm s = new Skjerm(navn, pris, varekode, null, oppløsning, størrelse);
+            KomponentRegister.addSkjerm(s);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreSkjerm();
             txtNavnSkjerm.setText("");
@@ -555,9 +533,7 @@ public class LagKomponentController {
             txtPrisSkjerm.setText("");
             txtStorrelseSkjerm.setText("");
             Dialogs.showSuccessDialog("Skjermen ble lagret");
-            if (KomponentRegister.getSkjermArrayList().size() < 9) {
-                txtVareSkjerm.setText("0800" + (KomponentRegister.getSkjermArrayList().size() + 1));
-            } else txtVareSkjerm.setText("080" + (KomponentRegister.getSkjermArrayList().size() + 1));
+            finnVarekoder();
         } catch (IOException e) {
             Dialogs.showErrorDialog("Dette skjedde en feil under lagring");
         } catch (IllegalArgumentException e) {
@@ -578,18 +554,18 @@ public class LagKomponentController {
             int varekode = KomponentValidering.varekodeValidering(txtVareSkjermkort.getText());
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisSkjermkort.getText());
-            String oppløsning = KomponentValidering.opplosningValidering(txtOppløsningSkjermkort.getText());
+            String oppløsning = KomponentValidering.opplosningValidering(txtOpplosningSkjermkort.getText());
 
-            //Skjermkort s = new Skjermkort(navn, pris, varekode, null, oppløsning);
-            //KomponentRegister.addSkjermkort(s);
+            Skjermkort s = new Skjermkort(navn, pris, varekode, null, oppløsning);
+            KomponentRegister.addSkjermkort(s);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreSkjermkort();
 
             txtNavnSkjermkort.setText("");
             txtPrisSkjermkort.setText("");
-            txtOppløsningSkjermkort.setText("");
+            txtOpplosningSkjermkort.setText("");
             Dialogs.showSuccessDialog("Skjermkortet ble lagret");
-            finnVarekodeSkjermkort();
+            finnVarekoder();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -615,8 +591,8 @@ public class LagKomponentController {
             boolean mekanisk = tbMekaniskTastatur.isSelected();
             boolean rgb = txtRGBTastatur.isSelected();
 
-            //Tastatur t = new Tastatur(navn, pris, varekode, null,  språk, mekanisk, rgb);
-            //KomponentRegister.addTastatur(t);
+            Tastatur t = new Tastatur(navn, pris, varekode, null,  språk, mekanisk, rgb);
+            KomponentRegister.addTastatur(t);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreTastatur();
             txtNavnTastatur.setText("");
@@ -625,9 +601,7 @@ public class LagKomponentController {
             tbMekaniskTastatur.setSelected(false);
             txtRGBTastatur.setSelected(false);
             Dialogs.showSuccessDialog("Tastaturet ble lagret");
-            if (KomponentRegister.getTastaturArrayList().size() < 9) {
-                txtVareTastatur.setText("0900" + (KomponentRegister.getTastaturArrayList().size() + 1));
-            } else txtVareTastatur.setText("090" + (KomponentRegister.getTastaturArrayList().size() + 1));
+            finnVarekoder();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -651,104 +625,25 @@ public class LagKomponentController {
     }
 
     // Metoder til å finne neste varekode
-    private void finnVarekodeHarddisk() {
-        int varekodeHarddisk = 1001;
-        for (int i = 0; i < KomponentRegister.getHarddiskArrayList().size(); i++) {
-            if(varekodeHarddisk == Integer.parseInt(KomponentRegister.getHarddiskArrayList().get(i).getVarekode())) {
-                varekodeHarddisk++;
-            }
-        }
-        txtVareHarddisk.setText("0" + varekodeHarddisk);
-    }
 
-    private void finnVarekodeHovedkort() {
-        int varekodeHovedkort = 2001;
-        for (int i = 0; i < KomponentRegister.getHovedkortArrayList().size(); i++) {
-            if (varekodeHovedkort == Integer.parseInt(KomponentRegister.getHovedkortArrayList().get(i).getVarekode())) {
-                varekodeHovedkort++;
+    private void finnVarekoder() {
+        TextField[] textFields = {txtVareHarddisk, txtVareHovedkort, txtVareLydkort, txtVareSkjermkort, txtVareProsessor,
+        txtVareMinne, txtVareKabinett, txtVareSkjerm, txtVareTastatur, txtVareMus};
+        ArrayList<ArrayList<? extends Datakomponent>> lister = new ArrayList<>(Arrays.asList(
+                KomponentRegister.getHarddiskArrayList(), KomponentRegister.getHovedkortArrayList(),
+                KomponentRegister.getLydkortArrayList(), KomponentRegister.getSkjermkortArrayList(),
+                KomponentRegister.getProsessorArrayList(), KomponentRegister.getMinneArrayList(),
+                KomponentRegister.getKabinettArrayList(), KomponentRegister.getSkjermArrayList(),
+                KomponentRegister.getTastaturArrayList(), KomponentRegister.getMusArrayList()));
+        for (int i = 0; i < textFields.length; i++) {
+            int varekode = (i + 1) * 1000 + 1;
+            for (int j = 0; j < lister.get(i).size(); j++) {
+                if (varekode == Integer.parseInt(lister.get(i).get(j).getVarekode())) {
+                    varekode++;
+                }
             }
+            textFields[i].setText(String.valueOf(varekode));
         }
-        txtVareHovedkort.setText("0" + varekodeHovedkort);
-    }
-
-    private void finnVarekodeLydkort() {
-        int varekodeLydkort = 3002;
-        for (int i = 0; i < KomponentRegister.getLydkortArrayList().size(); i++) {
-            if (varekodeLydkort == Integer.parseInt(KomponentRegister.getLydkortArrayList().get(i).getVarekode())) {
-                varekodeLydkort++;
-            }
-        }
-        txtVareLydkort.setText("0" + varekodeLydkort);
-    }
-
-    private void finnVarekodeSkjermkort() {
-        int varekodeSkjermkort = 4001;
-        for (int i = 0; i < KomponentRegister.getSkjermkortArrayList().size(); i++) {
-            if (varekodeSkjermkort == Integer.parseInt(KomponentRegister.getSkjermkortArrayList().get(i).getVarekode())) {
-                varekodeSkjermkort++;
-            }
-        }
-        txtVareSkjermkort.setText("0" + varekodeSkjermkort);
-    }
-
-    private void finnVarekodeProsessor() {
-        int varekodeProsessor = 5001;
-        for (int i = 0; i < KomponentRegister.getProsessorArrayList().size(); i++) {
-            if (varekodeProsessor == Integer.parseInt(KomponentRegister.getProsessorArrayList().get(i).getVarekode())) {
-                varekodeProsessor++;
-            }
-        }
-        txtVareProsessor.setText("0" + varekodeProsessor);
-    }
-
-    private void finnVarekodeMinne() {
-        int varekodeMinne = 6001;
-        for (int i = 0; i < KomponentRegister.getMinneArrayList().size(); i++) {
-            if (varekodeMinne == Integer.parseInt(KomponentRegister.getMinneArrayList().get(i).getVarekode())) {
-                varekodeMinne++;
-            }
-        }
-        txtVareMinne.setText("0" + varekodeMinne);
-    }
-
-    private void finnVarekodeKabientt() {
-        int varekodeKabinett = 7001;
-        for (int i = 0; i < KomponentRegister.getKabinettArrayList().size(); i++) {
-            if (varekodeKabinett == Integer.parseInt(KomponentRegister.getKabinettArrayList().get(i).getVarekode())) {
-                varekodeKabinett++;
-            }
-        }
-        txtVareKabinett.setText("0" + varekodeKabinett);
-    }
-
-    private void finnVarekodeSkjerm() {
-        int varekodeSkjerm = 8001;
-        for (int i = 0; i < KomponentRegister.getSkjermArrayList().size(); i++) {
-            if (varekodeSkjerm == Integer.parseInt(KomponentRegister.getSkjermArrayList().get(i).getVarekode())) {
-                varekodeSkjerm++;
-            }
-        }
-        txtVareSkjerm.setText("0" + varekodeSkjerm);
-    }
-
-    private void finnVarekodeTastatur() {
-        int varekodeTastatur = 9001;
-        for (int i = 0; i < KomponentRegister.getTastaturArrayList().size(); i++) {
-            if (varekodeTastatur == Integer.parseInt(KomponentRegister.getTastaturArrayList().get(i).getVarekode())) {
-                varekodeTastatur++;
-            }
-        }
-        txtVareTastatur.setText("0" + varekodeTastatur);
-    }
-
-    private void finnVarekodeMus() {
-        int varekodeMus = 10001;
-        for (int i = 0; i < KomponentRegister.getMusArrayList().size(); i++) {
-            if (varekodeMus == Integer.parseInt(KomponentRegister.getMusArrayList().get(i).getVarekode())) {
-                varekodeMus++;
-            }
-        }
-        txtVareMus.setText("0" + varekodeMus);
     }
 
 }

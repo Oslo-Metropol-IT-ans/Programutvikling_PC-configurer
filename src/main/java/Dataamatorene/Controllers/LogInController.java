@@ -11,6 +11,8 @@ import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Filbehandling.FileOpener;
 import Dataamatorene.Filbehandling.FileOpenerJobj;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -55,10 +57,10 @@ public class LogInController {
 
     // FXML deklarering
     @FXML
-    private TextField txtBrukernavn;
+    private JFXTextField txtBrukernavn;
 
     @FXML
-    private PasswordField txtPassword;
+    private JFXPasswordField txtPassword;
 
     @FXML
     private Button btnNyBruker;

@@ -72,6 +72,6 @@
       <Text fill="WHITE" layoutX="484.0" layoutY="147.0" onMouseClicked="#Synlighet" strokeType="OUTSIDE" strokeWidth="0.0" text="Vis" />
    </children>
    <stylesheets>
-      <URL value="@style.css" />
+      <URL value="@style4.css" />
    </stylesheets>
 </AnchorPane>

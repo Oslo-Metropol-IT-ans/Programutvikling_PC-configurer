@@ -11,6 +11,7 @@ import Dataamatorene.Exceptions.InvalidComponentAttributeException;
 import Dataamatorene.Exceptions.InvalidPrisException;
 import Dataamatorene.Exceptions.InvalidVarekodeException;
 import Dataamatorene.Komponent;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,10 +23,12 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class EndreKomponentController {
 
@@ -147,8 +150,11 @@ public class EndreKomponentController {
     @FXML
     private Tab Harddisk;
 
+    /*
     @FXML
     private TableColumn<Harddisk, String> tbVarHarddisk;
+
+     */
 
     // Endring av harddisk i tableview
 
@@ -1108,10 +1114,44 @@ public class EndreKomponentController {
     private TableColumn<Mus, String> tbDatoMus;
 
 
+    // Søk
+    String[] fane = {"Harddisk", "Hovedkort", "Lydkort", "Skjermkort", "Prosessor", "Minne", "Kabinett", "Skjerm",
+            "Tastatur", "Mus"};
+    ArrayList<TableView<? extends Datakomponent>> views = new ArrayList<>(Arrays.asList(tvHarddisk, tvHovedkort,
+            tvLydkort, tvSkjermkort, tvProsessor, tvMinne, tvKabinett,
+            tvSkjerm, tvTastatur, tvMus));
+    ArrayList<ObservableList<? extends Datakomponent>> lister = new ArrayList<>(Arrays.asList(oHarddisk, oHovedkort,
+            oLydkort, oSkjermkort, oProsessor,
+            oMinne, oKabinett, oSkjerm, oTastatur, oMus));
+
+    @FXML
+    private JFXTextField txtSok;
+
+    @FXML
+    void sok(KeyEvent event) {
+        for (int i = 0; i < fane.length; i++) {
+            if(fane[i].equalsIgnoreCase(aktiv)) {
+                ObservableList<? extends Datakomponent> aktivListe = lister.get(i)
+                        .filtered(x -> x.getNavn().toLowerCase().contains(txtSok.getText().toLowerCase()));
+
+                var test = views.get(i).getItems().get(0);
+
+
+
+                views.get(i).getItems().clear();
+                for (int j = 0; j < aktivListe.size(); j++) {
+
+
+                }
+            }
+        }
+
+    }
+
+
     // Knappefunksjoner
 
     // Slette komponent
-
     @FXML
     void slett(ActionEvent event) {
         if (aktiv.equalsIgnoreCase("Harddisk")){
@@ -1296,7 +1336,6 @@ public class EndreKomponentController {
             }
         }
 
-
         if (aktiv.equalsIgnoreCase("Skjerm")){
             if(tvSkjerm.getSelectionModel().getSelectedItem() != null){
                 if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette:" +  "\n" +
@@ -1374,6 +1413,7 @@ public class EndreKomponentController {
         }
 
     }
+
     private static Komponent<? extends Datakomponent> datakomponent;
 
     public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn) {
@@ -1392,6 +1432,21 @@ public class EndreKomponentController {
     @FXML
     void vis(ActionEvent event) {
 
+        for (int i = 0; i < fane.length; i++) {
+            if (fane[i].equalsIgnoreCase(aktiv)) {
+                System.out.println(fane[i] + " " + i);
+                /*
+                if (views.get(i).getSelectionModel().getSelectedItem() != null) {
+                    var d = views.get(i).getSelectionModel().getSelectedItem();
+                    datakomponent = new Komponent<>(d);
+                    VisKomponentController.setDatakomponent(d);
+                    visKomponent();
+                }
+                 */
+            }
+        }
+
+        /*
         if (aktiv.equalsIgnoreCase("Harddisk")) {
             if (tvHarddisk.getSelectionModel().getSelectedItem() != null) {
                 Harddisk h = tvHarddisk.getSelectionModel().getSelectedItem();
@@ -1484,6 +1539,7 @@ public class EndreKomponentController {
                 visKomponent();
             }
         }
+        */
     }
 
     private void visKomponent() {
@@ -1516,4 +1572,5 @@ public class EndreKomponentController {
         }
 
     }
+
 }

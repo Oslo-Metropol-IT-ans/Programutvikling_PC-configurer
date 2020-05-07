@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
@@ -59,12 +60,12 @@
                                                     <TextFieldTableCell fx:factory="forTableColumn" />
                                                  </cellFactory>
                                               </TableColumn>
-                                                <TableColumn fx:id="tbBrukerHarddisk" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerHarddisk" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="navn" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoHarddisk" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoHarddisk" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -113,12 +114,12 @@
                                                     <TextFieldTableCell fx:factory="forTableColumn" />
                                                  </cellFactory>
                                               </TableColumn>
-                                                <TableColumn fx:id="tbBrukerHovedkort" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerHovedkort" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoHovedkort" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoHovedkort" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -175,12 +176,12 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbBrukerLydkort" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerLydkort" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoLydkort" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoLydkort" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -229,12 +230,12 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbBrukerSkjermkort" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerSkjermkort" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoSkjermkort" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoSkjermkort" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -299,12 +300,12 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbBrukerProsessor" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerProsessor" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoProsessor" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoProsessor" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -361,12 +362,12 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbBrukerMinne" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerMinne" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoMinne" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoMinne" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -435,12 +436,12 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbBrukerKabinett" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerKabinett" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoKabinett" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoKabinett" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -497,12 +498,12 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbBrukerSkjerm" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerSkjerm" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoSkjerm" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoSkjerm" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -567,12 +568,12 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbBrukerTastatur" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerTastatur" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoTastatur" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoTastatur" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -629,12 +630,12 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbBrukerMus" prefWidth="114.5" text="Bruker" >
+                                                <TableColumn fx:id="tbBrukerMus" prefWidth="114.5" text="Bruker">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="bruker" />
                                                    </cellValueFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbDatoMus" prefWidth="114.5" text="Dato" >
+                                                <TableColumn fx:id="tbDatoMus" prefWidth="114.5" text="Dato">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="tid" />
                                                    </cellValueFactory>
@@ -665,8 +666,9 @@
          <font>
             <Font size="18.0" />
          </font></Button>
+      <JFXTextField fx:id="txtSok" focusColor="WHITE" labelFloat="true" layoutX="718.0" layoutY="644.0" onKeyTyped="#sok" promptText="Søk" unFocusColor="#9c2b27" />
    </children>
    <stylesheets>
-      <URL value="@style.css" />
+      <URL value="@style4.css" />
    </stylesheets>
 </AnchorPane>

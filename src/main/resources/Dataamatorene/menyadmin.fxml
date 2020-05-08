@@ -10,6 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.control.ProgressBar?>
+<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.MenyAdminController">
    <children>
       <VBox fx:id="menyAdmin" prefHeight="578.0" prefWidth="1164.0" spacing="40.0">
@@ -19,27 +20,27 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#seBestillinger" text="Bestillinger">
+            <JFXButton mnemonicParsing="false" onAction="#seBestillinger" text="Bestillinger">
                <font>
                   <Font size="18.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#endreBrukere" text="Brukere">
+               </font></JFXButton>
+            <JFXButton mnemonicParsing="false" onAction="#endreBrukere" text="Brukere">
                <font>
                   <Font size="18.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#leggTil" text="Ny komponent">
+               </font></JFXButton>
+            <JFXButton mnemonicParsing="false" onAction="#leggTil" text="Ny komponent">
                <font>
                   <Font size="18.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#endreKompnenter" text="Komponentregister">
+               </font></JFXButton>
+            <JFXButton mnemonicParsing="false" onAction="#endreKompnenter" text="Komponentregister">
                <font>
                   <Font size="18.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#brukerside" text="Logg inn som bruker">
+               </font></JFXButton>
+            <JFXButton mnemonicParsing="false" onAction="#brukerside" text="Logg inn som bruker">
                <font>
                   <Font size="18.0" />
                </font>
-            </Button>
+            </JFXButton>
          </children>
          <padding>
             <Insets left="40.0" top="20.0" />
@@ -56,11 +57,11 @@
             <Label fx:id="lblUpdate" prefWidth="200.0" />
          </children>
       </VBox>
-      <Button fx:id="loggUtButton" layoutX="980.0" layoutY="600.0" mnemonicParsing="false" onAction="#loggUt" text="Logg ut">
+      <JFXButton fx:id="loggUtButton" layoutX="980.0" layoutY="600.0" mnemonicParsing="false" onAction="#loggUt" text="Logg ut">
          <font>
             <Font size="18.0" />
          </font>
-      </Button>
+      </JFXButton>
    </children>
    <stylesheets>
       <URL value="@style4.css" />

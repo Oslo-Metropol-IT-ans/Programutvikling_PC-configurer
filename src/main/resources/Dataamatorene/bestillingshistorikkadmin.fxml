@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane fx:id="apMain" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.BestillingshistorikkAdminController">
    <children>
       <TableView fx:id="tvBestillinger" editable="true" layoutY="65.0" prefHeight="587.0" prefWidth="1165.0">
@@ -118,11 +119,11 @@
             </TableColumn>
         </columns>
       </TableView>
-      <Button layoutX="26.0" layoutY="665.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
+      <JFXButton layoutX="26.0" layoutY="665.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
          <font>
             <Font size="18.0" />
          </font>
-      </Button>
+      </JFXButton>
       <Label layoutX="496.0" layoutY="19.0" text="Aktive bestillinger">
          <font>
             <Font size="24.0" />
@@ -130,26 +131,26 @@
       </Label>
       <TextField fx:id="txtSøk" layoutX="981.0" layoutY="20.0" onKeyTyped="#søk" promptText="Søk" />
       <ChoiceBox fx:id="cbValg" layoutX="811.0" layoutY="20.0" prefWidth="150.0" />
-      <Button layoutX="1086.0" layoutY="666.0" mnemonicParsing="false" onAction="#slett" text="Slett">
+      <JFXButton layoutX="1086.0" layoutY="666.0" mnemonicParsing="false" onAction="#slett" text="Slett">
          <font>
             <Font size="18.0" />
          </font>
-      </Button>
-      <Button layoutX="930.0" layoutY="666.0" mnemonicParsing="false" onAction="#vis" text="Vis bestilling">
+      </JFXButton>
+      <JFXButton layoutX="930.0" layoutY="666.0" mnemonicParsing="false" onAction="#vis" text="Vis bestilling">
          <font>
             <Font size="18.0" />
          </font>
-      </Button>
-      <Button layoutX="811.0" layoutY="665.0" mnemonicParsing="false" onAction="#lastNed" text="Last ned">
+      </JFXButton>
+      <JFXButton layoutX="811.0" layoutY="665.0" mnemonicParsing="false" onAction="#lastNed" text="Last ned">
          <font>
             <Font size="18.0" />
          </font>
-      </Button>
-      <Button layoutX="690.0" layoutY="665.0" mnemonicParsing="false" onAction="#lastOpp" text="Last opp">
+      </JFXButton>
+      <JFXButton layoutX="690.0" layoutY="665.0" mnemonicParsing="false" onAction="#lastOpp" text="Last opp">
          <font>
             <Font size="18.0" />
          </font>
-      </Button>
+      </JFXButton>
    </children>
     <stylesheets>
         <URL value="@style4.css" />

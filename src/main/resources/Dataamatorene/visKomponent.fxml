@@ -7,6 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import java.net.URL?>
+<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.VisKomponentController">
    <children>
       <Label fx:id="lblToString" alignment="TOP_LEFT" layoutX="41.0" layoutY="71.0" prefHeight="130.0" prefWidth="229.0" wrapText="true" />
@@ -16,8 +17,8 @@
          </font>
       </Label>
       <ImageView fx:id="ivBilde" fitHeight="150.0" fitWidth="200.0" layoutX="345.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="479.0" layoutY="320.0" mnemonicParsing="false" onAction="#lastOpp" text="Last opp" />
-      <Button fx:id="lagreButton" layoutX="413.0" layoutY="320.0" mnemonicParsing="false" onAction="#lagre" text="Lagre" />
+      <JFXButton layoutX="479.0" layoutY="320.0" mnemonicParsing="false" onAction="#lastOpp" text="Last opp" />
+      <JFXButton fx:id="lagreButton" layoutX="413.0" layoutY="320.0" mnemonicParsing="false" onAction="#lagre" text="Lagre" />
    </children>
    <stylesheets>
       <URL value="@style4.css" />

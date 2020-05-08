@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.BestillingshistorikkBrukerController">
    <children>
       <ListView fx:id="lvBestillinger" layoutX="50.0" layoutY="102.0" prefHeight="536.0" prefWidth="567.0" />
@@ -15,21 +16,21 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="50.0" layoutY="666.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
+      <JFXButton layoutX="50.0" layoutY="666.0" mnemonicParsing="false" onAction="#tilbake" text="Tilbake">
          <font>
             <Font size="18.0" />
          </font>
-      </Button>
-      <Button layoutX="634.0" layoutY="118.0" mnemonicParsing="false" onAction="#visBestilling" text="Vis bestilling">
+      </JFXButton>
+      <JFXButton layoutX="634.0" layoutY="118.0" mnemonicParsing="false" onAction="#visBestilling" text="Vis bestilling">
          <font>
             <Font size="18.0" />
          </font>
-      </Button>
-      <Button layoutX="633.0" layoutY="184.0" mnemonicParsing="false" onAction="#lastNed" text="Last ned bestillinger">
+      </JFXButton>
+      <JFXButton layoutX="633.0" layoutY="184.0" mnemonicParsing="false" onAction="#lastNed" text="Last ned bestillinger">
          <font>
             <Font size="18.0" />
          </font>
-      </Button>
+      </JFXButton>
    </children>
    <stylesheets>
       <URL value="@style4.css" />

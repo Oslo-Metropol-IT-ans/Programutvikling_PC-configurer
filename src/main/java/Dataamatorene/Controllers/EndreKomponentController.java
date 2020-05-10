@@ -90,47 +90,16 @@ public class EndreKomponentController {
         tvTastatur.setItems(oTastatur);
 
         // Når du velger en ny komponent du ser på
-        Harddisk.setOnSelectionChanged(event -> {
-            aktiv = "Harddisk";
-        });
-
-        Hovedkort.setOnSelectionChanged(event -> {
-            aktiv = "Hovedkort";
-        });
-
-        Lydkort.setOnSelectionChanged(event -> {
-            aktiv = "Lydkort";
-        });
-
-        Skjermkort.setOnSelectionChanged(event -> {
-            aktiv = "Skjermkort";
-        });
-
-        Prosessor.setOnSelectionChanged(event -> {
-            aktiv = "Prosessor";
-        });
-
-        Minne.setOnSelectionChanged(event -> {
-            aktiv = "Minne";
-        });
-
-        Kabinett.setOnSelectionChanged(event -> {
-            aktiv = "Kabinett";
-        });
-
-        Skjerm.setOnSelectionChanged(event -> {
-            aktiv = "Skjerm";
-        });
-
-        Tastatur.setOnSelectionChanged(event -> {
-            aktiv = "Tastatur";
-        });
-
-        Mus.setOnSelectionChanged(event -> {
-            aktiv = "Mus";
-        });
-
+        tabs = new Tab[]{Harddisk, Hovedkort, Lydkort, Skjermkort, Prosessor, Minne, Kabinett, Skjerm, Tastatur, Mus};
+        for (int i = 0; i < fane.length; i++) {
+            int finalI = i;
+            tabs[i].setOnSelectionChanged(event -> {
+                aktiv = fane[finalI];
+            });
+        }
     }
+
+
 
     // FXML deklarasjoner
 
@@ -976,7 +945,7 @@ public class EndreKomponentController {
     }
 
     @FXML
-    private TableColumn<Tastatur, String> tbSpråkTastatur;
+    private TableColumn<Tastatur, String> tbSprakTastatur;
 
     // Endring av tastatur i tableview
 
@@ -1130,6 +1099,7 @@ public class EndreKomponentController {
     @FXML
     private TableColumn<Mus, String> tbDatoMus;
 
+    Tab[] tabs;
 
     // Søk
     String[] fane = {"Harddisk", "Hovedkort", "Lydkort", "Skjermkort", "Prosessor", "Minne", "Kabinett", "Skjerm",

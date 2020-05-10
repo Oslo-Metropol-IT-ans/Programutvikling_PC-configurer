@@ -545,7 +545,7 @@
                                                       <TextFieldTableCell fx:factory="forTableColumn" />
                                                    </cellFactory>
                                                 </TableColumn>
-                                                <TableColumn fx:id="tbSpråkTastatur" onEditCommit="#txtTastaturSprakEdit" prefWidth="107.55" text="Språk">
+                                                <TableColumn fx:id="tbSprakTastatur" onEditCommit="#txtTastaturSprakEdit" prefWidth="107.55" text="Språk">
                                                    <cellValueFactory>
                                                       <PropertyValueFactory property="sprak" />
                                                    </cellValueFactory>

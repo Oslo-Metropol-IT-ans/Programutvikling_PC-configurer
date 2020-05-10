@@ -9,6 +9,7 @@ import Dataamatorene.LastBilde;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
@@ -116,12 +117,54 @@ public class LagKomponentController {
             });
         }
 
+        tabs = new Tab[]{Harddisk, Hovedkort, Lydkort, Skjermkort, Prosessor, Minne, Kabinett, Skjerm, Tastatur, Mus};
+
+        for (int i = 0; i < tabs.length; i++) {
+            int finalI = i;
+            tabs[i].setOnSelectionChanged(event -> {
+                aktiv = valg[finalI];
+                imageView.setImage(bilder[finalI]);
+            });
+        }
+
         // Initialiserer varekode til textfield
         finnVarekoder();
     }
 
+    String aktiv = "Harddisk";
+
 
     // FXML deklarering
+    @FXML
+    private Tab Harddisk;
+
+    @FXML
+    private Tab Hovedkort;
+
+    @FXML
+    private Tab Lydkort;
+
+    @FXML
+    private Tab Skjermkort;
+
+    @FXML
+    private Tab Prosessor;
+
+    @FXML
+    private Tab Minne;
+
+    @FXML
+    private Tab Kabinett;
+
+    @FXML
+    private Tab Skjerm;
+
+    @FXML
+    private Tab Tastatur;
+
+    @FXML
+    private Tab Mus;
+
     @FXML
     private TextField txtVareHarddisk;
 
@@ -271,18 +314,39 @@ public class LagKomponentController {
 
 
     @FXML
-    private ImageView ivHarddisk;
+    private ImageView imageView;
+
+    String[] valg = {"Harddisk", "Hovedkort", "Lydkort", "Skjermkort", "Prosessor", "Minne", "Kabinett", "Skjerm",
+            "Tastatur", "Mus"};
+
+    Image[] bilder = {null, null, null, null, null, null, null, null, null, null};
+
+    Tab[] tabs;
 
     // Laste opp bilde til harddisk
     @FXML
-    void lastOppHarddisk(Event event) {
+    void lastOppBilde(Event event) {
         try {
             Image bilde = LastBilde.lasteBilde();
-            ivHarddisk.setImage(bilde);
+            for (int i = 0; i < valg.length; i++) {
+                if (valg[i].equals(aktiv)) {
+                    bilder[i] = bilde;
+                    imageView.setImage(bilder[i]);
+                }
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    @FXML
+    void lukkBilde(Event event) {
+        for (int i = 0; i < valg.length; i++) {
+            bilder[i] = null;
+            imageView.setImage(bilder[i]);
+        }
     }
 
     // Registrering av harddisk
@@ -295,7 +359,7 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisHarddisk.getText());
             int lagre = KomponentValidering.lagringValidering(txtLagreHarddisk.getText());
-            Image bilde = ivHarddisk.getImage();
+            Image bilde = imageView.getImage();
             Harddisk h = new Harddisk(navn, pris, varekode, bilde, lagre);
             KomponentRegister.addHarddisk(h);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
@@ -303,7 +367,7 @@ public class LagKomponentController {
             txtNavnHarddisk.setText("");
             txtLagreHarddisk.setText("");
             txtPrisHarddisk.setText("");
-            ivHarddisk.setImage(null);
+            imageView.setImage(null);
             Dialogs.showSuccessDialog("Harddisken ble lagret");
             finnVarekoder();
         } catch (IOException e) {
@@ -327,7 +391,8 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisHovedkort.getText());
             int porter = KomponentValidering.porterValidering(txtPorterHovedkort.getText());
-            Hovedkort h = new Hovedkort(navn, pris, varekode, null, porter);
+            Image bilde = imageView.getImage();
+            Hovedkort h = new Hovedkort(navn, pris, varekode, bilde, porter);
             KomponentRegister.addHovedkort(h);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreHovedkort();
@@ -358,8 +423,8 @@ public class LagKomponentController {
             double pris = KomponentValidering.prisValidering(txtPrisKabinett.getText());
             String størrelse = KomponentValidering.storrelseValidering(txtStorrelseKabinett.getText());
             int vifter = KomponentValidering.vifterValidering(txtVifterKabientt.getText());
-
-            Kabinett k = new Kabinett(navn, pris, varekode, null, størrelse, vifter);
+            Image bilde = imageView.getImage();
+            Kabinett k = new Kabinett(navn, pris, varekode, bilde, størrelse, vifter);
             KomponentRegister.addKabinett(k);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreKabinett();
@@ -391,8 +456,8 @@ public class LagKomponentController {
             double pris = KomponentValidering.prisValidering(txtPrisLydkort.getText());
             boolean integrert = tbIntegrertLydkort.isSelected();
             double frekvens = KomponentValidering.frekvensValideringKHz(txtFrekvensLydkort.getText());
-
-            Lydkort l = new Lydkort(navn, pris, varekode, null, integrert, frekvens);
+            Image bilde = imageView.getImage();
+            Lydkort l = new Lydkort(navn, pris, varekode, bilde, integrert, frekvens);
             KomponentRegister.addLydkort(l);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreLydkort();
@@ -424,8 +489,8 @@ public class LagKomponentController {
             double pris = KomponentValidering.prisValidering(txtPrisMinne.getText());
             int ram = KomponentValidering.ramValidering(txtRamMinne.getText());
             double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensMinne.getText());
-
-            Minne m = new Minne(navn, pris, varekode, null, ram, frekvens);
+            Image bilde = imageView.getImage();
+            Minne m = new Minne(navn, pris, varekode, bilde, ram, frekvens);
             KomponentRegister.addMinne(m);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreMinne();
@@ -456,8 +521,8 @@ public class LagKomponentController {
             double pris = KomponentValidering.prisValidering(txtPrisMus.getText());
             boolean tråd = tbTradlosMus.isSelected();
             int knapper = KomponentValidering.knapperValidering(txtKnapperMus.getText());
-
-            Mus m = new Mus(navn, pris, varekode, null, tråd, knapper);
+            Image bilde = imageView.getImage();
+            Mus m = new Mus(navn, pris, varekode, bilde, tråd, knapper);
             KomponentRegister.addMus(m);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreMus();
@@ -489,8 +554,8 @@ public class LagKomponentController {
             int kjerner = KomponentValidering.kjernerValidering(txtKjernerProsessor.getText());
             double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensProsessor.getText());
             int trader = KomponentValidering.traderValidering(txtTraderProsessor.getText());
-
-            Prosessor p = new Prosessor(navn, pris, varekode, null, kjerner, frekvens, trader);
+            Image bilde = imageView.getImage();
+            Prosessor p = new Prosessor(navn, pris, varekode, bilde, kjerner, frekvens, trader);
             KomponentRegister.addProsessor(p);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreProsessor();
@@ -520,10 +585,10 @@ public class LagKomponentController {
             int varekode = KomponentValidering.varekodeValidering(txtVareSkjerm.getText());
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisSkjerm.getText());
-            String oppløsning = KomponentValidering.opplosningValidering(txtOpplosningSkjerm.getText());
-            double størrelse = KomponentValidering.skjermstorrelseValidering(txtStorrelseSkjerm.getText());
-
-            Skjerm s = new Skjerm(navn, pris, varekode, null, oppløsning, størrelse);
+            String opplosning = KomponentValidering.opplosningValidering(txtOpplosningSkjerm.getText());
+            double storrelse = KomponentValidering.skjermstorrelseValidering(txtStorrelseSkjerm.getText());
+            Image bilde = imageView.getImage();
+            Skjerm s = new Skjerm(navn, pris, varekode, bilde, opplosning, storrelse);
             KomponentRegister.addSkjerm(s);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreSkjerm();
@@ -553,9 +618,9 @@ public class LagKomponentController {
             int varekode = KomponentValidering.varekodeValidering(txtVareSkjermkort.getText());
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisSkjermkort.getText());
-            String oppløsning = KomponentValidering.opplosningValidering(txtOpplosningSkjermkort.getText());
-
-            Skjermkort s = new Skjermkort(navn, pris, varekode, null, oppløsning);
+            String opplosning = KomponentValidering.opplosningValidering(txtOpplosningSkjermkort.getText());
+            Image bilde = imageView.getImage();
+            Skjermkort s = new Skjermkort(navn, pris, varekode, bilde, opplosning);
             KomponentRegister.addSkjermkort(s);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreSkjermkort();
@@ -586,11 +651,11 @@ public class LagKomponentController {
             int varekode = KomponentValidering.varekodeValidering(txtVareTastatur.getText());
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisTastatur.getText());
-            String språk = txtSprakTastatur.getText();
+            String sprak = txtSprakTastatur.getText();
             boolean mekanisk = tbMekaniskTastatur.isSelected();
             boolean rgb = txtRGBTastatur.isSelected();
-
-            Tastatur t = new Tastatur(navn, pris, varekode, null,  språk, mekanisk, rgb);
+            Image bilde = imageView.getImage();
+            Tastatur t = new Tastatur(navn, pris, varekode, bilde,  sprak, mekanisk, rgb);
             KomponentRegister.addTastatur(t);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
             LagreKomponent.lagreTastatur();

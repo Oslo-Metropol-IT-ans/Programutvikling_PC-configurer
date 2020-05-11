@@ -648,7 +648,7 @@
          </font></JFXButton>
       <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" layoutX="700.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
       <JFXButton layoutX="1000.0" layoutY="400.0" mnemonicParsing="false" onAction="#lastOppBilde" text="Last opp" />
-      <JFXButton layoutX="1000" layoutY="420" mnemonicParsing="false" onAction="#lukkBilde" text="Fjern bilde" />
+      <JFXButton layoutX="1000.0" layoutY="439.0" mnemonicParsing="false" onAction="#lukkBilde" text="Fjern bilde" />
    </children>
    <stylesheets>
       <URL value="@style4.css" />

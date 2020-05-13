@@ -84,7 +84,7 @@ public class MenyAdminController {
     }
 
     private void threaDOpenKomponentRegisterRunning(WorkerStateEvent e) {
-        menyAdmin.getScene().setCursor(Cursor.);
+        menyAdmin.getScene().setCursor(Cursor.WAIT);
     }
 
     // Metode ved misslykket lasting av tråd, programmet lukkes

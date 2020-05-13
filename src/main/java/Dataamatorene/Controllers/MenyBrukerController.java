@@ -12,6 +12,7 @@ import Dataamatorene.Tasks.ThreadOpenNewPage;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -64,11 +65,13 @@ public class MenyBrukerController {
             progressBar.progressProperty().bind(threadOpenKomponentRegister.progressProperty());
             Thread th = new Thread(threadOpenKomponentRegister);
             th.setDaemon(true);
+            menyBruker.getScene().setCursor(Cursor.WAIT);
             th.start();
         }
     }
 
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
+        menyBruker.getScene().setCursor(Cursor.DEFAULT);
         menyBruker.setVisible(true);
         loggUtButton.setVisible(true);
         progressBar.setVisible(false);
@@ -177,6 +180,7 @@ public class MenyBrukerController {
     // Når tråden er ferdig
 
     private void threadOpenPageDone(WorkerStateEvent e){
+        menyBruker.getScene().setCursor(Cursor.DEFAULT);
         App.setRoot(threadOpenNewPage.getValue());
         menyBruker.setVisible(true);
     }
@@ -184,6 +188,7 @@ public class MenyBrukerController {
     // Når tråden kjører
 
     private void threadOpenPageRunning(WorkerStateEvent e) {
+        menyBruker.getScene().setCursor(Cursor.WAIT);
         lblTilbakemelding.setText("Venligst vent...");
         menyBruker.setVisible(false);
         loggUtButton.setVisible(false);

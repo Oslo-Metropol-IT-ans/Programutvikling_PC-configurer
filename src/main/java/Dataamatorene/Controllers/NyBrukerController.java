@@ -14,12 +14,10 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class NyBrukerController {
@@ -83,7 +81,6 @@ public class NyBrukerController {
     }
 
     // FXML deklarasjoner
-
     @FXML
     private Text vis;
 
@@ -136,8 +133,9 @@ public class NyBrukerController {
         String email = txtEmail.getText();
 
         for(Bruker b:liste){
-            if(brukernavn.equalsIgnoreCase(b.getBrukernavn())){
+            if (brukernavn.equalsIgnoreCase(b.getBrukernavn())) {
                 finnes = true;
+                break;
             }
         }
 

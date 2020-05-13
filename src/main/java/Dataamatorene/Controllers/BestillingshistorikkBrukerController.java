@@ -100,17 +100,7 @@ public class BestillingshistorikkBrukerController {
 
             VisBestillingController.setAktivBestilling(liste.get(lvBestillinger.getSelectionModel().getSelectedIndex()));
 
-            Parent root;
-            try {
-                root = App.loadFXML("FXML/visbestilling");
-                Stage stage = new Stage();
-                stage.setTitle("Bestilling");
-                stage.setScene(new Scene(root, 900, 600));
-                stage.show();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
+            NyBestillingController.openOrders();
 
             //Dialogs.showSuccessDialog(liste.get(lvBestillinger.getSelectionModel().getSelectedIndex()).toString());
         }

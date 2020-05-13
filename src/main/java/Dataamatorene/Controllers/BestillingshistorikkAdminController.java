@@ -410,7 +410,7 @@ public class BestillingshistorikkAdminController {
                 if (b.getBestillingsnummer() == oBestilling.get(i).getBestillingsnummer()) {
                     if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette denne bestillingen?")) {
                         oBestilling.remove(i);
-                        BestillingsRegister.setBestillinger(new ArrayList<Bestilling>(oBestilling));
+                        BestillingsRegister.setBestillinger(new ArrayList<>(oBestilling));
                         BestillingsRegister.lagreBestillinger();
                     }
                 }

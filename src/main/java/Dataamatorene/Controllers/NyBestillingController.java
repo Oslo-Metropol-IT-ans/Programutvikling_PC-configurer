@@ -10,16 +10,21 @@ import Dataamatorene.Comparators.DatakomponentPrisLavComparator;
 import Dataamatorene.Comparators.DatakomponentVarekodeComparator;
 import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.Dialogs;
+import Dataamatorene.Tasks.ThreadOpenNewPage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -171,6 +176,14 @@ public class NyBestillingController {
 
             int finalI = finalI2;
             int finalJ = j;
+
+            for (Node n:hBox.getChildren()) {
+                n.setOnMouseClicked(mouseEvent -> {
+                    mouseClick(x, y, finalI, finalJ);
+                    datakomponents[finalI] = aktiv.get(finalJ);
+                });
+            }
+            /*
             image.setOnMouseClicked(mouseEvent -> {
                 mouseClick(x, y, finalI, finalJ);
                 datakomponents[finalI] = aktiv.get(finalJ);
@@ -179,6 +192,7 @@ public class NyBestillingController {
                 mouseClick(x, y, finalI, finalJ);
                 datakomponents[finalI] = aktiv.get(finalJ);
             });
+             */
             vBox.getChildren().add(hBox);
             vBox.setPrefWidth(1100);
 
@@ -230,6 +244,9 @@ public class NyBestillingController {
     }
 
     // FXML deklarering
+    @FXML
+    private AnchorPane apMain;
+
     @FXML
     private TitledPane tpHarddisk;
 
@@ -323,6 +340,8 @@ public class NyBestillingController {
     @FXML
     private Label lblTotPris;
 
+    ThreadOpenNewPage threadOpenNewPage;
+
     // Metode for å lage og legg til ny bsetilling
     @FXML
     void bestill(ActionEvent event) {
@@ -341,20 +360,47 @@ public class NyBestillingController {
                     (Skjerm) datakomponents[7], (Tastatur) datakomponents[8], (Mus) datakomponents[9]);
             BestillingsRegister.addBestilling(b);
             BestillingsRegister.lagreBestillinger();
-            Parent root;
-            try {
-                VisBestillingController.setAktivBestilling(b, "Gratulrerer, her er din bestilling");
-                root = App.loadFXML("FXML/visbestilling");
-                Stage stage = new Stage();
-                stage.setTitle("Bestilling");
-                stage.setScene(new Scene(root, 900, 600));
-                stage.show();
+            VisBestillingController.setAktivBestilling(b, "Gratulrerer, her er din bestilling");
+            threadOpenNewPage = new ThreadOpenNewPage("FXML/bestillingshistorikkbruker");
+            Thread th = new Thread(threadOpenNewPage);
+            threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
+            threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
+            threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
+            th.setDaemon(true);
+            th.start();
 
-                App.setRoot("FXML/bestillingshistorikkbruker");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         } else Dialogs.showErrorDialog("Du må velge de markerte feltene");
+    }
+
+    // Metode kjørt ved vellykket innlasting av side
+    private void threadOpenPageDone(WorkerStateEvent e){
+        apMain.getScene().setCursor(Cursor.DEFAULT);
+        App.setRoot(threadOpenNewPage.getValue());
+    }
+
+    // Metode kjørt underves av lasting
+    private void threadOpenPageRunning(WorkerStateEvent e){
+        apMain.getScene().setCursor(Cursor.WAIT);
+        apMain.setDisable(true);
+        openOrders();
+    }
+
+    static void openOrders() {
+        Parent root;
+        try {
+            root = App.loadFXML("FXML/visbestilling");
+            Stage stage = new Stage();
+            stage.setTitle("Bestilling");
+            stage.setScene(new Scene(root, 900, 600));
+            stage.show();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
+    // Metode kjørt ved misslykket lasting
+    private void threadOpenPageFailes(WorkerStateEvent e) {
+
     }
 
     // Metode for å returnere til meny

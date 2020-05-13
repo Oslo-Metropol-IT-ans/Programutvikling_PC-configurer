@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXProgressBar;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -60,6 +61,7 @@ public class MenyAdminController {
             progressBar.progressProperty().bind(threadOpenKomponentRegister.progressProperty());
             lblUpdate.textProperty().bind(threadOpenKomponentRegister.messageProperty());
             threadOpenKomponentRegister.setOnSucceeded(this::threadOpenKomponentRegisterDone);
+            threadOpenKomponentRegister.setOnRunning(this::threaDOpenKomponentRegisterRunning);
             threadOpenKomponentRegister.setOnFailed(this::threadOpenKomponentRegisterFails);
             lblTilbakemelding.setText("Venligst vent...");
             Thread th = new Thread(threadOpenKomponentRegister);
@@ -70,6 +72,7 @@ public class MenyAdminController {
 
     // Metode ved vellykket kjøring av tråd
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
+        menyAdmin.getScene().setCursor(Cursor.DEFAULT);
         menyAdmin.setVisible(true);
         loggUtButton.setVisible(true);
         progressBar.setVisible(false);
@@ -78,6 +81,10 @@ public class MenyAdminController {
         lblUpdate.textProperty().unbind();
         lblUpdate.setText("");
         KomponentRegister.setLasta(true);
+    }
+
+    private void threaDOpenKomponentRegisterRunning(WorkerStateEvent e) {
+        menyAdmin.getScene().setCursor(Cursor.);
     }
 
     // Metode ved misslykket lasting av tråd, programmet lukkes
@@ -125,6 +132,7 @@ public class MenyAdminController {
 
     // Metode kjørt ved vellykket innlasting av side
     private void threadOpenPageDone(WorkerStateEvent e){
+        menyAdmin.getScene().setCursor(Cursor.DEFAULT);
         lblTilbakemelding.setText("");
         lblUpdate.textProperty().unbind();
         progressBar.progressProperty().unbind();
@@ -134,6 +142,7 @@ public class MenyAdminController {
 
     // Metode kjørt underves av lasting
     private void threadOpenPageRunning(WorkerStateEvent e) {
+        menyAdmin.getScene().setCursor(Cursor.WAIT);
         lblTilbakemelding.setText("Venligst vent...");
 
         menyAdmin.setVisible(false);

@@ -30,7 +30,7 @@ public class VisKomponentController {
         lblToString.setText(datakomponent.getKomponent().getBeskrivelse());
         if (datakomponent.getKomponent().getBilde() != null) {
             ivBilde.setImage(datakomponent.getKomponent().getBilde());
-        } else ivBilde.setImage(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
+        } else ivBilde.setImage(new Image(new FileInputStream("src/main/resources/Dataamatorene/Pictures/nia.png")));
     }
 
     // FXML deklarering

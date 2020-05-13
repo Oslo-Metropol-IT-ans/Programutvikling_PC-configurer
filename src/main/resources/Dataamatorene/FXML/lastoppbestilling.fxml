@@ -148,6 +148,6 @@
       </JFXButton>
    </children>
     <stylesheets>
-        <URL value="@style4.css" />
+        <URL value="@../Stylesheet/style4.css" />
     </stylesheets>
 </AnchorPane>

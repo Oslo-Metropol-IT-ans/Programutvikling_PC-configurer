@@ -10,8 +10,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +39,12 @@ public class BestillingshistorikkBrukerController {
         }
 
         lvBestillinger.setItems(navn);
+
+        lvBestillinger.setOnMouseClicked(mouseEvent -> {
+            int index = lvBestillinger.getSelectionModel().getSelectedIndex();
+            VisBestillingController.setAktivBestilling(liste.get(index));
+        });
+
     }
 
     @FXML
@@ -75,19 +86,36 @@ public class BestillingshistorikkBrukerController {
     @FXML
     void tilbake(ActionEvent event) {
         try {
-            App.setRoot("menybruker");
+            App.setRoot("FXML/menybruker");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+
     // Metode for å åpne informasjon om bestillingen i eget vindu
     @FXML
     void visBestilling(ActionEvent event) {
         if (lvBestillinger.getSelectionModel().getSelectedItem() != null) {
-            Bestilling b = liste.get(lvBestillinger.getSelectionModel().getSelectedIndex());
-            Dialogs.showInformationDialog("Bestillingsdetaljer", b.toString());
+
+            VisBestillingController.setAktivBestilling(liste.get(lvBestillinger.getSelectionModel().getSelectedIndex()));
+
+            Parent root;
+            try {
+                root = App.loadFXML("FXML/visbestilling");
+                Stage stage = new Stage();
+                stage.setTitle("Bestilling");
+                stage.setScene(new Scene(root, 900, 600));
+                stage.show();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            //Dialogs.showSuccessDialog(liste.get(lvBestillinger.getSelectionModel().getSelectedIndex()).toString());
         }
+
+
     }
 
 }

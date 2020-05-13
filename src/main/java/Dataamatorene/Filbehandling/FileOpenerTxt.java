@@ -18,13 +18,12 @@ public class FileOpenerTxt implements FileOpener{ // Åpner txtFiler
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(path))) {
             String line;
 
-            reader.skip(0);
-
             boolean feil = false;
             String melding = "";
+            int teller = 0;
 
             while ((line = reader.readLine()) != null) {
-                if (!line.startsWith("Navn")) {
+                if (teller != 0) {
                     try{
                         System.out.println(line);
 
@@ -32,11 +31,12 @@ public class FileOpenerTxt implements FileOpener{ // Åpner txtFiler
                         list.add(b);
                     }
                     catch(Exception e){
-                        System.out.println(e.getMessage());
+
                         feil=true;
-                        melding += e.getMessage() + ", ";
+                        melding += e.getMessage() + " linje: " + (teller + 1) + ", ";
                     }
                 }
+                teller ++;
             }
             melding = melding.replaceAll(", $", ".");
             if(feil){

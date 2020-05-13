@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -11,7 +11,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.NyBrukerController">
    <children>
       <VBox layoutX="66.0" layoutY="80.0" prefHeight="309.0" prefWidth="303.0">
@@ -61,8 +60,9 @@
       </Label>
       <Text fx:id="vis" fill="WHITE" layoutX="383.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vis" />
       <Text fx:id="visGjenta" fill="WHITE" layoutX="383.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vis" />
+      <Label layoutX="445.0" layoutY="134.0" text="Minst 8 tegn, én stor og én liten bokstav, og ett tall" />
    </children>
    <stylesheets>
-      <URL value="@style4.css" />
+      <URL value="@../Stylesheet/style4.css" />
    </stylesheets>
 </AnchorPane>

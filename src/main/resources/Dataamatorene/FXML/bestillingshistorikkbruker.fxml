@@ -8,9 +8,10 @@
 <?import javafx.scene.text.Font?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.BestillingshistorikkBrukerController">
    <children>
-      <ListView fx:id="lvBestillinger" layoutX="50.0" layoutY="102.0" prefHeight="536.0" prefWidth="567.0" />
+      <JFXListView fx:id="lvBestillinger" layoutX="50.0" layoutY="102.0" prefHeight="536.0" prefWidth="567.0" />
       <Label layoutX="50.0" layoutY="27.0" text="Dine bestillinger">
          <font>
             <Font size="36.0" />
@@ -33,6 +34,6 @@
       </JFXButton>
    </children>
    <stylesheets>
-      <URL value="@style4.css" />
+      <URL value="@../Stylesheet/style4.css" />
    </stylesheets>
 </AnchorPane>

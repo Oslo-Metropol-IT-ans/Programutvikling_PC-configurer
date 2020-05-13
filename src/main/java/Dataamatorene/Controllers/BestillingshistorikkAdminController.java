@@ -6,8 +6,6 @@ import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Bestilling.VarekodeRegister;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Exceptions.InvalidVarekodeException;
-import Dataamatorene.Filbehandling.FileOpener;
-import Dataamatorene.Filbehandling.FileOpenerTxt;
 import Dataamatorene.Filbehandling.FileSaverTxt;
 import Dataamatorene.Tasks.ThreadOpenNewPage;
 import javafx.collections.FXCollections;
@@ -19,7 +17,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -242,12 +239,12 @@ public class BestillingshistorikkAdminController {
     private ChoiceBox<String> cbValg;
 
     @FXML
-    private TextField txtSøk;
+    private TextField txtSok;
 
     // Tastevent for textfelt søk
     @FXML
-    void søk(KeyEvent event) {
-        String søk = txtSøk.getText();
+    void sok(KeyEvent event) {
+        String søk = txtSok.getText();
         if(!søk.isEmpty()) {
             if(cbValg.getSelectionModel().getSelectedItem().equalsIgnoreCase("Bruker")) {
                 aktivList = oBestilling.stream().filter(x -> x.getBrukerT().toLowerCase().contains(søk.toLowerCase()))
@@ -379,7 +376,7 @@ public class BestillingshistorikkAdminController {
     // Laste opp bestillinger fra txt
     @FXML
     void lastOpp(ActionEvent event) {
-        threadOpenNewPage = new ThreadOpenNewPage("lastoppbestilling");
+        threadOpenNewPage = new ThreadOpenNewPage("FXML/lastoppbestilling");
         threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
         threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
         threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);
@@ -425,7 +422,7 @@ public class BestillingshistorikkAdminController {
     @FXML
     void tilbake(ActionEvent event) {
         try {
-            App.setRoot("menyadmin");
+            App.setRoot("FXML/menyadmin");
         } catch (IOException e) {
             e.printStackTrace();
         }

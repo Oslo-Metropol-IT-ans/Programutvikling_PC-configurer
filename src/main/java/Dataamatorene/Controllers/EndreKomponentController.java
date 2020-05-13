@@ -1202,7 +1202,7 @@ public class EndreKomponentController {
     private void visKomponent() {
         Parent root;
         try {
-            root = App.loadFXML("visKomponent");
+            root = App.loadFXML("FXML/visKomponent");
             Stage stage = new Stage();
             stage.setTitle("Datakomponent");
             stage.setScene(new Scene(root, 600, 400));
@@ -1220,7 +1220,7 @@ public class EndreKomponentController {
 
         try{
             //LagreKomponent.lagreAlle();
-            App.setRoot("menyadmin");
+            App.setRoot("FXML/menyadmin");
 
         } catch (IOException e){
             e.printStackTrace();

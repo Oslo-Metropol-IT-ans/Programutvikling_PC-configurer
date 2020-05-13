@@ -171,7 +171,7 @@ public class EndreBrukerController {
     @FXML
     void tilbake(ActionEvent event) {
         try {
-            App.setRoot("menyadmin");
+            App.setRoot("FXML/menyadmin");
         } catch (IOException e) {
             e.printStackTrace();
         }

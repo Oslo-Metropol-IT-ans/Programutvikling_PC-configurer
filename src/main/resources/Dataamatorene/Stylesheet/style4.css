@@ -126,6 +126,26 @@
     -fx-text-fill: #3c3c3c!important;
 }
 
+.table-view .scroll-bar * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+.root .scroll-bar * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
 
 
 
@@ -322,6 +342,35 @@
 
 .scroll-pane {
     -fx-background-color: #212121;
+}
+
+.anchor-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.anchor-pane {
+    -fx-background-color: #212121;
+}
+
+.split-pane {
+    -fx-background-color: #212121;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-background-color: rgb(42, 27, 27);
+    -fx-padding: 0 0.1em 0 0.1em;
+}
+
+.hbox > .viewport {
+    -fx-background-color: transparent;
+}
+
+.hbox{
+    -fx-background-color: #212121;
+}
+
+#lblInfromasjonBestilling {
+    -fx-text-alignment: left!important;
 }
 
 

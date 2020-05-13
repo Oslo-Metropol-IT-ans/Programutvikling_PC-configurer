@@ -14,9 +14,9 @@
 <?import com.jfoenix.controls.JFXButton?>
 <AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreBrukerController">
    <children>
-      <TableView fx:id="tableView" editable="true" layoutX="66.0" layoutY="73.0" prefHeight="526.0" prefWidth="1009.0">
+      <TableView fx:id="tableView" editable="true" layoutX="66.0" layoutY="73.0" prefHeight="526.0" prefWidth="1008.0">
         <columns>
-          <TableColumn fx:id="tbBrukernavn" onEditCommit="#txtBrukernavnEdited" prefWidth="152.0" text="Brukernavn">
+          <TableColumn fx:id="tbBrukernavn" onEditCommit="#txtBrukernavnEdited" prefWidth="168.0" text="Brukernavn">
             <cellValueFactory>
                 <PropertyValueFactory property="brukernavn" />
             </cellValueFactory>
@@ -24,7 +24,7 @@
                 <TextFieldTableCell fx:factory="forTableColumn" />
             </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbPassord" minWidth="0.0" onEditCommit="#txtPasswordEdited" prefWidth="173.0" text="Passord">
+          <TableColumn fx:id="tbPassord" minWidth="0.0" onEditCommit="#txtPasswordEdited" prefWidth="168.0" text="Passord">
             <cellValueFactory>
                 <PropertyValueFactory property="passord" />
             </cellValueFactory>
@@ -32,7 +32,7 @@
                 <TextFieldTableCell fx:factory="forTableColumn" />
             </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbNavn" onEditCommit="#txtNavnEdited" prefWidth="198.0" text="Navn" >
+          <TableColumn fx:id="tbNavn" onEditCommit="#txtNavnEdited" prefWidth="168.0" text="Navn" >
               <cellValueFactory>
                   <PropertyValueFactory property="navn" />
               </cellValueFactory>
@@ -40,7 +40,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
               </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbTlfNummer" onEditCommit="#txtTlfNummerEdited" prefWidth="169.0" text="Telefonnummer" >
+          <TableColumn fx:id="tbTlfNummer" onEditCommit="#txtTlfNummerEdited" prefWidth="168.0" text="Telefonnummer" >
               <cellValueFactory>
                   <PropertyValueFactory property="tlfNummer" />
               </cellValueFactory>
@@ -48,7 +48,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
               </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbEmail" minWidth="0.0" onEditCommit="#txtEmailEdited" prefWidth="188.0" text="Email" >
+          <TableColumn fx:id="tbEmail" minWidth="0.0" onEditCommit="#txtEmailEdited" prefWidth="168.0" text="Email" >
               <cellValueFactory>
                   <PropertyValueFactory property="email" />
               </cellValueFactory>
@@ -56,7 +56,7 @@
                   <TextFieldTableCell fx:factory="forTableColumn" />
               </cellFactory>
           </TableColumn>
-          <TableColumn fx:id="tbRettigheter" maxWidth="1.7976931348623157E308" minWidth="0.0" onEditCommit="#txtRettigheterEdited" prefWidth="128.0" text="Rettigheter">
+          <TableColumn fx:id="tbRettigheter" maxWidth="1.7976931348623157E308" minWidth="0.0" onEditCommit="#txtRettigheterEdited" prefWidth="168.0" text="Rettigheter">
             <cellValueFactory>
                 <PropertyValueFactory property="rettigheter" />
             </cellValueFactory>
@@ -82,6 +82,6 @@
          </font></JFXButton>
    </children>
     <stylesheets>
-        <URL value="@style4.css" />
+        <URL value="@../Stylesheet/style4.css" />
     </stylesheets>
 </AnchorPane>

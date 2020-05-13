@@ -129,7 +129,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSøk" layoutX="981.0" layoutY="20.0" onKeyTyped="#søk" promptText="Søk" />
+      <TextField fx:id="txtSok" layoutX="981.0" layoutY="20.0" onKeyTyped="#sok" promptText="Søk" />
       <ChoiceBox fx:id="cbValg" layoutX="811.0" layoutY="20.0" prefWidth="150.0" />
       <JFXButton layoutX="1086.0" layoutY="666.0" mnemonicParsing="false" onAction="#slett" text="Slett">
          <font>
@@ -153,6 +153,6 @@
       </JFXButton>
    </children>
     <stylesheets>
-        <URL value="@style4.css" />
+        <URL value="@../Stylesheet/style4.css" />
     </stylesheets>
 </AnchorPane>

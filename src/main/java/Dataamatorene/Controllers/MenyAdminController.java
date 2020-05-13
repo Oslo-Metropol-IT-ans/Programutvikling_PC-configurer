@@ -70,7 +70,6 @@ public class MenyAdminController {
 
     // Metode ved vellykket kjøring av tråd
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
-        Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyAdmin.setVisible(true);
         loggUtButton.setVisible(true);
         progressBar.setVisible(false);
@@ -91,22 +90,22 @@ public class MenyAdminController {
     // Metoder for lasting av side i ny trå
     @FXML
     void seBestillinger(ActionEvent event) {
-        threadOpenPageSet("bestillingshistorikkadmin");
+        threadOpenPageSet("FXML/bestillingshistorikkadmin");
     }
 
     @FXML
     void endreBrukere(ActionEvent event) {
-        threadOpenPageSet("endrebruker");
+        threadOpenPageSet("FXML/endrebruker");
     }
 
     @FXML
     void leggTil(ActionEvent event) {
-        threadOpenPageSet("lagkomponent");
+        threadOpenPageSet("FXML/lagkomponent");
     }
 
     @FXML
     void endreKompnenter(ActionEvent event) {
-        threadOpenPageSet("endrekomponent");
+        threadOpenPageSet("FXML/endrekomponent");
     }
 
     // Metode for å laste ny side i egen tråd
@@ -153,7 +152,7 @@ public class MenyAdminController {
     @FXML
     void loggUt(ActionEvent event) {
         try{
-            App.setRoot("login");
+            App.setRoot("FXML/login");
         } catch (IOException IOE){
             IOE.printStackTrace();
         }
@@ -163,7 +162,7 @@ public class MenyAdminController {
     @FXML
     void brukerside(ActionEvent event) {
         try {
-            App.setRoot("menybruker");
+            App.setRoot("FXML/menybruker");
         } catch (IOException e) {
             e.printStackTrace();
         }

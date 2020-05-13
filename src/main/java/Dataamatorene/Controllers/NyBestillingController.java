@@ -15,11 +15,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
 import java.io.FileInputStream;
@@ -155,7 +158,7 @@ public class NyBestillingController {
             } else {
                 try {
                     image = new ImageView(new Image(
-                            new FileInputStream("src/main/java/Dataamatorene/Pictures/nia.jpg")));
+                            new FileInputStream("src/main/resources/Dataamatorene/Pictures/nia.png")));
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -332,14 +335,22 @@ public class NyBestillingController {
         }
 
         if (valgt) {
-            BestillingsRegister.addBestilling(new Bestilling(BrukerRegister.getAktivBruker(), (Harddisk) datakomponents[0],
+            Bestilling b = new Bestilling(BrukerRegister.getAktivBruker(), (Harddisk) datakomponents[0],
                     (Hovedkort) datakomponents[1], (Lydkort) datakomponents[2], (Skjermkort) datakomponents[3],
                     (Prosessor) datakomponents[4], (Minne) datakomponents[5], (Kabinett) datakomponents[6],
-                    (Skjerm) datakomponents[7], (Tastatur) datakomponents[8], (Mus) datakomponents[9]));
-            Dialogs.showSuccessDialog("Bestillingen din er registrert");
+                    (Skjerm) datakomponents[7], (Tastatur) datakomponents[8], (Mus) datakomponents[9]);
+            BestillingsRegister.addBestilling(b);
             BestillingsRegister.lagreBestillinger();
+            Parent root;
             try {
-                App.setRoot("menybruker");
+                VisBestillingController.setAktivBestilling(b, "Gratulrerer, her er din bestilling");
+                root = App.loadFXML("FXML/visbestilling");
+                Stage stage = new Stage();
+                stage.setTitle("Bestilling");
+                stage.setScene(new Scene(root, 900, 600));
+                stage.show();
+
+                App.setRoot("FXML/bestillingshistorikkbruker");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -350,7 +361,7 @@ public class NyBestillingController {
     @FXML
     void tilbake(ActionEvent event) {
         try {
-            App.setRoot("menybruker");
+            App.setRoot("FXML/menybruker");
         } catch (IOException e) {
             e.printStackTrace();
         }

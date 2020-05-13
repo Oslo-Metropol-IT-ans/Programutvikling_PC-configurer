@@ -1,20 +1,29 @@
 package Dataamatorene.Controllers;
 
 import Dataamatorene.App;
+import Dataamatorene.Bestilling.Bestilling;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Dialogs;
+import Dataamatorene.Filbehandling.FileOpener;
+import Dataamatorene.Filbehandling.FileOpenerTxt;
 import Dataamatorene.Tasks.ThreadOpenKomponentRegister;
 import Dataamatorene.Tasks.ThreadOpenNewPage;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MenyBrukerController {
 
@@ -60,7 +69,6 @@ public class MenyBrukerController {
     }
 
     private void threadOpenKomponentRegisterDone (WorkerStateEvent e) {
-        Dialogs.showSuccessDialog("Alle filer er åpnet");
         menyBruker.setVisible(true);
         loggUtButton.setVisible(true);
         progressBar.setVisible(false);
@@ -98,16 +106,58 @@ public class MenyBrukerController {
 
     @FXML
     void mineBestillinger(ActionEvent event) {
-        threadOpenPageSet("bestillingshistorikkbruker");
+        threadOpenPageSet("FXML/bestillingshistorikkbruker");
     }
 
     @FXML
     void nyBestiliing(ActionEvent event) {
-        threadOpenPageSet("nybestilling");
+        threadOpenPageSet("FXML/nybestilling");
+    }
+
+    @FXML
+    void lastOpp(ActionEvent event) {
+        FileOpener opener = new FileOpenerTxt();
+
+        String path;
+
+        File selectedFile;
+        FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("TXT Files", "*.txt"));
+        try {
+            var test = System.getProperty("user.home") + "/Desktop";
+            fc.setInitialDirectory(new File(test));
+            selectedFile = fc.showOpenDialog(null);
+        } catch (Exception e) {
+            fc.setInitialDirectory(null);
+            selectedFile = fc.showOpenDialog(null);
+        }
+
+        if (selectedFile != null) {
+            path = selectedFile.getAbsolutePath();
+
+            try {
+                ArrayList<Bestilling> nye = (ArrayList<Bestilling>) opener.read(path);
+
+                VisBestillingerController.setListeBestillinger(nye);
+                Parent root;
+                try {
+                    root = App.loadFXML("FXML/visbestillinger");
+                    Stage stage = new Stage();
+                    stage.setTitle("Bestilling");
+                    stage.setScene(new Scene(root, 900, 600));
+                    stage.show();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     // Opprettelse av tråd og lasting av ny side i egen tråd
-
     private void threadOpenPageSet(String s) {
         threadOpenNewPage = new ThreadOpenNewPage(s);
         threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
@@ -162,7 +212,7 @@ public class MenyBrukerController {
     @FXML
     void admin(ActionEvent event) {
         try {
-            App.setRoot("menyadmin");
+            App.setRoot("FXML/menyadmin");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -171,7 +221,7 @@ public class MenyBrukerController {
     @FXML
     void loggUt(ActionEvent event) {
         try {
-            App.setRoot("login");
+            App.setRoot("FXML/login");
         } catch (IOException e) {
             e.printStackTrace();
         }

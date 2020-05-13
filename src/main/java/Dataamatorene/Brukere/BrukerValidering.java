@@ -21,6 +21,7 @@ public class BrukerValidering {
 
     public static String sjekkPassord(String passord) {
         boolean stor = false; boolean liten = false; boolean tall = false; boolean lengde = passord.length() >= 8;
+        boolean feil = false;
 
         for(int i = 0; i < passord.length(); i++){
             String verdi = String.valueOf(passord.charAt(i));
@@ -33,9 +34,12 @@ public class BrukerValidering {
             if (verdi.matches("[0-9]")){
                 tall = true;
             }
+            if (verdi.matches("[ ]")) {
+                feil = true;
+            }
         }
 
-        if(liten && stor && tall && lengde){
+        if(liten && stor && tall && lengde && !feil){
             return passord;
         }
         else throw new InvalidPasswordException("Ugyldig passord");

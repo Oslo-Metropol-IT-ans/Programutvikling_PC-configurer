@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -681,7 +682,7 @@ public class LagKomponentController {
     void tilbake(ActionEvent event) {
 
         try{
-            App.setRoot("menyadmin");
+            App.setRoot("FXML/menyadmin");
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -706,7 +707,7 @@ public class LagKomponentController {
                     varekode++;
                 }
             }
-            textFields[i].setText(String.valueOf(varekode));
+            textFields[i].setText(new DecimalFormat("00000").format(varekode));
         }
     }
 

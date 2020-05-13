@@ -21,11 +21,10 @@ public class App extends Application { // Klassen for å starte hele programmet 
     private static Scene scene;
 
     // Metoden for å åpne brukergrensesnittet
-
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("login"));
-        stage.getIcons().add(new Image(new FileInputStream("src/main/java/Dataamatorene/Pictures/java.png")));
+        scene = new Scene(loadFXML("FXML/login"));
+        stage.getIcons().add(new Image(new FileInputStream("src/main/resources/Dataamatorene/Pictures/java.png")));
 
         stage.setScene(scene);
         stage.setTitle("Dataamatørene");

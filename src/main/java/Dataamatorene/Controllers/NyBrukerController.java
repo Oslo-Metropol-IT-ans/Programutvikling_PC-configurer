@@ -7,8 +7,7 @@ import Dataamatorene.*;
 import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Brukere.BrukerValidering;
-import Dataamatorene.Exceptions.InvalidBrukerException;
-import Dataamatorene.Exceptions.InvalidPasswordException;
+import Dataamatorene.Exceptions.*;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
 import javafx.event.ActionEvent;
@@ -156,13 +155,13 @@ public class NyBrukerController {
                 try {
                     saver.save(BrukerRegister.getBrukere(), "src/main/java/Dataamatorene/Files/Login.jobj");
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Dialogs.showErrorDialog("Det har skjedd en feil ved opprettelse av din bruker");
                 }
 
                 Dialogs.showSuccessDialog("Brukeren er nå opprettet");
 
                 try {
-                    App.setRoot("login");
+                    App.setRoot("FXML/login");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -171,13 +170,17 @@ public class NyBrukerController {
 
                 Dialogs.showErrorDialog(IPE.getMessage());
                 txtPassword.setText("");
-                txtPassword.requestFocus();
+                pwPassword.setText("");
+                pwPassword.requestFocus();
 
-            } catch (InvalidBrukerException IBE){
+            } catch (InvalidBrukerException | InvalidNameException | InvalidTelefonException | InvalidEpostException IBE){
 
                 Dialogs.showErrorDialog(IBE.getMessage());
                 txtBrukernavn.requestFocus();
                 txtPassword.setText("");
+                pwPassword.setText("");
+                txtPasswordGjenta.setText("");
+                pwPasswordGjenta.setText("");
 
             }
 
@@ -219,7 +222,7 @@ public class NyBrukerController {
     @FXML
     void tilbake(ActionEvent event) {
         try {
-            App.setRoot("login");
+            App.setRoot("FXML/login");
         } catch (IOException e) {
             e.printStackTrace();
         }

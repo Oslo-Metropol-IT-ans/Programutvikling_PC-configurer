@@ -92,7 +92,7 @@ public class LogInController {
                 if (b.isSuperbruker()){
                     try {
                         // Går til meny admin ved funn av superbruker
-                        App.setRoot("menyadmin");
+                        App.setRoot("FXML/menyadmin");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -100,7 +100,7 @@ public class LogInController {
                 else{
                     try {
                         // Går til meny bruker ved funn av sluttbruker
-                        App.setRoot("menybruker");
+                        App.setRoot("FXML/menybruker");
                     } catch (IOException e) {
                         Dialogs.showErrorDialog("Denne siden finnes ikke");
                     }
@@ -121,7 +121,7 @@ public class LogInController {
     @FXML
     void nyBruker(ActionEvent event) {
         try {
-            App.setRoot("nybruker");
+            App.setRoot("FXML/nybruker");
         } catch (IOException e) {
             e.printStackTrace();
         }

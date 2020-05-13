@@ -417,7 +417,7 @@ public class LastOppBestillingerController {
     // Til aktive bestillinger
     @FXML
     void tilbake(ActionEvent event) {
-        threadOpenNewPage = new ThreadOpenNewPage("bestillingshistorikkadmin");
+        threadOpenNewPage = new ThreadOpenNewPage("FXML/bestillingshistorikkadmin");
         threadOpenNewPage.setOnSucceeded(this::threadOpenPageDone);
         threadOpenNewPage.setOnRunning(this::threadOpenPageRunning);
         threadOpenNewPage.setOnFailed(this::threadOpenPageFailes);

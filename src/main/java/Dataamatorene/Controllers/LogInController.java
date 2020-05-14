@@ -89,7 +89,7 @@ public class LogInController {
             if (brukernavn.equalsIgnoreCase(b.getBrukernavn()) && passord.equals(b.getPassord())){
                 finnes = true;
                 BrukerRegister.setAktivBruker(b);
-                if (b.isSuperbruker()){
+                if (b.isSuperbruker() == Bruker.BrukerType.ADMIN){
                     try {
                         // Går til meny admin ved funn av superbruker
                         App.setRoot("FXML/menyadmin");

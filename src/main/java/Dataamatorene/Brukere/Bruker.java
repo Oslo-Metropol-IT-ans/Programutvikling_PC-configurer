@@ -6,16 +6,21 @@ import java.io.Serializable;
 
 public class Bruker implements Serializable, Comparable<Bruker> {
 
+    public enum BrukerType {
+        ADMIN,
+        BRUKER
+    }
+
     // Datafelt
     private String brukernavn;
     private String passord;
     private String navn;
     private String tlfNummer;
     private String email;
-    private boolean superbruker;
+    private BrukerType superbruker;
 
     // Konstruktør
-    public Bruker(String brukernavn, String passord, String navn, String tlfNummer, String email, boolean superbruker){
+    public Bruker(String brukernavn, String passord, String navn, String tlfNummer, String email, BrukerType superbruker){
         this.brukernavn = brukernavn;
         this.passord = passord;
         this.navn = navn;
@@ -46,7 +51,7 @@ public class Bruker implements Serializable, Comparable<Bruker> {
     }
 
     public String getRettigheter() {
-        if(superbruker) return "Admin";
+        if(superbruker == BrukerType.ADMIN) return "Admin";
         else return "Bruker";
     }
 
@@ -71,11 +76,11 @@ public class Bruker implements Serializable, Comparable<Bruker> {
     }
 
     public void setSuperbruker(String rettigheter){
-        if(rettigheter.equalsIgnoreCase("admin")) superbruker = true;
-        else superbruker = false;
+        if(rettigheter.equalsIgnoreCase("admin")) superbruker = BrukerType.ADMIN;
+        else superbruker = BrukerType.BRUKER;
     }
 
-    public boolean isSuperbruker() {
+    public BrukerType isSuperbruker() {
         return superbruker;
     }
 

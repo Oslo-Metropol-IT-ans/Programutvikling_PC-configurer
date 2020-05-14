@@ -151,7 +151,7 @@ public class NyBrukerController {
 
                 FileSaver saver = new FileSaverJobj();
                 try {
-                    saver.save(BrukerRegister.getBrukere(), "src/main/java/Dataamatorene/Files/Login.jobj");
+                    saver.save(BrukerRegister.getBrukere(), "src/main/resources/Dataamatorene/Files/Login.jobj");
                 } catch (IOException e) {
                     Dialogs.showErrorDialog("Det har skjedd en feil ved opprettelse av din bruker");
                 }

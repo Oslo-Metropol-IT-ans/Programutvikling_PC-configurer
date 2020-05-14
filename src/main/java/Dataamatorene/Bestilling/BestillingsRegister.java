@@ -28,7 +28,7 @@ public class BestillingsRegister {
     public static void lagreBestillinger() {
         try {
             FileSaver saver = new FileSaverJobj();
-            saver.save(bestillinger, "src/main/java/Dataamatorene/Files/Bestillinger.jobj");
+            saver.save(bestillinger, "src/main/resources/Dataamatorene/Files/Bestillinger.jobj");
         } catch (IOException e) {
             e.printStackTrace();
         }

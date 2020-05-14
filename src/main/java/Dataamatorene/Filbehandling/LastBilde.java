@@ -1,4 +1,4 @@
-package Dataamatorene;
+package Dataamatorene.Filbehandling;
 
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;

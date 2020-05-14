@@ -671,6 +671,6 @@
       <JFXTextField fx:id="txtSok" focusColor="WHITE" labelFloat="true" layoutX="1008.0" layoutY="20.0" onKeyTyped="#sok" promptText="Søk" unFocusColor="#9c2b27" />
    </children>
    <stylesheets>
-      <URL value="@../Stylesheet/style4.css" />
+      <URL value="@../Stylesheet/styleMain.css" />
    </stylesheets>
 </AnchorPane>

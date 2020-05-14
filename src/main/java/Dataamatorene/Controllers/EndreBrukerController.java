@@ -182,7 +182,7 @@ public class EndreBrukerController {
     private void lagre() {
         FileSaver saver = new FileSaverJobj();
         try {
-            saver.save(BrukerRegister.getBrukere(), "src/main/java/Dataamatorene/Files/Login.jobj");
+            saver.save(BrukerRegister.getBrukere(), "src/main/resources/Dataamatorene/Files/Login.jobj");
         } catch (IOException e) {
             Dialogs.showErrorDialog("Kunne ikke lagre");
         }
@@ -195,7 +195,7 @@ public class EndreBrukerController {
         String søk = txtSok.getText();
 
         if(!søk.isEmpty()){
-            Streams.streamBrukernavn(søk);
+            BrukerRegister.streamBrukernavn(søk);
             BrukerRegister.setAktivTableView(tableView);
         } else{
             BrukerRegister.setTableView(tableView);
@@ -221,7 +221,7 @@ public class EndreBrukerController {
 
                         FileSaver saver = new FileSaverJobj();
                         try {
-                            saver.save(BrukerRegister.getBrukere(), "src/main/java/Dataamatorene/Files/Login.jobj");
+                            saver.save(BrukerRegister.getBrukere(), "src/main/resources/Dataamatorene/Files/Login.jobj");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

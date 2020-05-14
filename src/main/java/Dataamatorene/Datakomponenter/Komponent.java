@@ -1,4 +1,4 @@
-package Dataamatorene;
+package Dataamatorene.Datakomponenter;
 
 public class Komponent<E> {
 

@@ -32,7 +32,7 @@ public class LogInController {
         // Laster inn brukere
         FileOpener opener = new FileOpenerJobj();
         try {
-            BrukerRegister.setBrukere((ArrayList<Bruker>) opener.read("src/main/java/Dataamatorene/Files/Login.jobj"));
+            BrukerRegister.setBrukere((ArrayList<Bruker>) opener.read("src/main/resources/Dataamatorene/Files/Login.jobj"));
         } catch (IOException e) {
             Dialogs.showErrorDialog(e.getMessage());
         } catch (ClassNotFoundException e) {

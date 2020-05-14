@@ -5,7 +5,7 @@ import Dataamatorene.Bestilling.VarekodeRegister;
 import Dataamatorene.Datakomponenter.*;
 import Dataamatorene.Dialogs;
 import Dataamatorene.Exceptions.AlreadyTakenVarekodeException;
-import Dataamatorene.LastBilde;
+import Dataamatorene.Filbehandling.LastBilde;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;

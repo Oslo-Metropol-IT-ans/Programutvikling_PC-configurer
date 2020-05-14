@@ -24,7 +24,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
         // Oppaderer meding til GUI
         updateMessage("Laster harddisker");
         KomponentRegister.setHarddiskArrayList(
-                (ArrayList<Harddisk>) opener.read("src/main/java/Dataamatorene/Files/Harddisk.jobj"));
+                (ArrayList<Harddisk>) opener.read("src/main/resources/Dataamatorene/Files/Harddisk.jobj"));
         updateProgress(1, 22);
         // Forsinker tråden med 0.05 sek for hver lasting
         try{
@@ -35,7 +35,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Laster hovedkort");
         KomponentRegister.setHovedkortArrayList(
-                (ArrayList<Hovedkort>) opener.read("src/main/java/Dataamatorene/Files/Hovedkort.jobj"));
+                (ArrayList<Hovedkort>) opener.read("src/main/resources/Dataamatorene/Files/Hovedkort.jobj"));
         updateProgress(2, 22);
         try{
             Thread.sleep(50);
@@ -45,7 +45,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Laster kabinett");
         KomponentRegister.setKabinettArrayList(
-                (ArrayList<Kabinett>) opener.read("src/main/java/Dataamatorene/Files/Kabinett.jobj"));
+                (ArrayList<Kabinett>) opener.read("src/main/resources/Dataamatorene/Files/Kabinett.jobj"));
         updateProgress(3, 22);
         try{
             Thread.sleep(50);
@@ -55,7 +55,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Laster lydkort");
         KomponentRegister.setLydkortArrayList(
-                (ArrayList<Lydkort>) opener.read("src/main/java/Dataamatorene/Files/Lydkort.jobj"));
+                (ArrayList<Lydkort>) opener.read("src/main/resources/Dataamatorene/Files/Lydkort.jobj"));
         updateProgress(4, 22);
         try{
             Thread.sleep(50);
@@ -65,7 +65,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Later minne");
         KomponentRegister.setMinneArrayList(
-                (ArrayList<Minne>) opener.read("src/main/java/Dataamatorene/Files/Minne.jobj"));
+                (ArrayList<Minne>) opener.read("src/main/resources/Dataamatorene/Files/Minne.jobj"));
         updateProgress(5, 22);
         try{
             Thread.sleep(50);
@@ -75,7 +75,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Laster muser");
         KomponentRegister.setMusArrayList(
-                (ArrayList<Mus>) opener.read("src/main/java/Dataamatorene/Files/Mus.jobj"));
+                (ArrayList<Mus>) opener.read("src/main/resources/Dataamatorene/Files/Mus.jobj"));
         updateProgress(6, 22);
         try{
             Thread.sleep(50);
@@ -85,7 +85,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Laster prosessorer");
         KomponentRegister.setProsessorArrayList(
-                (ArrayList<Prosessor>) opener.read("src/main/java/Dataamatorene/Files/Prosessor.jobj"));
+                (ArrayList<Prosessor>) opener.read("src/main/resources/Dataamatorene/Files/Prosessor.jobj"));
         updateProgress(7, 22);
         try{
             Thread.sleep(50);
@@ -95,7 +95,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Laster skjermer");
         KomponentRegister.setSkjermArrayList(
-                (ArrayList<Skjerm>) opener.read("src/main/java/Dataamatorene/Files/Skjerm.jobj"));
+                (ArrayList<Skjerm>) opener.read("src/main/resources/Dataamatorene/Files/Skjerm.jobj"));
         updateProgress(8, 22);
         try{
             Thread.sleep(50);
@@ -105,7 +105,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Laster skjermkort");
         KomponentRegister.setSkjermkortArrayList(
-                (ArrayList<Skjermkort>) opener.read("src/main/java/Dataamatorene/Files/Skjermkort.jobj"));
+                (ArrayList<Skjermkort>) opener.read("src/main/resources/Dataamatorene/Files/Skjermkort.jobj"));
         updateProgress(9, 22);
         try{
             Thread.sleep(50);
@@ -115,7 +115,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         updateMessage("Laster tastaturer");
         KomponentRegister.setTastaturArrayList(
-                (ArrayList<Tastatur>) opener.read("src/main/java/Dataamatorene/Files/Tastatur.jobj"));
+                (ArrayList<Tastatur>) opener.read("src/main/resources/Dataamatorene/Files/Tastatur.jobj"));
         updateProgress(10, 22);
         try{
             Thread.sleep(50);
@@ -228,7 +228,7 @@ public class ThreadOpenKomponentRegister extends Task<Void> {
 
         // Laster og setter bestillingene
         updateMessage("Laster bestillinger");
-        BestillingsRegister.setBestillinger((ArrayList<Bestilling>) opener.read("src/main/java/Dataamatorene/Files/Bestillinger.jobj"));
+        BestillingsRegister.setBestillinger((ArrayList<Bestilling>) opener.read("src/main/resources/Dataamatorene/Files/Bestillinger.jobj"));
         updateProgress(21, 22);
         try{
             Thread.sleep(50);

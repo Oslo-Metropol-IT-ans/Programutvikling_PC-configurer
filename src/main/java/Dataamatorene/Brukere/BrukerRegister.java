@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class BrukerRegister {
 
@@ -65,5 +66,12 @@ public class BrukerRegister {
     public static void addBruker(Bruker b){
         brukere.add(b);
         update();
+    }
+
+    public static void streamBrukernavn(String s){
+        BrukerRegister.setAktivList(BrukerRegister.getOliste().stream().filter(x -> x.getBrukernavn().toLowerCase().contains(s.toLowerCase()))
+                .collect(Collectors.toCollection(FXCollections::observableArrayList)));
+
+
     }
 }

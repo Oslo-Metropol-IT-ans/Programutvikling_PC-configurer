@@ -21,6 +21,6 @@
       <JFXButton fx:id="lagreButton" layoutX="413.0" layoutY="320.0" mnemonicParsing="false" onAction="#lagre" text="Lagre" />
    </children>
    <stylesheets>
-      <URL value="@../Stylesheet/style4.css" />
+      <URL value="@../Stylesheet/styleMain.css" />
    </stylesheets>
 </AnchorPane>

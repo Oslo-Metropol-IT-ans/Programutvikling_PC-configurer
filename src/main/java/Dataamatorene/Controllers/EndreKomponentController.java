@@ -10,7 +10,7 @@ import Dataamatorene.Exceptions.AlreadyTakenVarekodeException;
 import Dataamatorene.Exceptions.InvalidComponentAttributeException;
 import Dataamatorene.Exceptions.InvalidPrisException;
 import Dataamatorene.Exceptions.InvalidVarekodeException;
-import Dataamatorene.Komponent;
+import Dataamatorene.Datakomponenter.Komponent;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

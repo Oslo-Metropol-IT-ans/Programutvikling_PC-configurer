@@ -63,6 +63,6 @@
       <Label layoutX="445.0" layoutY="134.0" text="Minst 8 tegn, én stor og én liten bokstav, og ett tall" />
    </children>
    <stylesheets>
-      <URL value="@../Stylesheet/style4.css" />
+      <URL value="@../Stylesheet/styleMain.css" />
    </stylesheets>
 </AnchorPane>

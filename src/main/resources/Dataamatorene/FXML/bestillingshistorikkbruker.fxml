@@ -34,6 +34,6 @@
       </JFXButton>
    </children>
    <stylesheets>
-      <URL value="@../Stylesheet/style4.css" />
+      <URL value="@../Stylesheet/styleMain.css" />
    </stylesheets>
 </AnchorPane>

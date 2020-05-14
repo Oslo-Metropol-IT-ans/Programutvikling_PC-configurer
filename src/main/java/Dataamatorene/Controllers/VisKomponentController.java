@@ -1,7 +1,7 @@
 package Dataamatorene.Controllers;
 
 import Dataamatorene.Datakomponenter.Datakomponent;
-import Dataamatorene.Komponent;
+import Dataamatorene.Datakomponenter.Komponent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

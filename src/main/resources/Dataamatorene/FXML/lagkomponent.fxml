@@ -651,6 +651,6 @@
       <JFXButton layoutX="1000.0" layoutY="439.0" mnemonicParsing="false" onAction="#lukkBilde" text="Fjern bilde" />
    </children>
    <stylesheets>
-      <URL value="@../Stylesheet/style4.css" />
+      <URL value="@../Stylesheet/styleMain.css" />
    </stylesheets>
 </AnchorPane>

@@ -60,10 +60,7 @@ public class VisBestillingController {
         for (Node n: testVbox.getChildren()) {
             n.setOnMouseMoved(mouseEvent -> {
                 if (test) {
-                    //int index = list.getSelectionModel().getSelectedIndex();
                     initialize();
-                    //list.getSelectionModel().select(index);
-                    //lblLeft.setText(datakomponents.get(index).getVarekode());
                     if (list.getSelectionModel().getSelectedItem() != null) {
                         VisBestillingerController
                                 .visKomponentInner(list, datakomponents, lblInfromasjonBestilling, lblLeft, image);

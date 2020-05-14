@@ -58,13 +58,16 @@
       <children>
         <Label fx:id="lblLeft" maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
           <font>
-            <Font size="11.0" fx:id="x3" />
+            <Font size="14.0" fx:id="x3" />
           </font>
           <textFill>
             <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
           </textFill>
+               <font>
+                  <Font size="14.0" />
+               </font>
         </Label>
-        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+        <Pane HBox.hgrow="ALWAYS" />
         <Label fx:id="lblRight" font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
       </children>
       <padding>

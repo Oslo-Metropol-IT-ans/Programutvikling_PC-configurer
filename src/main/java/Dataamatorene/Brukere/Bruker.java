@@ -76,8 +76,7 @@ public class Bruker implements Serializable, Comparable<Bruker> {
     }
 
     public void setSuperbruker(String rettigheter){
-        if(rettigheter.equalsIgnoreCase("admin")) superbruker = BrukerType.ADMIN;
-        else superbruker = BrukerType.BRUKER;
+        superbruker = BrukerType.valueOf(rettigheter.toUpperCase());
     }
 
     public BrukerType isSuperbruker() {

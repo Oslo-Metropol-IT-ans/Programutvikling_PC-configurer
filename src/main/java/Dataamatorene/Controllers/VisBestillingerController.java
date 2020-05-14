@@ -66,6 +66,7 @@ public class VisBestillingerController {
         var komponent = datakomponents.get(index);
         lblInfromasjonBestilling.setText(komponent.getBeskrivelse());
         lblLeft.setText("Varekode: " + komponent.getVarekode());
+        lblLeft.setPrefWidth(lblLeft.getText().length() * 10);
         if (komponent.getBilde() != null) {
             image.setImage(komponent.getBilde());
         } else {

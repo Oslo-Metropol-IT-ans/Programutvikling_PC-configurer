@@ -22,6 +22,8 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -102,6 +104,8 @@ public class EndreKomponentController {
 
 
     // FXML deklarasjoner
+    @FXML
+    private AnchorPane pane;
 
     @FXML
     private TableView<Harddisk> tvHarddisk;
@@ -149,7 +153,7 @@ public class EndreKomponentController {
         try{
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreHarddisk();
+            LagreKomponent.lagreHarddisk(pane);
             tvHarddisk.refresh();
         }catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -166,7 +170,7 @@ public class EndreKomponentController {
     private void txtHarddiskNavnEdit(TableColumn.CellEditEvent<Harddisk, String> event) {
         try{
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreHarddisk();
+            LagreKomponent.lagreHarddisk(pane);
             tvHarddisk.refresh();
         }catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -183,7 +187,7 @@ public class EndreKomponentController {
     private void txtHarddiskPrisEdit(TableColumn.CellEditEvent<Harddisk, String> event) {
         try{
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreHarddisk();
+            LagreKomponent.lagreHarddisk(pane);
             tvHarddisk.refresh();
         }catch (IOException | InvalidPrisException e){
             Dialogs.showErrorDialog("Ugyldig pris!",e.getMessage());
@@ -201,7 +205,7 @@ public class EndreKomponentController {
     private void txtHarddiskLagringEdit(TableColumn.CellEditEvent<Harddisk, String> event) {
         try{
             event.getRowValue().setLagring(KomponentValidering.lagringValidering(event.getNewValue()));
-            LagreKomponent.lagreHarddisk();
+            LagreKomponent.lagreHarddisk(pane);
             tvHarddisk.refresh();
         }catch (IOException | InvalidPrisException e){
             Dialogs.showErrorDialog("Ugyldig lagring!",e.getMessage());
@@ -231,7 +235,7 @@ public class EndreKomponentController {
         try{
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreHovedkort();
+            LagreKomponent.lagreHovedkort(pane);
             tvHovedkort.refresh();
         }catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -248,7 +252,7 @@ public class EndreKomponentController {
     private void txtHovedkortNavnEdit(TableColumn.CellEditEvent<Hovedkort, String> event) {
         try{
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreHovedkort();
+            LagreKomponent.lagreHovedkort(pane);
             tvHovedkort.refresh();
         }catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -265,7 +269,7 @@ public class EndreKomponentController {
     private void txtHovedkortPrisEdit(TableColumn.CellEditEvent<Hovedkort, String> event) {
         try{
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreHovedkort();
+            LagreKomponent.lagreHovedkort(pane);
             tvHovedkort.refresh();
         }catch (IOException | InvalidPrisException e){
             Dialogs.showErrorDialog("Ugyldig pris!",e.getMessage());
@@ -282,7 +286,7 @@ public class EndreKomponentController {
     private void txtHovedkortPorterEdit(TableColumn.CellEditEvent<Hovedkort, String> event) {
         try{
             event.getRowValue().setAntallPorter(KomponentValidering.porterValidering(event.getNewValue()));
-            LagreKomponent.lagreHovedkort();
+            LagreKomponent.lagreHovedkort(pane);
             tvHovedkort.refresh();
         }catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig antall porter!",e.getMessage());
@@ -312,7 +316,7 @@ public class EndreKomponentController {
         try{
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreLydkort();
+            LagreKomponent.lagreLydkort(pane);
             tvLydkort.refresh();
         }catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -330,7 +334,7 @@ public class EndreKomponentController {
     private void txtLydkortNavnEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
         try{
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreLydkort();
+            LagreKomponent.lagreLydkort(pane);
             tvLydkort.refresh();
         }catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -347,7 +351,7 @@ public class EndreKomponentController {
     private void txtLydkortPrisEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
         try{
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreLydkort();
+            LagreKomponent.lagreLydkort(pane);
             tvLydkort.refresh();
         }catch (IOException | InvalidPrisException e){
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -364,7 +368,7 @@ public class EndreKomponentController {
     private void txtLydkortFrekvensEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
         try{
             event.getRowValue().setFrekvens(KomponentValidering.frekvensValideringKHz(event.getNewValue()));
-            LagreKomponent.lagreLydkort();
+            LagreKomponent.lagreLydkort(pane);
             tvLydkort.refresh();
         }catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -381,7 +385,7 @@ public class EndreKomponentController {
     private void txtLydkortIntegrertEdit(TableColumn.CellEditEvent<Lydkort, String> event) {
         try{
             event.getRowValue().setIntegrert(KomponentValidering.booleanValidering(event.getNewValue()));
-            LagreKomponent.lagreLydkort();
+            LagreKomponent.lagreLydkort(pane);
             tvLydkort.refresh();
         }catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig verdi!",e.getMessage());
@@ -411,7 +415,7 @@ public class EndreKomponentController {
         try {
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreSkjermkort();
+            LagreKomponent.lagreSkjermkort(pane);
             oSkjermkort.setAll(KomponentRegister.getSkjermkortArrayList());
             tvSkjermkort.refresh();
         } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
@@ -429,7 +433,7 @@ public class EndreKomponentController {
     private void txtSkjermkortNavnEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
         try {
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreSkjermkort();
+            LagreKomponent.lagreSkjermkort(pane);
             tvSkjermkort.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -446,7 +450,7 @@ public class EndreKomponentController {
     private void txtSkjermkortPrisEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
         try {
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreSkjermkort();
+            LagreKomponent.lagreSkjermkort(pane);
             tvSkjermkort.refresh();
         } catch (IOException | InvalidPrisException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -463,7 +467,7 @@ public class EndreKomponentController {
     private void txtSkjermkortOpplosningEdit(TableColumn.CellEditEvent<Skjermkort, String> event) {
         try {
             event.getRowValue().setOpplosning(KomponentValidering.opplosningValidering(event.getNewValue()));
-            LagreKomponent.lagreSkjermkort();
+            LagreKomponent.lagreSkjermkort(pane);
             tvSkjermkort.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig oppløsning!",e.getMessage());
@@ -493,7 +497,7 @@ public class EndreKomponentController {
         try {
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreProsessor();
+            LagreKomponent.lagreProsessor(pane);
             tvProsessor.refresh();
         } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -510,7 +514,7 @@ public class EndreKomponentController {
     private void txtProsessorNavnEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreProsessor();
+            LagreKomponent.lagreProsessor(pane);
             tvProsessor.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -527,7 +531,7 @@ public class EndreKomponentController {
     private void txtProsessorPrisEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreProsessor();
+            LagreKomponent.lagreProsessor(pane);
             tvProsessor.refresh();
         } catch (IOException | InvalidPrisException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -544,7 +548,7 @@ public class EndreKomponentController {
     private void txtProsessorKjernerEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
             event.getRowValue().setAntallKjerner(KomponentValidering.kjernerValidering(event.getNewValue()));
-            LagreKomponent.lagreProsessor();
+            LagreKomponent.lagreProsessor(pane);
             tvProsessor.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig antall kjerner!",e.getMessage());
@@ -561,7 +565,7 @@ public class EndreKomponentController {
     private void txtProsessorFrekvensEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
             event.getRowValue().setFrekvens(KomponentValidering.frekvensValideringGHz(event.getNewValue()));
-            LagreKomponent.lagreProsessor();
+            LagreKomponent.lagreProsessor(pane);
             tvProsessor.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -578,7 +582,7 @@ public class EndreKomponentController {
     private void txtProsessorTraderEdit(TableColumn.CellEditEvent<Prosessor, String> event) {
         try {
             event.getRowValue().setAntallTrader(KomponentValidering.traderValidering(event.getNewValue()));
-            LagreKomponent.lagreProsessor();
+            LagreKomponent.lagreProsessor(pane);
             tvProsessor.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig antall tråder!",e.getMessage());
@@ -608,7 +612,7 @@ public class EndreKomponentController {
         try {
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreMinne();
+            LagreKomponent.lagreMinne(pane);
             tvMinne.refresh();
         } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -625,7 +629,7 @@ public class EndreKomponentController {
     private void txtMinneNavnEdit(TableColumn.CellEditEvent<Minne, String> event) {
         try {
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreMinne();
+            LagreKomponent.lagreMinne(pane);
             tvMinne.refresh();
         } catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -642,7 +646,7 @@ public class EndreKomponentController {
     private void txtMinnePrisEdit(TableColumn.CellEditEvent<Minne, String> event) {
         try {
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreMinne();
+            LagreKomponent.lagreMinne(pane);
             tvMinne.refresh();
         } catch (IOException | InvalidPrisException e){
             Dialogs.showErrorDialog("Ugyldig pris!",e.getMessage());
@@ -659,7 +663,7 @@ public class EndreKomponentController {
     private void txtMinneRamEdit(TableColumn.CellEditEvent<Minne, String> event) {
         try {
             event.getRowValue().setRam(KomponentValidering.ramValidering(event.getNewValue()));
-            LagreKomponent.lagreMinne();
+            LagreKomponent.lagreMinne(pane);
             tvMinne.refresh();
         } catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig ram!",e.getMessage());
@@ -676,7 +680,7 @@ public class EndreKomponentController {
     private void txtMinneFrekvensEdit(TableColumn.CellEditEvent<Minne, String> event) {
         try {
             event.getRowValue().setFrekvens(KomponentValidering.frekvensValideringGHz(event.getNewValue()));
-            LagreKomponent.lagreMinne();
+            LagreKomponent.lagreMinne(pane);
             tvMinne.refresh();
         } catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig frekvens!",e.getMessage());
@@ -706,7 +710,7 @@ public class EndreKomponentController {
         try {
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreKabinett();
+            LagreKomponent.lagreKabinett(pane);
             tvKabinett.refresh();
         } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -723,7 +727,7 @@ public class EndreKomponentController {
     private void txtKabinettNavnEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
         try {
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreKabinett();
+            LagreKomponent.lagreKabinett(pane);
             tvKabinett.refresh();
         } catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -740,7 +744,7 @@ public class EndreKomponentController {
     private void txtKabinettPrisEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
         try {
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreKabinett();
+            LagreKomponent.lagreKabinett(pane);
             tvKabinett.refresh();
         } catch (IOException | InvalidPrisException e){
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -757,7 +761,7 @@ public class EndreKomponentController {
     private void txtKabinettStorrelseEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
         try {
             event.getRowValue().setStorrelse(KomponentValidering.storrelseValidering(event.getNewValue()));
-            LagreKomponent.lagreKabinett();
+            LagreKomponent.lagreKabinett(pane);
             tvKabinett.refresh();
         } catch (IOException | InvalidComponentAttributeException e){
             Dialogs.showErrorDialog("Ugyldig størrelse!",e.getMessage());
@@ -774,7 +778,7 @@ public class EndreKomponentController {
     private void txtKabinettVifterEdit(TableColumn.CellEditEvent<Kabinett, String> event) {
         try {
             event.getRowValue().setAntallVifter(KomponentValidering.vifterValidering(event.getNewValue()));
-            LagreKomponent.lagreKabinett();
+            LagreKomponent.lagreKabinett(pane);
             tvKabinett.refresh();
         } catch (IOException | InvalidVarekodeException e){
             Dialogs.showErrorDialog("Ugyldig antall vifter!",e.getMessage());
@@ -804,7 +808,7 @@ public class EndreKomponentController {
         try {
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreSkjerm();
+            LagreKomponent.lagreSkjerm(pane);
             tvSkjerm.refresh();
         } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -821,7 +825,7 @@ public class EndreKomponentController {
     private void txtSkjermNavnEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
         try {
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreSkjerm();
+            LagreKomponent.lagreSkjerm(pane);
             tvSkjerm.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -838,7 +842,7 @@ public class EndreKomponentController {
     private void txtSkjermPrisEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
         try {
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreSkjerm();
+            LagreKomponent.lagreSkjerm(pane);
             tvSkjerm.refresh();
         } catch (IOException | InvalidPrisException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -855,7 +859,7 @@ public class EndreKomponentController {
     private void txtSkjermOpplosningEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
         try {
             event.getRowValue().setOpplosning(KomponentValidering.opplosningValidering(event.getNewValue()));
-            LagreKomponent.lagreSkjerm();
+            LagreKomponent.lagreSkjerm(pane);
             tvSkjerm.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig oppløsning!",e.getMessage());
@@ -872,7 +876,7 @@ public class EndreKomponentController {
     private void txtSkjermStorrelseEdit(TableColumn.CellEditEvent<Skjerm, String> event) {
         try {
             event.getRowValue().setStorrelse(KomponentValidering.skjermstorrelseValidering(event.getNewValue()));
-            LagreKomponent.lagreSkjerm();
+            LagreKomponent.lagreSkjerm(pane);
             tvSkjerm.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig skjermstørrelse!",e.getMessage());
@@ -902,7 +906,7 @@ public class EndreKomponentController {
         try {
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreTastatur();
+            LagreKomponent.lagreTastatur(pane);
             tvTastatur.refresh();
         } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -919,7 +923,7 @@ public class EndreKomponentController {
     private void txtTastaturNavnEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
         try {
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreTastatur();
+            LagreKomponent.lagreTastatur(pane);
             tvTastatur.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -936,7 +940,7 @@ public class EndreKomponentController {
     private void txtTastaturPrisEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
         try {
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreTastatur();
+            LagreKomponent.lagreTastatur(pane);
             tvTastatur.refresh();
         } catch (IOException | InvalidPrisException e) {
             Dialogs.showErrorDialog("Ugyldig pris!",e.getMessage());
@@ -953,7 +957,7 @@ public class EndreKomponentController {
     private void txtTastaturSprakEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
         try {
             event.getRowValue().setSprak(event.getNewValue());
-            LagreKomponent.lagreTastatur();
+            LagreKomponent.lagreTastatur(pane);
             tvTastatur.refresh();
         } catch (IOException e) {
             Dialogs.showErrorDialog("Ugyldig lagring!",e.getMessage());
@@ -970,7 +974,7 @@ public class EndreKomponentController {
     private void txtTastaturMekaniskEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
         try {
             event.getRowValue().setMekanisk(KomponentValidering.booleanValidering(event.getNewValue()));
-            LagreKomponent.lagreTastatur();
+            LagreKomponent.lagreTastatur(pane);
             tvTastatur.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig verdi!",e.getMessage());
@@ -987,7 +991,7 @@ public class EndreKomponentController {
     private void txtTastaturRgbEdit(TableColumn.CellEditEvent<Tastatur, String> event) {
         try {
             event.getRowValue().setRgb(KomponentValidering.booleanValidering(event.getNewValue()));
-            LagreKomponent.lagreTastatur();
+            LagreKomponent.lagreTastatur(pane);
             tvTastatur.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig verdi!",e.getMessage());
@@ -1017,7 +1021,7 @@ public class EndreKomponentController {
         try {
             VarekodeRegister.checkVarekode(Integer.parseInt(event.getNewValue()));
             event.getRowValue().setVarekode(KomponentValidering.varekodeValidering(event.getNewValue()));
-            LagreKomponent.lagreMus();
+            LagreKomponent.lagreMus(pane);
             tvMus.refresh();
         } catch (IOException | InvalidVarekodeException | AlreadyTakenVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -1034,7 +1038,7 @@ public class EndreKomponentController {
     private void txtMusNavnEdit(TableColumn.CellEditEvent<Mus, String> event) {
         try {
             event.getRowValue().setNavn(KomponentValidering.navnValidering(event.getNewValue()));
-            LagreKomponent.lagreMus();
+            LagreKomponent.lagreMus(pane);
             tvMus.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig navn!",e.getMessage());
@@ -1051,7 +1055,7 @@ public class EndreKomponentController {
     private void txtMusPrisEdit(TableColumn.CellEditEvent<Mus, String> event) {
         try {
             event.getRowValue().setPris(KomponentValidering.prisValidering(event.getNewValue()));
-            LagreKomponent.lagreMus();
+            LagreKomponent.lagreMus(pane);
             tvMus.refresh();
         } catch (IOException | InvalidPrisException e) {
             Dialogs.showErrorDialog("Ugyldig varekode!",e.getMessage());
@@ -1068,7 +1072,7 @@ public class EndreKomponentController {
     private void txtMusTradEdit(TableColumn.CellEditEvent<Mus, String> event) {
         try {
             event.getRowValue().setTrad(KomponentValidering.booleanValidering(event.getNewValue()));
-            LagreKomponent.lagreMus();
+            LagreKomponent.lagreMus(pane);
             tvMus.refresh();
         } catch (IOException | InvalidComponentAttributeException e) {
             Dialogs.showErrorDialog("Ugyldig verdi!",e.getMessage());
@@ -1085,7 +1089,7 @@ public class EndreKomponentController {
     private void txtMusKnapperEdit(TableColumn.CellEditEvent<Mus, String> event) {
         try {
             event.getRowValue().setAntallKnapper(KomponentValidering.knapperValidering(event.getNewValue()));
-            LagreKomponent.lagreMus();
+            LagreKomponent.lagreMus(pane);
             tvMus.refresh();
         } catch (IOException | InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Ugyldig antall knapper!",e.getMessage());
@@ -1148,9 +1152,9 @@ public class EndreKomponentController {
                             if (d.getVarekode().equals(aktiv.get(j).getVarekode())) {
                                 aktiv.remove(d);
                                 try {
-                                    aktiv.get(0).lagre(aktiv);
+                                    aktiv.get(0).lagre(aktiv, pane);
                                     initialize();
-                                } catch (IOException e) {
+                                } catch (Exception e) {
                                     e.printStackTrace();
                                 }
 
@@ -1165,12 +1169,12 @@ public class EndreKomponentController {
 
     private static Komponent<? extends Datakomponent> datakomponent;
 
-    public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn) {
+    public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn, Pane pane) {
         datakomponent.getKomponent().setBilde(datakomponentInn.getBilde());
 
         try {
-            LagreKomponent.lagreAlle();
-        } catch (IOException e) {
+            LagreKomponent.lagreAlle(pane);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -1184,7 +1188,6 @@ public class EndreKomponentController {
         for (int i = 0; i < fane.length; i++) {
             if (fane[i].equalsIgnoreCase(aktiv)) {
                 velgKomponent(views.get(i));
-
             }
         }
 

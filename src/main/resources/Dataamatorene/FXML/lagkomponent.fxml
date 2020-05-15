@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.LagKomponentController">
+<AnchorPane fx:id="pane" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.LagKomponentController">
    <children>
       <TabPane layoutY="-1.0" prefHeight="608.0" prefWidth="1163.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>

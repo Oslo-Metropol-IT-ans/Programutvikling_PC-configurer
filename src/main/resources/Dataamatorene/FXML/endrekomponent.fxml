@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<AnchorPane prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreKomponentController">
+<AnchorPane fx:id="pane" prefHeight="720.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dataamatorene.Controllers.EndreKomponentController">
    <children>
       <TabPane prefHeight="598.0" prefWidth="1168.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>

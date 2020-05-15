@@ -8,7 +8,7 @@ import java.io.IOException;
 public class ScriptKomponentTom {
     public static void main(String[] args) {
 
-        BestillingsRegister.lagreBestillinger();
+        //BestillingsRegister.lagreBestillinger();
         /*
         try{
             LagreKomponent.lagreHarddisk();

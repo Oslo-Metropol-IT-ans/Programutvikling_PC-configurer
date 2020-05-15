@@ -15,6 +15,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -136,6 +137,9 @@ public class LagKomponentController {
 
 
     // FXML deklarering
+    @FXML
+    private AnchorPane pane;
+
     @FXML
     private Tab Harddisk;
 
@@ -364,7 +368,7 @@ public class LagKomponentController {
             Harddisk h = new Harddisk(navn, pris, varekode, bilde, lagre);
             KomponentRegister.addHarddisk(h);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreHarddisk();
+            LagreKomponent.lagreHarddisk(pane);
             txtNavnHarddisk.setText("");
             txtLagreHarddisk.setText("");
             txtPrisHarddisk.setText("");
@@ -396,7 +400,7 @@ public class LagKomponentController {
             Hovedkort h = new Hovedkort(navn, pris, varekode, bilde, porter);
             KomponentRegister.addHovedkort(h);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreHovedkort();
+            LagreKomponent.lagreHovedkort(pane);
             txtNavnHovedkort.setText("");
             txtPorterHovedkort.setText("");
             txtPrisHovedkort.setText("");
@@ -428,7 +432,7 @@ public class LagKomponentController {
             Kabinett k = new Kabinett(navn, pris, varekode, bilde, størrelse, vifter);
             KomponentRegister.addKabinett(k);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreKabinett();
+            LagreKomponent.lagreKabinett(pane);
             txtNavnKabinett.setText("");
             txtPrisKabinett.setText("");
             txtStorrelseKabinett.setText("");
@@ -461,7 +465,7 @@ public class LagKomponentController {
             Lydkort l = new Lydkort(navn, pris, varekode, bilde, integrert, frekvens);
             KomponentRegister.addLydkort(l);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreLydkort();
+            LagreKomponent.lagreLydkort(pane);
             txtNavnLydkort.setText("");
             txtPrisLydkort.setText("");
             txtFrekvensLydkort.setText("");
@@ -494,7 +498,7 @@ public class LagKomponentController {
             Minne m = new Minne(navn, pris, varekode, bilde, ram, frekvens);
             KomponentRegister.addMinne(m);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreMinne();
+            LagreKomponent.lagreMinne(pane);
             txtNavnMinne.setText("");
             txtPrisMinne.setText("");
             txtRamMinne.setText("");
@@ -526,7 +530,7 @@ public class LagKomponentController {
             Mus m = new Mus(navn, pris, varekode, bilde, tråd, knapper);
             KomponentRegister.addMus(m);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreMus();
+            LagreKomponent.lagreMus(pane);
             txtNavnMus.setText("");
             txtPrisMus.setText("");
             tbTradlosMus.setSelected(false);
@@ -559,7 +563,7 @@ public class LagKomponentController {
             Prosessor p = new Prosessor(navn, pris, varekode, bilde, kjerner, frekvens, trader);
             KomponentRegister.addProsessor(p);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreProsessor();
+            LagreKomponent.lagreProsessor(pane);
             txtNavnProsessor.setText("");
             txtPrisProsessor.setText("");
             txtKjernerProsessor.setText("");
@@ -592,7 +596,7 @@ public class LagKomponentController {
             Skjerm s = new Skjerm(navn, pris, varekode, bilde, opplosning, storrelse);
             KomponentRegister.addSkjerm(s);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreSkjerm();
+            LagreKomponent.lagreSkjerm(pane);
             txtNavnSkjerm.setText("");
             txtOpplosningSkjerm.setText("");
             txtPrisSkjerm.setText("");
@@ -624,7 +628,7 @@ public class LagKomponentController {
             Skjermkort s = new Skjermkort(navn, pris, varekode, bilde, opplosning);
             KomponentRegister.addSkjermkort(s);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreSkjermkort();
+            LagreKomponent.lagreSkjermkort(pane);
 
             txtNavnSkjermkort.setText("");
             txtPrisSkjermkort.setText("");
@@ -659,7 +663,7 @@ public class LagKomponentController {
             Tastatur t = new Tastatur(navn, pris, varekode, bilde,  sprak, mekanisk, rgb);
             KomponentRegister.addTastatur(t);
             VarekodeRegister.addVarekode(String.valueOf(varekode));
-            LagreKomponent.lagreTastatur();
+            LagreKomponent.lagreTastatur(pane);
             txtNavnTastatur.setText("");
             txtPrisTastatur.setText("");
             txtSprakTastatur.setText("");

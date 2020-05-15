@@ -11,6 +11,7 @@ import Dataamatorene.Exceptions.*;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
 
+import Dataamatorene.Filbehandling.ThreadSaverJobj;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -18,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +36,8 @@ public class EndreBrukerController {
     }
 
     // FXML element deklarasjoner
+    @FXML
+    private AnchorPane pane;
 
     @FXML
     private TableView<Bruker> tableView;
@@ -71,7 +75,7 @@ public class EndreBrukerController {
                 }
             }
             BestillingsRegister.setBestillinger(aktiv);
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(pane);
             lagre();
         }catch (InvalidBrukerException INE){
             Dialogs.showErrorDialog("Ugyldig navn!",INE.getMessage());
@@ -157,7 +161,7 @@ public class EndreBrukerController {
             }
         }
         BestillingsRegister.setBestillinger(aktiv);
-        BestillingsRegister.lagreBestillinger();
+        BestillingsRegister.lagreBestillinger(pane);
         lagre();
     }
 
@@ -180,12 +184,10 @@ public class EndreBrukerController {
     // Lagre metode som lagrer det nye brukerregisteret til jobj fil
 
     private void lagre() {
-        FileSaver saver = new FileSaverJobj();
-        try {
-            saver.save(BrukerRegister.getBrukere(), "src/main/resources/Dataamatorene/Files/Login.jobj");
-        } catch (IOException e) {
-            Dialogs.showErrorDialog("Kunne ikke lagre");
-        }
+        ThreadSaverJobj saver;
+        var ordererd = BrukerRegister.getBrukere();
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Tastatur.jobj", pane);
+        saver.save();
     }
 
     // Søkeknapp sin actionevent

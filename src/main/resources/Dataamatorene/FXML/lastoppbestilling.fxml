@@ -129,7 +129,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSøk" layoutX="981.0" layoutY="20.0" onKeyTyped="#søk" promptText="Søk" />
+      <TextField fx:id="txtSøk" layoutX="981.0" layoutY="20.0" onKeyTyped="#sok" promptText="Søk" />
       <ChoiceBox fx:id="cbValg" layoutX="811.0" layoutY="20.0" prefWidth="150.0" />
       <JFXButton layoutX="910.0" layoutY="665.0" mnemonicParsing="false" onAction="#flyttAktiv" text="Flytt til aktive bestillinger">
          <font>

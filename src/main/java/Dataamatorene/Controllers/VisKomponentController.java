@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -35,6 +37,9 @@ public class VisKomponentController {
 
     // FXML deklarering
     @FXML
+    private AnchorPane pane;
+
+    @FXML
     private Label lblToString;
 
     @FXML
@@ -54,7 +59,7 @@ public class VisKomponentController {
     // Metode for å sende den endrede aktiv dataomponent i endreKomponentKontroller
     @FXML
     void lagre(ActionEvent event) {
-        EndreKomponentController.setDatakomponent(datakomponent.getKomponent());
+        EndreKomponentController.setDatakomponent(datakomponent.getKomponent(), pane);
         // get a handle to the stage
         Stage stage = (Stage) lagreButton.getScene().getWindow();
         // do what you have to do

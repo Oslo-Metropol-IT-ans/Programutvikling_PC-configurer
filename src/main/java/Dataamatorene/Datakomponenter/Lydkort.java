@@ -1,6 +1,7 @@
 package Dataamatorene.Datakomponenter;
 
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -50,9 +51,9 @@ public class Lydkort extends Datakomponent implements Serializable, Comparable<L
     }
 
     @Override
-    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
+    public void lagre(ArrayList<? extends Datakomponent> liste, Pane pane) throws IOException {
         KomponentRegister.setLydkortArrayList((ArrayList<Lydkort>) liste);
-        LagreKomponent.lagreLydkort();
+        LagreKomponent.lagreLydkort(pane);
     }
 
     @Override

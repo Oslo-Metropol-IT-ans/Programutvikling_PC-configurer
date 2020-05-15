@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.util.List;
 
 import Dataamatorene.*;
+import Dataamatorene.Bestilling.BestillingsRegister;
 import Dataamatorene.Brukere.Bruker;
 import Dataamatorene.Brukere.BrukerRegister;
 import Dataamatorene.Brukere.BrukerValidering;
 import Dataamatorene.Exceptions.*;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
+import Dataamatorene.Filbehandling.ThreadSaverJobj;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -18,6 +20,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 public class NyBrukerController {
@@ -81,6 +84,9 @@ public class NyBrukerController {
     }
 
     // FXML deklarasjoner
+    @FXML
+    private AnchorPane pane;
+
     @FXML
     private Text vis;
 
@@ -149,12 +155,10 @@ public class NyBrukerController {
                 BrukerValidering.sjekkValidEpost(email);
                 BrukerRegister.addBruker(new Bruker(brukernavn, passord, navn, tlfNummer, email, Bruker.BrukerType.BRUKER));
 
-                FileSaver saver = new FileSaverJobj();
-                try {
-                    saver.save(BrukerRegister.getBrukere(), "src/main/resources/Dataamatorene/Files/Login.jobj");
-                } catch (IOException e) {
-                    Dialogs.showErrorDialog("Det har skjedd en feil ved opprettelse av din bruker");
-                }
+                ThreadSaverJobj saver;
+                var ordererd = BrukerRegister.getBrukere();
+                saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Tastatur.jobj", pane);
+                saver.save();
 
                 Dialogs.showSuccessDialog("Brukeren er nå opprettet");
 

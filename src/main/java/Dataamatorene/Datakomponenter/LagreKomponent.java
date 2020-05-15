@@ -1,81 +1,99 @@
 package Dataamatorene.Datakomponenter;
 
 import Dataamatorene.Comparators.DatakomponentVarekodeComparator;
-import Dataamatorene.Filbehandling.FileOpener;
-import Dataamatorene.Filbehandling.FileOpenerJobj;
-import Dataamatorene.Filbehandling.FileSaver;
-import Dataamatorene.Filbehandling.FileSaverJobj;
+import Dataamatorene.Filbehandling.*;
 import Dataamatorene.Comparators.*;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class LagreKomponent {
 
+    static ThreadSaverJobj saver;
+
     // Metoder for å lagre(jobj) arraylistene til datakomponent
-    public static void lagreHarddisk() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getHarddiskArrayList(), "src/main/resources/Dataamatorene/Files/Harddisk.jobj");
+    public static void lagreHarddisk(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getHarddiskArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Harddisk.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreHovedkort() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getHovedkortArrayList(), "src/main/resources/Dataamatorene/Files/Hovedkort.jobj" );
+    public static void lagreHovedkort(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getHovedkortArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Hovedkort.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreKabinett() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getKabinettArrayList(), "src/main/resources/Dataamatorene/Files/Kabinett.jobj" );
+    public static void lagreKabinett(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getKabinettArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Kabinett.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreLydkort() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getLydkortArrayList(), "src/main/resources/Dataamatorene/Files/Lydkort.jobj" );
+    public static void lagreLydkort(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getLydkortArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Lydkort.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreMinne() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getMinneArrayList(), "src/main/resources/Dataamatorene/Files/Minne.jobj" );
+    public static void lagreMinne(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getMinneArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Minne.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreMus() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getMusArrayList(), "src/main/resources/Dataamatorene/Files/Mus.jobj" );
+    public static void lagreMus(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getMusArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Mus.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreProsessor() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getProsessorArrayList(), "src/main/resources/Dataamatorene/Files/Prosessor.jobj" );
+    public static void lagreProsessor(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getProsessorArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Prosessor.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreSkjerm() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getSkjermArrayList(), "src/main/resources/Dataamatorene/Files/Skjerm.jobj" );
+    public static void lagreSkjerm(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getSkjermArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Skjerm.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreSkjermkort() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        ArrayList<Skjermkort> midlertidig = KomponentRegister.getSkjermkortArrayList();
-        midlertidig.sort(new DatakomponentVarekodeComparator());
-        saver.save(midlertidig, "src/main/resources/Dataamatorene/Files/Skjermkort.jobj" );
+    public static void lagreSkjermkort(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getSkjermkortArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Skjermkort.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreTastatur() throws IOException {
-        FileSaver saver = new FileSaverJobj();
-        saver.save(KomponentRegister.getTastaturArrayList(), "src/main/resources/Dataamatorene/Files/Tastatur.jobj" );
+    public static void lagreTastatur(Pane pane) throws IOException {
+        var ordererd = KomponentRegister.getTastaturArrayList();
+        ordererd.sort(new DatakomponentVarekodeComparator());
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Tastatur.jobj", pane);
+        saver.save();
     }
 
-    public static void lagreAlle() throws IOException {
-        lagreHarddisk();
-        lagreHovedkort();
-        lagreKabinett();
-        lagreLydkort();
-        lagreMinne();
-        lagreMus();
-        lagreProsessor();
-        lagreSkjerm();
-        lagreSkjermkort();
-        lagreTastatur();
+    public static void lagreAlle(Pane pane) throws IOException {
+        lagreHarddisk(pane);
+        lagreHovedkort(pane);
+        lagreKabinett(pane);
+        lagreLydkort(pane);
+        lagreMinne(pane);
+        lagreMus(pane);
+        lagreProsessor(pane);
+        lagreSkjerm(pane);
+        lagreSkjermkort(pane);
+        lagreTastatur(pane);
     }
 
 }

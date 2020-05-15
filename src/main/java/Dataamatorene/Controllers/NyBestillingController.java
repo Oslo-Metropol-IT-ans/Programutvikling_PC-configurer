@@ -359,7 +359,7 @@ public class NyBestillingController {
                     (Prosessor) datakomponents[4], (Minne) datakomponents[5], (Kabinett) datakomponents[6],
                     (Skjerm) datakomponents[7], (Tastatur) datakomponents[8], (Mus) datakomponents[9]);
             BestillingsRegister.addBestilling(b);
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             VisBestillingController.setAktivBestilling(b, "Gratulrerer, her er din bestilling");
             threadOpenNewPage = new ThreadOpenNewPage("FXML/bestillingshistorikkbruker");
             Thread th = new Thread(threadOpenNewPage);

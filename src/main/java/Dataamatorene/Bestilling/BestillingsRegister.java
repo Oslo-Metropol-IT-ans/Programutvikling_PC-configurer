@@ -1,7 +1,11 @@
 package Dataamatorene.Bestilling;
 
+import Dataamatorene.Comparators.DatakomponentVarekodeComparator;
+import Dataamatorene.Datakomponenter.KomponentRegister;
 import Dataamatorene.Filbehandling.FileSaver;
 import Dataamatorene.Filbehandling.FileSaverJobj;
+import Dataamatorene.Filbehandling.ThreadSaverJobj;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,12 +29,10 @@ public class BestillingsRegister {
     }
 
     // Statisk metode for fillagring(jobj) av bestillinger
-    public static void lagreBestillinger() {
-        try {
-            FileSaver saver = new FileSaverJobj();
-            saver.save(bestillinger, "src/main/resources/Dataamatorene/Files/Bestillinger.jobj");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void lagreBestillinger(Pane pane) {
+        ThreadSaverJobj saver;
+        var ordererd = BestillingsRegister.getBestillinger();
+        saver = new ThreadSaverJobj(ordererd, "src/main/resources/Dataamatorene/Files/Tastatur.jobj", pane);
+        saver.save();
     }
 }

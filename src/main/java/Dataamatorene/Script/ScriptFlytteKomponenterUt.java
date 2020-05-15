@@ -16,16 +16,16 @@ public class ScriptFlytteKomponenterUt {
 
         try {
 
-            ArrayList<Harddisk> harddisks = (ArrayList<Harddisk>) opener.read("src/main/java/Dataamatorene/Files/Harddisk.jobj");
-            ArrayList<Hovedkort> hovedkorts = (ArrayList<Hovedkort>) opener.read("src/main/java/Dataamatorene/Files/Hovedkort.jobj");
-            ArrayList<Lydkort> lydkorts = (ArrayList<Lydkort>) opener.read("src/main/java/Dataamatorene/Files/Lydkort.jobj");
-            ArrayList<Skjermkort> skjermkorts = (ArrayList<Skjermkort>) opener.read("src/main/java/Dataamatorene/Files/Skjermkort.jobj");
-            ArrayList<Prosessor> prosessors = (ArrayList<Prosessor>) opener.read("src/main/java/Dataamatorene/Files/Prosessor.jobj");
-            ArrayList<Minne> minnes = (ArrayList<Minne>) opener.read("src/main/java/Dataamatorene/Files/Minne.jobj");
-            ArrayList<Kabinett> kabinetts = (ArrayList<Kabinett>) opener.read("src/main/java/Dataamatorene/Files/Kabinett.jobj");
-            ArrayList<Skjerm> skjerms = (ArrayList<Skjerm>) opener.read("src/main/java/Dataamatorene/Files/Skjerm.jobj");
-            ArrayList<Tastatur> tastaturs = (ArrayList<Tastatur>) opener.read("src/main/java/Dataamatorene/Files/Tastatur.jobj");
-            ArrayList<Mus> muses = (ArrayList<Mus>) opener.read("src/main/java/Dataamatorene/Files/Mus.jobj");
+            ArrayList<Harddisk> harddisks = (ArrayList<Harddisk>) opener.read("src/main/resources/Dataamatorene/Files/Harddisk.jobj");
+            ArrayList<Hovedkort> hovedkorts = (ArrayList<Hovedkort>) opener.read("src/main/resources/Dataamatorene/Files/Hovedkort.jobj");
+            ArrayList<Lydkort> lydkorts = (ArrayList<Lydkort>) opener.read("src/main/resources/Dataamatorene/Files/Lydkort.jobj");
+            ArrayList<Skjermkort> skjermkorts = (ArrayList<Skjermkort>) opener.read("src/main/resources/Dataamatorene/Files/Skjermkort.jobj");
+            ArrayList<Prosessor> prosessors = (ArrayList<Prosessor>) opener.read("src/main/resources/Dataamatorene/Files/Prosessor.jobj");
+            ArrayList<Minne> minnes = (ArrayList<Minne>) opener.read("src/main/resources/Dataamatorene/Files/Minne.jobj");
+            ArrayList<Kabinett> kabinetts = (ArrayList<Kabinett>) opener.read("src/main/resources/Dataamatorene/Files/Kabinett.jobj");
+            ArrayList<Skjerm> skjerms = (ArrayList<Skjerm>) opener.read("src/main/resources/Dataamatorene/Files/Skjerm.jobj");
+            ArrayList<Tastatur> tastaturs = (ArrayList<Tastatur>) opener.read("src/main/resources/Dataamatorene/Files/Tastatur.jobj");
+            ArrayList<Mus> muses = (ArrayList<Mus>) opener.read("src/main/resources/Dataamatorene/Files/Mus.jobj");
 
             ArrayList<Harddisk2> harddisk2s = new ArrayList<>();
             ArrayList<Hovedkort2> hovedkort2s = new ArrayList<>();
@@ -79,16 +79,16 @@ public class ScriptFlytteKomponenterUt {
             }
 
             FileSaver saver = new FileSaverJobj();
-            saver.save(harddisk2s, "src/main/java/Dataamatorene/Files/Harddisk.jobj");
-            saver.save(hovedkort2s, "src/main/java/Dataamatorene/Files/Hovedkort.jobj");
-            saver.save(lydkort2s, "src/main/java/Dataamatorene/Files/Lydkort.jobj");
-            saver.save(skjermkort2s, "src/main/java/Dataamatorene/Files/Skjermkort.jobj");
-            saver.save(prosessor2s, "src/main/java/Dataamatorene/Files/Prosessor.jobj");
-            saver.save(minne2s, "src/main/java/Dataamatorene/Files/Minne.jobj");
-            saver.save(kabinett2s, "src/main/java/Dataamatorene/Files/Kabinett.jobj");
-            saver.save(skjerm2s, "src/main/java/Dataamatorene/Files/Skjerm.jobj");
-            saver.save(tastatur2s, "src/main/java/Dataamatorene/Files/Tastatur.jobj");
-            saver.save(mus2s, "src/main/java/Dataamatorene/Files/Mus.jobj");
+            saver.save(harddisk2s, "src/main/resources/Dataamatorene/Files/Harddisk.jobj");
+            saver.save(hovedkort2s, "src/main/resources/Dataamatorene/Files/Hovedkort.jobj");
+            saver.save(lydkort2s, "src/main/resources/Dataamatorene/Files/Lydkort.jobj");
+            saver.save(skjermkort2s, "src/main/resources/Dataamatorene/Files/Skjermkort.jobj");
+            saver.save(prosessor2s, "src/main/resources/Dataamatorene/Files/Prosessor.jobj");
+            saver.save(minne2s, "src/main/resources/Dataamatorene/Files/Minne.jobj");
+            saver.save(kabinett2s, "src/main/resources/Dataamatorene/Files/Kabinett.jobj");
+            saver.save(skjerm2s, "src/main/resources/Dataamatorene/Files/Skjerm.jobj");
+            saver.save(tastatur2s, "src/main/resources/Dataamatorene/Files/Tastatur.jobj");
+            saver.save(mus2s, "src/main/resources/Dataamatorene/Files/Mus.jobj");
 
         } catch (IOException e) {
             e.printStackTrace();

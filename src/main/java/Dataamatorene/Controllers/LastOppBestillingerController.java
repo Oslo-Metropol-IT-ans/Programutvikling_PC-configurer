@@ -27,6 +27,7 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -74,7 +75,7 @@ public class LastOppBestillingerController {
         try {
             event.getRowValue().setHarddisk(VarekodeRegister.chechVarekodeHarddisk(event.getNewValue()));
             tvBestillinger.refresh();
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne harddisken finnes ikke!");
             tvBestillinger.refresh();
@@ -89,7 +90,7 @@ public class LastOppBestillingerController {
     private void txtHovedkortEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setHovedkort(VarekodeRegister.chechVarekodeHovedkort(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke!");
@@ -105,7 +106,7 @@ public class LastOppBestillingerController {
     private void txtLydkortEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setLydkort(VarekodeRegister.chechVarekodeLydkort(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -122,7 +123,7 @@ public class LastOppBestillingerController {
     private void txtSkjermkortEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setSkjermkort(VarekodeRegister.chechVarekodeSkjermkort(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -138,7 +139,7 @@ public class LastOppBestillingerController {
     private void txtProsessorEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setProsessor(VarekodeRegister.chechVarekodeProsessor(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekden finnes ikke");
@@ -155,7 +156,7 @@ public class LastOppBestillingerController {
     private void txtMinneEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setMinne(VarekodeRegister.chechVarekodeMinne(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -172,7 +173,7 @@ public class LastOppBestillingerController {
     private void txtKabinettEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setKabinett(VarekodeRegister.chechVarekodeKabinett(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -189,7 +190,7 @@ public class LastOppBestillingerController {
     private void txtSkjermEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setSkjerm(VarekodeRegister.chechVarekodeSkjerm(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -206,7 +207,7 @@ public class LastOppBestillingerController {
     private void txtTastaturEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setTastatur(VarekodeRegister.chechVarekodeTastatur(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -223,7 +224,7 @@ public class LastOppBestillingerController {
     private void txtMusEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setMus(VarekodeRegister.chechVarekodeMus(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -249,7 +250,7 @@ public class LastOppBestillingerController {
 
     // Tastevent for textfelt søk
     @FXML
-    void søk(KeyEvent event) {
+    void sok(KeyEvent event) {
         String søk = txtSøk.getText();
         if(!søk.isEmpty()) {
             if(cbValg.getSelectionModel().getSelectedItem().equalsIgnoreCase("Bruker")) {
@@ -331,6 +332,7 @@ public class LastOppBestillingerController {
                 tvBestillinger.setItems(aktivList);
             }
 
+
         } else tvBestillinger.setItems(oBestilling);
     }
 
@@ -406,7 +408,7 @@ public class LastOppBestillingerController {
             }
             if (!finnes) {
                 BestillingsRegister.addBestilling(b);
-                BestillingsRegister.lagreBestillinger();
+                BestillingsRegister.lagreBestillinger(apMain);
             }
             oBestilling.remove(b);
         }

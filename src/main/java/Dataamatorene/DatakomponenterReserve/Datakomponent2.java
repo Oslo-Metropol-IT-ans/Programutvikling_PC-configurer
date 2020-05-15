@@ -93,19 +93,22 @@ public class Datakomponent2 implements Serializable {
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
         s.defaultReadObject();
-        try{
+        try {
             bilde = SwingFXUtils.toFXImage(ImageIO.read(s), null);
         } catch (Exception e) {
+            //e.printStackTrace();
             bilde = null;
         }
-
     }
 
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
         try {
-            ImageIO.write(SwingFXUtils.fromFXImage(bilde, null), "jpg", s);
-        } catch (Exception e) {};
-
+            if (bilde != null) {
+                ImageIO.write(SwingFXUtils.fromFXImage(bilde, null), "png", s);
+            }
+        } catch (Exception e) {
+            //e.printStackTrace();
+        }
     }
 }

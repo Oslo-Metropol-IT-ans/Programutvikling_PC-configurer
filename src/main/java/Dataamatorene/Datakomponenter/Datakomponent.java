@@ -6,6 +6,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.Pane;
 
 import javax.imageio.ImageIO;
 
@@ -94,8 +95,8 @@ public class Datakomponent implements Serializable {
         return String.format("%s\n%skr, varekode: %s", navn, pris, getVarekode());
     }
 
-    public void lagre(ArrayList<? extends Datakomponent> liste) throws IOException {
-        LagreKomponent.lagreAlle();
+    public void lagre(ArrayList<? extends Datakomponent> liste, Pane pane) throws IOException {
+        LagreKomponent.lagreAlle(pane);
     }
 
     // toString

@@ -68,7 +68,7 @@ public class BestillingshistorikkAdminController {
         try {
             event.getRowValue().setHarddisk(VarekodeRegister.chechVarekodeHarddisk(event.getNewValue()));
             tvBestillinger.refresh();
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne harddisken finnes ikke!");
             tvBestillinger.refresh();
@@ -83,7 +83,7 @@ public class BestillingshistorikkAdminController {
     private void txtHovedkortEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setHovedkort(VarekodeRegister.chechVarekodeHovedkort(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke!");
@@ -99,7 +99,7 @@ public class BestillingshistorikkAdminController {
     private void txtLydkortEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setLydkort(VarekodeRegister.chechVarekodeLydkort(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -116,7 +116,7 @@ public class BestillingshistorikkAdminController {
     private void txtSkjermkortEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setSkjermkort(VarekodeRegister.chechVarekodeSkjermkort(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -132,7 +132,7 @@ public class BestillingshistorikkAdminController {
     private void txtProsessorEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setProsessor(VarekodeRegister.chechVarekodeProsessor(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekden finnes ikke");
@@ -149,7 +149,7 @@ public class BestillingshistorikkAdminController {
     private void txtMinneEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setMinne(VarekodeRegister.chechVarekodeMinne(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -166,7 +166,7 @@ public class BestillingshistorikkAdminController {
     private void txtKabinettEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setKabinett(VarekodeRegister.chechVarekodeKabinett(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -183,7 +183,7 @@ public class BestillingshistorikkAdminController {
     private void txtSkjermEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setSkjerm(VarekodeRegister.chechVarekodeSkjerm(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -200,7 +200,7 @@ public class BestillingshistorikkAdminController {
     private void txtTastaturEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setTastatur(VarekodeRegister.chechVarekodeTastatur(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -217,7 +217,7 @@ public class BestillingshistorikkAdminController {
     private void txtMusEdit(TableColumn.CellEditEvent<Bestilling, String> event) {
         try {
             event.getRowValue().setMus(VarekodeRegister.chechVarekodeMus(event.getNewValue()));
-            BestillingsRegister.lagreBestillinger();
+            BestillingsRegister.lagreBestillinger(apMain);
             tvBestillinger.refresh();
         } catch (InvalidVarekodeException e) {
             Dialogs.showErrorDialog("Denne varekoden finnes ikke");
@@ -411,7 +411,7 @@ public class BestillingshistorikkAdminController {
                     if (Dialogs.showConfimationDialog("Er du sikker på at du vil slette denne bestillingen?")) {
                         oBestilling.remove(i);
                         BestillingsRegister.setBestillinger(new ArrayList<>(oBestilling));
-                        BestillingsRegister.lagreBestillinger();
+                        BestillingsRegister.lagreBestillinger(apMain);
                     }
                 }
             }

@@ -7,17 +7,23 @@ import javafx.scene.layout.Pane;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ThreadSaverJobj {
+public class ThreadSaverJobj { // lagrer under egen tråd
+
+    // Initialiserer variabler
 
     private ArrayList<? extends Serializable> liste;
     private String path;
     private Pane pane;
+
+    // Konstruktør
 
     public ThreadSaverJobj(ArrayList<? extends Serializable> liste, String path, Pane pane) {
         this.path = path;
         this.liste = liste;
         this.pane = pane;
     }
+
+    // lagre metoden
 
     public void save() {
         ThreadSaveJobjTask threadSaveJobjTask = new ThreadSaveJobjTask(liste, path);
@@ -28,9 +34,13 @@ public class ThreadSaverJobj {
         th.start();
     }
 
+    // Hvis lagring fungerte
+
     private void threadSaveJobjSuccess (WorkerStateEvent e) {
         pane.setDisable(false);
     }
+
+    // Deaktiverer GUI under lagring
 
     private void threadSaveJobjRunning (WorkerStateEvent e) {
         pane.setDisable(true);

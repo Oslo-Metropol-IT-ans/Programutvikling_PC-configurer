@@ -69,6 +69,12 @@ public class KomponentValidering {
         } else throw new InvalidComponentAttributeException("Ugyldig frekvens");
     }
 
+    public static double frekvensValideringMHz (String s) {
+        if (s.matches("[0-9]{4}")) {
+            return Double.parseDouble(s);
+        } else throw new InvalidComponentAttributeException("Ugyldig frekvens");
+    }
+
     public static double frekvensValideringKHz (String s) {
         if (s.matches("[0-9]{3}")) {
             return Double.parseDouble(s);

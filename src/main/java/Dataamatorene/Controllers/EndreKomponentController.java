@@ -679,7 +679,7 @@ public class EndreKomponentController {
     @FXML
     private void txtMinneFrekvensEdit(TableColumn.CellEditEvent<Minne, String> event) {
         try {
-            event.getRowValue().setFrekvens(KomponentValidering.frekvensValideringGHz(event.getNewValue()));
+            event.getRowValue().setFrekvens(KomponentValidering.frekvensValideringMHz(event.getNewValue()));
             LagreKomponent.lagreMinne(pane);
             tvMinne.refresh();
         } catch (IOException | InvalidComponentAttributeException e){

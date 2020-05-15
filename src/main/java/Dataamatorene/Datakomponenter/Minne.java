@@ -44,7 +44,7 @@ public class Minne extends Datakomponent implements Serializable, Comparable<Min
     // Overkjøring av arvede metoder
     @Override
     public String getBeskrivelse() {
-        return String.format("%s\n%s GB RAM, %s\nPris: %skr, varekode: %s", navn, ram, frekvens, pris, getVarekode());
+        return String.format("%s\n%s GB RAM, %s MHz\nPris: %skr, varekode: %s", navn, ram, frekvens, pris, getVarekode());
     }
 
     @Override

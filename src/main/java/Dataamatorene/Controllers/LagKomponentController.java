@@ -493,7 +493,7 @@ public class LagKomponentController {
             VarekodeRegister.checkVarekode(varekode);
             double pris = KomponentValidering.prisValidering(txtPrisMinne.getText());
             int ram = KomponentValidering.ramValidering(txtRamMinne.getText());
-            double frekvens = KomponentValidering.frekvensValideringGHz(txtFrekvensMinne.getText());
+            double frekvens = KomponentValidering.frekvensValideringMHz(txtFrekvensMinne.getText());
             Image bilde = imageView.getImage();
             Minne m = new Minne(navn, pris, varekode, bilde, ram, frekvens);
             KomponentRegister.addMinne(m);

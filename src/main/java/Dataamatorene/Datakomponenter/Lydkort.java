@@ -46,8 +46,8 @@ public class Lydkort extends Datakomponent implements Serializable, Comparable<L
     @Override
     public String getBeskrivelse() {
         if(integrert){
-            return String.format("%s\n %s integrert\nPris; %skr, varekode: %s", navn, frekvens, pris, getVarekode());
-        } else return String.format("%s\n %s ikke integrert\nPris: %skr, varekode: %s", navn, frekvens, pris, getVarekode());
+            return String.format("%s\n %s kHz, er integrert\nPris; %skr, varekode: %s", navn, frekvens, pris, getVarekode());
+        } else return String.format("%s\n %s kHz, er ikke integrert\nPris: %skr, varekode: %s", navn, frekvens, pris, getVarekode());
     }
 
     @Override

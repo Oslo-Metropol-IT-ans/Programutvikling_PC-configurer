@@ -7,13 +7,13 @@ import javafx.concurrent.Task;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ThreadSaveJobj extends Task<Void> {
+public class ThreadSaveJobjTask extends Task<Void> {
     FileSaver saver;
 
     ArrayList<? extends Serializable> liste;
     String path;
 
-    public ThreadSaveJobj(ArrayList<? extends Serializable> liste, String path) {
+    public ThreadSaveJobjTask(ArrayList<? extends Serializable> liste, String path) {
         this.liste = liste;
         this.path = path;
     }

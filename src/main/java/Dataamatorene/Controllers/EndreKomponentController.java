@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class EndreKomponentController {
+    private static Pane paneDeactivate;
 
     // Starter controlleren på harddisk siden
 
@@ -52,6 +53,8 @@ public class EndreKomponentController {
     // alt som må kjøres når controlleren starter
 
     public void initialize() {
+        paneDeactivate = pane;
+
         oHarddisk = FXCollections.observableArrayList(KomponentRegister.getHarddiskArrayList());
         oHovedkort = FXCollections.observableArrayList(KomponentRegister.getHovedkortArrayList());
         oKabinett = FXCollections.observableArrayList(KomponentRegister.getKabinettArrayList());
@@ -1169,15 +1172,14 @@ public class EndreKomponentController {
 
     private static Komponent<? extends Datakomponent> datakomponent;
 
-    public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn, Pane pane) {
+    public static <T extends Datakomponent> void setDatakomponent(T datakomponentInn) {
         datakomponent.getKomponent().setBilde(datakomponentInn.getBilde());
 
         try {
-            LagreKomponent.lagreAlle(pane);
+            LagreKomponent.lagreAlle(paneDeactivate);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     // Vise komponent

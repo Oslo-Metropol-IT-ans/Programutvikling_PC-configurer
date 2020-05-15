@@ -59,7 +59,7 @@ public class VisKomponentController {
     // Metode for å sende den endrede aktiv dataomponent i endreKomponentKontroller
     @FXML
     void lagre(ActionEvent event) {
-        EndreKomponentController.setDatakomponent(datakomponent.getKomponent(), pane);
+        EndreKomponentController.setDatakomponent(datakomponent.getKomponent());
         // get a handle to the stage
         Stage stage = (Stage) lagreButton.getScene().getWindow();
         // do what you have to do
